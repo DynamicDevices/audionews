@@ -128,16 +128,17 @@ jobs:
           echo "🔧 Manual workflow: Custom parameters applied"
           echo "💰 This step uses API credits - content_exists: ${{ steps.check_content.outputs.content_exists }}"
         fi
-        # Generate content for all supported languages with better error handling (including cities)
-        # TEMPORARY: Only generate en_GB content
-        CORE_LANGUAGES=("en_GB")  # Only GB for now
-        NEW_LANGUAGES=("pl_PL")  # Polish enabled - other languages disabled
+        # Generate content for enabled languages only (cost optimization)
+        # ACTIVE: en_GB (English) and pl_PL (Polish)
+        # DISABLED: fr_FR, de_DE, es_ES, it_IT, nl_NL, en_GB_LON, en_GB_LIV (cost savings)
+        CORE_LANGUAGES=("en_GB" "pl_PL")  # Only English and Polish
+        NEW_LANGUAGES=()  # No new languages being tested
         FAILED_LANGUAGES=()
         SUCCESS_COUNT=0
         CORE_SUCCESS_COUNT=0
         
-        # Process core languages first (critical for service)
-        echo "🎯 PHASE 1: Generating CORE languages (en_GB only - others temporarily disabled)"
+        # Process core languages (en_GB and pl_PL - cost optimized)
+        echo "🎯 PHASE 1: Generating CORE languages (en_GB and pl_PL)"
         for LANG in "${CORE_LANGUAGES[@]}"; do
           echo "🌍 Generating content for ${LANG}..."
           echo "⏰ Started at: $(date)"
@@ -230,7 +231,7 @@ jobs:
         TOTAL_LANGUAGES=$((${#CORE_LANGUAGES[@]} + ${#NEW_LANGUAGES[@]}))
         echo "📊 GENERATION SUMMARY:"
         echo "✅ Successful: ${SUCCESS_COUNT}/${TOTAL_LANGUAGES} languages"
-        echo "✅ Core languages: ${CORE_SUCCESS_COUNT}/${#CORE_LANGUAGES[@]} (en_GB, fr_FR, de_DE)"
+        echo "✅ Core languages: ${CORE_SUCCESS_COUNT}/${#CORE_LANGUAGES[@]} (en_GB, pl_PL)"
         if [ ${#FAILED_LANGUAGES[@]} -gt 0 ]; then
           echo "❌ Failed languages:"
           for failed in "${FAILED_LANGUAGES[@]}"; do
@@ -290,8 +291,9 @@ jobs:
     
     - name: 📱 Verify files in correct locations
       run: |
-        # Check if files are in the correct language-specific directories (including cities)
-        LANGUAGES=("en_GB" "fr_FR" "de_DE" "es_ES" "it_IT" "nl_NL" "pl_PL" "en_GB_LON" "en_GB_LIV")
+        # Check if files are in the correct language-specific directories
+        # Only checking ENABLED languages (en_GB, pl_PL) to reduce log noise
+        LANGUAGES=("en_GB" "pl_PL")
         
         for LANG in "${LANGUAGES[@]}"; do
           echo "🔍 Checking ${LANG} files..."
@@ -327,8 +329,9 @@ jobs:
     
     - name: 🔍 Quality check
       run: |
-        # Check if files were generated in language-specific directories (including cities)
-        LANGUAGES=("en_GB" "fr_FR" "de_DE" "es_ES" "it_IT" "nl_NL" "pl_PL" "en_GB_LON" "en_GB_LIV")
+        # Check if files were generated in language-specific directories
+        # Only checking ENABLED languages (en_GB, pl_PL)
+        LANGUAGES=("en_GB" "pl_PL")
         TOTAL_FILES=0
         TOTAL_SIZE=0
         
@@ -391,10 +394,10 @@ jobs:
           echo "💰 COST OPTIMIZATION: No new files to commit - content already exists"
           echo "📊 Estimated API cost savings: \$0.50-\$2.00"
         else
-          # Check if we have audio files to get stats for all languages
+          # Check if we have audio files to get stats for enabled languages
           TOTAL_SIZE=0
           LANG_STATS=""
-          for LANG in en_GB fr_FR de_DE es_ES it_IT nl_NL pl_PL en_GB_LON en_GB_LIV; do
+          for LANG in en_GB pl_PL; do
             if ls docs/${LANG}/audio/news_digest_ai_*.mp3 1> /dev/null 2>&1; then
               audio_file=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 | head -1)
               size_bytes=$(stat -c%s "$audio_file")
