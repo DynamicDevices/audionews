@@ -1,0 +1,107 @@
+{
+  "name": "Codzienny Przegląd Wiadomości - Dostępne Wiadomości Audio",
+  "short_name": "Przegląd Wiadomości",
+  "description": "Codzienne przeglądy wiadomości AI zaprojektowane dla użytkowników niedowidzących z profesjonalną narracją głosową",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a365d",
+  "theme_color": "#1a365d",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pl-PL",
+  "dir": "ltr",
+  
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' fill='%231a365d'/><text x='96' y='120' font-size='120' text-anchor='middle' fill='white'>📰</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%231a365d'/><text x='256' y='320' font-size='320' text-anchor='middle' fill='white'>📰</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  
+  "categories": ["news", "accessibility", "audio", "education"],
+  
+  "shortcuts": [
+    {
+      "name": "Dzisiejszy Przegląd",
+      "short_name": "Dzisiaj",
+      "description": "Posłuchaj dzisiejszego przeglądu wiadomości",
+      "url": "/?shortcut=today",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text x='48' y='60' font-size='60' text-anchor='middle'>🎧</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Pobierz Audio",
+      "short_name": "Pobierz",
+      "description": "Pobierz dzisiejszy przegląd wiadomości",
+      "url": "/?shortcut=download",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text x='48' y='60' font-size='60' text-anchor='middle'>⬇️</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Ostatnie Przeglądy",
+      "short_name": "Archiwum",
+      "description": "Przeglądaj poprzednie przeglądy wiadomości",
+      "url": "/?shortcut=archive",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text x='48' y='60' font-size='60' text-anchor='middle'>📅</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect width='540' height='720' fill='%23f7fafc'/><rect x='20' y='20' width='500' height='100' fill='%231a365d' rx='8'/><text x='270' y='75' font-size='24' text-anchor='middle' fill='white'>Codzienny Przegląd Wiadomości</text><rect x='20' y='140' width='500' height='200' fill='white' stroke='%23e2e8f0' rx='8'/><text x='270' y='180' font-size='18' text-anchor='middle'>Dzisiejszy Przegląd Audio</text><rect x='40' y='200' width='460' height='40' fill='%23667eea' rx='20'/><text x='270' y='225' font-size='14' text-anchor='middle' fill='white'>🎧 Odtwarzacz Audio</text><rect x='20' y='360' width='500' height='320' fill='white' stroke='%23e2e8f0' rx='8'/><text x='270' y='400' font-size='16' text-anchor='middle'>Sekcje Wiadomości</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow",
+      "label": "Główna strona z odtwarzaczem audio"
+    }
+  ],
+  
+  "prefer_related_applications": false,
+  
+  "protocol_handlers": [
+    {
+      "protocol": "web+newsdigest",
+      "url": "/?share=%s"
+    }
+  ],
+  
+  "share_target": {
+    "action": "/share",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  }
+}

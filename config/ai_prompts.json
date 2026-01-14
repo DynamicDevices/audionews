@@ -7,7 +7,8 @@
     "de_DE": "Sie erstellen barrierefreie Nachrichteninhalte für sehbehinderte Nutzer. Schreiben Sie klar und gesprächig für den Audio-Konsum. Kopieren Sie niemals den ursprünglichen Text - synthetisieren Sie immer. Vermeiden Sie wiederholende Inhalte - kombinieren Sie ähnliche Geschichten zu einer kohärenten Erzählung.",
     "es_ES": "Estás creando contenido de noticias accesible para usuarios con discapacidad visual. Escribe de manera clara y conversacional para consumo de audio. Nunca copies el texto original - siempre sintetiza. Evita contenido repetitivo - combina historias similares en una narrativa coherente.",
     "it_IT": "Stai creando contenuti di notizie accessibili per utenti ipovedenti. Scrivi in modo chiaro e colloquiale per il consumo audio. Non copiare mai il testo originale - sintetizza sempre. Evita contenuti ripetitivi - combina storie simili in un'unica narrazione coerente.",
-    "nl_NL": "U maakt toegankelijke nieuwsinhoud voor visueel beperkte gebruikers. Schrijf helder en conversationeel voor audioconsumptie. Kopieer nooit de originele tekst - syntheseer altijd. Vermijd repetitieve inhoud - combineer vergelijkbare verhalen tot één coherent verhaal."
+    "nl_NL": "U maakt toegankelijke nieuwsinhoud voor visueel beperkte gebruikers. Schrijf helder en conversationeel voor audioconsumptie. Kopieer nooit de originele tekst - syntheseer altijd. Vermijd repetitieve inhoud - combineer vergelijkbare verhalen tot één coherent verhaal.",
+    "pl_PL": "Tworzysz dostępne treści informacyjne dla użytkowników niedowidzących. Pisz jasno i konwersacyjnie dla konsumpcji audio. Nigdy nie kopiuj oryginalnego tekstu - zawsze syntetyzuj. Unikaj powtarzalnych treści - łącz podobne historie w jedną spójną narrację."
   },
   "analysis_prompt": {
     "template": "Analyze these {region} news headlines and categorize them into themes.\nCRITICALLY IMPORTANT: Identify duplicate or similar stories about the same event and select only the BEST/MOST COMPREHENSIVE version of each story.\n\nHeadlines:\n{headlines}\n\nRESPONSE FORMAT: Return ONLY a valid JSON object. No explanations, no markdown, no text outside the JSON.\n\nJSON Format:\n{{\n    \"politics\": [[{{\"index\": 1, \"significance\": 8, \"reasoning\": \"Government policy coverage\"}}]],\n    \"international\": [[{{\"index\": 2, \"significance\": 7, \"reasoning\": \"Global affairs\"}}]],\n    \"technology\": [[{{\"index\": 3, \"significance\": 6, \"reasoning\": \"Tech developments\"}}]]\n}}\n\nDEDUPLICATION RULES (CRITICAL):\n1. If multiple headlines cover the SAME story/event (e.g., multiple China stories, same political announcement), select ONLY the most comprehensive one\n2. Look for similar keywords, names, locations, events - these indicate duplicate coverage\n3. For example: If you see \"China economy\" and \"China trade\" and \"China GDP\" - these might be the same story, pick the best one\n4. Prioritize headlines with more specific details over generic ones\n5. Each theme should have UNIQUE, DISTINCT stories - no duplicates allowed\n\nOTHER RULES:\n6. Return ONLY the JSON object, absolutely no other text\n7. Use only these themes: politics, economy, health, international, climate, technology, crime\n8. Rate significance 1-10 based on coverage breadth and uniqueness\n9. Focus on stories with cross-source coverage but avoid duplicates\n10. CRITICAL: Your response must be valid JSON that can be parsed by json.loads()",
@@ -20,7 +21,8 @@
       "de_DE": "German",
       "es_ES": "Spanish",
       "it_IT": "Italian",
-      "nl_NL": "Dutch"
+      "nl_NL": "Dutch",
+      "pl_PL": "Polish"
     }
   },
   "synthesis_prompts": {
@@ -54,6 +56,10 @@
     },
     "nl_NL": {
       "template": "Maak een beknopte, informatieve nieuwssamenvatting over {theme} voor visueel beperkte luisteraars.\n\nBelangrijke onderwerpen op basis van actuele krantenkoppen:\n{headlines}\n\nVereisten:\n- Creëer originele inhoud (kopieer NIET de krantenkoppen)\n- Schrijf voor audioconsumptie (heldere, vloeiende zinnen)\n- Houd het onder de 80 woorden\n- Noem GEEN specifieke nieuwsbronnen\n- Noem NIET hoeveel bronnen dit behandelen\n- Focus op wat er gebeurt, niet op wie het rapporteert\n- VERMIJD repetitieve inhoud - syntheseer in ÉÉN coherent verhaal\n- Als meerdere verhalen over dezelfde gebeurtenis gaan, combineer ze dan in één samenvatting\n- Begin met: \"In het {theme}-nieuws van vandaag...\"",
+      "max_words": 80
+    },
+    "pl_PL": {
+      "template": "Stwórz zwięzłe, informacyjne podsumowanie wiadomości o {theme} dla słuchaczy z wadami wzroku.\n\nKluczowe tematy oparte na bieżących nagłówkach:\n{headlines}\n\nWymagania:\n- Twórz oryginalną treść (NIE kopiuj nagłówków)\n- Pisz dla konsumpcji audio (jasne, płynne zdania)\n- Utrzymuj poniżej 80 słów\n- NIE wspominaj konkretnych źródeł wiadomości\n- NIE wspominaj ile źródeł to obejmuje\n- Skup się na tym co się dzieje, nie kto to zgłasza\n- UNIKAJ powtarzających się treści - syntetyzuj do JEDNEJ spójnej narracji\n- Jeśli wiele historii dotyczy tego samego wydarzenia, połącz je w jedno podsumowanie\n- Rozpocznij od: \"W wiadomościach {theme} dzisiaj...\"",
       "max_words": 80
     }
   },

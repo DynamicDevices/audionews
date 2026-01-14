@@ -55,6 +55,13 @@
       "language": "Dutch (Netherlands)",
       "gender": "Female",
       "provider": "Edge TTS"
+    },
+    "pl_PL": {
+      "name": "pl-PL-ZofiaNeural",
+      "display_name": "Zofia Neural",
+      "language": "Polish (Poland)",
+      "gender": "Female",
+      "provider": "Edge TTS"
     }
   },
   "tts_settings": {

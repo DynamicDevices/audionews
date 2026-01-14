@@ -150,6 +150,24 @@ LANGUAGE_CONFIGS = {
         'audio_dir': 'docs/nl_NL/audio',
         'service_name': 'AudioNews Nederland'
     },
+    'pl_PL': {
+        'name': 'Polish (Poland)',
+        'native_name': 'Polski',
+        'sources': {
+            'Gazeta Wyborcza': 'https://www.gazeta.pl/',
+            'Rzeczpospolita': 'https://www.rp.pl/',
+            'TVN24': 'https://tvn24.pl/',
+            'Onet': 'https://www.onet.pl/',
+            'Polskie Radio': 'https://www.polskieradio.pl/'
+        },
+        'voice': VOICE_CONFIG['voices']['pl_PL']['name'],
+        'greeting': 'Dzień dobry',
+        'region_name': 'polskie',
+        'themes': ['polityka', 'ekonomia', 'zdrowie', 'międzynarodowe', 'klimat', 'technologia', 'przestępczość'],
+        'output_dir': 'docs/pl_PL',
+        'audio_dir': 'docs/pl_PL/audio',
+        'service_name': 'AudioNews Polska'
+    },
     'en_GB_LON': {
         'name': 'English (London)',
         'native_name': 'English (London)',

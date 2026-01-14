@@ -153,6 +153,30 @@ LANGUAGE_CONFIGS = {
         'locale': 'nl_NL',
         'lang_code': 'nl'
     },
+    'pl_PL': {
+        'title': 'AudioNews Polska',
+        'flag': '🇵🇱',
+        'native_name': 'Polski',
+        'subtitle': 'Codzienny Przegląd Wiadomości Audio',
+        'tagline': 'Przedstawione przez Dynamic Devices',
+        'section_today': 'Dzisiejszy Przegląd Audio',
+        'section_description': 'Aktualizowane codziennie o 6:00 rano (czas brytyjski)',
+        'date_title': 'Podsumowanie Wiadomości',
+        'audio_description': 'Dzisiejszy przegląd wiadomości. Użyj kontrolek audio przeglądarki lub pobierz do słuchania offline.',
+        'download_button': 'Pobierz MP3',
+        'share_button': 'Kopiuj Link Auto-Play',
+        'download_help': 'Pobierz plik MP3 na swoje urządzenie do udostępniania przez WhatsApp lub słuchania offline',
+        'share_help': 'Skopiuj link, który automatycznie zacznie się odtwarzać - idealny do udostępniania przez WhatsApp',
+        'recent_heading': 'Ostatnie Przeglądy',
+        'recent_description': 'Nadróbcie podsumowania wiadomości z poprzednich dni',
+        'about_heading': 'O Tej Usłudze',
+        'footer_service': 'AudioNews Polska',
+        'footer_by': 'Usługa przez',
+        'footer_love': 'Stworzone z ❤️ dla dostępności',
+        'canonical_url': 'https://audionews.uk/pl_PL/',
+        'locale': 'pl_PL',
+        'lang_code': 'pl'
+    },
     'en_GB_LON': {
         'title': 'AudioNews London',
         'flag': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
@@ -206,7 +230,7 @@ LANGUAGE_CONFIGS = {
 def generate_language_selector(current_lang):
     """Generate the language selector HTML with all 8 languages"""
     # Order: Core languages first, then new languages
-    lang_order = ['en_GB', 'fr_FR', 'de_DE', 'es_ES', 'it_IT', 'nl_NL', 'en_GB_LON', 'en_GB_LIV']
+    lang_order = ['en_GB', 'fr_FR', 'de_DE', 'es_ES', 'it_IT', 'nl_NL', 'pl_PL', 'en_GB_LON', 'en_GB_LIV']
     
     html_parts = []
     for lang in lang_order:
