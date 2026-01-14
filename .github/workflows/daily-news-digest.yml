@@ -74,8 +74,8 @@ jobs:
       id: check_content
       run: |
         TODAY=$(date +%Y_%m_%d)
-        # TEMPORARY: Only check for en_GB content (other languages disabled)
-        LANGUAGES=("en_GB")
+        # Check for enabled languages (en_GB + pl_PL)
+        LANGUAGES=("en_GB" "pl_PL")
         ALL_EXIST=true
         
         for LANG in "${LANGUAGES[@]}"; do
@@ -131,7 +131,7 @@ jobs:
         # Generate content for all supported languages with better error handling (including cities)
         # TEMPORARY: Only generate en_GB content
         CORE_LANGUAGES=("en_GB")  # Only GB for now
-        NEW_LANGUAGES=()  # All other languages disabled
+        NEW_LANGUAGES=("pl_PL")  # Polish enabled - other languages disabled
         FAILED_LANGUAGES=()
         SUCCESS_COUNT=0
         CORE_SUCCESS_COUNT=0
@@ -278,8 +278,8 @@ jobs:
       run: |
         echo "🌐 Updating language-specific HTML pages with today's content"
         
-        # TEMPORARY: Only update en_GB (other languages disabled)
-        ALL_LANGUAGES=("en_GB")
+        # Update enabled languages (en_GB + pl_PL)
+        ALL_LANGUAGES=("en_GB" "pl_PL")
         
         for LANG in "${ALL_LANGUAGES[@]}"; do
           echo "📝 Updating ${LANG} page..."
@@ -291,7 +291,7 @@ jobs:
     - name: 📱 Verify files in correct locations
       run: |
         # Check if files are in the correct language-specific directories (including cities)
-        LANGUAGES=("en_GB" "fr_FR" "de_DE" "es_ES" "it_IT" "nl_NL" "en_GB_LON" "en_GB_LIV")
+        LANGUAGES=("en_GB" "fr_FR" "de_DE" "es_ES" "it_IT" "nl_NL" "pl_PL" "en_GB_LON" "en_GB_LIV")
         
         for LANG in "${LANGUAGES[@]}"; do
           echo "🔍 Checking ${LANG} files..."
@@ -328,7 +328,7 @@ jobs:
     - name: 🔍 Quality check
       run: |
         # Check if files were generated in language-specific directories (including cities)
-        LANGUAGES=("en_GB" "fr_FR" "de_DE" "es_ES" "it_IT" "nl_NL" "en_GB_LON" "en_GB_LIV")
+        LANGUAGES=("en_GB" "fr_FR" "de_DE" "es_ES" "it_IT" "nl_NL" "pl_PL" "en_GB_LON" "en_GB_LIV")
         TOTAL_FILES=0
         TOTAL_SIZE=0
         
@@ -394,7 +394,7 @@ jobs:
           # Check if we have audio files to get stats for all languages
           TOTAL_SIZE=0
           LANG_STATS=""
-          for LANG in en_GB fr_FR de_DE es_ES it_IT nl_NL en_GB_LON en_GB_LIV; do
+          for LANG in en_GB fr_FR de_DE es_ES it_IT nl_NL pl_PL en_GB_LON en_GB_LIV; do
             if ls docs/${LANG}/audio/news_digest_ai_*.mp3 1> /dev/null 2>&1; then
               audio_file=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 | head -1)
               size_bytes=$(stat -c%s "$audio_file")
