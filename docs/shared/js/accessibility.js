@@ -7,6 +7,85 @@
 (function() {
     'use strict';
     
+    // Localized strings for UI elements
+    const i18n = {
+        'en': {
+            'playbackSpeed': 'Playback Speed:',
+            'slow': 'Slow',
+            'fast': 'Fast',
+            'veryFast': 'Very Fast',
+            'normal': 'Normal',
+            'speedHelp': 'Adjust playback speed for comfortable listening',
+            'speedChanged': 'Playback speed changed to'
+        },
+        'pl': {
+            'playbackSpeed': 'Prędkość odtwarzania:',
+            'slow': 'Wolno',
+            'fast': 'Szybko',
+            'veryFast': 'Bardzo szybko',
+            'normal': 'Normalnie',
+            'speedHelp': 'Dostosuj prędkość odtwarzania dla wygodnego słuchania',
+            'speedChanged': 'Prędkość odtwarzania zmieniona na'
+        },
+        'fr': {
+            'playbackSpeed': 'Vitesse de lecture:',
+            'slow': 'Lent',
+            'fast': 'Rapide',
+            'veryFast': 'Très rapide',
+            'normal': 'Normal',
+            'speedHelp': 'Ajustez la vitesse de lecture pour une écoute confortable',
+            'speedChanged': 'Vitesse de lecture changée à'
+        },
+        'de': {
+            'playbackSpeed': 'Wiedergabegeschwindigkeit:',
+            'slow': 'Langsam',
+            'fast': 'Schnell',
+            'veryFast': 'Sehr schnell',
+            'normal': 'Normal',
+            'speedHelp': 'Passen Sie die Wiedergabegeschwindigkeit an',
+            'speedChanged': 'Wiedergabegeschwindigkeit geändert auf'
+        },
+        'es': {
+            'playbackSpeed': 'Velocidad de reproducción:',
+            'slow': 'Lento',
+            'fast': 'Rápido',
+            'veryFast': 'Muy rápido',
+            'normal': 'Normal',
+            'speedHelp': 'Ajuste la velocidad de reproducción',
+            'speedChanged': 'Velocidad de reproducción cambiada a'
+        },
+        'it': {
+            'playbackSpeed': 'Velocità di riproduzione:',
+            'slow': 'Lento',
+            'fast': 'Veloce',
+            'veryFast': 'Molto veloce',
+            'normal': 'Normale',
+            'speedHelp': 'Regola la velocità di riproduzione',
+            'speedChanged': 'Velocità di riproduzione cambiata a'
+        },
+        'nl': {
+            'playbackSpeed': 'Afspeelsnelheid:',
+            'slow': 'Langzaam',
+            'fast': 'Snel',
+            'veryFast': 'Heel snel',
+            'normal': 'Normaal',
+            'speedHelp': 'Pas de afspeelsnelheid aan',
+            'speedChanged': 'Afspeelsnelheid gewijzigd naar'
+        }
+    };
+    
+    // Get current page language
+    function getPageLanguage() {
+        const htmlLang = document.documentElement.lang || 'en';
+        return htmlLang.split('-')[0]; // Get 'pl' from 'pl' or 'pl-PL'
+    }
+    
+    // Get localized string
+    function t(key) {
+        const lang = getPageLanguage();
+        return (i18n[lang] && i18n[lang][key]) || i18n['en'][key] || key;
+    }
+    
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
@@ -304,16 +383,16 @@
         controls.className = 'enhanced-audio-controls';
         controls.innerHTML = `
             <div class="audio-speed-controls">
-                <label for="speed-${index}">Playback Speed:</label>
+                <label for="speed-${index}">${t('playbackSpeed')}</label>
                 <select id="speed-${index}" class="speed-selector" aria-describedby="speed-help-${index}">
-                    <option value="0.5">0.5x (Slow)</option>
+                    <option value="0.5">0.5x (${t('slow')})</option>
                     <option value="0.75">0.75x</option>
-                    <option value="1" selected>1x (Normal)</option>
+                    <option value="1" selected>1x (${t('normal')})</option>
                     <option value="1.25">1.25x</option>
-                    <option value="1.5">1.5x (Fast)</option>
-                    <option value="2">2x (Very Fast)</option>
+                    <option value="1.5">1.5x (${t('fast')})</option>
+                    <option value="2">2x (${t('veryFast')})</option>
                 </select>
-                <p id="speed-help-${index}" class="help-text">Adjust playback speed for comfortable listening</p>
+                <p id="speed-help-${index}" class="help-text">${t('speedHelp')}</p>
             </div>
         `;
         
@@ -323,7 +402,7 @@
         const speedSelector = controls.querySelector('.speed-selector');
         speedSelector.addEventListener('change', function() {
             audio.playbackRate = parseFloat(this.value);
-            announceToScreenReader(`Playback speed changed to ${this.value}x`);
+            announceToScreenReader(`${t('speedChanged')} ${this.value}x`);
         });
         
         // Store references for global functions (time display removed for cleaner UI)
