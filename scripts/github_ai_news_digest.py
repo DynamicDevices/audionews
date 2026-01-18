@@ -203,6 +203,24 @@ LANGUAGE_CONFIGS = {
         'output_dir': 'docs/en_GB_LIV',
         'audio_dir': 'docs/en_GB_LIV/audio',
         'service_name': 'AudioNews Liverpool'
+    },
+    'bella': {
+        'name': 'BellaNews - Business & Finance',
+        'native_name': 'BellaNews 📊',
+        'sources': {
+            'Financial Times': 'https://www.ft.com/',
+            'Guardian Business': 'https://www.theguardian.com/business',
+            'BBC Business': 'https://www.bbc.co.uk/news/business',
+            'Reuters Business': 'https://www.reuters.com/business/',
+            'Bloomberg': 'https://www.bloomberg.com/europe'
+        },
+        'voice': VOICE_CONFIG['voices']['bella']['name'],
+        'greeting': 'Good morning Bella',
+        'region_name': 'Business & Finance',
+        'themes': ['markets', 'investment_banking', 'venture_capital', 'fintech', 'corporate_finance', 'economics', 'startups', 'technology'],
+        'output_dir': 'docs/bella',
+        'audio_dir': 'docs/bella/audio',
+        'service_name': 'BellaNews - Your Business & Finance Briefing'
     }
 }
 
@@ -962,7 +980,7 @@ async def main():
     """
     parser = argparse.ArgumentParser(description='Generate multi-language AI news digest')
     parser.add_argument('--language', '-l', 
-                       choices=['en_GB', 'fr_FR', 'de_DE', 'es_ES', 'it_IT', 'nl_NL', 'pl_PL', 'en_GB_LON', 'en_GB_LIV'], 
+                       choices=['en_GB', 'fr_FR', 'de_DE', 'es_ES', 'it_IT', 'nl_NL', 'pl_PL', 'bella', 'en_GB_LON', 'en_GB_LIV'], 
                        default='en_GB',
                        help='Language for news digest (default: en_GB)')
     

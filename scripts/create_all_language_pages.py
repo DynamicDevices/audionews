@@ -224,13 +224,37 @@ LANGUAGE_CONFIGS = {
         'canonical_url': 'https://audionews.uk/en_GB_LIV/',
         'locale': 'en_GB',
         'lang_code': 'en'
+    },
+    'bella': {
+        'title': 'BellaNews',
+        'flag': '📊',
+        'native_name': 'BellaNews',
+        'subtitle': 'Your Daily Business & Finance Briefing',
+        'tagline': 'Personalized for Investment Banking & VC Finance',
+        'section_today': "Today's Business Briefing",
+        'section_description': 'Updated daily at 6:00 AM UK time - Finance news tailored for your career',
+        'date_title': 'Business & Finance Summary',
+        'audio_description': "Today's business and finance briefing covering markets, investment banking, VC, fintech, and strategic insights.",
+        'download_button': 'Download MP3',
+        'share_button': 'Copy Auto-Play Link',
+        'download_help': 'Download MP3 file to your device for offline listening',
+        'share_help': 'Copy link that will automatically start playing when opened',
+        'recent_heading': 'Recent Briefings',
+        'recent_description': "Catch up on previous days' business summaries",
+        'about_heading': 'About BellaNews',
+        'footer_service': 'BellaNews',
+        'footer_by': 'Personalized by',
+        'footer_love': 'Built with ❤️ for aspiring finance professionals',
+        'canonical_url': 'https://audionews.uk/bella/',
+        'locale': 'en_GB',
+        'lang_code': 'en'
     }
 }
 
 def generate_language_selector(current_lang):
-    """Generate the language selector HTML with all 8 languages"""
-    # Order: Core languages first, then new languages
-    lang_order = ['en_GB', 'fr_FR', 'de_DE', 'es_ES', 'it_IT', 'nl_NL', 'pl_PL', 'en_GB_LON', 'en_GB_LIV']
+    """Generate the language selector HTML with all languages including BellaNews"""
+    # Order: Core languages first, then special services
+    lang_order = ['en_GB', 'fr_FR', 'de_DE', 'es_ES', 'it_IT', 'nl_NL', 'pl_PL', 'bella', 'en_GB_LON', 'en_GB_LIV']
     
     html_parts = []
     for lang in lang_order:

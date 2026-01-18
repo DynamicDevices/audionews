@@ -95,6 +95,11 @@ def update_language_page(language='en_GB'):
             'page_path': 'docs/en_GB_LIV/index.html',
             'audio_dir': 'docs/en_GB_LIV/audio',
             'text_dir': 'docs/en_GB_LIV'
+        },
+        'bella': {
+            'page_path': 'docs/bella/index.html',
+            'audio_dir': 'docs/bella/audio',
+            'text_dir': 'docs/bella'
         }
     }
     
@@ -161,7 +166,9 @@ def update_language_page(language='en_GB'):
         'en_GB_LON': (f"AudioNews London - Daily Voice News Digest - {today_formatted}",
                       f"Daily AI-generated audio news digest for {today_formatted} brought to you by Dynamic Devices. Professional London voice, screen reader optimized."),
         'en_GB_LIV': (f"AudioNews Liverpool - Daily Voice News Digest - {today_formatted}",
-                      f"Daily AI-generated audio news digest for {today_formatted} brought to you by Dynamic Devices. Professional Liverpool voice, screen reader optimized.")
+                      f"Daily AI-generated audio news digest for {today_formatted} brought to you by Dynamic Devices. Professional Liverpool voice, screen reader optimized."),
+        'bella': (f"BellaNews - Business & Finance Briefing - {today_formatted}",
+                  f"Daily AI-generated business and finance briefing for {today_formatted} covering investment banking, VC, markets, and strategic insights. Tailored for aspiring finance professionals.")
     }
     
     if language in lang_titles:
@@ -231,7 +238,7 @@ def main():
     """Main function with command line argument parsing"""
     parser = argparse.ArgumentParser(description='Update language-specific website pages')
     parser.add_argument('--language', '-l', 
-                       choices=['en_GB', 'fr_FR', 'de_DE', 'es_ES', 'it_IT', 'nl_NL', 'pl_PL', 'en_GB_LON', 'en_GB_LIV'], 
+                       choices=['en_GB', 'fr_FR', 'de_DE', 'es_ES', 'it_IT', 'nl_NL', 'pl_PL', 'bella', 'en_GB_LON', 'en_GB_LIV'], 
                        default='en_GB',
                        help='Language to update (default: en_GB)')
     

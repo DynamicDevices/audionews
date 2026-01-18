@@ -74,8 +74,8 @@ jobs:
       id: check_content
       run: |
         TODAY=$(date +%Y_%m_%d)
-        # Check for enabled languages (en_GB + pl_PL)
-        LANGUAGES=("en_GB" "pl_PL")
+        # Check for enabled languages (en_GB, pl_PL, bella)
+        LANGUAGES=("en_GB" "pl_PL" "bella")
         ALL_EXIST=true
         
         for LANG in "${LANGUAGES[@]}"; do
@@ -129,16 +129,16 @@ jobs:
           echo "💰 This step uses API credits - content_exists: ${{ steps.check_content.outputs.content_exists }}"
         fi
         # Generate content for enabled languages only (cost optimization)
-        # ACTIVE: en_GB (English) and pl_PL (Polish)
+        # ACTIVE: en_GB (English), pl_PL (Polish), bella (BellaNews - personalized)
         # DISABLED: fr_FR, de_DE, es_ES, it_IT, nl_NL, en_GB_LON, en_GB_LIV (cost savings)
-        CORE_LANGUAGES=("en_GB" "pl_PL")  # Only English and Polish
+        CORE_LANGUAGES=("en_GB" "pl_PL" "bella")  # English, Polish, and BellaNews
         NEW_LANGUAGES=()  # No new languages being tested
         FAILED_LANGUAGES=()
         SUCCESS_COUNT=0
         CORE_SUCCESS_COUNT=0
         
-        # Process core languages (en_GB and pl_PL - cost optimized)
-        echo "🎯 PHASE 1: Generating CORE languages (en_GB and pl_PL)"
+        # Process core languages (en_GB, pl_PL, and bella - cost optimized)
+        echo "🎯 PHASE 1: Generating CORE languages (en_GB, pl_PL, and bella)"
         for LANG in "${CORE_LANGUAGES[@]}"; do
           echo "🌍 Generating content for ${LANG}..."
           echo "⏰ Started at: $(date)"
@@ -231,7 +231,7 @@ jobs:
         TOTAL_LANGUAGES=$((${#CORE_LANGUAGES[@]} + ${#NEW_LANGUAGES[@]}))
         echo "📊 GENERATION SUMMARY:"
         echo "✅ Successful: ${SUCCESS_COUNT}/${TOTAL_LANGUAGES} languages"
-        echo "✅ Core languages: ${CORE_SUCCESS_COUNT}/${#CORE_LANGUAGES[@]} (en_GB, pl_PL)"
+        echo "✅ Core languages: ${CORE_SUCCESS_COUNT}/${#CORE_LANGUAGES[@]} (en_GB, pl_PL, bella)"
         if [ ${#FAILED_LANGUAGES[@]} -gt 0 ]; then
           echo "❌ Failed languages:"
           for failed in "${FAILED_LANGUAGES[@]}"; do
@@ -279,8 +279,8 @@ jobs:
       run: |
         echo "🌐 Updating language-specific HTML pages with today's content"
         
-        # Update enabled languages (en_GB + pl_PL)
-        ALL_LANGUAGES=("en_GB" "pl_PL")
+        # Update enabled languages (en_GB, pl_PL, bella)
+        ALL_LANGUAGES=("en_GB" "pl_PL" "bella")
         
         for LANG in "${ALL_LANGUAGES[@]}"; do
           echo "📝 Updating ${LANG} page..."
@@ -330,8 +330,8 @@ jobs:
     - name: 🔍 Quality check
       run: |
         # Check if files were generated in language-specific directories
-        # Only checking ENABLED languages (en_GB, pl_PL)
-        LANGUAGES=("en_GB" "pl_PL")
+        # Only checking ENABLED languages (en_GB, pl_PL, bella)
+        LANGUAGES=("en_GB" "pl_PL" "bella")
         TOTAL_FILES=0
         TOTAL_SIZE=0
         
@@ -384,7 +384,7 @@ jobs:
         
         # Add ONLY language-specific files to avoid conflicts
         # This prevents touching the root index.html and other development files
-        git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
+        git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
         
         # Also add any files that might be in wrong location (for backward compatibility)
         git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
@@ -397,7 +397,7 @@ jobs:
           # Check if we have audio files to get stats for enabled languages
           TOTAL_SIZE=0
           LANG_STATS=""
-          for LANG in en_GB pl_PL; do
+          for LANG in en_GB pl_PL bella; do
             if ls docs/${LANG}/audio/news_digest_ai_*.mp3 1> /dev/null 2>&1; then
               audio_file=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 | head -1)
               size_bytes=$(stat -c%s "$audio_file")

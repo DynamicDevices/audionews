@@ -62,6 +62,13 @@
       "language": "Polish (Poland)",
       "gender": "Female",
       "provider": "Edge TTS"
+    },
+    "bella": {
+      "name": "en-GB-LibbyNeural",
+      "display_name": "Libby Neural",
+      "language": "English (UK) - Business/Finance",
+      "gender": "Female",
+      "provider": "Edge TTS"
     }
   },
   "tts_settings": {
