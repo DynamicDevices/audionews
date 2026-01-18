@@ -851,7 +851,7 @@ class GitHubAINewsDigest:
                     print(f"   🎤 CRITICAL: VOICE QUALITY PROTECTED - No fallback to robotic voice")
                     print(f"   🚫 Refusing to generate content with inferior voice quality")
                     print(f"   💡 This failure will trigger a re-run with proper Edge TTS")
-                    raise Exception(f"Edge TTS failed after {max_retries} attempts: {error_msg}")
+                        raise Exception(f"Edge TTS failed after {max_retries} attempts: {error_msg}")
                 else:
                     # Non-retryable error, fail fast
                     print(f"   ❌ Non-retryable Edge TTS error: {error_msg}")
