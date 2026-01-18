@@ -733,31 +733,31 @@ class GitHubAINewsDigest:
             if stories:
                 theme_content = await self.ai_synthesize_content(theme, stories)
                 if theme_content:
-                    digest += f"\n\n{theme_content}"
+                    digest += f" {theme_content}"
         
         # Language-specific closing
         if self.language == 'fr_FR':
-            digest += "\n\nCe résumé fournit une synthèse des actualités les plus importantes d'aujourd'hui. "
+            digest += " Ce résumé fournit une synthèse des actualités les plus importantes d'aujourd'hui. "
             digest += "Tout le contenu est une analyse originale conçue pour l'accessibilité. "
             digest += "Pour une couverture complète, visitez directement les sites d'actualités."
         elif self.language == 'de_DE':
-            digest += "\n\nDiese Zusammenfassung bietet eine Synthese der wichtigsten Nachrichten von heute. "
+            digest += " Diese Zusammenfassung bietet eine Synthese der wichtigsten Nachrichten von heute. "
             digest += "Alle Inhalte sind ursprüngliche Analysen, die für die Barrierefreiheit entwickelt wurden. "
             digest += "Für eine vollständige Berichterstattung besuchen Sie direkt die Nachrichten-Websites."
         elif self.language == 'es_ES':
-            digest += "\n\nEste resumen proporciona una síntesis de las noticias más importantes de hoy. "
+            digest += " Este resumen proporciona una síntesis de las noticias más importantes de hoy. "
             digest += "Todo el contenido es un análisis original diseñado para la accesibilidad. "
             digest += "Para una cobertura completa, visite directamente los sitios web de noticias."
         elif self.language == 'it_IT':
-            digest += "\n\nQuesto riepilogo fornisce una sintesi delle notizie più importanti di oggi. "
+            digest += " Questo riepilogo fornisce una sintesi delle notizie più importanti di oggi. "
             digest += "Tutti i contenuti sono analisi originali progettate per l'accessibilità. "
             digest += "Per una copertura completa, visitate direttamente i siti web di notizie."
         elif self.language == 'nl_NL':
-            digest += "\n\nDeze samenvatting biedt een synthese van het belangrijkste nieuws van vandaag. "
+            digest += " Deze samenvatting biedt een synthese van het belangrijkste nieuws van vandaag. "
             digest += "Alle inhoud is originele analyse ontworpen voor toegankelijkheid. "
             digest += "Voor volledige dekking, bezoek direct de nieuwswebsites."
         else:  # English variants
-            digest += "\n\nThis digest provides a synthesis of today's most significant news stories. "
+            digest += " This digest provides a synthesis of today's most significant news stories. "
             digest += "All content is original analysis designed for accessibility. "
             digest += "For complete coverage, visit news websites directly."
         
