@@ -20,7 +20,8 @@ cat > "$PRE_COMMIT_HOOK" << 'HOOK_EOF'
 # Checks Python syntax, JSON validity, and basic code quality
 #
 
-set -e
+# Don't use set -e here - we want to accumulate errors, not exit immediately
+# set -e
 
 # Colors for output
 RED='\033[0;31m'
@@ -51,9 +52,10 @@ check_python_syntax() {
 check_json_syntax() {
     local file="$1"
     if [[ "$file" == *.json ]]; then
-        if ! python3 -c "import json; json.load(open('$file'))" 2>/dev/null; then
+        # Use proper quoting and pass filename as argument to avoid injection
+        if ! python3 -c "import json, sys; json.load(open(sys.argv[1]))" "$file" 2>/dev/null; then
             echo -e "${RED}❌ JSON syntax error in: $file${NC}"
-            python3 -c "import json; json.load(open('$file'))" 2>&1 || true
+            python3 -c "import json, sys; json.load(open(sys.argv[1]))" "$file" 2>&1 || true
             ERRORS=$((ERRORS + 1))
             return 1
         fi
@@ -78,28 +80,28 @@ check_python_issues() {
     return 0
 }
 
-# Get list of staged files
-STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+# Get list of staged files (use mapfile to handle filenames with spaces)
+mapfile -t STAGED_FILES < <(git diff --cached --name-only --diff-filter=ACM)
 
-if [ -z "$STAGED_FILES" ]; then
+if [ ${#STAGED_FILES[@]} -eq 0 ]; then
     echo "No files staged for commit."
     exit 0
 fi
 
 # Check each staged file
-for file in $STAGED_FILES; do
+for file in "${STAGED_FILES[@]}"; do
     # Skip if file doesn't exist (might be deleted)
     [ -f "$file" ] || continue
     
     # Check Python files
     if [[ "$file" == *.py ]]; then
-        check_python_syntax "$file"
-        check_python_issues "$file"
+        check_python_syntax "$file" || true  # Don't exit on error, continue checking
+        check_python_issues "$file" || true  # Don't exit on error, continue checking
     fi
     
     # Check JSON files
     if [[ "$file" == *.json ]]; then
-        check_json_syntax "$file"
+        check_json_syntax "$file" || true  # Don't exit on error, continue checking
     fi
 done
 
