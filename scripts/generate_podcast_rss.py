@@ -243,12 +243,8 @@ def generate_rss_feed(language: str, output_dir: str) -> str:
         ET.SubElement(item, 'itunes:explicit').text = config['explicit']
         ET.SubElement(item, 'itunes:duration').text = ''  # Could calculate from audio file
         
-        # Content encoded (full transcript)
-        if transcript_data.get('full_content'):
-            content_encoded = ET.SubElement(item, 'content:encoded')
-            # Escape HTML and wrap in CDATA manually
-            escaped_content = transcript_data['full_content'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-            content_encoded.text = escaped_content
+        # Note: Full transcripts are NOT included in RSS feed
+        # Only the description/synopsis is included for cleaner podcast listings
     
     # Convert to string
     # Note: ET.indent() is only available in Python 3.9+
