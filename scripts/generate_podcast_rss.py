@@ -223,7 +223,10 @@ def generate_rss_feed(language: str, output_dir: str) -> str:
     ET.SubElement(itunes_owner, 'itunes:name').text = config['author']
     ET.SubElement(itunes_owner, 'itunes:email').text = config['email']
     
-    # iTunes category
+    # Standard RSS category (for RSS 2.0 compatibility)
+    ET.SubElement(channel, 'category').text = config['category']
+    
+    # iTunes category (for Apple Podcasts and other platforms)
     itunes_category = ET.SubElement(channel, 'itunes:category')
     itunes_category.set('text', config['category'])
     if 'subcategory' in config:
