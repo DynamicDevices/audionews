@@ -64,7 +64,7 @@ def create_gradient_background(size, start_color, end_color):
     width, height = size
     image = Image.new('RGB', size, start_color)
     draw = ImageDraw.Draw(image)
-    
+
     # Create gradient by drawing lines
     for y in range(height):
         ratio = y / height
@@ -72,7 +72,7 @@ def create_gradient_background(size, start_color, end_color):
         g = int(start_color[1] * (1 - ratio) + end_color[1] * ratio)
         b = int(start_color[2] * (1 - ratio) + end_color[2] * ratio)
         draw.line([(0, y), (width, y)], fill=(r, g, b))
-    
+
     return image
 
 def add_circular_element(draw, center, radius, color, outline=None, outline_width=0):
@@ -85,10 +85,10 @@ def generate_podcast_cover(language, output_path):
     """Generate a podcast cover image for the specified language"""
     design = PODCAST_DESIGNS[language]
     colors = design['colors']
-    
+
     # Image size (Spotify recommends 1400x1400 minimum)
     size = (1400, 1400)
-    
+
     # Convert colors to RGB
     start_rgb = hex_to_rgb(colors['gradient_start'])
     end_rgb = hex_to_rgb(colors['gradient_end'])
@@ -96,15 +96,15 @@ def generate_podcast_cover(language, output_path):
     accent_rgb = hex_to_rgb(colors['accent'])
     text_rgb = hex_to_rgb(colors['text'])
     text_secondary_rgb = hex_to_rgb(colors['text_secondary'])
-    
+
     # Create gradient background
     img = create_gradient_background(size, start_rgb, end_rgb)
     draw = ImageDraw.Draw(img)
-    
+
     # Convert to RGBA for transparency effects
     img = img.convert('RGBA')
     draw = ImageDraw.Draw(img)
-    
+
     # Add decorative circular elements with transparency
     # Large background circle (subtle)
     overlay = Image.new('RGBA', size, (0, 0, 0, 0))
@@ -112,14 +112,14 @@ def generate_podcast_cover(language, output_path):
     add_circular_element(overlay_draw, (700, 700), 600, (*primary_rgb, 30), outline=None)
     img = Image.alpha_composite(img, overlay)
     draw = ImageDraw.Draw(img)
-    
+
     # Medium accent circle
     overlay = Image.new('RGBA', size, (0, 0, 0, 0))
     overlay_draw = ImageDraw.Draw(overlay)
     add_circular_element(overlay_draw, (700, 500), 350, (*accent_rgb, 40), outline=None)
     img = Image.alpha_composite(img, overlay)
     draw = ImageDraw.Draw(img)
-    
+
     # Small accent circles for visual interest
     overlay = Image.new('RGBA', size, (0, 0, 0, 0))
     overlay_draw = ImageDraw.Draw(overlay)
@@ -129,19 +129,19 @@ def generate_podcast_cover(language, output_path):
     add_circular_element(overlay_draw, (300, 1100), 130, (*primary_rgb, 35), outline=None)
     img = Image.alpha_composite(img, overlay)
     draw = ImageDraw.Draw(img)
-    
+
     # Main content circle (white/light with transparency effect)
     overlay = Image.new('RGBA', size, (0, 0, 0, 0))
     overlay_draw = ImageDraw.Draw(overlay)
-    add_circular_element(overlay_draw, (700, 700), 400, (*text_rgb, 180), 
+    add_circular_element(overlay_draw, (700, 700), 400, (*text_rgb, 180),
                         outline=(*text_rgb, 255), outline_width=8)
     img = Image.alpha_composite(img, overlay)
     draw = ImageDraw.Draw(img)
-    
+
     # Convert back to RGB for final rendering
     img = img.convert('RGB')
     draw = ImageDraw.Draw(img)
-    
+
     # Try to load a nice font, fallback to default
     try:
         # Try to use a system font
@@ -159,12 +159,12 @@ def generate_podcast_cover(language, output_path):
             title_font = ImageFont.load_default()
             subtitle_font = ImageFont.load_default()
             icon_font = ImageFont.load_default()
-    
+
     # Calculate text positions (centered)
     title_text = design['title']
     subtitle_text = design['subtitle']
     icon_text = design['icon']
-    
+
     # Get text bounding boxes
     if hasattr(draw, 'textbbox'):
         title_bbox = draw.textbbox((0, 0), title_text, font=title_font)
@@ -175,12 +175,12 @@ def generate_podcast_cover(language, output_path):
         subtitle_bbox = draw.textsize(subtitle_text, font=subtitle_font)
         title_bbox = (0, 0, title_bbox[0], title_bbox[1])
         subtitle_bbox = (0, 0, subtitle_bbox[0], subtitle_bbox[1])
-    
+
     title_width = title_bbox[2] - title_bbox[0]
     title_height = title_bbox[3] - title_bbox[1]
     subtitle_width = subtitle_bbox[2] - subtitle_bbox[0]
     subtitle_height = subtitle_bbox[3] - subtitle_bbox[1]
-    
+
     # Draw icon (centered, above title)
     # Note: Emoji rendering may vary by system, but we'll try
     icon_x = 700
@@ -195,17 +195,17 @@ def generate_podcast_cover(language, output_path):
     except:
         # If emoji fails, just skip it
         pass
-    
+
     # Draw title (centered)
     title_x = (size[0] - title_width) // 2
     title_y = 700 - title_height // 2 - 60
     draw.text((title_x, title_y), title_text, font=title_font, fill=text_rgb)
-    
+
     # Draw subtitle (centered, below title)
     subtitle_x = (size[0] - subtitle_width) // 2
     subtitle_y = 700 + title_height // 2 + 20
     draw.text((subtitle_x, subtitle_y), subtitle_text, font=subtitle_font, fill=text_secondary_rgb)
-    
+
     # Add "audionews.uk" at the bottom
     try:
         url_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40)
@@ -214,7 +214,7 @@ def generate_podcast_cover(language, output_path):
             url_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 40)
         except:
             url_font = ImageFont.load_default()
-    
+
     url_text = "audionews.uk"
     if hasattr(draw, 'textbbox'):
         url_bbox = draw.textbbox((0, 0), url_text, font=url_font)
@@ -222,11 +222,11 @@ def generate_podcast_cover(language, output_path):
     else:
         url_size = draw.textsize(url_text, font=url_font)
         url_width = url_size[0]
-    
+
     url_x = (size[0] - url_width) // 2
     url_y = size[1] - 80
     draw.text((url_x, url_y), url_text, font=url_font, fill=text_secondary_rgb)
-    
+
     # Save the image
     img.save(output_path, 'PNG', optimize=True)
     print(f"✅ Generated: {output_path}")
@@ -234,18 +234,18 @@ def generate_podcast_cover(language, output_path):
 def main():
     """Generate all podcast cover images"""
     print("🎨 Generating Podcast Cover Images\n")
-    
+
     # Output directory
     output_dir = Path(__file__).parent.parent / 'docs' / 'images'
     output_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Generate covers for all languages
     filename_map = {
         'en_GB': 'en-gb',
         'pl_PL': 'pl-pl',
         'bella': 'bella'
     }
-    
+
     for language in PODCAST_DESIGNS.keys():
         filename = filename_map.get(language, language.lower().replace('_', '-'))
         output_path = output_dir / f'podcast-cover-{filename}.png'
@@ -255,7 +255,7 @@ def main():
             print(f"❌ Error generating cover for {language}: {e}")
             import traceback
             traceback.print_exc()
-    
+
     print("\n✅ All podcast covers generated!")
     print("\n📋 Next steps:")
     print("   1. Review the generated images")
