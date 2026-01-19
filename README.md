@@ -195,7 +195,12 @@ See [`docs/COPYRIGHT_AND_ETHICS.md`](docs/COPYRIGHT_AND_ETHICS.md) for complete 
 ## 📜 License
 
 ### Source Code
-The source code is licensed under the **MIT License** - see [LICENSE](LICENSE) file for details.
+The source code is licensed under the **GNU General Public License v3.0 (GPL v3)** - see [LICENSE](LICENSE) file for details.
+
+This means:
+- ✅ **You can**: Use, modify, and distribute the code
+- ✅ **You must**: Keep the same license (GPL v3) for any derivatives
+- ✅ **You must**: Make source code available when distributing
 
 ### Generated Content
 All generated audio content, transcripts, and news digests are licensed under **Creative Commons Attribution-NonCommercial 4.0 (CC BY-NC 4.0)**.
