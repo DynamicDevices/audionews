@@ -723,19 +723,23 @@ class GitHubAINewsDigest:
         service_name = self.config['service_name']
         region_name = self.config.get('region_name', 'UK')  # Default to UK if not specified
         
+        # Replace & with "and" for better TTS pronunciation (ampersands cause pauses in TTS)
+        # This ensures smooth audio flow without unnatural pauses
+        region_name_for_tts = region_name.replace('&', 'and')
+        
         # Language-specific openings with proper region naming
         if self.language == 'fr_FR':
-            digest = f"{greeting}. Voici votre résumé d'actualités {region_name} pour {today}, présenté par Dynamic Devices. "
+            digest = f"{greeting}. Voici votre résumé d'actualités {region_name_for_tts} pour {today}, présenté par Dynamic Devices. "
         elif self.language == 'de_DE':
-            digest = f"{greeting}. Hier ist Ihre {region_name} Nachrichtenzusammenfassung für {today}, präsentiert von Dynamic Devices. "
+            digest = f"{greeting}. Hier ist Ihre {region_name_for_tts} Nachrichtenzusammenfassung für {today}, präsentiert von Dynamic Devices. "
         elif self.language == 'es_ES':
-            digest = f"{greeting}. Aquí está su resumen de noticias {region_name} para {today}, presentado por Dynamic Devices. "
+            digest = f"{greeting}. Aquí está su resumen de noticias {region_name_for_tts} para {today}, presentado por Dynamic Devices. "
         elif self.language == 'it_IT':
-            digest = f"{greeting}. Ecco il vostro riepilogo delle notizie {region_name} per {today}, presentato da Dynamic Devices. "
+            digest = f"{greeting}. Ecco il vostro riepilogo delle notizie {region_name_for_tts} per {today}, presentato da Dynamic Devices. "
         elif self.language == 'nl_NL':
-            digest = f"{greeting}. Hier is uw {region_name} nieuwsoverzicht voor {today}, gepresenteerd door Dynamic Devices. "
+            digest = f"{greeting}. Hier is uw {region_name_for_tts} nieuwsoverzicht voor {today}, gepresenteerd door Dynamic Devices. "
         else:  # English variants (en_GB, en_GB_LON, en_GB_LIV, bella)
-            digest = f"{greeting}. Here's your {region_name} news digest for {today}, brought to you by Dynamic Devices."
+            digest = f"{greeting}. Here's your {region_name_for_tts} news digest for {today}, brought to you by Dynamic Devices."
         
         # Add AI-synthesized content for each theme
         previous_content = ""  # Track what we've already covered
