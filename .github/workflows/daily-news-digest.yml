@@ -327,6 +327,15 @@ jobs:
           mv news_digest_ai_*.txt docs/en_GB/
         fi
     
+    - name: 🎙️ Generate Podcast RSS Feeds
+      run: |
+        echo "🎙️ Generating RSS feeds for podcast distribution"
+        python scripts/generate_podcast_rss.py || {
+          echo "⚠️ RSS generation failed (non-critical - continuing)"
+          exit 0
+        }
+        echo "✅ RSS feeds generated successfully"
+    
     - name: 🔍 Quality check
       run: |
         # Check if files were generated in language-specific directories
