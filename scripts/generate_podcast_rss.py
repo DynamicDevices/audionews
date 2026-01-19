@@ -43,9 +43,9 @@ PODCAST_CONFIG = {
         'base_url': 'https://audionews.uk/pl_PL'
     },
     'bella': {
-        'title': 'BellaNews - Business & Finance Daily Briefing',
-        'description': 'Personalized business and finance news digest for mathematics undergraduates interested in investment banking, VC finance, and business strategy. AI-enhanced analysis connecting news to career insights.',
-        'subtitle': 'Daily business and finance news for investment banking and VC careers. AI-powered analysis connecting news to finance careers.',
+        'title': 'BellaNews - Daily News for Undergraduate Business and Finance',
+        'description': 'Daily news for undergraduate business and finance students. Personalized business and finance news digest for mathematics undergraduates interested in investment banking, VC finance, and business strategy. AI-enhanced analysis connecting news to career insights.',
+        'subtitle': 'Daily news for undergraduate business and finance. AI-powered analysis connecting news to investment banking and VC careers.',
         'author': 'Dynamic Devices',
         'email': 'audionews@dynamicdevices.co.uk',
         'language': 'en-GB',
