@@ -382,6 +382,31 @@ jobs:
         git config --local user.email "ai-digest@github.com"
         git config --local user.name "AI News Digest Bot"
         
+        # Pull latest changes FIRST before staging to avoid conflicts
+        echo "🔄 Pulling latest changes to handle concurrent runs..."
+        git pull --rebase origin main || {
+          echo "⚠️ Pull failed, resetting and trying again..."
+          git reset --hard origin/main || true
+          git pull origin main || echo "⚠️ Pull failed, continuing anyway"
+        }
+        
+        # Check if today's content already exists in remote (another workflow may have already committed)
+        TODAY=$(date +%Y_%m_%d)
+        REMOTE_HAS_CONTENT=false
+        for LANG in en_GB pl_PL bella; do
+          if git ls-tree -r origin/main --name-only | grep -q "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"; then
+            REMOTE_HAS_CONTENT=true
+            echo "✅ Remote already has ${LANG} content for ${TODAY}"
+          fi
+        done
+        
+        if [ "$REMOTE_HAS_CONTENT" = "true" ]; then
+          echo "💰 COST OPTIMIZATION: Today's content already exists in remote"
+          echo "📊 Another workflow may have already committed - skipping commit"
+          echo "✅ This is expected behavior for concurrent runs"
+          exit 0
+        fi
+        
         # Add ONLY language-specific files to avoid conflicts
         # This prevents touching the root index.html and other development files
         git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
@@ -407,8 +432,6 @@ jobs:
             fi
           done
           total_size_human=$(numfmt --to=iec $TOTAL_SIZE)
-          # Pull latest changes before committing to handle concurrent workflow runs
-          git pull --rebase origin main || echo "⚠️ Pull failed, continuing with commit"
           
           git commit -m "🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
 
@@ -419,13 +442,49 @@ jobs:
           ♿ Accessibility: Optimized for visually impaired users"
           
           # Push with retry logic for concurrent runs
-          if ! git push; then
-            echo "⚠️ Initial push failed, pulling and retrying..."
-            git pull --rebase origin main
-            git push || echo "⚠️ Push failed after retry - another workflow may have already pushed"
-          fi
-          
-          echo "✅ Files committed and pushed successfully"
+          MAX_PUSH_RETRIES=3
+          PUSH_RETRY=0
+          while [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; do
+            if git push; then
+              echo "✅ Files committed and pushed successfully"
+              break
+            else
+              PUSH_RETRY=$((PUSH_RETRY + 1))
+              if [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; then
+                echo "⚠️ Push attempt $PUSH_RETRY failed, pulling latest and retrying..."
+                # Reset to avoid merge conflicts with binary files
+                git fetch origin main
+                # Check if remote has the same files we're trying to push
+                REMOTE_HAS_SAME=false
+                for LANG in en_GB pl_PL bella; do
+                  if git ls-tree -r origin/main --name-only | grep -q "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"; then
+                    REMOTE_HAS_SAME=true
+                  fi
+                done
+                if [ "$REMOTE_HAS_SAME" = "true" ]; then
+                  echo "✅ Remote already has today's content - another workflow succeeded"
+                  echo "💰 Skipping push to avoid duplicate commits"
+                  exit 0
+                fi
+                # Reset and rebase
+                git reset --hard HEAD~1
+                git pull --rebase origin main || git reset --hard origin/main
+                # Re-add and recommit
+                git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
+                git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
+                git commit -m "🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
+
+          📊 Generated: $(date '+%Y-%m-%d %H:%M UTC')
+          🎧 Audio: ${total_size_human} total (${LANG_STATS})
+          🤖 AI: Enhanced analysis
+          🌐 Website: Updated with accessible newspaper layout
+          ♿ Accessibility: Optimized for visually impaired users" || echo "⚠️ No changes to commit after rebase"
+              else
+                echo "⚠️ Push failed after $MAX_PUSH_RETRIES attempts - another workflow may have already pushed"
+                echo "✅ This is acceptable for concurrent runs"
+              fi
+            fi
+          done
         fi
     
     - name: 📤 Upload artifacts for download
