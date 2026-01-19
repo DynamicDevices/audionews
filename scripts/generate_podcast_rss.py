@@ -146,7 +146,10 @@ def read_transcript(transcript_path: str) -> Dict[str, str]:
         # Extract headline/topic for more interesting episode titles
         # Get first sentence or first 60 chars as headline
         headline = ""
-        first_sentence_match = re.search(r'^([^.]{20,80})\.', main_content)
+        # Clean up any leading dots/spaces first
+        main_content_clean = main_content.lstrip('. \t\n\r')
+        
+        first_sentence_match = re.search(r'^([A-Z][^.]{15,70})\.', main_content_clean)
         if first_sentence_match:
             headline = first_sentence_match.group(1).strip()
             # Clean up headline - remove extra spaces, limit length
@@ -154,10 +157,17 @@ def read_transcript(transcript_path: str) -> Dict[str, str]:
             if len(headline) > 60:
                 headline = headline[:57] + '...'
         else:
-            # Fallback: use first 60 chars
-            headline = main_content[:60].replace('\n', ' ').strip()
-            if len(main_content) > 60:
-                headline = headline.rstrip('.') + '...'
+            # Fallback: use first 60 chars, starting from first capital letter
+            first_cap_match = re.search(r'([A-Z][^.]{0,60})', main_content_clean)
+            if first_cap_match:
+                headline = first_cap_match.group(1).replace('\n', ' ').strip()
+                headline = re.sub(r'\s+', ' ', headline)
+                if len(headline) > 60:
+                    headline = headline[:57] + '...'
+            else:
+                headline = main_content_clean[:60].replace('\n', ' ').strip()
+                if len(main_content_clean) > 60:
+                    headline = headline.rstrip('.') + '...'
         
         # Get first 200 chars for description (after removing opening)
         description = main_content[:200].replace('\n', ' ').strip()
