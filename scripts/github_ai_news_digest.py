@@ -822,8 +822,9 @@ class GitHubAINewsDigest:
         # Replace en dashes (–) with commas as well
         digest = re.sub(r'–', ', ', digest)
         
-        # CRITICAL: Fix section transitions to avoid pauses (especially for BellaNews)
+        # CRITICAL: Fix section transitions to avoid pauses for all languages
         # Replace periods before section transitions with semicolons or commas for smoother flow
+        
         if self.language == 'bella':
             # Fix common section transition patterns that cause pauses
             # Pattern: "...word. Turning to..." -> "...word; turning to..."
@@ -833,6 +834,22 @@ class GitHubAINewsDigest:
             # But be careful - only do this for certain patterns
             digest = re.sub(r'\.\s+(The|This|These|When|Understanding|From a banking)', 
                           r', \1', digest, flags=re.IGNORECASE)
+        elif self.language == 'en_GB':
+            # Fix English section transitions: "In {theme} news..." patterns
+            # Pattern: "...word. In politics news..." -> "...word; in politics news..."
+            digest = re.sub(r'\.\s+In (politics|economy|health|international|climate|technology|crime) news', 
+                          r'; in \1 news', digest, flags=re.IGNORECASE)
+            # Also fix other common transitions
+            digest = re.sub(r'\.\s+(Meanwhile|Additionally|Furthermore|However|Meanwhile)', 
+                          r'; \1', digest, flags=re.IGNORECASE)
+        elif self.language == 'pl_PL':
+            # Fix Polish section transitions: "W wiadomościach {theme} dzisiaj..." patterns
+            # Pattern: "...word. W wiadomościach polityka dzisiaj..." -> "...word; w wiadomościach polityka dzisiaj..."
+            digest = re.sub(r'\.\s+W wiadomościach (polityka|ekonomia|zdrowie|międzynarodowe|klimat|technologia|przestępczość) dzisiaj', 
+                          r'; w wiadomościach \1 dzisiaj', digest, flags=re.IGNORECASE)
+            # Also fix other common Polish transitions
+            digest = re.sub(r'\.\s+(Tymczasem|Dodatkowo|Ponadto|Jednakże)', 
+                          r'; \1', digest, flags=re.IGNORECASE)
         
         # Remove quote marks (they cause TTS pauses)
         digest = re.sub(r'["\']', '', digest)
