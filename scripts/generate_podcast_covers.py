@@ -59,19 +59,28 @@ def hex_to_rgb(hex_color):
     hex_color = hex_color.lstrip('#')
     return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
 
-def create_gradient_background(size, start_color, end_color):
-    """Create a gradient background"""
+def create_gradient_background(size, start_color, end_color, horizontal=False):
+    """Create a gradient background (vertical by default, horizontal if specified)"""
     width, height = size
     image = Image.new('RGB', size, start_color)
     draw = ImageDraw.Draw(image)
 
-    # Create gradient by drawing lines
-    for y in range(height):
-        ratio = y / height
-        r = int(start_color[0] * (1 - ratio) + end_color[0] * ratio)
-        g = int(start_color[1] * (1 - ratio) + end_color[1] * ratio)
-        b = int(start_color[2] * (1 - ratio) + end_color[2] * ratio)
-        draw.line([(0, y), (width, y)], fill=(r, g, b))
+    if horizontal:
+        # Horizontal gradient (left to right)
+        for x in range(width):
+            ratio = x / width
+            r = int(start_color[0] * (1 - ratio) + end_color[0] * ratio)
+            g = int(start_color[1] * (1 - ratio) + end_color[1] * ratio)
+            b = int(start_color[2] * (1 - ratio) + end_color[2] * ratio)
+            draw.line([(x, 0), (x, height)], fill=(r, g, b))
+    else:
+        # Vertical gradient (top to bottom)
+        for y in range(height):
+            ratio = y / height
+            r = int(start_color[0] * (1 - ratio) + end_color[0] * ratio)
+            g = int(start_color[1] * (1 - ratio) + end_color[1] * ratio)
+            b = int(start_color[2] * (1 - ratio) + end_color[2] * ratio)
+            draw.line([(0, y), (width, y)], fill=(r, g, b))
 
     return image
 
@@ -88,6 +97,45 @@ def generate_podcast_cover(language, output_path):
 
     # Image size (Spotify recommends 1400x1400 minimum)
     size = (1400, 1400)
+    
+    # Helper function to load and resize an image
+    def load_and_resize_image(img_path, target_size):
+        """Load an image and resize it to target size, handling transparency"""
+        img = Image.open(img_path)
+        img = img.convert('RGBA')
+        img = img.resize(target_size, Image.Resampling.LANCZOS)
+        
+        # Save as RGB (remove alpha channel if needed)
+        if img.mode == 'RGBA':
+            # Create white background
+            background = Image.new('RGB', target_size, (255, 255, 255))
+            background.paste(img, mask=img.split()[3])  # Use alpha channel as mask
+            img = background
+        else:
+            img = img.convert('RGB')
+        return img
+    
+    # Special case: BellaNews uses custom image
+    if language == 'bella':
+        bella_path = Path('/home/ajlennon/Pictures/Bella-1.png')
+        if bella_path.exists():
+            bella_img = load_and_resize_image(bella_path, size)
+            bella_img.save(output_path, 'PNG', optimize=True)
+            print(f"✅ Generated: {output_path} (using Bella image)")
+            return
+        else:
+            print(f"⚠️ Bella image not found at {bella_path}, using logo instead...")
+    
+    # Special case: en_GB and pl_PL use the main logo
+    if language in ['en_GB', 'pl_PL']:
+        logo_path = Path(__file__).parent.parent / 'docs' / 'images' / 'audionews_logo.png'
+        if logo_path.exists():
+            logo_img = load_and_resize_image(logo_path, size)
+            logo_img.save(output_path, 'PNG', optimize=True)
+            print(f"✅ Generated: {output_path} (using logo)")
+            return
+        else:
+            print(f"⚠️ Logo not found at {logo_path}, generating standard cover...")
 
     # Convert colors to RGB
     start_rgb = hex_to_rgb(colors['gradient_start'])
@@ -97,44 +145,39 @@ def generate_podcast_cover(language, output_path):
     text_rgb = hex_to_rgb(colors['text'])
     text_secondary_rgb = hex_to_rgb(colors['text_secondary'])
 
-    # Create gradient background
-    img = create_gradient_background(size, start_rgb, end_rgb)
+    # Create horizontal gradient background for landscape feel
+    img = create_gradient_background(size, start_rgb, end_rgb, horizontal=True)
     draw = ImageDraw.Draw(img)
 
     # Convert to RGBA for transparency effects
     img = img.convert('RGBA')
     draw = ImageDraw.Draw(img)
 
-    # Add decorative circular elements with transparency
-    # Large background circle (subtle)
+    # Add decorative elements with landscape-oriented positioning
+    # Left side accent circles
     overlay = Image.new('RGBA', size, (0, 0, 0, 0))
     overlay_draw = ImageDraw.Draw(overlay)
-    add_circular_element(overlay_draw, (700, 700), 600, (*primary_rgb, 30), outline=None)
+    add_circular_element(overlay_draw, (350, 350), 200, (*primary_rgb, 40), outline=None)
+    add_circular_element(overlay_draw, (250, 700), 150, (*accent_rgb, 50), outline=None)
+    add_circular_element(overlay_draw, (450, 1050), 180, (*primary_rgb, 35), outline=None)
     img = Image.alpha_composite(img, overlay)
     draw = ImageDraw.Draw(img)
 
-    # Medium accent circle
+    # Right side accent circles
     overlay = Image.new('RGBA', size, (0, 0, 0, 0))
     overlay_draw = ImageDraw.Draw(overlay)
-    add_circular_element(overlay_draw, (700, 500), 350, (*accent_rgb, 40), outline=None)
+    add_circular_element(overlay_draw, (1050, 350), 180, (*accent_rgb, 45), outline=None)
+    add_circular_element(overlay_draw, (1150, 700), 160, (*primary_rgb, 40), outline=None)
+    add_circular_element(overlay_draw, (950, 1050), 140, (*accent_rgb, 50), outline=None)
     img = Image.alpha_composite(img, overlay)
     draw = ImageDraw.Draw(img)
 
-    # Small accent circles for visual interest
+    # Left side content area (for icon) - rounded rectangle effect
     overlay = Image.new('RGBA', size, (0, 0, 0, 0))
     overlay_draw = ImageDraw.Draw(overlay)
-    add_circular_element(overlay_draw, (300, 300), 120, (*accent_rgb, 50), outline=None)
-    add_circular_element(overlay_draw, (1100, 1100), 150, (*primary_rgb, 40), outline=None)
-    add_circular_element(overlay_draw, (1100, 300), 100, (*accent_rgb, 45), outline=None)
-    add_circular_element(overlay_draw, (300, 1100), 130, (*primary_rgb, 35), outline=None)
-    img = Image.alpha_composite(img, overlay)
-    draw = ImageDraw.Draw(img)
-
-    # Main content circle (white/light with transparency effect)
-    overlay = Image.new('RGBA', size, (0, 0, 0, 0))
-    overlay_draw = ImageDraw.Draw(overlay)
-    add_circular_element(overlay_draw, (700, 700), 400, (*text_rgb, 180),
-                        outline=(*text_rgb, 255), outline_width=8)
+    # Create a rounded rectangle area on the left
+    left_area = (100, 200, 600, 1200)
+    overlay_draw.rounded_rectangle(left_area, radius=80, fill=(*text_rgb, 200), outline=None)
     img = Image.alpha_composite(img, overlay)
     draw = ImageDraw.Draw(img)
 
@@ -144,23 +187,23 @@ def generate_podcast_cover(language, output_path):
 
     # Try to load a nice font, fallback to default
     try:
-        # Try to use a system font
-        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 120)
-        subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 80)
-        icon_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 200)
+        # Try to use a system font - larger for landscape layout
+        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 140)
+        subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 90)
+        icon_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 300)
     except:
         try:
             # Try alternative font paths
-            title_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 120)
-            subtitle_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 80)
-            icon_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 200)
+            title_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 140)
+            subtitle_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 90)
+            icon_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 300)
         except:
             # Fallback to default font
             title_font = ImageFont.load_default()
             subtitle_font = ImageFont.load_default()
             icon_font = ImageFont.load_default()
 
-    # Calculate text positions (centered)
+    # Landscape-oriented layout: icon on left, text on right
     title_text = design['title']
     subtitle_text = design['subtitle']
     icon_text = design['icon']
@@ -181,29 +224,29 @@ def generate_podcast_cover(language, output_path):
     subtitle_width = subtitle_bbox[2] - subtitle_bbox[0]
     subtitle_height = subtitle_bbox[3] - subtitle_bbox[1]
 
-    # Draw icon (centered, above title)
-    # Note: Emoji rendering may vary by system, but we'll try
-    icon_x = 700
-    icon_y = 500
+    # Draw icon on the left side (in the rounded rectangle area)
+    icon_x = 350  # Left side, centered vertically in the left area
+    icon_y = 700
     try:
         # Try to center the emoji
         if hasattr(draw, 'textbbox'):
             icon_bbox = draw.textbbox((0, 0), icon_text, font=icon_font)
             icon_width = icon_bbox[2] - icon_bbox[0]
-            icon_x = (size[0] - icon_width) // 2
-        draw.text((icon_x, icon_y), icon_text, font=icon_font, fill=text_rgb, anchor='mm')
+            icon_x = 350 - icon_width // 2
+        # Use primary color for icon to contrast with white background
+        draw.text((icon_x, icon_y), icon_text, font=icon_font, fill=primary_rgb, anchor='mm')
     except:
         # If emoji fails, just skip it
         pass
 
-    # Draw title (centered)
-    title_x = (size[0] - title_width) // 2
-    title_y = 700 - title_height // 2 - 60
+    # Draw title on the right side (landscape layout)
+    title_x = 750  # Right side of center
+    title_y = 600  # Upper portion
     draw.text((title_x, title_y), title_text, font=title_font, fill=text_rgb)
 
-    # Draw subtitle (centered, below title)
-    subtitle_x = (size[0] - subtitle_width) // 2
-    subtitle_y = 700 + title_height // 2 + 20
+    # Draw subtitle on the right side, below title
+    subtitle_x = 750
+    subtitle_y = 600 + title_height + 30
     draw.text((subtitle_x, subtitle_y), subtitle_text, font=subtitle_font, fill=text_secondary_rgb)
 
     # Add "audionews.uk" at the bottom
@@ -223,8 +266,9 @@ def generate_podcast_cover(language, output_path):
         url_size = draw.textsize(url_text, font=url_font)
         url_width = url_size[0]
 
-    url_x = (size[0] - url_width) // 2
-    url_y = size[1] - 80
+    # Position URL on the right side, bottom (landscape layout)
+    url_x = 750
+    url_y = size[1] - 100
     draw.text((url_x, url_y), url_text, font=url_font, fill=text_secondary_rgb)
 
     # Save the image
