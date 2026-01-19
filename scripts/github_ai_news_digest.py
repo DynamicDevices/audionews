@@ -754,7 +754,6 @@ class GitHubAINewsDigest:
             digest = f"{greeting}. Hier is uw {region_name_for_tts} nieuwsoverzicht voor {today}, gepresenteerd door Dynamic Devices. "
         elif self.language == 'pl_PL':
             # Polish date format: "19 stycznia 2026" (day month year)
-            from datetime import date
             today_obj = date.today()
             months_pl = ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca',
                         'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia']
