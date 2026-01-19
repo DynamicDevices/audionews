@@ -734,8 +734,8 @@ class GitHubAINewsDigest:
             digest = f"{greeting}. Ecco il vostro riepilogo delle notizie {region_name} per {today}, presentato da Dynamic Devices. "
         elif self.language == 'nl_NL':
             digest = f"{greeting}. Hier is uw {region_name} nieuwsoverzicht voor {today}, gepresenteerd door Dynamic Devices. "
-        else:  # English variants (en_GB, en_GB_LON, en_GB_LIV)
-            digest = f"{greeting}. Here's your {region_name} news digest for {today}, brought to you by Dynamic Devices. "
+        else:  # English variants (en_GB, en_GB_LON, en_GB_LIV, bella)
+            digest = f"{greeting}. Here's your {region_name} news digest for {today}, brought to you by Dynamic Devices."
         
         # Add AI-synthesized content for each theme
         previous_content = ""  # Track what we've already covered
@@ -743,9 +743,12 @@ class GitHubAINewsDigest:
             if stories:
                 theme_content = await self.ai_synthesize_content(theme, stories, previous_content)
                 if theme_content:
-                    digest += f" {theme_content}"
-                    # Add this content to previous_content for next iteration
-                    previous_content += f"\n[{theme}]: {theme_content}"
+                    # Strip leading/trailing whitespace and ensure single space separation
+                    theme_content = theme_content.strip()
+                    if theme_content:
+                        digest += f" {theme_content}"
+                        # Add this content to previous_content for next iteration
+                        previous_content += f"\n[{theme}]: {theme_content}"
         
         # Language-specific closing
         if self.language == 'fr_FR':
