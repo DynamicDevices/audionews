@@ -263,8 +263,10 @@ def generate_rss_feed(language: str, output_dir: str) -> str:
         # Create item
         item = ET.SubElement(channel, 'item')
         
-        # Episode title
-        title = f"{config['title']} - {episode_date.strftime('%B %d, %Y')}"
+        # Episode title - include language/service identifier for clarity
+        # Format: "Service Name - Date" (e.g., "AudioNews UK - January 19, 2026")
+        service_name = config['title'].split(' - ')[0]  # Get service name without subtitle
+        title = f"{service_name} - {episode_date.strftime('%B %d, %Y')}"
         ET.SubElement(item, 'title').text = title
         
         # Episode link
