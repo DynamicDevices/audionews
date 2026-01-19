@@ -645,6 +645,20 @@ class GitHubAINewsDigest:
             AI_PROMPTS_CONFIG['synthesis_prompts']['en_GB']
         )
         
+        # Translate theme name to target language for section headers
+        theme_for_prompt = theme
+        if self.language == 'pl_PL':
+            theme_translations = {
+                'politics': 'polityka',
+                'economy': 'ekonomia',
+                'health': 'zdrowie',
+                'international': 'międzynarodowe',
+                'climate': 'klimat',
+                'technology': 'technologia',
+                'crime': 'przestępczość'
+            }
+            theme_for_prompt = theme_translations.get(theme, theme)
+        
         # Add previous context if available
         context_text = ""
         if previous_content:
@@ -652,7 +666,7 @@ class GitHubAINewsDigest:
         
         # Format the template with theme, headlines, and previous context
         return prompt_config['template'].format(
-            theme=theme, 
+            theme=theme_for_prompt, 
             headlines=headlines,
             previous_context=context_text
         )
@@ -738,6 +752,14 @@ class GitHubAINewsDigest:
             digest = f"{greeting}. Ecco il vostro riepilogo delle notizie {region_name_for_tts} per {today}, presentato da Dynamic Devices. "
         elif self.language == 'nl_NL':
             digest = f"{greeting}. Hier is uw {region_name_for_tts} nieuwsoverzicht voor {today}, gepresenteerd door Dynamic Devices. "
+        elif self.language == 'pl_PL':
+            # Polish date format: "19 stycznia 2026" (day month year)
+            from datetime import date
+            today_obj = date.today()
+            months_pl = ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca',
+                        'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia']
+            today_pl = f"{today_obj.day} {months_pl[today_obj.month - 1]} {today_obj.year}"
+            digest = f"{greeting}. Oto Twój przegląd wiadomości {region_name_for_tts} na {today_pl}, przygotowany przez Dynamic Devices."
         else:  # English variants (en_GB, en_GB_LON, en_GB_LIV, bella)
             digest = f"{greeting}. Here's your {region_name_for_tts} news digest for {today}, brought to you by Dynamic Devices."
         
@@ -786,6 +808,10 @@ class GitHubAINewsDigest:
             digest += " Deze samenvatting biedt een synthese van het belangrijkste nieuws van vandaag. "
             digest += "Alle inhoud is originele analyse ontworpen voor toegankelijkheid. "
             digest += "Voor volledige dekking, bezoek direct de nieuwswebsites."
+        elif self.language == 'pl_PL':
+            digest += " Ten przegląd zawiera syntezę najważniejszych wiadomości z dzisiaj. "
+            digest += "Cała treść to oryginalna analiza przygotowana z myślą o dostępności. "
+            digest += "Aby uzyskać pełne informacje, odwiedź bezpośrednio strony z wiadomościami."
         else:  # English variants
             digest += " This digest provides a synthesis of today's most significant news stories. "
             digest += "All content is original analysis designed for accessibility. "
