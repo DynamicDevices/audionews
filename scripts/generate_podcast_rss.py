@@ -17,6 +17,7 @@ PODCAST_CONFIG = {
     'en_GB': {
         'title': 'AudioNews UK - Daily News Digest',
         'description': 'Daily AI-enhanced news digest for visually impaired users. Professional Irish voice delivers concise summaries of UK news covering politics, economy, health, international affairs, climate, technology, and crime.',
+        'subtitle': 'AI-powered daily UK news podcast for accessibility. Tech for good delivering accessible news summaries.',
         'author': 'Dynamic Devices',
         'email': 'audionews@dynamicdevices.co.uk',
         'language': 'en-GB',
@@ -30,6 +31,7 @@ PODCAST_CONFIG = {
     'pl_PL': {
         'title': 'AudioNews Polska - Codzienny Przegląd Wiadomości',
         'description': 'Codzienny przegląd wiadomości audio generowany przez AI dla użytkowników z wadami wzroku. Profesjonalny polski głos dostarcza zwięzłe podsumowania polskich wiadomości.',
+        'subtitle': 'Codzienne wiadomości z Polski generowane przez AI. Technologia dla dobra - dostępne wiadomości audio.',
         'author': 'Dynamic Devices',
         'email': 'audionews@dynamicdevices.co.uk',
         'language': 'pl-PL',
@@ -43,6 +45,7 @@ PODCAST_CONFIG = {
     'bella': {
         'title': 'BellaNews - Business & Finance Daily Briefing',
         'description': 'Personalized business and finance news digest for mathematics undergraduates interested in investment banking, VC finance, and business strategy. AI-enhanced analysis connecting news to career insights.',
+        'subtitle': 'Daily business and finance news for investment banking and VC careers. AI-powered analysis connecting news to finance careers.',
         'author': 'Dynamic Devices',
         'email': 'audionews@dynamicdevices.co.uk',
         'language': 'en-GB',
@@ -249,6 +252,12 @@ def generate_rss_feed(language: str, output_dir: str) -> str:
     ET.SubElement(channel, 'itunes:explicit').text = config['explicit']
     ET.SubElement(channel, 'itunes:type').text = 'episodic'
     
+    # iTunes subtitle (important for SEO - short, keyword-rich summary)
+    subtitle = config.get('subtitle', config['description'][:150])
+    if len(subtitle) > 150:
+        subtitle = subtitle[:147] + '...'
+    ET.SubElement(channel, 'itunes:subtitle').text = subtitle
+    
     # iTunes owner (required by Apple Podcasts)
     itunes_owner = ET.SubElement(channel, 'itunes:owner')
     ET.SubElement(itunes_owner, 'itunes:name').text = config['author']
@@ -325,8 +334,15 @@ def generate_rss_feed(language: str, output_dir: str) -> str:
         # Episode link
         ET.SubElement(item, 'link').text = f"{config['base_url']}?date={episode_date.strftime('%Y-%m-%d')}"
         
-        # Episode description
+        # Episode description - SEO optimized
         description = transcript_data.get('description', f"Daily news digest for {episode_date.strftime('%B %d, %Y')}")
+        
+        # Ensure description is keyword-rich and engaging
+        # Add date context for better SEO
+        if not description.startswith(episode_date.strftime('%B %d, %Y')):
+            # Prepend date if not already there (helps with search)
+            description = f"{episode_date.strftime('%B %d, %Y')} news: {description}"
+        
         ET.SubElement(item, 'description').text = description
         
         # Episode GUID (unique identifier)
