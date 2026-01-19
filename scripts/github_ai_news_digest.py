@@ -743,8 +743,13 @@ class GitHubAINewsDigest:
             if stories:
                 theme_content = await self.ai_synthesize_content(theme, stories, previous_content)
                 if theme_content:
-                    # Strip leading/trailing whitespace and ensure single space separation
+                    # Strip leading/trailing whitespace
                     theme_content = theme_content.strip()
+                    # Replace any newlines within content with spaces (TTS engines interpret newlines as pauses)
+                    # This prevents short pauses within sentences caused by newlines
+                    theme_content = re.sub(r'\r\n|\r|\n', ' ', theme_content)
+                    # Normalize multiple spaces to single spaces
+                    theme_content = re.sub(r' +', ' ', theme_content)
                     if theme_content:
                         # Ensure digest ends with proper punctuation and spacing
                         # Remove any trailing whitespace from digest, then add single space
@@ -784,7 +789,6 @@ class GitHubAINewsDigest:
         
         # Final normalization: replace any multiple spaces with single spaces
         # This ensures smooth audio flow without unnatural pauses
-        import re
         digest = re.sub(r' +', ' ', digest)
         
         return digest
