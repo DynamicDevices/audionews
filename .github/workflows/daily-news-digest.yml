@@ -391,17 +391,20 @@ jobs:
         }
         
         # Check if today's content already exists in remote (another workflow may have already committed)
+        # Only skip if ALL languages already exist (not just some)
         TODAY=$(date +%Y_%m_%d)
-        REMOTE_HAS_CONTENT=false
+        ALL_LANGUAGES_EXIST=true
         for LANG in en_GB pl_PL bella; do
           if git ls-tree -r origin/main --name-only | grep -q "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"; then
-            REMOTE_HAS_CONTENT=true
             echo "✅ Remote already has ${LANG} content for ${TODAY}"
+          else
+            ALL_LANGUAGES_EXIST=false
+            echo "📝 Remote missing ${LANG} content for ${TODAY} - will commit"
           fi
         done
         
-        if [ "$REMOTE_HAS_CONTENT" = "true" ]; then
-          echo "💰 COST OPTIMIZATION: Today's content already exists in remote"
+        if [ "$ALL_LANGUAGES_EXIST" = "true" ]; then
+          echo "💰 COST OPTIMIZATION: All languages already exist in remote"
           echo "📊 Another workflow may have already committed - skipping commit"
           echo "✅ This is expected behavior for concurrent runs"
           exit 0
