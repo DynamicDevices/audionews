@@ -1,0 +1,302 @@
+#!/usr/bin/env python3
+"""
+Generate RSS feeds for podcast distribution (Spotify, Apple Podcasts, etc.)
+Creates RSS 2.0 compliant feeds for each language/service
+"""
+
+import os
+import xml.etree.ElementTree as ET
+from datetime import datetime, timezone
+from pathlib import Path
+import json
+import re
+from typing import Dict, List, Optional
+
+# Podcast configuration
+PODCAST_CONFIG = {
+    'en_GB': {
+        'title': 'AudioNews UK - Daily News Digest',
+        'description': 'Daily AI-enhanced news digest for visually impaired users. Professional Irish voice delivers concise summaries of UK news covering politics, economy, health, international affairs, climate, technology, and crime.',
+        'author': 'Dynamic Devices',
+        'email': 'info@audionews.uk',
+        'language': 'en-GB',
+        'category': 'News',
+        'subcategory': 'Daily News',
+        'explicit': 'no',
+        'image_url': 'https://audionews.uk/images/podcast-cover-en-gb.png',
+        'base_url': 'https://audionews.uk/en_GB'
+    },
+    'pl_PL': {
+        'title': 'AudioNews Polska - Codzienny Przegląd Wiadomości',
+        'description': 'Codzienny przegląd wiadomości audio generowany przez AI dla użytkowników z wadami wzroku. Profesjonalny polski głos dostarcza zwięzłe podsumowania polskich wiadomości.',
+        'author': 'Dynamic Devices',
+        'email': 'info@audionews.uk',
+        'language': 'pl-PL',
+        'category': 'News',
+        'subcategory': 'Daily News',
+        'explicit': 'no',
+        'image_url': 'https://audionews.uk/images/podcast-cover-pl-pl.png',
+        'base_url': 'https://audionews.uk/pl_PL'
+    },
+    'bella': {
+        'title': 'BellaNews - Business & Finance Daily Briefing',
+        'description': 'Personalized business and finance news digest for mathematics undergraduates interested in investment banking, VC finance, and business strategy. AI-enhanced analysis connecting news to career insights.',
+        'author': 'Dynamic Devices',
+        'email': 'info@audionews.uk',
+        'language': 'en-GB',
+        'category': 'Business',
+        'subcategory': 'Finance',
+        'explicit': 'no',
+        'image_url': 'https://audionews.uk/images/podcast-cover-bella.png',
+        'base_url': 'https://audionews.uk/bella'
+    }
+}
+
+def format_date_for_rss(dt: datetime) -> str:
+    """Format datetime as RFC 822 date for RSS"""
+    return dt.strftime('%a, %d %b %Y %H:%M:%S %z')
+
+
+def get_episode_date_from_filename(filename: str) -> Optional[datetime]:
+    """Extract date from filename like news_digest_ai_2026_01_19.mp3"""
+    match = re.search(r'(\d{4})_(\d{2})_(\d{2})', filename)
+    if match:
+        year, month, day = match.groups()
+        try:
+            # Create datetime at 6 AM UTC (when digest is published)
+            return datetime(int(year), int(month), int(day), 6, 0, 0, tzinfo=timezone.utc)
+        except ValueError:
+            return None
+    return None
+
+
+def get_file_size(filepath: str) -> int:
+    """Get file size in bytes"""
+    try:
+        return os.path.getsize(filepath)
+    except OSError:
+        return 0
+
+
+def read_transcript(transcript_path: str) -> Dict[str, str]:
+    """Read transcript and extract metadata"""
+    try:
+        with open(transcript_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Extract generation time
+        gen_match = re.search(r'Generated: (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})', content)
+        generated_time = None
+        if gen_match:
+            try:
+                generated_time = datetime.strptime(gen_match.group(1), '%Y-%m-%d %H:%M:%S')
+                generated_time = generated_time.replace(tzinfo=timezone.utc)
+            except ValueError:
+                pass
+        
+        # Extract main content (skip header)
+        parts = content.split('========================================')
+        main_content = parts[-1].strip() if len(parts) > 1 else content.strip()
+        
+        # Get first 200 chars for description
+        description = main_content[:200].replace('\n', ' ').strip()
+        if len(main_content) > 200:
+            description += '...'
+        
+        return {
+            'description': description,
+            'generated_time': generated_time,
+            'full_content': main_content
+        }
+    except Exception as e:
+        print(f"   ⚠️ Error reading transcript: {e}")
+        return {
+            'description': 'Daily news digest',
+            'generated_time': None,
+            'full_content': ''
+        }
+
+
+def generate_rss_feed(language: str, output_dir: str) -> str:
+    """Generate RSS feed for a language"""
+    config = PODCAST_CONFIG.get(language)
+    if not config:
+        raise ValueError(f"No podcast config for language: {language}")
+    
+    audio_dir = Path(output_dir) / 'audio'
+    transcript_dir = Path(output_dir)
+    
+    if not audio_dir.exists():
+        print(f"   ⚠️ Audio directory not found: {audio_dir}")
+        return None
+    
+    # Find all audio files
+    audio_files = sorted(audio_dir.glob('news_digest_ai_*.mp3'), reverse=True)
+    
+    if not audio_files:
+        print(f"   ⚠️ No audio files found in {audio_dir}")
+        return None
+    
+    # Limit to last 50 episodes (RSS best practice)
+    audio_files = audio_files[:50]
+    
+    print(f"   📻 Found {len(audio_files)} episodes")
+    
+    # Create RSS root
+    rss = ET.Element('rss', version='2.0')
+    rss.set('xmlns:itunes', 'http://www.itunes.com/dtds/podcast-1.0.dtd')
+    rss.set('xmlns:content', 'http://purl.org/rss/1.0/modules/content/')
+    rss.set('xmlns:atom', 'http://www.w3.org/2005/Atom')
+    
+    channel = ET.SubElement(rss, 'channel')
+    
+    # Channel metadata
+    ET.SubElement(channel, 'title').text = config['title']
+    ET.SubElement(channel, 'link').text = config['base_url']
+    ET.SubElement(channel, 'description').text = config['description']
+    ET.SubElement(channel, 'language').text = config['language']
+    ET.SubElement(channel, 'copyright').text = f"Copyright {datetime.now().year} {config['author']}"
+    ET.SubElement(channel, 'managingEditor').text = f"{config['email']} ({config['author']})"
+    ET.SubElement(channel, 'webMaster').text = config['email']
+    
+    # Atom link for self-reference
+    atom_link = ET.SubElement(channel, 'atom:link')
+    atom_link.set('href', f"{config['base_url']}/podcast.rss")
+    atom_link.set('rel', 'self')
+    atom_link.set('type', 'application/rss+xml')
+    
+    # iTunes metadata
+    ET.SubElement(channel, 'itunes:author').text = config['author']
+    ET.SubElement(channel, 'itunes:summary').text = config['description']
+    ET.SubElement(channel, 'itunes:explicit').text = config['explicit']
+    ET.SubElement(channel, 'itunes:type').text = 'episodic'
+    
+    # iTunes category
+    itunes_category = ET.SubElement(channel, 'itunes:category')
+    itunes_category.set('text', config['category'])
+    if 'subcategory' in config:
+        itunes_subcategory = ET.SubElement(itunes_category, 'itunes:category')
+        itunes_subcategory.set('text', config['subcategory'])
+    
+    # iTunes image
+    itunes_image = ET.SubElement(channel, 'itunes:image')
+    itunes_image.set('href', config['image_url'])
+    
+    # Channel image
+    image = ET.SubElement(channel, 'image')
+    ET.SubElement(image, 'url').text = config['image_url']
+    ET.SubElement(image, 'title').text = config['title']
+    ET.SubElement(image, 'link').text = config['base_url']
+    
+    # Generate time (now)
+    now = datetime.now(timezone.utc)
+    ET.SubElement(channel, 'lastBuildDate').text = format_date_for_rss(now)
+    ET.SubElement(channel, 'pubDate').text = format_date_for_rss(now)
+    ET.SubElement(channel, 'generator').text = 'AudioNews Podcast Generator'
+    
+    # Add episodes
+    for audio_file in audio_files:
+        episode_date = get_episode_date_from_filename(audio_file.name)
+        if not episode_date:
+            continue
+        
+        # Find corresponding transcript
+        transcript_file = transcript_dir / audio_file.name.replace('.mp3', '.txt')
+        transcript_data = read_transcript(str(transcript_file)) if transcript_file.exists() else {}
+        
+        # Episode URL
+        episode_url = f"{config['base_url']}/audio/{audio_file.name}"
+        
+        # Create item
+        item = ET.SubElement(channel, 'item')
+        
+        # Episode title
+        title = f"{config['title']} - {episode_date.strftime('%B %d, %Y')}"
+        ET.SubElement(item, 'title').text = title
+        
+        # Episode link
+        ET.SubElement(item, 'link').text = f"{config['base_url']}?date={episode_date.strftime('%Y-%m-%d')}"
+        
+        # Episode description
+        description = transcript_data.get('description', f"Daily news digest for {episode_date.strftime('%B %d, %Y')}")
+        ET.SubElement(item, 'description').text = description
+        
+        # Episode GUID (unique identifier)
+        guid = ET.SubElement(item, 'guid')
+        guid.text = episode_url
+        guid.set('isPermaLink', 'true')
+        
+        # Publication date
+        pub_date = transcript_data.get('generated_time') or episode_date
+        ET.SubElement(item, 'pubDate').text = format_date_for_rss(pub_date)
+        
+        # Enclosure (audio file)
+        file_size = get_file_size(str(audio_file))
+        enclosure = ET.SubElement(item, 'enclosure')
+        enclosure.set('url', episode_url)
+        enclosure.set('type', 'audio/mpeg')
+        enclosure.set('length', str(file_size))
+        
+        # iTunes episode metadata
+        ET.SubElement(item, 'itunes:title').text = title
+        ET.SubElement(item, 'itunes:summary').text = description
+        ET.SubElement(item, 'itunes:explicit').text = config['explicit']
+        ET.SubElement(item, 'itunes:duration').text = ''  # Could calculate from audio file
+        
+        # Content encoded (full transcript)
+        if transcript_data.get('full_content'):
+            content_encoded = ET.SubElement(item, 'content:encoded')
+            # Escape HTML and wrap in CDATA manually
+            escaped_content = transcript_data['full_content'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+            content_encoded.text = escaped_content
+    
+    # Convert to string
+    # Note: ET.indent() is only available in Python 3.9+
+    try:
+        ET.indent(rss, space='  ')
+    except AttributeError:
+        # Python < 3.9 - formatting will be less pretty but still valid
+        pass
+    
+    xml_string = ET.tostring(rss, encoding='utf-8', xml_declaration=True).decode('utf-8')
+    
+    return xml_string
+
+
+def main():
+    """Generate RSS feeds for all active languages"""
+    print("🎙️ Generating Podcast RSS Feeds\n")
+    
+    languages = {
+        'en_GB': 'docs/en_GB',
+        'pl_PL': 'docs/pl_PL',
+        'bella': 'docs/bella'
+    }
+    
+    for lang, output_dir in languages.items():
+        print(f"📻 Generating RSS for {lang}...")
+        try:
+            rss_content = generate_rss_feed(lang, output_dir)
+            if rss_content:
+                rss_path = Path(output_dir) / 'podcast.rss'
+                with open(rss_path, 'w', encoding='utf-8') as f:
+                    f.write(rss_content)
+                print(f"   ✅ Generated: {rss_path}")
+            else:
+                print(f"   ⚠️ Skipped {lang} - no content found")
+        except Exception as e:
+            print(f"   ❌ Error generating RSS for {lang}: {e}")
+    
+    print("\n✅ RSS feed generation complete!")
+    print("\n📋 Next steps:")
+    print("   1. Create podcast artwork (1400x1400px square images)")
+    print("   2. Upload artwork to docs/images/")
+    print("   3. Submit RSS feeds to Spotify: https://podcasters.spotify.com/")
+    print("   4. Submit to Apple Podcasts: https://podcastsconnect.apple.com/")
+    print("   5. RSS feeds are available at:")
+    for lang in languages.keys():
+        print(f"      - https://audionews.uk/{lang}/podcast.rss")
+
+
+if __name__ == '__main__':
+    main()
