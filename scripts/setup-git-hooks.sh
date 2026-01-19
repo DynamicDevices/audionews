@@ -93,13 +93,13 @@ for file in $STAGED_FILES; do
     
     # Check Python files
     if [[ "$file" == *.py ]]; then
-        check_python_syntax "$file"
-        check_python_issues "$file"
+        check_python_syntax "$file" || true  # Don't exit on error, continue checking
+        check_python_issues "$file" || true  # Don't exit on error, continue checking
     fi
     
     # Check JSON files
     if [[ "$file" == *.json ]]; then
-        check_json_syntax "$file"
+        check_json_syntax "$file" || true  # Don't exit on error, continue checking
     fi
 done
 
