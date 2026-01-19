@@ -176,8 +176,10 @@ def read_transcript(transcript_path: str) -> Dict[str, str]:
                     headline = headline.rstrip('.') + '...'
         
         # Get first 200 chars for description (after removing opening)
-        description = main_content[:200].replace('\n', ' ').strip()
-        if len(main_content) > 200:
+        # Clean up any leading dots/spaces first
+        main_content_clean = re.sub(r'^\.+\s*', '', main_content).strip()
+        description = main_content_clean[:200].replace('\n', ' ').strip()
+        if len(main_content_clean) > 200:
             description += '...'
         
         return {
