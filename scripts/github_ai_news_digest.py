@@ -821,15 +821,35 @@ class GitHubAINewsDigest:
         digest = re.sub(r'—', ', ', digest)
         # Replace en dashes (–) with commas as well
         digest = re.sub(r'–', ', ', digest)
+        
+        # CRITICAL: Fix section transitions to avoid pauses (especially for BellaNews)
+        # Replace periods before section transitions with semicolons or commas for smoother flow
+        if self.language == 'bella':
+            # Fix common section transition patterns that cause pauses
+            # Pattern: "...word. Turning to..." -> "...word; turning to..."
+            digest = re.sub(r'\.\s+(Turning to|On the|Meanwhile|For banking|For those|From a)', 
+                          r'; \1', digest, flags=re.IGNORECASE)
+            # Also fix: "...word. The..." when it's a continuation -> "...word, the..."
+            # But be careful - only do this for certain patterns
+            digest = re.sub(r'\.\s+(The|This|These|When|Understanding|From a banking)', 
+                          r', \1', digest, flags=re.IGNORECASE)
+        
+        # Remove quote marks (they cause TTS pauses)
+        digest = re.sub(r'["\']', '', digest)
+        
         # Replace any multiple spaces with single spaces (including after punctuation)
         digest = re.sub(r' +', ' ', digest)
         # Clean up any double commas that might result
         digest = re.sub(r', ,', ',', digest)
         digest = re.sub(r',,', ',', digest)
+        # Clean up semicolon-space-comma patterns
+        digest = re.sub(r';\s*,', ';', digest)
         # Remove space before comma if it exists (shouldn't happen, but just in case)
         digest = re.sub(r' ,', ',', digest)
-        # Ensure proper spacing after commas
+        # Ensure proper spacing after punctuation
+        digest = re.sub(r'\.([^\s])', r'. \1', digest)
         digest = re.sub(r',([^\s])', r', \1', digest)
+        digest = re.sub(r';([^\s])', r'; \1', digest)
         
         return digest
     
