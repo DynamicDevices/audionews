@@ -866,30 +866,53 @@ class GitHubAINewsDigest:
                     words = sentence.split()
                     # If sentence is over 40 words, try to break it at natural points
                     if len(words) > 40:
-                        # Try to break at semicolons, then commas, then conjunctions
-                        parts = re.split(r'([;,])\s+', sentence)
-                        current_part = ""
-                        for part in parts:
-                            if part in [';', ',']:
-                                current_part += part + " "
+                        # Break long sentences at natural points (conjunctions, transitions, commas)
+                        # Split on periods first to get sentence boundaries
+                        sentence_parts = re.split(r'([.!?]+\s+)', sentence)
+                        for sent_part in sentence_parts:
+                            if not sent_part.strip():
+                                continue
+                            sent_words = sent_part.split()
+                            if len(sent_words) > 30:
+                                # Break at commas or semicolons that are already there
+                                # Don't add new semicolons, just use existing punctuation
+                                parts = re.split(r'([,;])\s+', sent_part)
+                                current = ""
+                                for part in parts:
+                                    if part in [';', ',']:
+                                        current += part + " "
+                                    else:
+                                        test = current + part
+                                        test_words = test.split()
+                                        if len(test_words) > 25 and current.strip():
+                                            # Only break if we have a natural break point
+                                            # Clean up any double punctuation
+                                            cleaned = current.strip().rstrip(';,.')
+                                            if cleaned and not cleaned.endswith((';', ',')):
+                                                new_sentences.append(cleaned + ",")
+                                            current = part + " "
+                                        else:
+                                            current = test + " "
+                                if current.strip():
+                                    cleaned = current.strip().rstrip(';,.')
+                                    if cleaned:
+                                        new_sentences.append(cleaned)
                             else:
-                                test_part = current_part + part
-                                test_words = test_part.split()
-                                if len(test_words) > 30:
-                                    if current_part.strip():
-                                        # Use semicolon instead of period to avoid pause
-                                        new_sentences.append(current_part.strip() + ";")
-                                    current_part = part + " "
-                                else:
-                                    current_part = test_part + " "
-                        if current_part.strip():
-                            # Use semicolon instead of period to avoid pause
-                            new_sentences.append(current_part.strip() + ";")
+                                new_sentences.append(sent_part)
                     else:
                         new_sentences.append(sentence)
                 else:
                     new_sentences.append(sentence)
             digest = " ".join(new_sentences)
+        
+        # Clean up double punctuation patterns that cause pauses (especially for BellaNews)
+        if self.language == 'bella':
+            # Fix patterns like "word, ;" or "word; ," which cause awkward pauses
+            digest = re.sub(r',\s*;\s*', ', ', digest)  # Remove semicolon after comma
+            digest = re.sub(r';\s*,\s*', '; ', digest)  # Remove comma after semicolon
+            digest = re.sub(r';\s*;\s*', '; ', digest)  # Remove double semicolons
+            # Fix patterns like "Meanwhile, ;" or "Finland, ;"
+            digest = re.sub(r'([,;])\s*;\s+', r'\1 ', digest)
         
         # Replace any multiple spaces with single spaces (including after punctuation)
         digest = re.sub(r' +', ' ', digest)
