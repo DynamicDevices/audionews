@@ -412,11 +412,27 @@ jobs:
           fi
         done
         
-        if [ "$ALL_LANGUAGES_EXIST" = "true" ]; then
-          echo "💰 COST OPTIMIZATION: All languages already exist in remote"
+        # Even if audio files exist, we still need to check if HTML pages need updating
+        # Check if HTML pages are up to date
+        HTML_NEEDS_UPDATE=false
+        for LANG in en_GB pl_PL bella; do
+          if git diff --quiet docs/${LANG}/index.html 2>/dev/null; then
+            echo "✅ ${LANG} HTML page is up to date"
+          else
+            HTML_NEEDS_UPDATE=true
+            echo "📝 ${LANG} HTML page needs updating"
+          fi
+        done
+        
+        if [ "$ALL_LANGUAGES_EXIST" = "true" ] && [ "$HTML_NEEDS_UPDATE" = "false" ]; then
+          echo "💰 COST OPTIMIZATION: All languages already exist and HTML is up to date"
           echo "📊 Another workflow may have already committed - skipping commit"
           echo "✅ This is expected behavior for concurrent runs"
           exit 0
+        fi
+        
+        if [ "$ALL_LANGUAGES_EXIST" = "true" ] && [ "$HTML_NEEDS_UPDATE" = "true" ]; then
+          echo "📝 Audio files exist but HTML pages need updating - will commit HTML updates"
         fi
         
         # Add ONLY language-specific files to avoid conflicts
@@ -425,6 +441,9 @@ jobs:
         
         # Explicitly add RSS feeds to ensure they're always committed when updated
         git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
+        
+        # Explicitly add HTML pages to ensure they're always committed when updated
+        git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
         
         # Also add any files that might be in wrong location (for backward compatibility)
         git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
@@ -487,6 +506,7 @@ jobs:
                 # Re-add and recommit
                 git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
                 git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
+                git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
                 git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
                 git commit -m "🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
 
