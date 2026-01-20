@@ -424,6 +424,27 @@ class GitHubAINewsDigest:
                         text not in seen_headlines and
                         not text.lower().startswith(('cookie', 'accept', 'subscribe', 'sign up', 'follow us'))):
                         
+                        # For Polish content, filter out English-language headlines
+                        if self.language == 'pl_PL':
+                            # Exclude if source is an English news source
+                            english_sources = ['BBC', 'Guardian', 'Reuters', 'Sky News', 'Independent', 'Telegraph', 'Financial Times', 'Bloomberg']
+                            if any(eng_source.lower() in source_name.lower() for eng_source in english_sources):
+                                continue  # Skip English sources entirely for Polish content
+                            
+                            # Also filter headlines that are clearly in English
+                            # Check for common English words that wouldn't appear in Polish headlines
+                            english_indicators = [
+                                r'\b(the|and|or|but|in|on|at|to|for|of|with|by|from|as|is|are|was|were|be|been|being|have|has|had|do|does|did|will|would|could|should|may|might|must|can|this|that|these|those|a|an)\b',
+                                r'\b(breaking|news|update|latest|report|says|told|according|source)\b'
+                            ]
+                            # Count English words vs Polish characters
+                            english_word_count = sum(1 for pattern in english_indicators if re.search(pattern, text, re.IGNORECASE))
+                            polish_chars = len(re.findall(r'[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]', text))
+                            
+                            # If it has many English words and few Polish characters, likely English
+                            if english_word_count >= 3 and polish_chars < 2:
+                                continue  # Skip English headlines for Polish content
+                        
                         # Extract link
                         link = None
                         link_elem = element.find('a') or element.find_parent('a')
