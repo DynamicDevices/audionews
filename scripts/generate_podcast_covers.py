@@ -292,7 +292,7 @@ def main():
 
     for language in PODCAST_DESIGNS.keys():
         filename = filename_map.get(language, language.lower().replace('_', '-'))
-        output_path = output_dir / f'podcast-cover-{filename}.png'
+        output_path = output_dir / f'podcast-cover-{filename}-v2.png'
         try:
             generate_podcast_cover(language, output_path)
         except Exception as e:

@@ -25,7 +25,7 @@ PODCAST_CONFIG = {
         'subcategory': 'Daily News',
         'keywords': ['news', 'ai', 'techforgood', 'accessibility', 'uk news', 'daily news', 'audio news', 'visually impaired', 'blind', 'partially sighted', 'blind and partially sighted', 'assistive technology', 'screen reader', 'accessible news'],
         'explicit': 'no',
-        'image_url': 'https://audionews.uk/images/podcast-cover-en-gb.png',
+        'image_url': 'https://audionews.uk/images/podcast-cover-en-gb-v2.png',
         'base_url': 'https://audionews.uk/en_GB'
     },
     'pl_PL': {
@@ -39,7 +39,7 @@ PODCAST_CONFIG = {
         'subcategory': 'Daily News',
         'keywords': ['news', 'ai', 'techforgood', 'accessibility', 'polish news', 'wiadomości', 'dostępność', 'niewidomi', 'słabowidzący', 'niewidomi i słabowidzący', 'technologia wspomagająca', 'screen reader', 'dostępne wiadomości'],
         'explicit': 'no',
-        'image_url': 'https://audionews.uk/images/podcast-cover-pl-pl.png',
+        'image_url': 'https://audionews.uk/images/podcast-cover-pl-pl-v2.png',
         'base_url': 'https://audionews.uk/pl_PL'
     },
     'bella': {
@@ -53,7 +53,7 @@ PODCAST_CONFIG = {
         'subcategory': 'Finance',
         'keywords': ['news', 'ai', 'techforgood', 'business', 'finance', 'investment banking', 'vc', 'career', 'business strategy'],
         'explicit': 'no',
-        'image_url': 'https://audionews.uk/images/podcast-cover-bella.png',
+        'image_url': 'https://audionews.uk/images/podcast-cover-bella-v2.png',
         'base_url': 'https://audionews.uk/bella'
     }
 }
