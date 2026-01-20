@@ -140,6 +140,7 @@ def read_transcript(transcript_path: str) -> Dict[str, str]:
             r'^Good morning[^.]*\.\s*Here\'?s your[^.]*brought to you by Dynamic Devices\.?\s*',
             r'^Dzień dobry[^.]*\.\s*Oto Twój przegląd wiadomości[^.]*przygotowany przez Dynamic Devices\.?\s*',
             r'^Good morning Bella[^.]*\.\s*Heres your[^.]*brought to you by Dynamic Devices\.?\s*',
+            r'^Good morning Bella[^.]*\.\s*Here\'?s your[^.]*brought to you by Dynamic Devices\.?\s*',
         ]
         
         for pattern in opening_patterns:
@@ -147,6 +148,7 @@ def read_transcript(transcript_path: str) -> Dict[str, str]:
         
         # Clean up any leading whitespace or "In X news..." patterns that might remain
         main_content = re.sub(r'^\s*In\s+\w+\s+news[^.]*\.?\s*', '', main_content, flags=re.IGNORECASE | re.MULTILINE)
+        # Note: We keep "Looking at", "Turning to" etc. in the content as they're part of the actual content
         main_content = main_content.strip()
         
         # Extract headline/topic for more interesting episode titles
@@ -179,52 +181,74 @@ def read_transcript(transcript_path: str) -> Dict[str, str]:
         # Clean up any leading punctuation/spaces first (dots, semicolons, etc.)
         main_content_clean = re.sub(r'^[.;,:\s]+', '', main_content).strip()
         
-        # For better descriptions, try to find the first substantial sentence or paragraph
-        # Skip very short or generic opening phrases
+        # For better descriptions, extract the first substantial content
+        # This should be episode-specific, not generic
         description = ""
         
-        # Try to find first sentence that's at least 30 characters (skip very short phrases)
-        # Split by periods, semicolons, and exclamation marks
-        sentences = re.split(r'[.!?;]\s+', main_content_clean)
-        for sentence in sentences:
+        # Try to find first sentence that's at least 40 characters (skip very short phrases)
+        # Split by periods, semicolons, and exclamation marks, but preserve the content
+        sentences = re.split(r'([.!?;])\s+', main_content_clean)
+        # Reconstruct sentences with their punctuation
+        reconstructed_sentences = []
+        for i in range(0, len(sentences) - 1, 2):
+            if i + 1 < len(sentences):
+                reconstructed_sentences.append(sentences[i] + sentences[i + 1])
+            else:
+                reconstructed_sentences.append(sentences[i])
+        
+        # Find first substantial sentence
+        for i, sentence in enumerate(reconstructed_sentences):
             sentence = sentence.strip()
             # Skip very short sentences or generic phrases
-            if len(sentence) >= 30 and not re.match(r'^(Here\'?s|This|Daily|Today|Good morning)', sentence, re.IGNORECASE):
+            if len(sentence) >= 40 and not re.match(r'^(Here\'?s|This|Daily|Today|Good morning|This digest)', sentence, re.IGNORECASE):
                 description = sentence
-                # If it's a good sentence, try to add the next sentence for context
-                idx = sentences.index(sentence)
-                if idx < len(sentences) - 1:
-                    next_sentence = sentences[idx + 1].strip()
-                    if len(next_sentence) >= 20 and not re.match(r'^(This|Daily|Today)', next_sentence, re.IGNORECASE):
-                        description += ". " + next_sentence
+                # Add next sentence for context if available
+                if i < len(reconstructed_sentences) - 1:
+                    next_sentence = reconstructed_sentences[i + 1].strip()
+                    if len(next_sentence) >= 30 and not re.match(r'^(This|Daily|Today|For|This digest)', next_sentence, re.IGNORECASE):
+                        description += " " + next_sentence
+                        # Try to add one more if we have space
+                        if i + 1 < len(reconstructed_sentences) - 1 and len(description) < 200:
+                            third_sentence = reconstructed_sentences[i + 2].strip()
+                            if len(third_sentence) >= 20 and not re.match(r'^(This|Daily|Today|For|This digest)', third_sentence, re.IGNORECASE):
+                                description += " " + third_sentence
                 break
         
-        # Fallback to first 300 chars if no good sentence found
-        if not description or len(description) < 30:
-            # Try to get first meaningful paragraph (up to 300 chars)
-            description = main_content_clean[:300].replace('\n', ' ').strip()
+        # Fallback: get first 300-400 chars of meaningful content
+        if not description or len(description) < 40:
+            # Get first substantial chunk, skipping generic phrases
+            description = main_content_clean[:400].replace('\n', ' ').strip()
             # Remove any remaining generic opening phrases
-            description = re.sub(r'^(Here\'?s|This|Daily|Today)[^.]*\.\s*', '', description, flags=re.IGNORECASE).strip()
+            description = re.sub(r'^(Here\'?s|This|Daily|Today|Good morning)[^.]*\.\s*', '', description, flags=re.IGNORECASE).strip()
+            # If still starts with generic, find first capital letter after generic phrase
+            if re.match(r'^(This|Daily|Today)', description, re.IGNORECASE):
+                match = re.search(r'[A-Z][^.]{30,}', description)
+                if match:
+                    description = match.group(0)
         
         # Clean up description
         description = re.sub(r'\s+', ' ', description).strip()
         # Remove any trailing generic phrases
-        description = re.sub(r'\s+(This digest|Daily news digest|brought to you by)[^.]*\.?$', '', description, flags=re.IGNORECASE)
+        description = re.sub(r'\s+(This digest|Daily news digest|brought to you by|All content is original)[^.]*\.?$', '', description, flags=re.IGNORECASE)
+        description = re.sub(r'\s+For complete coverage[^.]*\.?$', '', description, flags=re.IGNORECASE)
         
+        # Ensure we have a good length (at least 50 chars, up to 300)
         if len(description) > 300:
             # Truncate at word boundary
             description = description[:297].rsplit(' ', 1)[0] + '...'
-        elif len(main_content_clean) > len(description) and len(description) < 150:
-            # If we have more content and description is short, add a bit more
+        elif len(description) < 50 and len(main_content_clean) > len(description):
+            # If description is too short, add more content
             remaining = main_content_clean[len(description):].strip()
             if remaining:
-                next_part = remaining[:150].replace('\n', ' ').strip()
-                # Remove generic phrases from next part too
-                next_part = re.sub(r'^(This|Daily|Today)[^.]*\.\s*', '', next_part, flags=re.IGNORECASE).strip()
-                if next_part and len(next_part) >= 20:
-                    description += " " + next_part
-                    if len(description) > 300:
-                        description = description[:297].rsplit(' ', 1)[0] + '...'
+                # Find next good sentence
+                next_sentences = re.split(r'[.!?;]\s+', remaining)
+                for next_sent in next_sentences:
+                    next_sent = next_sent.strip()
+                    if len(next_sent) >= 30 and not re.match(r'^(This|Daily|Today|For|This digest)', next_sent, re.IGNORECASE):
+                        description += " " + next_sent
+                        if len(description) > 300:
+                            description = description[:297].rsplit(' ', 1)[0] + '...'
+                        break
         
         return {
             'description': description,
