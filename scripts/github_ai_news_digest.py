@@ -929,12 +929,13 @@ class GitHubAINewsDigest:
         # Clean up double punctuation patterns that cause pauses (especially for BellaNews)
         if self.language == 'bella':
             # Fix patterns like "word, ;" or "word; ," which cause awkward pauses
-            digest = re.sub(r',\s*;\s*', ', ', digest)  # Remove semicolon after comma
-            digest = re.sub(r';\s*,\s*', '; ', digest)  # Remove comma after semicolon
-            digest = re.sub(r';\s*;\s*', '; ', digest)  # Remove double semicolons
-            digest = re.sub(r';\s*\.\s*', '. ', digest)  # Remove semicolon before period
-            digest = re.sub(r'\.\s*;\s*', '. ', digest)  # Remove semicolon after period
-            # Fix patterns like "Meanwhile, ;" or "Finland, ;"
+            # Order matters: fix most specific patterns first
+            digest = re.sub(r',\s*;\s*', ', ', digest)  # Remove semicolon after comma: ", ;" -> ", "
+            digest = re.sub(r';\s*\.\s*', '. ', digest)  # Remove semicolon before period: "; ." -> ". "
+            digest = re.sub(r';\s*,\s*', '; ', digest)  # Remove comma after semicolon: "; ," -> "; "
+            digest = re.sub(r';\s*;\s*', '; ', digest)  # Remove double semicolons: "; ;" -> "; "
+            digest = re.sub(r'\.\s*;\s*', '. ', digest)  # Remove semicolon after period: ". ;" -> ". "
+            # Fix patterns like "Meanwhile, ;" or "Finland, ;" (catch any remaining)
             digest = re.sub(r'([,;])\s*;\s+', r'\1 ', digest)
         
         # Replace any multiple spaces with single spaces (including after punctuation)
