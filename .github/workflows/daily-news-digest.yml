@@ -260,6 +260,7 @@ jobs:
           echo "🚀 Push event: Deploying code improvements without regenerating content"
         elif [ "${{ github.event_name }}" = "schedule" ]; then
           echo "⏰ Scheduled event: Content exists, no regeneration needed"
+          echo "📻 RSS feeds will still be regenerated to ensure they're up to date"
         else
           echo "🔄 Will redeploy existing content with any improvements"
         fi
@@ -448,10 +449,21 @@ jobs:
         # Also add any files that might be in wrong location (for backward compatibility)
         git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
         
+        # Always check if RSS feeds need updating (even if no new content)
+        RSS_UPDATED=false
+        for LANG in en_GB pl_PL bella; do
+          if git diff --staged docs/${LANG}/podcast.rss 2>/dev/null | grep -q .; then
+            RSS_UPDATED=true
+            echo "📻 ${LANG} RSS feed has been updated"
+          fi
+        done
+        
         # Create commit with date and stats
         if git diff --staged --quiet; then
           echo "💰 COST OPTIMIZATION: No new files to commit - content already exists"
           echo "📊 Estimated API cost savings: \$0.50-\$2.00"
+        elif [ "$RSS_UPDATED" = "true" ]; then
+          echo "📻 RSS feeds updated - will commit RSS changes"
         else
           # Check if we have audio files to get stats for enabled languages
           TOTAL_SIZE=0
