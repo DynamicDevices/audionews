@@ -932,6 +932,8 @@ class GitHubAINewsDigest:
             digest = re.sub(r',\s*;\s*', ', ', digest)  # Remove semicolon after comma
             digest = re.sub(r';\s*,\s*', '; ', digest)  # Remove comma after semicolon
             digest = re.sub(r';\s*;\s*', '; ', digest)  # Remove double semicolons
+            digest = re.sub(r';\s*\.\s*', '. ', digest)  # Remove semicolon before period
+            digest = re.sub(r'\.\s*;\s*', '. ', digest)  # Remove semicolon after period
             # Fix patterns like "Meanwhile, ;" or "Finland, ;"
             digest = re.sub(r'([,;])\s*;\s+', r'\1 ', digest)
         
