@@ -331,6 +331,8 @@ jobs:
     - name: 🎙️ Generate Podcast RSS Feeds
       run: |
         echo "🎙️ Generating RSS feeds for podcast distribution"
+        # Ensure Git LFS files are pulled for transcript access
+        git lfs pull || echo "⚠️ Git LFS pull failed (may continue if files already available)"
         python scripts/generate_podcast_rss.py || {
           echo "⚠️ RSS generation failed (non-critical - continuing)"
           exit 0
