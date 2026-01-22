@@ -277,6 +277,7 @@ jobs:
         fi
     
     - name: 🌐 Update language-specific HTML pages
+      # Always run this step, even if content already exists, to ensure HTML is up to date
       run: |
         echo "🌐 Updating language-specific HTML pages with today's content"
         
@@ -285,10 +286,16 @@ jobs:
         
         for LANG in "${ALL_LANGUAGES[@]}"; do
           echo "📝 Updating ${LANG} page..."
-          python3 scripts/update_language_website.py --language ${LANG} || echo "⚠️ ${LANG} page update skipped (may not exist yet)"
+          # Check if today's content exists before updating
+          TODAY=$(date +%Y_%m_%d)
+          if [ -f "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ] && [ -f "docs/${LANG}/news_digest_ai_${TODAY}.txt" ]; then
+            python3 scripts/update_language_website.py --language ${LANG} || echo "⚠️ ${LANG} page update failed"
+          else
+            echo "⚠️ ${LANG} content for today not found - HTML update skipped (content may not have been generated)"
+          fi
         done
         
-        echo "✅ All language pages updated"
+        echo "✅ Language pages update completed"
     
     - name: 📱 Verify files in correct locations
       run: |
@@ -329,12 +336,15 @@ jobs:
         fi
     
     - name: 🎙️ Generate Podcast RSS Feeds
+      # Always run this step to ensure RSS feeds are always up to date with latest episodes
       run: |
         echo "🎙️ Generating RSS feeds for podcast distribution"
+        echo "📻 This step always runs to ensure RSS feeds are current, even if content already exists"
         # Ensure Git LFS files are pulled for transcript access
         git lfs pull || echo "⚠️ Git LFS pull failed (may continue if files already available)"
         python scripts/generate_podcast_rss.py || {
-          echo "⚠️ RSS generation failed (non-critical - continuing)"
+          echo "❌ RSS generation failed - this is critical for podcast updates"
+          echo "⚠️ Attempting to continue, but RSS feeds may not be updated"
           exit 0
         }
         echo "✅ RSS feeds generated successfully"
@@ -415,27 +425,59 @@ jobs:
           fi
         done
         
-        # Even if audio files exist, we still need to check if HTML pages need updating
-        # Check if HTML pages are up to date
+        # Even if audio files exist, we still need to check if HTML pages and RSS feeds need updating
+        # Check if HTML pages contain today's date (not just if they changed from HEAD)
         HTML_NEEDS_UPDATE=false
+        TODAY_FORMATTED=$(date +%Y-%m-%d)
+        TODAY_ALT_FORMAT=$(date +"%B %d, %Y")
         for LANG in en_GB pl_PL bella; do
-          if git diff --quiet docs/${LANG}/index.html 2>/dev/null; then
-            echo "✅ ${LANG} HTML page is up to date"
+          if [ -f "docs/${LANG}/index.html" ]; then
+            # Check if HTML contains today's date in various formats
+            if grep -q "$TODAY_FORMATTED\|$TODAY_ALT_FORMAT" "docs/${LANG}/index.html" 2>/dev/null; then
+              echo "✅ ${LANG} HTML page already contains today's date"
+            else
+              HTML_NEEDS_UPDATE=true
+              echo "📝 ${LANG} HTML page needs updating for today ($TODAY_FORMATTED)"
+            fi
           else
             HTML_NEEDS_UPDATE=true
-            echo "📝 ${LANG} HTML page needs updating"
+            echo "📝 ${LANG} HTML page missing - needs creation"
           fi
         done
         
-        if [ "$ALL_LANGUAGES_EXIST" = "true" ] && [ "$HTML_NEEDS_UPDATE" = "false" ]; then
-          echo "💰 COST OPTIMIZATION: All languages already exist and HTML is up to date"
+        # Check if RSS feeds need updating by checking their lastBuildDate
+        RSS_NEEDS_UPDATE=false
+        for LANG in en_GB pl_PL bella; do
+          if [ -f "docs/${LANG}/podcast.rss" ]; then
+            # Check if RSS feed contains today's date in lastBuildDate or pubDate
+            if grep -q "<lastBuildDate>.*$(date +%d.*%b.*%Y)" "docs/${LANG}/podcast.rss" 2>/dev/null || \
+               grep -q "<pubDate>.*$(date +%d.*%b.*%Y)" "docs/${LANG}/podcast.rss" 2>/dev/null; then
+              echo "✅ ${LANG} RSS feed already updated for today"
+            else
+              RSS_NEEDS_UPDATE=true
+              echo "📻 ${LANG} RSS feed needs updating for today"
+            fi
+          else
+            RSS_NEEDS_UPDATE=true
+            echo "📻 ${LANG} RSS feed missing - needs creation"
+          fi
+        done
+        
+        # Only skip commit if ALL of the following are true:
+        # 1. All audio files exist
+        # 2. All HTML pages are up to date
+        # 3. All RSS feeds are up to date
+        if [ "$ALL_LANGUAGES_EXIST" = "true" ] && [ "$HTML_NEEDS_UPDATE" = "false" ] && [ "$RSS_NEEDS_UPDATE" = "false" ]; then
+          echo "💰 COST OPTIMIZATION: All content already exists and is up to date"
           echo "📊 Another workflow may have already committed - skipping commit"
           echo "✅ This is expected behavior for concurrent runs"
           exit 0
         fi
         
-        if [ "$ALL_LANGUAGES_EXIST" = "true" ] && [ "$HTML_NEEDS_UPDATE" = "true" ]; then
-          echo "📝 Audio files exist but HTML pages need updating - will commit HTML updates"
+        if [ "$ALL_LANGUAGES_EXIST" = "true" ]; then
+          if [ "$HTML_NEEDS_UPDATE" = "true" ] || [ "$RSS_NEEDS_UPDATE" = "true" ]; then
+            echo "📝 Audio files exist but HTML/RSS need updating - will commit updates"
+          fi
         fi
         
         # Add ONLY language-specific files to avoid conflicts
@@ -451,12 +493,17 @@ jobs:
         # Also add any files that might be in wrong location (for backward compatibility)
         git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
         
-        # Always check if RSS feeds need updating (even if no new content)
+        # Always check if RSS feeds or HTML pages were staged for commit
         RSS_UPDATED=false
+        HTML_UPDATED=false
         for LANG in en_GB pl_PL bella; do
           if git diff --staged docs/${LANG}/podcast.rss 2>/dev/null | grep -q .; then
             RSS_UPDATED=true
-            echo "📻 ${LANG} RSS feed has been updated"
+            echo "📻 ${LANG} RSS feed has been updated and staged"
+          fi
+          if git diff --staged docs/${LANG}/index.html 2>/dev/null | grep -q .; then
+            HTML_UPDATED=true
+            echo "🌐 ${LANG} HTML page has been updated and staged"
           fi
         done
         
@@ -464,10 +511,84 @@ jobs:
         if git diff --staged --quiet; then
           echo "💰 COST OPTIMIZATION: No new files to commit - content already exists"
           echo "📊 Estimated API cost savings: \$0.50-\$2.00"
-        elif [ "$RSS_UPDATED" = "true" ]; then
-          echo "📻 RSS feeds updated - will commit RSS changes"
+          exit 0
+        elif [ "$RSS_UPDATED" = "true" ] || [ "$HTML_UPDATED" = "true" ]; then
+          # Commit RSS/HTML updates even if audio files already exist
+          COMMIT_MSG="🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
+
+          📊 Generated: $(date '+%Y-%m-%d %H:%M UTC')"
+          if [ "$RSS_UPDATED" = "true" ]; then
+            COMMIT_MSG="${COMMIT_MSG}
+          📻 Podcast: RSS feeds updated"
+          fi
+          if [ "$HTML_UPDATED" = "true" ]; then
+            COMMIT_MSG="${COMMIT_MSG}
+          🌐 Website: HTML pages updated"
+          fi
+          if [ "$ALL_LANGUAGES_EXIST" = "false" ]; then
+            # Calculate audio stats if we have new audio files
+            TOTAL_SIZE=0
+            LANG_STATS=""
+            for LANG in en_GB pl_PL bella; do
+              if ls docs/${LANG}/audio/news_digest_ai_*.mp3 1> /dev/null 2>&1; then
+                audio_file=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 | head -1)
+                size_bytes=$(stat -c%s "$audio_file")
+                size_human=$(numfmt --to=iec $size_bytes)
+                TOTAL_SIZE=$((TOTAL_SIZE + size_bytes))
+                LANG_STATS="${LANG_STATS}${LANG}: ${size_human} "
+              fi
+            done
+            total_size_human=$(numfmt --to=iec $TOTAL_SIZE)
+            COMMIT_MSG="${COMMIT_MSG}
+          🎧 Audio: ${total_size_human} total (${LANG_STATS})"
+          fi
+          COMMIT_MSG="${COMMIT_MSG}
+          🤖 AI: Enhanced analysis
+          ♿ Accessibility: Optimized for visually impaired users"
+          
+          git commit -m "$COMMIT_MSG"
+          
+          # Push with retry logic
+          MAX_PUSH_RETRIES=3
+          PUSH_RETRY=0
+          while [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; do
+            if git push; then
+              echo "✅ Files committed and pushed successfully"
+              break
+            else
+              PUSH_RETRY=$((PUSH_RETRY + 1))
+              if [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; then
+                echo "⚠️ Push attempt $PUSH_RETRY failed, pulling latest and retrying..."
+                git fetch origin main
+                git reset --hard HEAD~1
+                git pull --rebase origin main || git reset --hard origin/main
+                git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
+                git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
+                git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
+                git commit -m "$COMMIT_MSG" || echo "⚠️ No changes to commit after rebase"
+              else
+                echo "⚠️ Push failed after $MAX_PUSH_RETRIES attempts"
+              fi
+            fi
+          done
         else
-          # Check if we have audio files to get stats for enabled languages
+          # New audio files exist (and possibly RSS/HTML updates too)
+          # Build commit message
+          COMMIT_MSG="🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
+
+          📊 Generated: $(date '+%Y-%m-%d %H:%M UTC')"
+          
+          # Add RSS/HTML update info if they were updated
+          if [ "$RSS_UPDATED" = "true" ]; then
+            COMMIT_MSG="${COMMIT_MSG}
+          📻 Podcast: RSS feeds updated"
+          fi
+          if [ "$HTML_UPDATED" = "true" ]; then
+            COMMIT_MSG="${COMMIT_MSG}
+          🌐 Website: HTML pages updated"
+          fi
+          
+          # Calculate audio stats for new audio files
           TOTAL_SIZE=0
           LANG_STATS=""
           for LANG in en_GB pl_PL bella; do
@@ -480,14 +601,13 @@ jobs:
             fi
           done
           total_size_human=$(numfmt --to=iec $TOTAL_SIZE)
-          
-          git commit -m "🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
-
-          📊 Generated: $(date '+%Y-%m-%d %H:%M UTC')
+          COMMIT_MSG="${COMMIT_MSG}
           🎧 Audio: ${total_size_human} total (${LANG_STATS})
           🤖 AI: Enhanced analysis
           🌐 Website: Updated with accessible newspaper layout
           ♿ Accessibility: Optimized for visually impaired users"
+          
+          git commit -m "$COMMIT_MSG"
           
           # Push with retry logic for concurrent runs
           MAX_PUSH_RETRIES=3
@@ -522,13 +642,7 @@ jobs:
                 git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
                 git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
                 git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
-                git commit -m "🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
-
-          📊 Generated: $(date '+%Y-%m-%d %H:%M UTC')
-          🎧 Audio: ${total_size_human} total (${LANG_STATS})
-          🤖 AI: Enhanced analysis
-          🌐 Website: Updated with accessible newspaper layout
-          ♿ Accessibility: Optimized for visually impaired users" || echo "⚠️ No changes to commit after rebase"
+                git commit -m "$COMMIT_MSG" || echo "⚠️ No changes to commit after rebase"
               else
                 echo "⚠️ Push failed after $MAX_PUSH_RETRIES attempts - another workflow may have already pushed"
                 echo "✅ This is acceptable for concurrent runs"
