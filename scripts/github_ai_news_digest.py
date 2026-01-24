@@ -938,8 +938,39 @@ class GitHubAINewsDigest:
             # Fix patterns like "Meanwhile, ;" or "Finland, ;" (catch any remaining)
             digest = re.sub(r'([,;])\s*;\s+', r'\1 ', digest)
         
+        # CRITICAL: Fix compound place names to prevent unwanted pauses
+        # Edge TTS sometimes pauses between words in compound names (e.g., "Greater Manchester")
+        # Solution: Use non-breaking space (U+00A0) or hyphen to join compound names
+        # This helps Edge TTS understand they're a single unit
+        compound_place_names = [
+            # UK place names
+            (r'\bGreater\s+Manchester\b', 'Greater\u00A0Manchester'),  # Non-breaking space
+            (r'\bWest\s+Midlands\b', 'West\u00A0Midlands'),
+            (r'\bEast\s+Anglia\b', 'East\u00A0Anglia'),
+            (r'\bNorth\s+West\b', 'North\u00A0West'),
+            (r'\bSouth\s+East\b', 'South\u00A0East'),
+            (r'\bSouth\s+West\b', 'South\u00A0West'),
+            (r'\bNorth\s+East\b', 'North\u00A0East'),
+            (r'\bYorkshire\s+and\s+the\s+Humber\b', 'Yorkshire\u00A0and\u00A0the\u00A0Humber'),
+            # Common compound names
+            (r'\bPrime\s+Minister\b', 'Prime\u00A0Minister'),
+            (r'\bDeputy\s+Prime\s+Minister\b', 'Deputy\u00A0Prime\u00A0Minister'),
+            (r'\bHouse\s+of\s+Lords\b', 'House\u00A0of\u00A0Lords'),
+            (r'\bHouse\s+of\s+Commons\b', 'House\u00A0of\u00A0Commons'),
+            (r'\bEuropean\s+Union\b', 'European\u00A0Union'),
+            (r'\bUnited\s+States\b', 'United\u00A0States'),
+            (r'\bUnited\s+Kingdom\b', 'United\u00A0Kingdom'),
+            (r'\bNational\s+Health\s+Service\b', 'National\u00A0Health\u00A0Service'),
+            (r'\bNHS\b', 'N\u00A0H\u00A0S'),  # Prevent pause between letters in acronyms
+        ]
+        
+        for pattern, replacement in compound_place_names:
+            digest = re.sub(pattern, replacement, digest, flags=re.IGNORECASE)
+        
         # Replace any multiple spaces with single spaces (including after punctuation)
-        digest = re.sub(r' +', ' ', digest)
+        # But preserve non-breaking spaces (\u00A0) we just added for compound names
+        # First normalize regular spaces, then ensure non-breaking spaces are preserved
+        digest = re.sub(r'[ \t]+', ' ', digest)  # Only replace regular spaces/tabs, not \u00A0
         # Clean up any double commas that might result
         digest = re.sub(r', ,', ',', digest)
         digest = re.sub(r',,', ',', digest)
