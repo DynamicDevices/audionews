@@ -940,11 +940,11 @@ class GitHubAINewsDigest:
         
         # CRITICAL: Fix compound place names to prevent unwanted pauses
         # Edge TTS sometimes pauses between words in compound names (e.g., "Greater Manchester")
-        # Solution: Use non-breaking space (U+00A0) or hyphen to join compound names
+        # Solution: Use non-breaking space (U+00A0) to join compound names
         # This helps Edge TTS understand they're a single unit
         compound_place_names = [
             # UK place names
-            (r'\bGreater\s+Manchester\b', 'Greater\u00A0Manchester'),  # Non-breaking space
+            (r'\bGreater\s+Manchester\b', 'Greater\u00A0Manchester'),
             (r'\bWest\s+Midlands\b', 'West\u00A0Midlands'),
             (r'\bEast\s+Anglia\b', 'East\u00A0Anglia'),
             (r'\bNorth\s+West\b', 'North\u00A0West'),
@@ -961,11 +961,100 @@ class GitHubAINewsDigest:
             (r'\bUnited\s+States\b', 'United\u00A0States'),
             (r'\bUnited\s+Kingdom\b', 'United\u00A0Kingdom'),
             (r'\bNational\s+Health\s+Service\b', 'National\u00A0Health\u00A0Service'),
-            (r'\bNHS\b', 'N\u00A0H\u00A0S'),  # Prevent pause between letters in acronyms
+            (r'\bWorld\s+Cup\b', 'World\u00A0Cup'),
+            (r'\bChagos\s+Islands\b', 'Chagos\u00A0Islands'),
         ]
         
         for pattern, replacement in compound_place_names:
             digest = re.sub(pattern, replacement, digest, flags=re.IGNORECASE)
+        
+        # CRITICAL: Fix common abbreviations to prevent letter-by-letter spelling
+        # Edge TTS may spell out abbreviations letter-by-letter, causing unnatural pauses
+        # Solution: Use non-breaking spaces between letters for acronyms that should be read as words
+        # For abbreviations that should be spelled out, ensure smooth flow
+        abbreviations = [
+            # Acronyms that should be read as words (use non-breaking spaces)
+            (r'\bNATO\b', 'N\u00A0A\u00A0T\u00A0O'),  # Spell out: N-A-T-O
+            (r'\bNHS\b', 'N\u00A0H\u00A0S'),  # Spell out: N-H-S
+            (r'\bBBC\b', 'B\u00A0B\u00A0C'),  # Spell out: B-B-C
+            (r'\bEU\b', 'E\u00A0U'),  # Spell out: E-U
+            (r'\bUK\b', 'U\u00A0K'),  # Spell out: U-K
+            (r'\bUS\b', 'U\u00A0S'),  # Spell out: U-S
+            (r'\bMP\b', 'M\u00A0P'),  # Spell out: M-P
+            (r'\bMPs\b', 'M\u00A0P\u00A0s'),  # Spell out: M-P-s
+            (r'\bCEO\b', 'C\u00A0E\u00A0O'),  # Spell out: C-E-O
+            (r'\bGDP\b', 'G\u00A0D\u00A0P'),  # Spell out: G-D-P
+        ]
+        
+        for pattern, replacement in abbreviations:
+            digest = re.sub(pattern, replacement, digest)
+        
+        # CRITICAL: Fix possessive forms that may cause pauses
+        # "Ukraines" -> "Ukraine's" (with apostrophe) or "Ukraine" depending on context
+        # Edge TTS handles apostrophes better than missing them
+        digest = re.sub(r'\bUkraines\b', "Ukraine's", digest, flags=re.IGNORECASE)
+        
+        # CRITICAL: Fix "Heres" -> "Here's" for better TTS pronunciation
+        digest = re.sub(r'\bHeres\b', "Here's", digest, flags=re.IGNORECASE)
+        
+        # CRITICAL: Break up extremely long sentences (over 100 words) for ALL languages
+        # Very long sentences cause unnatural pauses and slow speech rate
+        # The existing sentence breaking logic for 'bella' only handles up to 40 words
+        # This handles the extreme cases (100+ words) that can occur in any language
+        # Split at semicolons first, then at commas if still too long
+        if self.language != 'bella':  # 'bella' already has sentence breaking logic above
+            sentences = re.split(r'([.!?]+\s+)', digest)
+            new_sentences = []
+            for sentence in sentences:
+                if sentence.strip() and len(sentence.strip()) > 2:
+                    words = sentence.split()
+                    # If sentence is extremely long (over 100 words), break it up
+                    if len(words) > 100:
+                        # First try breaking at semicolons (they're already there for section transitions)
+                        parts = re.split(r'([;])\s+', sentence)
+                        current = ""
+                        for part in parts:
+                            if part == ';':
+                                if current.strip():
+                                    new_sentences.append(current.strip() + ';')
+                                current = ""
+                            else:
+                                test = current + part
+                                test_words = test.split()
+                                # If this part alone is still too long, break at commas
+                                if len(test_words) > 80:
+                                    if current.strip():
+                                        new_sentences.append(current.strip() + ',')
+                                    # Break the long part at commas
+                                    comma_parts = re.split(r'([,;])\s+', part)
+                                    sub_current = ""
+                                    for sub_part in comma_parts:
+                                        if sub_part in [',', ';']:
+                                            if sub_current.strip():
+                                                new_sentences.append(sub_current.strip() + sub_part)
+                                            sub_current = ""
+                                        else:
+                                            sub_test = sub_current + sub_part
+                                            sub_test_words = sub_test.split()
+                                            if len(sub_test_words) > 50 and sub_current.strip():
+                                                new_sentences.append(sub_current.strip() + ',')
+                                                sub_current = sub_part + " "
+                                            else:
+                                                sub_current = sub_test + " "
+                                    if sub_current.strip():
+                                        new_sentences.append(sub_current.strip())
+                                    current = ""
+                                else:
+                                    current = test + " "
+                        if current.strip():
+                            new_sentences.append(current.strip())
+                    else:
+                        new_sentences.append(sentence)
+                else:
+                    new_sentences.append(sentence)
+            
+            if new_sentences:
+                digest = " ".join(new_sentences)
         
         # Replace any multiple spaces with single spaces (including after punctuation)
         # But preserve non-breaking spaces (\u00A0) we just added for compound names
