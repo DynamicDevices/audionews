@@ -574,10 +574,29 @@ jobs:
         git lfs pull || echo "⚠️ Git LFS pull failed (may continue if files already available)"
         python scripts/generate_podcast_rss.py || echo "⚠️ RSS regeneration failed after pull"
         
-        # Now stage the re-applied HTML and RSS files
-        echo "📝 Staging HTML and RSS files after pull and re-application..."
+        # CRITICAL: git pull --rebase can UNSTAGE files, so we MUST re-stage everything after pull
+        # Even if we staged before pull and re-applied after pull, the rebase operation can reset staging
+        # We ALWAYS stage HTML and RSS files after pull to ensure they're committed
+        echo "📝 Re-staging HTML and RSS files after pull (rebase may have unstaged them)..."
         git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
         git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
+        
+        # Verify files are actually staged (debug output)
+        echo "🔍 Verifying staged files..."
+        for LANG in en_GB pl_PL bella; do
+          if git diff --staged --name-only | grep -q "docs/${LANG}/index.html"; then
+            echo "✅ ${LANG}/index.html is staged"
+          else
+            echo "⚠️ ${LANG}/index.html is NOT staged - attempting to stage again..."
+            git add "docs/${LANG}/index.html" 2>/dev/null || echo "❌ Failed to stage ${LANG}/index.html"
+          fi
+          if git diff --staged --name-only | grep -q "docs/${LANG}/podcast.rss"; then
+            echo "✅ ${LANG}/podcast.rss is staged"
+          else
+            echo "⚠️ ${LANG}/podcast.rss is NOT staged - attempting to stage again..."
+            git add "docs/${LANG}/podcast.rss" 2>/dev/null || echo "❌ Failed to stage ${LANG}/podcast.rss"
+          fi
+        done
         
         # Check if today's content already exists in remote (another workflow may have already committed)
         # Only skip if ALL languages already exist (not just some)
@@ -603,16 +622,24 @@ jobs:
           fi
         done
         
-        # Also check if HTML actually changed after re-application
+        # CRITICAL: Always check if HTML actually changed after re-application
+        # We must check regardless of the pre-pull HTML_NEEDS_UPDATE value because:
+        # 1. HTML update step ran earlier and updated files
+        # 2. git pull --rebase may have overwritten them
+        # 3. We re-applied updates based on HTML_NEEDS_UPDATE_AFTER_PULL
+        # 4. We need to check if the re-applied files actually changed
         HTML_ACTUALLY_CHANGED=false
-        if [ "$HTML_NEEDS_UPDATE" = "true" ]; then
-          for LANG in en_GB pl_PL bella; do
-            if git diff --staged docs/${LANG}/index.html 2>/dev/null | grep -q .; then
-              HTML_ACTUALLY_CHANGED=true
-              echo "🌐 ${LANG} HTML page has changes to commit"
+        for LANG in en_GB pl_PL bella; do
+          if git diff --staged docs/${LANG}/index.html 2>/dev/null | grep -q .; then
+            HTML_ACTUALLY_CHANGED=true
+            echo "🌐 ${LANG} HTML page has changes to commit"
+          else
+            # Check if HTML was re-applied but shows no diff (might mean it's identical to remote)
+            if [ "$HTML_NEEDS_UPDATE_AFTER_PULL" = "true" ]; then
+              echo "⚠️ ${LANG} HTML was re-applied but shows no staged changes - may be identical to remote"
             fi
-          done
-        fi
+          fi
+        done
         
         # Only skip commit if ALL of the following are true:
         # 1. All audio files exist
