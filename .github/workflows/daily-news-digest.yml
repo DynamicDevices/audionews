@@ -526,15 +526,46 @@ jobs:
         # 3. git pull --rebase may have overwritten those updates with remote versions
         # 4. We need to re-apply the updates to ensure we commit the latest versions
         
-        # Always re-apply HTML updates if needed (git pull may have overwritten them)
-        if [ "$HTML_NEEDS_UPDATE" = "true" ]; then
+        # CRITICAL: Always re-apply HTML updates after pull (not just if HTML_NEEDS_UPDATE was true)
+        # Reason: The HTML update step ran earlier and updated files, but git pull --rebase may have
+        # overwritten them. We need to ensure HTML is always up-to-date with today's content.
+        # Re-check if HTML needs updating AFTER pull (pull may have overwritten our updates)
+        echo "🔄 Re-checking and re-applying HTML updates after pull..."
+        TODAY=$(date +%Y_%m_%d)
+        TODAY_FORMATTED=$(date +%Y-%m-%d)
+        TODAY_ALT_FORMAT=$(date +"%B %d, %Y")
+        HTML_NEEDS_UPDATE_AFTER_PULL=false
+        for LANG in en_GB pl_PL bella; do
+          if [ -f "docs/${LANG}/index.html" ]; then
+            # Check if HTML contains today's date AFTER pull
+            if ! grep -q "$TODAY_FORMATTED\|$TODAY_ALT_FORMAT" "docs/${LANG}/index.html" 2>/dev/null; then
+              HTML_NEEDS_UPDATE_AFTER_PULL=true
+              echo "📝 ${LANG} HTML page missing today's date after pull - will update"
+            fi
+          else
+            HTML_NEEDS_UPDATE_AFTER_PULL=true
+            echo "📝 ${LANG} HTML page missing after pull - will create"
+          fi
+        done
+        
+        # Re-apply HTML updates if needed (after pull check)
+        if [ "$HTML_NEEDS_UPDATE_AFTER_PULL" = "true" ]; then
           echo "🔄 Re-applying HTML updates after pull..."
+          git lfs pull || echo "⚠️ Git LFS pull failed (may continue if files already available)"
           for LANG in en_GB pl_PL bella; do
-            TODAY=$(date +%Y_%m_%d)
             if [ -f "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ] && [ -f "docs/${LANG}/news_digest_ai_${TODAY}.txt" ]; then
-              python3 scripts/update_language_website.py --language ${LANG} || echo "⚠️ ${LANG} HTML update failed after pull"
+              if python3 scripts/update_language_website.py --language ${LANG}; then
+                echo "✅ ${LANG} HTML page updated successfully after pull"
+              else
+                echo "❌ ${LANG} HTML update failed after pull"
+                exit 1
+              fi
+            else
+              echo "⚠️ ${LANG} content files not found - cannot update HTML"
             fi
           done
+        else
+          echo "✅ All HTML pages already contain today's date after pull"
         fi
         
         # Always re-generate RSS feeds after pull (they're always regenerated anyway)
