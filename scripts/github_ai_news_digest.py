@@ -63,7 +63,7 @@ LANGUAGE_CONFIGS = {
         'themes': ['politics', 'economy', 'health', 'international', 'climate', 'technology', 'crime'],
         'output_dir': 'docs/en_GB',
         'audio_dir': 'docs/en_GB/audio',
-        'service_name': 'AudioNews UK'
+        'service_name': 'AudioNews Daily'
     },
     'fr_FR': {
         'name': 'French (France)',
@@ -166,7 +166,7 @@ LANGUAGE_CONFIGS = {
         'themes': ['polityka', 'ekonomia', 'zdrowie', 'międzynarodowe', 'klimat', 'technologia', 'przestępczość'],
         'output_dir': 'docs/pl_PL',
         'audio_dir': 'docs/pl_PL/audio',
-        'service_name': 'AudioNews Polska'
+        'service_name': 'AudioNews Polska Daily'
     },
     'en_GB_LON': {
         'name': 'English (London)',
@@ -220,7 +220,7 @@ LANGUAGE_CONFIGS = {
         'themes': ['markets', 'investment_banking', 'venture_capital', 'fintech', 'corporate_finance', 'economics', 'startups', 'technology'],
         'output_dir': 'docs/bella',
         'audio_dir': 'docs/bella/audio',
-        'service_name': 'BellaNews - Your Business & Finance Briefing'
+        'service_name': 'BellaNews Daily'
     }
 }
 

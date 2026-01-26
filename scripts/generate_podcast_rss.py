@@ -15,7 +15,7 @@ from typing import Dict, List, Optional
 # Podcast configuration
 PODCAST_CONFIG = {
     'en_GB': {
-        'title': 'AudioNews UK - Daily News Digest',
+        'title': 'AudioNews Daily',
         'description': 'Daily AI-enhanced news digest for blind and partially sighted users. Professional Irish voice delivers concise summaries of UK news covering politics, economy, health, international affairs, climate, technology, and crime.',
         'subtitle': 'AI-powered daily UK news podcast for blind and partially sighted users. Tech for good delivering accessible news summaries.',
         'author': 'Dynamic Devices',
@@ -29,7 +29,7 @@ PODCAST_CONFIG = {
         'base_url': 'https://audionews.uk/en_GB'
     },
     'pl_PL': {
-        'title': 'AudioNews Polska - Codzienny Przegląd Wiadomości',
+        'title': 'AudioNews Polska Daily',
         'description': 'Codzienny przegląd wiadomości audio generowany przez AI dla osób niewidomych i słabowidzących. Profesjonalny polski głos dostarcza zwięzłe podsumowania polskich wiadomości.',
         'subtitle': 'Codzienne wiadomości z Polski generowane przez AI. Technologia dla dobra - dostępne wiadomości audio.',
         'author': 'Dynamic Devices',
@@ -43,7 +43,7 @@ PODCAST_CONFIG = {
         'base_url': 'https://audionews.uk/pl_PL'
     },
     'bella': {
-        'title': 'BellaNews - Daily News for Undergraduate Business and Finance',
+        'title': 'BellaNews Daily',
         'description': 'Daily news for undergraduate business and finance students. Personalized business and finance news digest for mathematics undergraduates interested in investment banking, VC finance, and business strategy. AI-enhanced analysis connecting news to career insights.',
         'subtitle': 'Daily news for undergraduate business and finance. AI-powered analysis connecting news to investment banking and VC careers.',
         'author': 'Dynamic Devices',

@@ -11,8 +11,8 @@ from pathlib import Path
 # Color schemes for each podcast
 PODCAST_DESIGNS = {
     'en_GB': {
-        'title': 'AudioNews UK',
-        'subtitle': 'Daily News Digest',
+        'title': 'AudioNews Daily',
+        'subtitle': 'Daily UK News',
         'colors': {
             'primary': '#1E3A8A',      # Deep blue (UK flag blue)
             'secondary': '#DC2626',      # Red (UK flag red)
@@ -25,7 +25,7 @@ PODCAST_DESIGNS = {
         'icon': '🇬🇧'
     },
     'pl_PL': {
-        'title': 'AudioNews Polska',
+        'title': 'AudioNews Polska Daily',
         'subtitle': 'Codzienny Przegląd Wiadomości',
         'colors': {
             'primary': '#DC2626',       # Red (Polish flag red)
@@ -39,7 +39,7 @@ PODCAST_DESIGNS = {
         'icon': '🇵🇱'
     },
     'bella': {
-        'title': 'BellaNews',
+        'title': 'BellaNews Daily',
         'subtitle': 'Business & Finance',
         'colors': {
             'primary': '#059669',        # Emerald green (finance)
