@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769664088" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769750567" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769664088</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769750567</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Thu, 29 Jan 2026 05:28:10 +0000</lastBuildDate>
-    <pubDate>Thu, 29 Jan 2026 05:28:10 +0000</pubDate>
+    <lastBuildDate>Fri, 30 Jan 2026 05:29:27 +0000</lastBuildDate>
+    <pubDate>Fri, 30 Jan 2026 05:29:27 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - January 30, 2026: Amazons workforce reduction of sixteen thousand positions...</title>
+      <link>https://audionews.uk/bella?date=2026-01-30</link>
+      <description>January 30, 2026 news: Amazons workforce reduction of sixteen thousand positions signals tech sector recalibration after pandemic-era expansion .</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_01_30.mp3</guid>
+      <pubDate>Fri, 30 Jan 2026 05:26:45 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_01_30.mp3" type="audio/mpeg" length="2067264" />
+      <itunes:title>BellaNews - January 30, 2026: Amazons workforce reduction of sixteen thousand positions...</itunes:title>
+      <itunes:summary>January 30, 2026 news: Amazons workforce reduction of sixteen thousand positions signals tech sector recalibration after pandemic-era expansion .</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>13</itunes:episode>
+      <itunes:subtitle>January 30, 2026 news: Amazons workforce reduction of sixteen thousand positions signals tech sector...</itunes:subtitle>
+      <itunes:duration>05:44</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - January 29, 2026: Currency volatility directly impacts how youll price inte...</title>
       <link>https://audionews.uk/bella?date=2026-01-29</link>

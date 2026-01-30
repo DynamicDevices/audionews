@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1769664088" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1769750567" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1769664088</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1769750567</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Thu, 29 Jan 2026 05:28:01 +0000</lastBuildDate>
-    <pubDate>Thu, 29 Jan 2026 05:28:01 +0000</pubDate>
+    <lastBuildDate>Fri, 30 Jan 2026 05:29:20 +0000</lastBuildDate>
+    <pubDate>Fri, 30 Jan 2026 05:29:20 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - January 30, 2026: W wiadomościach międzynarodowych dzisiaj konflikt na Ukra...</title>
+      <link>https://audionews.uk/pl_PL?date=2026-01-30</link>
+      <description>January 30, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad tysiąc czterysta dni; prezydent Trump wprowadził stan nadzwyczajny wobec Kuby uzasadniając to rosnącymi wpływami Rosji i Chin w regionie, co stanowi według amerykańskiej administracji zagrożenie dla bezpieczeństwa...</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_01_30.mp3</guid>
+      <pubDate>Fri, 30 Jan 2026 05:25:39 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_01_30.mp3" type="audio/mpeg" length="1147824" />
+      <itunes:title>AudioNews Polska - January 30, 2026: W wiadomościach międzynarodowych dzisiaj konflikt na Ukra...</itunes:title>
+      <itunes:summary>January 30, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad tysiąc czterysta dni; prezydent Trump wprowadził stan nadzwyczajny wobec Kuby uzasadniając to rosnącymi wpływami Rosji i Chin w regionie, co stanowi według amerykańskiej administracji zagrożenie dla bezpieczeństwa...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>17</itunes:episode>
+      <itunes:subtitle>January 30, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad...</itunes:subtitle>
+      <itunes:duration>03:11</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - January 29, 2026: W wiadomościach międzynarodowych dzisiaj konflikt na Ukra...</title>
       <link>https://audionews.uk/pl_PL?date=2026-01-29</link>
