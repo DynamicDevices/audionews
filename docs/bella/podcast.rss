@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769750567" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769836720" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769750567</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769836720</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Fri, 30 Jan 2026 05:29:27 +0000</lastBuildDate>
-    <pubDate>Fri, 30 Jan 2026 05:29:27 +0000</pubDate>
+    <lastBuildDate>Sat, 31 Jan 2026 05:24:43 +0000</lastBuildDate>
+    <pubDate>Sat, 31 Jan 2026 05:24:43 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - January 31, 2026: For aspiring bankers, tracking these regulatory dynamics ...</title>
+      <link>https://audionews.uk/bella?date=2026-01-31</link>
+      <description>January 31, 2026 news: For aspiring bankers, tracking these regulatory dynamics sharpens your ability to advise clients on timing capital raises or M&amp;A transactions strategically, The Federal Reserves decision to maintain rates amid political pressure creates fascinating game theory dynamics for your future banking...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_01_31.mp3</guid>
+      <pubDate>Sat, 31 Jan 2026 05:22:28 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_01_31.mp3" type="audio/mpeg" length="1487664" />
+      <itunes:title>BellaNews - January 31, 2026: For aspiring bankers, tracking these regulatory dynamics ...</itunes:title>
+      <itunes:summary>January 31, 2026 news: For aspiring bankers, tracking these regulatory dynamics sharpens your ability to advise clients on timing capital raises or M&amp;A transactions strategically, The Federal Reserves decision to maintain rates amid political pressure creates fascinating game theory dynamics for your future banking...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>14</itunes:episode>
+      <itunes:subtitle>January 31, 2026 news: For aspiring bankers, tracking these regulatory dynamics sharpens your abilit...</itunes:subtitle>
+      <itunes:duration>04:07</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - January 30, 2026: Amazons workforce reduction of sixteen thousand positions...</title>
       <link>https://audionews.uk/bella?date=2026-01-30</link>
