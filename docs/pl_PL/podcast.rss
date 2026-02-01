@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1769836720" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1769923878" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1769836720</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1769923878</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Sat, 31 Jan 2026 05:24:34 +0000</lastBuildDate>
-    <pubDate>Sat, 31 Jan 2026 05:24:34 +0000</pubDate>
+    <lastBuildDate>Sun, 01 Feb 2026 05:37:16 +0000</lastBuildDate>
+    <pubDate>Sun, 01 Feb 2026 05:37:16 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 01, 2026: Polska 2050 ma nowe kierownictwo po odejściu Szymona Hołowni</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-01</link>
+      <description>February 01, 2026 news: w wiadomościach polityka dzisiaj Polska 2050 ma nowe kierownictwo po odejściu Szymona Hołowni na stanowisko marszałka Sejmu; partię poprowadzi Paulina Pełczyńska-Nałęcz, która wcześniej pełniła funkcję minister funduszy i polityki regionalnej .</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_01.mp3</guid>
+      <pubDate>Sun, 01 Feb 2026 05:33:59 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_01.mp3" type="audio/mpeg" length="1107504" />
+      <itunes:title>AudioNews Polska - February 01, 2026: Polska 2050 ma nowe kierownictwo po odejściu Szymona Hołowni</itunes:title>
+      <itunes:summary>February 01, 2026 news: w wiadomościach polityka dzisiaj Polska 2050 ma nowe kierownictwo po odejściu Szymona Hołowni na stanowisko marszałka Sejmu; partię poprowadzi Paulina Pełczyńska-Nałęcz, która wcześniej pełniła funkcję minister funduszy i polityki regionalnej .</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>19</itunes:episode>
+      <itunes:subtitle>February 01, 2026 news: w wiadomościach polityka dzisiaj Polska 2050 ma nowe kierownictwo po odejści...</itunes:subtitle>
+      <itunes:duration>03:04</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - January 31, 2026: W wiadomościach międzynarodowych dzisiaj trwa tysiąc czte...</title>
       <link>https://audionews.uk/pl_PL?date=2026-01-31</link>

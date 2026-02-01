@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769836720" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769923878" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769836720</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769923878</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Sat, 31 Jan 2026 05:24:43 +0000</lastBuildDate>
-    <pubDate>Sat, 31 Jan 2026 05:24:43 +0000</pubDate>
+    <lastBuildDate>Sun, 01 Feb 2026 05:37:25 +0000</lastBuildDate>
+    <pubDate>Sun, 01 Feb 2026 05:37:25 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 01, 2026: Regulatory shifts under new EPA leadership reveal how pol...</title>
+      <link>https://audionews.uk/bella?date=2026-02-01</link>
+      <description>February 01, 2026 news: Regulatory shifts under new EPA leadership reveal how political appointments directly reshape business operating costs and competitive landscapes . Environmental compliance represents quantifiable risk in deal models;</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_01.mp3</guid>
+      <pubDate>Sun, 01 Feb 2026 05:34:54 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_01.mp3" type="audio/mpeg" length="1573776" />
+      <itunes:title>BellaNews - February 01, 2026: Regulatory shifts under new EPA leadership reveal how pol...</itunes:title>
+      <itunes:summary>February 01, 2026 news: Regulatory shifts under new EPA leadership reveal how political appointments directly reshape business operating costs and competitive landscapes . Environmental compliance represents quantifiable risk in deal models;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>15</itunes:episode>
+      <itunes:subtitle>February 01, 2026 news: Regulatory shifts under new EPA leadership reveal how political appointments...</itunes:subtitle>
+      <itunes:duration>04:22</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - January 31, 2026: For aspiring bankers, tracking these regulatory dynamics ...</title>
       <link>https://audionews.uk/bella?date=2026-01-31</link>
