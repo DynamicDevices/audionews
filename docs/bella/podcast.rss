@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769923878" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770010387" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1769923878</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770010387</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Sun, 01 Feb 2026 05:37:25 +0000</lastBuildDate>
-    <pubDate>Sun, 01 Feb 2026 05:37:25 +0000</pubDate>
+    <lastBuildDate>Mon, 02 Feb 2026 05:38:50 +0000</lastBuildDate>
+    <pubDate>Mon, 02 Feb 2026 05:38:50 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 02, 2026: Corporate leaders now face a game theory problem: defend ...</title>
+      <link>https://audionews.uk/bella?date=2026-02-02</link>
+      <description>February 02, 2026 news: Corporate leaders now face a game theory problem: defend stricter standards and risk political backlash, or stay silent and face consumer pressure, This tension directly impacts valuation models in investment banking, where ESG metrics increasingly influence deal pricing and risk assessment...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_02.mp3</guid>
+      <pubDate>Mon, 02 Feb 2026 05:36:38 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_02.mp3" type="audio/mpeg" length="1454544" />
+      <itunes:title>BellaNews - February 02, 2026: Corporate leaders now face a game theory problem: defend ...</itunes:title>
+      <itunes:summary>February 02, 2026 news: Corporate leaders now face a game theory problem: defend stricter standards and risk political backlash, or stay silent and face consumer pressure, This tension directly impacts valuation models in investment banking, where ESG metrics increasingly influence deal pricing and risk assessment...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>16</itunes:episode>
+      <itunes:subtitle>February 02, 2026 news: Corporate leaders now face a game theory problem: defend stricter standards...</itunes:subtitle>
+      <itunes:duration>04:02</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 01, 2026: Regulatory shifts under new EPA leadership reveal how pol...</title>
       <link>https://audionews.uk/bella?date=2026-02-01</link>

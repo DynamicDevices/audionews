@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1769923878" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770010387" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1769923878</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770010387</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Sun, 01 Feb 2026 05:37:16 +0000</lastBuildDate>
-    <pubDate>Sun, 01 Feb 2026 05:37:16 +0000</pubDate>
+    <lastBuildDate>Mon, 02 Feb 2026 05:38:41 +0000</lastBuildDate>
+    <pubDate>Mon, 02 Feb 2026 05:38:41 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 02, 2026: Ukrainę, co budzi kontrowersje i różne opinie w środowisk...</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-02</link>
+      <description>February 02, 2026 news: w wiadomościach polityka dzisiaj trwa debata o ewentualnym wysłaniu polskich wojsk na Ukrainę, co budzi kontrowersje i różne opinie w środowisku politycznym; równocześnie chaos prawny dotyka osoby rozwiedzione, które w związku z zawiłościami systemu sądowego nie mają pewności co do statusu...</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_02.mp3</guid>
+      <pubDate>Mon, 02 Feb 2026 05:35:49 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_02.mp3" type="audio/mpeg" length="1018512" />
+      <itunes:title>AudioNews Polska - February 02, 2026: Ukrainę, co budzi kontrowersje i różne opinie w środowisk...</itunes:title>
+      <itunes:summary>February 02, 2026 news: w wiadomościach polityka dzisiaj trwa debata o ewentualnym wysłaniu polskich wojsk na Ukrainę, co budzi kontrowersje i różne opinie w środowisku politycznym; równocześnie chaos prawny dotyka osoby rozwiedzione, które w związku z zawiłościami systemu sądowego nie mają pewności co do statusu...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>20</itunes:episode>
+      <itunes:subtitle>February 02, 2026 news: w wiadomościach polityka dzisiaj trwa debata o ewentualnym wysłaniu polskich...</itunes:subtitle>
+      <itunes:duration>02:49</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 01, 2026: Polska 2050 ma nowe kierownictwo po odejściu Szymona Hołowni</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-01</link>
