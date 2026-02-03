@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770010387" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770096366" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770010387</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770096366</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Mon, 02 Feb 2026 05:38:41 +0000</lastBuildDate>
-    <pubDate>Mon, 02 Feb 2026 05:38:41 +0000</pubDate>
+    <lastBuildDate>Tue, 03 Feb 2026 05:32:15 +0000</lastBuildDate>
+    <pubDate>Tue, 03 Feb 2026 05:32:15 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 03, 2026: W wiadomościach międzynarodowych dzisiaj konflikt na Ukra...</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-03</link>
+      <description>February 03, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już tysiąc czterysta czterdzieści jeden dni; prezydent Trump oświadczył że rozmowy z Ukrainą i Rosją przebiegają pomyślnie jednak krótko po jego wypowiedzi Rosja przeprowadziła kolejny atak na Kijów, co budzi wątpliwości co do...</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_03.mp3</guid>
+      <pubDate>Tue, 03 Feb 2026 05:29:00 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_03.mp3" type="audio/mpeg" length="1142352" />
+      <itunes:title>AudioNews Polska - February 03, 2026: W wiadomościach międzynarodowych dzisiaj konflikt na Ukra...</itunes:title>
+      <itunes:summary>February 03, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już tysiąc czterysta czterdzieści jeden dni; prezydent Trump oświadczył że rozmowy z Ukrainą i Rosją przebiegają pomyślnie jednak krótko po jego wypowiedzi Rosja przeprowadziła kolejny atak na Kijów, co budzi wątpliwości co do...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>21</itunes:episode>
+      <itunes:subtitle>February 03, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już tysią...</itunes:subtitle>
+      <itunes:duration>03:10</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 02, 2026: Ukrainę, co budzi kontrowersje i różne opinie w środowisk...</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-02</link>

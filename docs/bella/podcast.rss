@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770010387" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770096366" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770010387</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770096366</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Mon, 02 Feb 2026 05:38:50 +0000</lastBuildDate>
-    <pubDate>Mon, 02 Feb 2026 05:38:50 +0000</pubDate>
+    <lastBuildDate>Tue, 03 Feb 2026 05:32:25 +0000</lastBuildDate>
+    <pubDate>Tue, 03 Feb 2026 05:32:25 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 03, 2026: Two major political shifts are reshaping global finance t...</title>
+      <link>https://audionews.uk/bella?date=2026-02-03</link>
+      <description>February 03, 2026 news: Two major political shifts are reshaping global finance through central bank independence and trade architecture . Leadership changes at monetary institutions create policy uncertainty that directly impacts yield curve modeling and rate derivatives;</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_03.mp3</guid>
+      <pubDate>Tue, 03 Feb 2026 05:29:55 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_03.mp3" type="audio/mpeg" length="1421856" />
+      <itunes:title>BellaNews - February 03, 2026: Two major political shifts are reshaping global finance t...</itunes:title>
+      <itunes:summary>February 03, 2026 news: Two major political shifts are reshaping global finance through central bank independence and trade architecture . Leadership changes at monetary institutions create policy uncertainty that directly impacts yield curve modeling and rate derivatives;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>17</itunes:episode>
+      <itunes:subtitle>February 03, 2026 news: Two major political shifts are reshaping global finance through central bank...</itunes:subtitle>
+      <itunes:duration>03:56</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 02, 2026: Corporate leaders now face a game theory problem: defend ...</title>
       <link>https://audionews.uk/bella?date=2026-02-02</link>
