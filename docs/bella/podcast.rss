@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770096366" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770182590" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770096366</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770182590</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Tue, 03 Feb 2026 05:32:25 +0000</lastBuildDate>
-    <pubDate>Tue, 03 Feb 2026 05:32:25 +0000</pubDate>
+    <lastBuildDate>Wed, 04 Feb 2026 05:29:47 +0000</lastBuildDate>
+    <pubDate>Wed, 04 Feb 2026 05:29:47 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 04, 2026: Recent geopolitical developments reveal how sovereign rel...</title>
+      <link>https://audionews.uk/bella?date=2026-02-04</link>
+      <description>February 04, 2026 news: Recent geopolitical developments reveal how sovereign relationships directly impact capital flows and deal structures, The administrations trade policy adjustments demonstrate classic game theory in action, where bilateral negotiations create measurable economic outcomes .</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_04.mp3</guid>
+      <pubDate>Wed, 04 Feb 2026 05:27:10 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_04.mp3" type="audio/mpeg" length="1744704" />
+      <itunes:title>BellaNews - February 04, 2026: Recent geopolitical developments reveal how sovereign rel...</itunes:title>
+      <itunes:summary>February 04, 2026 news: Recent geopolitical developments reveal how sovereign relationships directly impact capital flows and deal structures, The administrations trade policy adjustments demonstrate classic game theory in action, where bilateral negotiations create measurable economic outcomes .</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>18</itunes:episode>
+      <itunes:subtitle>February 04, 2026 news: Recent geopolitical developments reveal how sovereign relationships directly...</itunes:subtitle>
+      <itunes:duration>04:50</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 03, 2026: Two major political shifts are reshaping global finance t...</title>
       <link>https://audionews.uk/bella?date=2026-02-03</link>

@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770096366" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770182590" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770096366</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770182590</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Tue, 03 Feb 2026 05:32:15 +0000</lastBuildDate>
-    <pubDate>Tue, 03 Feb 2026 05:32:15 +0000</pubDate>
+    <lastBuildDate>Wed, 04 Feb 2026 05:29:36 +0000</lastBuildDate>
+    <pubDate>Wed, 04 Feb 2026 05:29:36 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 04, 2026: Karola Nawrockiego, podczas gdy analitycy ostrzegają prze...</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-04</link>
+      <description>February 04, 2026 news: w wiadomościach polityka dzisiaj najnowsze badania pokazują że aż sześć ugrupowań mogłoby wejść do parlamentu, co jest sporym zaskoczeniem na polskiej scenie politycznej; jednocześnie świeże dane dotyczące zaufania społecznego ujawniają jak obywatele oceniają kandydata na prezydenta Karola...</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_04.mp3</guid>
+      <pubDate>Wed, 04 Feb 2026 05:25:55 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_04.mp3" type="audio/mpeg" length="1233648" />
+      <itunes:title>AudioNews Polska - February 04, 2026: Karola Nawrockiego, podczas gdy analitycy ostrzegają prze...</itunes:title>
+      <itunes:summary>February 04, 2026 news: w wiadomościach polityka dzisiaj najnowsze badania pokazują że aż sześć ugrupowań mogłoby wejść do parlamentu, co jest sporym zaskoczeniem na polskiej scenie politycznej; jednocześnie świeże dane dotyczące zaufania społecznego ujawniają jak obywatele oceniają kandydata na prezydenta Karola...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>22</itunes:episode>
+      <itunes:subtitle>February 04, 2026 news: w wiadomościach polityka dzisiaj najnowsze badania pokazują że aż sześć ugru...</itunes:subtitle>
+      <itunes:duration>03:25</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 03, 2026: W wiadomościach międzynarodowych dzisiaj konflikt na Ukra...</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-03</link>
