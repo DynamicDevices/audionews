@@ -938,35 +938,18 @@ class GitHubAINewsDigest:
             # Fix patterns like "Meanwhile, ;" or "Finland, ;" (catch any remaining)
             digest = re.sub(r'([,;])\s*;\s+', r'\1 ', digest)
         
-        # CRITICAL: Fix compound place names to prevent unwanted pauses
-        # Edge TTS sometimes pauses between words in compound names (e.g., "Greater Manchester")
-        # Solution: Use non-breaking space (U+00A0) to join compound names
-        # This helps Edge TTS understand they're a single unit
-        compound_place_names = [
-            # UK place names
-            (r'\bGreater\s+Manchester\b', 'Greater\u00A0Manchester'),
-            (r'\bWest\s+Midlands\b', 'West\u00A0Midlands'),
-            (r'\bEast\s+Anglia\b', 'East\u00A0Anglia'),
-            (r'\bNorth\s+West\b', 'North\u00A0West'),
-            (r'\bSouth\s+East\b', 'South\u00A0East'),
-            (r'\bSouth\s+West\b', 'South\u00A0West'),
-            (r'\bNorth\s+East\b', 'North\u00A0East'),
-            (r'\bYorkshire\s+and\s+the\s+Humber\b', 'Yorkshire\u00A0and\u00A0the\u00A0Humber'),
-            # Common compound names
-            (r'\bPrime\s+Minister\b', 'Prime\u00A0Minister'),
-            (r'\bDeputy\s+Prime\s+Minister\b', 'Deputy\u00A0Prime\u00A0Minister'),
-            (r'\bHouse\s+of\s+Lords\b', 'House\u00A0of\u00A0Lords'),
-            (r'\bHouse\s+of\s+Commons\b', 'House\u00A0of\u00A0Commons'),
-            (r'\bEuropean\s+Union\b', 'European\u00A0Union'),
-            (r'\bUnited\s+States\b', 'United\u00A0States'),
-            (r'\bUnited\s+Kingdom\b', 'United\u00A0Kingdom'),
-            (r'\bNational\s+Health\s+Service\b', 'National\u00A0Health\u00A0Service'),
-            (r'\bWorld\s+Cup\b', 'World\u00A0Cup'),
-            (r'\bChagos\s+Islands\b', 'Chagos\u00A0Islands'),
-        ]
-        
-        for pattern, replacement in compound_place_names:
-            digest = re.sub(pattern, replacement, digest, flags=re.IGNORECASE)
+        # CRITICAL: Prevent mid-sentence pauses (future-proof, no phrase list)
+        # Edge TTS inserts prosodic breaks at normal spaces; use non-breaking space (U+00A0)
+        # within each sentence so only . ! ? create pauses. Split on sentence delimiters,
+        # replace spaces in content segments only, then rejoin.
+        _sentence_delim = re.compile(r'([.!?]+\s+)')
+        _parts = _sentence_delim.split(digest)
+        for _i, _part in enumerate(_parts):
+            if not re.match(r'^[.!?]+\s*$', _part.strip() or ' '):
+                _parts[_i] = _part.replace(' ', '\u00A0')
+        digest = ''.join(_parts)
+        # Note: Edge TTS inserts a prosodic break after "threats" regardless of Unicode.
+        # Mid-phrase pauses are reduced by post-TTS silence compression (compress_silences in config).
         
         # CRITICAL: Fix common abbreviations to prevent letter-by-letter spelling
         # Edge TTS may spell out abbreviations letter-by-letter, causing unnatural pauses
@@ -1074,6 +1057,30 @@ class GitHubAINewsDigest:
         
         return digest
     
+    def _compress_short_silences(self, mp3_path: str, min_ms: int = 400, max_ms: int = 1100, target_ms: int = 90) -> None:
+        """Shorten only wrong mid-sentence pauses (400-1100ms). Leaves brief gaps and long sentence boundaries alone."""
+        try:
+            from pydub import AudioSegment
+            from pydub.silence import detect_silence
+        except ImportError:
+            return
+        audio = AudioSegment.from_mp3(mp3_path)
+        # Slightly sensitive threshold so we catch borderline pauses (e.g. "threats | of")
+        thresh = (audio.dBFS - 35) if audio.dBFS else -35
+        silences = detect_silence(audio, min_silence_len=60, silence_thresh=thresh, seek_step=10)
+        out = AudioSegment.empty()
+        last_end = 0
+        for start_ms, end_ms in silences:
+            duration = end_ms - start_ms
+            out += audio[last_end:start_ms]
+            if min_ms <= duration <= max_ms:
+                out += AudioSegment.silent(duration=target_ms)
+            else:
+                out += audio[start_ms:end_ms]
+            last_end = end_ms
+        out += audio[last_end:]
+        out.export(mp3_path, format="mp3", bitrate="192k")
+
     async def generate_audio_digest(self, digest_text: str, output_filename: str):
         """
         Generate professional audio from AI-synthesized digest using Edge TTS with retry logic
@@ -1133,6 +1140,12 @@ class GitHubAINewsDigest:
                         socket.getaddrinfo = original_getaddrinfo
                 
                 print(f"   ✅ Edge TTS audio generated successfully")
+                if tts_settings.get('compress_silences', False):
+                    min_ms = tts_settings.get('short_silence_min_ms', 400)
+                    max_ms = tts_settings.get('short_silence_max_ms', 1100)
+                    target_ms = tts_settings.get('target_silence_ms', 90)
+                    self._compress_short_silences(output_filename, min_ms=min_ms, max_ms=max_ms, target_ms=target_ms)
+                    print(f"   ✅ Short silences compressed ({min_ms}-{max_ms}ms → {target_ms}ms)")
                 break  # Success, exit retry loop
                 
             except Exception as e:

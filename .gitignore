@@ -56,6 +56,13 @@ env/
 !guardian_edge_PREMIUM_QUALITY.mp3
 !news_digest_*.mp3
 
+# Generated pause analysis reports
+*.pause_report.txt
+*.pause_report.json
+
+# Local TTS test output
+test_audio/
+
 # Text processing artifacts
 *.txt
 !README.md

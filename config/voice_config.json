@@ -78,7 +78,11 @@
       "retry_backoff_multiplier": 1.5,
       "force_ipv4": true,
       "ssl_verify": true,
-      "rate": "+0%"
+      "rate": "+0%",
+      "compress_silences": true,
+      "short_silence_min_ms": 400,
+      "short_silence_max_ms": 1100,
+      "target_silence_ms": 90
     },
     "fallback": {
       "enabled": false,
