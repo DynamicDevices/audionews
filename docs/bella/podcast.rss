@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770269288" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770355595" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770269288</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770355595</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Thu, 05 Feb 2026 05:34:17 +0000</lastBuildDate>
-    <pubDate>Thu, 05 Feb 2026 05:34:17 +0000</pubDate>
+    <lastBuildDate>Fri, 06 Feb 2026 05:32:50 +0000</lastBuildDate>
+    <pubDate>Fri, 06 Feb 2026 05:32:50 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 06, 2026: Britains central bank maintained rates at three point sev...</title>
+      <link>https://audionews.uk/bella?date=2026-02-06</link>
+      <description>February 06, 2026 news: Britains central bank maintained rates at three point seven five percent while signaling probable cuts ahead, This monetary policy calculus involves sophisticated time series forecasting and inflation modeling that investment bankers use daily ; Meanwhile, major media layoffs and surging Chinese...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_06.mp3</guid>
+      <pubDate>Fri, 06 Feb 2026 05:30:32 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_06.mp3" type="audio/mpeg" length="1237680" />
+      <itunes:title>BellaNews - February 06, 2026: Britains central bank maintained rates at three point sev...</itunes:title>
+      <itunes:summary>February 06, 2026 news: Britains central bank maintained rates at three point seven five percent while signaling probable cuts ahead, This monetary policy calculus involves sophisticated time series forecasting and inflation modeling that investment bankers use daily ; Meanwhile, major media layoffs and surging Chinese...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>20</itunes:episode>
+      <itunes:subtitle>February 06, 2026 news: Britains central bank maintained rates at three point seven five percent whi...</itunes:subtitle>
+      <itunes:duration>03:26</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 05, 2026: Recent allegations about foreign investment in political ...</title>
       <link>https://audionews.uk/bella?date=2026-02-05</link>
