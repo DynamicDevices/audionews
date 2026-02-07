@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770382725" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770441615" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770382725</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770441615</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Fri, 06 Feb 2026 13:01:02 +0000</lastBuildDate>
-    <pubDate>Fri, 06 Feb 2026 13:01:02 +0000</pubDate>
+    <lastBuildDate>Sat, 07 Feb 2026 05:26:47 +0000</lastBuildDate>
+    <pubDate>Sat, 07 Feb 2026 05:26:47 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 07, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-07</link>
+      <description>February 07, 2026 news: Market dynamics reveal fascinating mathematical patterns as major indices reach psychological milestones amid shifting monetary policy expectations , The Dow crossing fifty thousand demonstrates momentum trading psychology , where round numbers often trigger algorithmic responses and...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_07.mp3</guid>
+      <pubDate>Sat, 07 Feb 2026 05:23:56 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_07.mp3" type="audio/mpeg" length="5634285" />
+      <itunes:title>BellaNews - February 07, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 07, 2026 news: Market dynamics reveal fascinating mathematical patterns as major indices reach psychological milestones amid shifting monetary policy expectations , The Dow crossing fifty thousand demonstrates momentum trading psychology , where round numbers often trigger algorithmic responses and...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>21</itunes:episode>
+      <itunes:subtitle>February 07, 2026 news: Market dynamics reveal fascinating mathematical patterns as major indices re...</itunes:subtitle>
+      <itunes:duration>04:41</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 06, 2026: Britains central bank maintained rates at three point sev...</title>
       <link>https://audionews.uk/bella?date=2026-02-06</link>

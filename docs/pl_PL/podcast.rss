@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770382725" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770441615" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770382725</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770441615</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Fri, 06 Feb 2026 13:00:51 +0000</lastBuildDate>
-    <pubDate>Fri, 06 Feb 2026 13:00:51 +0000</pubDate>
+    <lastBuildDate>Sat, 07 Feb 2026 05:26:34 +0000</lastBuildDate>
+    <pubDate>Sat, 07 Feb 2026 05:26:34 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 07, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-07</link>
+      <description>February 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj kandydat na prezydenta Karol Nawrocki znalazł się pod ostrzałem krytyki za jednoznaczne opowiedzenie się po stronie Donalda Trumpa, co może osłabiać jego pozycję w kampanii;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_07.mp3</guid>
+      <pubDate>Sat, 07 Feb 2026 05:22:59 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_07.mp3" type="audio/mpeg" length="2911245" />
+      <itunes:title>AudioNews Polska - February 07, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>February 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj kandydat na prezydenta Karol Nawrocki znalazł się pod ostrzałem krytyki za jednoznaczne opowiedzenie się po stronie Donalda Trumpa, co może osłabiać jego pozycję w kampanii;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>25</itunes:episode>
+      <itunes:subtitle>February 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 lutego 2026, przygotowany przez Dy...</itunes:subtitle>
+      <itunes:duration>02:25</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 06, 2026: W wiadomościach międzynarodowych dzisiaj konflikt na Ukra...</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-06</link>
