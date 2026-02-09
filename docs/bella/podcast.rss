@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770528766" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770615211" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770528766</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770615211</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Sun, 08 Feb 2026 05:39:15 +0000</lastBuildDate>
-    <pubDate>Sun, 08 Feb 2026 05:39:15 +0000</pubDate>
+    <lastBuildDate>Mon, 09 Feb 2026 05:40:49 +0000</lastBuildDate>
+    <pubDate>Mon, 09 Feb 2026 05:40:49 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 09, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-09</link>
+      <description>February 09, 2026 news: Market dynamics reveal fascinating mathematical patterns as equity indices surge while digital assets crater simultaneously , The stock market rally reflects discounted cash flow models responding to anticipated rate cuts , which increase present values of future earnings ; Meanwhile ,...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_09.mp3</guid>
+      <pubDate>Mon, 09 Feb 2026 05:37:56 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_09.mp3" type="audio/mpeg" length="5210445" />
+      <itunes:title>BellaNews - February 09, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 09, 2026 news: Market dynamics reveal fascinating mathematical patterns as equity indices surge while digital assets crater simultaneously , The stock market rally reflects discounted cash flow models responding to anticipated rate cuts , which increase present values of future earnings ; Meanwhile ,...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>23</itunes:episode>
+      <itunes:subtitle>February 09, 2026 news: Market dynamics reveal fascinating mathematical patterns as equity indices s...</itunes:subtitle>
+      <itunes:duration>04:20</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 08, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-08</link>
