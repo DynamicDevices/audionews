@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770701654" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770788022" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770701654</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770788022</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Tue, 10 Feb 2026 05:41:08 +0000</lastBuildDate>
-    <pubDate>Tue, 10 Feb 2026 05:41:08 +0000</pubDate>
+    <lastBuildDate>Wed, 11 Feb 2026 05:40:44 +0000</lastBuildDate>
+    <pubDate>Wed, 11 Feb 2026 05:40:44 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 11, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-11</link>
+      <description>February 11, 2026 news: Immigration enforcement escalation creates labor market volatility, particularly affecting agriculture and construction sectors with quantifiable G D P impacts . Housing policy proposals lack coherent frameworks, revealing how political dysfunction translates directly into persistent market...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_11.mp3</guid>
+      <pubDate>Wed, 11 Feb 2026 05:37:31 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_11.mp3" type="audio/mpeg" length="7786125" />
+      <itunes:title>BellaNews - February 11, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 11, 2026 news: Immigration enforcement escalation creates labor market volatility, particularly affecting agriculture and construction sectors with quantifiable G D P impacts . Housing policy proposals lack coherent frameworks, revealing how political dysfunction translates directly into persistent market...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>25</itunes:episode>
+      <itunes:subtitle>February 11, 2026 news: Immigration enforcement escalation creates labor market volatility, particul...</itunes:subtitle>
+      <itunes:duration>06:29</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 10, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-10</link>
