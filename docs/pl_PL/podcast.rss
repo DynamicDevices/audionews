@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770788022" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770874380" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770788022</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770874380</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Wed, 11 Feb 2026 05:40:29 +0000</lastBuildDate>
-    <pubDate>Wed, 11 Feb 2026 05:40:29 +0000</pubDate>
+    <lastBuildDate>Thu, 12 Feb 2026 05:41:19 +0000</lastBuildDate>
+    <pubDate>Thu, 12 Feb 2026 05:41:19 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 12, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-12</link>
+      <description>February 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dziś konflikt na Ukrainie wchodzi w tysiąc czterysta pięćdziesiąty dzień trwania;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_12.mp3</guid>
+      <pubDate>Thu, 12 Feb 2026 05:36:02 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_12.mp3" type="audio/mpeg" length="3901485" />
+      <itunes:title>AudioNews Polska - February 12, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>February 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dziś konflikt na Ukrainie wchodzi w tysiąc czterysta pięćdziesiąty dzień trwania;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>30</itunes:episode>
+      <itunes:subtitle>February 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 lutego 2026, przygotowany przez D...</itunes:subtitle>
+      <itunes:duration>03:14</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 11, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-11</link>

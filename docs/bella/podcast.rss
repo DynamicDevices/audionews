@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770788022" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770874380" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770788022</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770874380</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Wed, 11 Feb 2026 05:40:44 +0000</lastBuildDate>
-    <pubDate>Wed, 11 Feb 2026 05:40:44 +0000</pubDate>
+    <lastBuildDate>Thu, 12 Feb 2026 05:41:33 +0000</lastBuildDate>
+    <pubDate>Thu, 12 Feb 2026 05:41:33 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 12, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-12</link>
+      <description>February 12, 2026 news: Januarys labor market data reveals fascinating divergence worth analyzing through a quantitative lens , The economy added one hundred thirty thousand jobs , beating forecasts despite growth projections being revised sharply downward for twenty twenty-five , This disconnect between employment...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_12.mp3</guid>
+      <pubDate>Thu, 12 Feb 2026 05:37:21 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_12.mp3" type="audio/mpeg" length="6492525" />
+      <itunes:title>BellaNews - February 12, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 12, 2026 news: Januarys labor market data reveals fascinating divergence worth analyzing through a quantitative lens , The economy added one hundred thirty thousand jobs , beating forecasts despite growth projections being revised sharply downward for twenty twenty-five , This disconnect between employment...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>26</itunes:episode>
+      <itunes:subtitle>February 12, 2026 news: Januarys labor market data reveals fascinating divergence worth analyzing th...</itunes:subtitle>
+      <itunes:duration>05:24</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 11, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-11</link>
