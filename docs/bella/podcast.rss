@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770874380" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770960673" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770874380</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770960673</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Thu, 12 Feb 2026 05:41:33 +0000</lastBuildDate>
-    <pubDate>Thu, 12 Feb 2026 05:41:33 +0000</pubDate>
+    <lastBuildDate>Fri, 13 Feb 2026 05:39:11 +0000</lastBuildDate>
+    <pubDate>Fri, 13 Feb 2026 05:39:11 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 13, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-13</link>
+      <description>February 13, 2026 news: Political developments are reshaping regulatory landscapes in ways that directly impact deal structures and market valuations . Congressional pushback on tariff policies creates pricing volatility that investment bankers must model when structuring cross-border transactions;</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_13.mp3</guid>
+      <pubDate>Fri, 13 Feb 2026 05:35:58 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_13.mp3" type="audio/mpeg" length="5997165" />
+      <itunes:title>BellaNews - February 13, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 13, 2026 news: Political developments are reshaping regulatory landscapes in ways that directly impact deal structures and market valuations . Congressional pushback on tariff policies creates pricing volatility that investment bankers must model when structuring cross-border transactions;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>27</itunes:episode>
+      <itunes:subtitle>February 13, 2026 news: Political developments are reshaping regulatory landscapes in ways that dire...</itunes:subtitle>
+      <itunes:duration>04:59</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 12, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-12</link>
