@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770960673" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771046539" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1770960673</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771046539</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Fri, 13 Feb 2026 05:38:53 +0000</lastBuildDate>
-    <pubDate>Fri, 13 Feb 2026 05:38:53 +0000</pubDate>
+    <lastBuildDate>Sat, 14 Feb 2026 05:29:09 +0000</lastBuildDate>
+    <pubDate>Sat, 14 Feb 2026 05:29:09 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 14, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-14</link>
+      <description>February 14, 2026 news: Oto Twój przegląd wiadomości polskie na 14 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Prawo i Sprawiedliwość sygnalizuje możliwość współpracy z partią Grzegorza Brauna, co potwierdził Przemysław Czarnek w rozmowie prasowej;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_14.mp3</guid>
+      <pubDate>Sat, 14 Feb 2026 05:25:06 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_14.mp3" type="audio/mpeg" length="3910125" />
+      <itunes:title>AudioNews Polska - February 14, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>February 14, 2026 news: Oto Twój przegląd wiadomości polskie na 14 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Prawo i Sprawiedliwość sygnalizuje możliwość współpracy z partią Grzegorza Brauna, co potwierdził Przemysław Czarnek w rozmowie prasowej;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>32</itunes:episode>
+      <itunes:subtitle>February 14, 2026 news: Oto Twój przegląd wiadomości polskie na 14 lutego 2026, przygotowany przez D...</itunes:subtitle>
+      <itunes:duration>03:15</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 13, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-13</link>

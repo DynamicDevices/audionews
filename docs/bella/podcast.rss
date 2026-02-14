@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770960673" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771046539" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1770960673</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771046539</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Fri, 13 Feb 2026 05:39:11 +0000</lastBuildDate>
-    <pubDate>Fri, 13 Feb 2026 05:39:11 +0000</pubDate>
+    <lastBuildDate>Sat, 14 Feb 2026 05:29:28 +0000</lastBuildDate>
+    <pubDate>Sat, 14 Feb 2026 05:29:28 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 14, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-14</link>
+      <description>February 14, 2026 news: Inflation declined to two point four percent despite tariff-induced volatility , showcasing how policy shocks create pricing inefficiencies ; Meanwhile , labor markets added one hundred thirty thousand jobs , exceeding forecasts even as growth projections weakened significantly , This divergence...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_14.mp3</guid>
+      <pubDate>Sat, 14 Feb 2026 05:26:14 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_14.mp3" type="audio/mpeg" length="6058605" />
+      <itunes:title>BellaNews - February 14, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 14, 2026 news: Inflation declined to two point four percent despite tariff-induced volatility , showcasing how policy shocks create pricing inefficiencies ; Meanwhile , labor markets added one hundred thirty thousand jobs , exceeding forecasts even as growth projections weakened significantly , This divergence...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>28</itunes:episode>
+      <itunes:subtitle>February 14, 2026 news: Inflation declined to two point four percent despite tariff-induced volatili...</itunes:subtitle>
+      <itunes:duration>05:02</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 13, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-13</link>
