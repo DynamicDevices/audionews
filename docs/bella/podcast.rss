@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771046539" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771133333" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771046539</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771133333</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Sat, 14 Feb 2026 05:29:28 +0000</lastBuildDate>
-    <pubDate>Sat, 14 Feb 2026 05:29:28 +0000</pubDate>
+    <lastBuildDate>Sun, 15 Feb 2026 05:36:17 +0000</lastBuildDate>
+    <pubDate>Sun, 15 Feb 2026 05:36:17 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 15, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-15</link>
+      <description>February 15, 2026 news: Congressional pushback against executive tariff authority reveals critical game theory at play in trade policy , This political chess match demonstrates how institutional checks create market uncertainty that investment bankers must model into deal valuations , When legislative and executive...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_15.mp3</guid>
+      <pubDate>Sun, 15 Feb 2026 05:32:56 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_15.mp3" type="audio/mpeg" length="5172525" />
+      <itunes:title>BellaNews - February 15, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 15, 2026 news: Congressional pushback against executive tariff authority reveals critical game theory at play in trade policy , This political chess match demonstrates how institutional checks create market uncertainty that investment bankers must model into deal valuations , When legislative and executive...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>29</itunes:episode>
+      <itunes:subtitle>February 15, 2026 news: Congressional pushback against executive tariff authority reveals critical g...</itunes:subtitle>
+      <itunes:duration>04:18</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 14, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-14</link>
