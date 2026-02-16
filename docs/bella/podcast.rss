@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771133333" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771220002" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771133333</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771220002</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Sun, 15 Feb 2026 05:36:17 +0000</lastBuildDate>
-    <pubDate>Sun, 15 Feb 2026 05:36:17 +0000</pubDate>
+    <lastBuildDate>Mon, 16 Feb 2026 05:40:46 +0000</lastBuildDate>
+    <pubDate>Mon, 16 Feb 2026 05:40:46 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 16, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-16</link>
+      <description>February 16, 2026 news: 4 percent reveals how tariff timing creates measurement challenges for economic modeling . Congressional pushback on Canadian tariffs demonstrates the political risk premium investors must price into cross-border deals and supply chain valuations , The manufacturing reshoring debate highlights a...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_16.mp3</guid>
+      <pubDate>Mon, 16 Feb 2026 05:36:57 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_16.mp3" type="audio/mpeg" length="5193645" />
+      <itunes:title>BellaNews - February 16, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 16, 2026 news: 4 percent reveals how tariff timing creates measurement challenges for economic modeling . Congressional pushback on Canadian tariffs demonstrates the political risk premium investors must price into cross-border deals and supply chain valuations , The manufacturing reshoring debate highlights a...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>30</itunes:episode>
+      <itunes:subtitle>February 16, 2026 news: 4 percent reveals how tariff timing creates measurement challenges for econo...</itunes:subtitle>
+      <itunes:duration>04:19</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 15, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-15</link>
