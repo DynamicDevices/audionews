@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771220002" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771306223" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771220002</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771306223</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Mon, 16 Feb 2026 05:40:46 +0000</lastBuildDate>
-    <pubDate>Mon, 16 Feb 2026 05:40:46 +0000</pubDate>
+    <lastBuildDate>Tue, 17 Feb 2026 05:37:01 +0000</lastBuildDate>
+    <pubDate>Tue, 17 Feb 2026 05:37:01 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 17, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-17</link>
+      <description>February 17, 2026 news: Coal industry endorsements signal domestic political calculus, while potential Venezuela engagement demonstrates complex risk-reward optimization in commodity markets .</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_17.mp3</guid>
+      <pubDate>Tue, 17 Feb 2026 05:33:54 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_17.mp3" type="audio/mpeg" length="5772525" />
+      <itunes:title>BellaNews - February 17, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 17, 2026 news: Coal industry endorsements signal domestic political calculus, while potential Venezuela engagement demonstrates complex risk-reward optimization in commodity markets .</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>31</itunes:episode>
+      <itunes:subtitle>February 17, 2026 news: Coal industry endorsements signal domestic political calculus, while potenti...</itunes:subtitle>
+      <itunes:duration>04:48</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 16, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-16</link>

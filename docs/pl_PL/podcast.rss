@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771220002" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771306223" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771220002</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771306223</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Mon, 16 Feb 2026 05:40:26 +0000</lastBuildDate>
-    <pubDate>Mon, 16 Feb 2026 05:40:26 +0000</pubDate>
+    <lastBuildDate>Tue, 17 Feb 2026 05:36:41 +0000</lastBuildDate>
+    <pubDate>Tue, 17 Feb 2026 05:36:41 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 17, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-17</link>
+      <description>February 17, 2026 news: Oto Twój przegląd wiadomości polskie na 17 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Sejm przyjął ustawę o funduszu SAFE przeznaczonym na obronność; teraz kluczowa decyzja należy do prezydenta Andrzeja Dudy, który może podpisać lub zawetować projekt .</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_17.mp3</guid>
+      <pubDate>Tue, 17 Feb 2026 05:32:50 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_17.mp3" type="audio/mpeg" length="3466125" />
+      <itunes:title>AudioNews Polska - February 17, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>February 17, 2026 news: Oto Twój przegląd wiadomości polskie na 17 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Sejm przyjął ustawę o funduszu SAFE przeznaczonym na obronność; teraz kluczowa decyzja należy do prezydenta Andrzeja Dudy, który może podpisać lub zawetować projekt .</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>35</itunes:episode>
+      <itunes:subtitle>February 17, 2026 news: Oto Twój przegląd wiadomości polskie na 17 lutego 2026, przygotowany przez D...</itunes:subtitle>
+      <itunes:duration>02:53</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 16, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-16</link>
