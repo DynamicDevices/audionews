@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771306223" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771392707" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771306223</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771392707</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Tue, 17 Feb 2026 05:37:01 +0000</lastBuildDate>
-    <pubDate>Tue, 17 Feb 2026 05:37:01 +0000</pubDate>
+    <lastBuildDate>Wed, 18 Feb 2026 05:38:49 +0000</lastBuildDate>
+    <pubDate>Wed, 18 Feb 2026 05:38:49 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 18, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-18</link>
+      <description>February 18, 2026 news: Corporate governance frameworks are shifting as major financial institutions recalibrate their diversity evaluation metrics amid changing political pressures . Goldman Sachs recently modified its board assessment criteria, removing demographic-specific benchmarks that previously influenced IPO...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_18.mp3</guid>
+      <pubDate>Wed, 18 Feb 2026 05:35:37 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_18.mp3" type="audio/mpeg" length="5828205" />
+      <itunes:title>BellaNews - February 18, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 18, 2026 news: Corporate governance frameworks are shifting as major financial institutions recalibrate their diversity evaluation metrics amid changing political pressures . Goldman Sachs recently modified its board assessment criteria, removing demographic-specific benchmarks that previously influenced IPO...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>32</itunes:episode>
+      <itunes:subtitle>February 18, 2026 news: Corporate governance frameworks are shifting as major financial institutions...</itunes:subtitle>
+      <itunes:duration>04:51</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 17, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-17</link>
