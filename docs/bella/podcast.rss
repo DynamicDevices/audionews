@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771479043" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771565215" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771479043</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771565215</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Thu, 19 Feb 2026 05:38:58 +0000</lastBuildDate>
-    <pubDate>Thu, 19 Feb 2026 05:38:58 +0000</pubDate>
+    <lastBuildDate>Fri, 20 Feb 2026 05:34:02 +0000</lastBuildDate>
+    <pubDate>Fri, 20 Feb 2026 05:34:02 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 20, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-20</link>
+      <description>February 20, 2026 news: Corporate diversity programs face strategic restructuring as political pressures mount , creating measurable impacts on talent pipelines and organizational structures , This shift matters for banking careers because workforce composition directly affects deal sourcing networks and client...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_20.mp3</guid>
+      <pubDate>Fri, 20 Feb 2026 05:30:41 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_20.mp3" type="audio/mpeg" length="6341325" />
+      <itunes:title>BellaNews - February 20, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 20, 2026 news: Corporate diversity programs face strategic restructuring as political pressures mount , creating measurable impacts on talent pipelines and organizational structures , This shift matters for banking careers because workforce composition directly affects deal sourcing networks and client...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>34</itunes:episode>
+      <itunes:subtitle>February 20, 2026 news: Corporate diversity programs face strategic restructuring as political press...</itunes:subtitle>
+      <itunes:duration>05:16</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 19, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-19</link>
