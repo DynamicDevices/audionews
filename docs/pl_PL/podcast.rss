@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771565215" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771651243" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771565215</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771651243</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Fri, 20 Feb 2026 05:33:44 +0000</lastBuildDate>
-    <pubDate>Fri, 20 Feb 2026 05:33:44 +0000</pubDate>
+    <lastBuildDate>Sat, 21 Feb 2026 05:26:54 +0000</lastBuildDate>
+    <pubDate>Sat, 21 Feb 2026 05:26:54 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 21, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-21</link>
+      <description>February 21, 2026 news: Oto Twój przegląd wiadomości polskie na 21 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Prawo i Sprawiedliwość zmaga się z pogłębiającym się kryzysem, a wybór nowego kandydata na premiera przez Jarosława Kaczyńskiego nie przynosi oczekiwanej poprawy sytuacji;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_21.mp3</guid>
+      <pubDate>Sat, 21 Feb 2026 05:23:44 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_21.mp3" type="audio/mpeg" length="3715725" />
+      <itunes:title>AudioNews Polska - February 21, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>February 21, 2026 news: Oto Twój przegląd wiadomości polskie na 21 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Prawo i Sprawiedliwość zmaga się z pogłębiającym się kryzysem, a wybór nowego kandydata na premiera przez Jarosława Kaczyńskiego nie przynosi oczekiwanej poprawy sytuacji;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>39</itunes:episode>
+      <itunes:subtitle>February 21, 2026 news: Oto Twój przegląd wiadomości polskie na 21 lutego 2026, przygotowany przez D...</itunes:subtitle>
+      <itunes:duration>03:05</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 20, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-20</link>

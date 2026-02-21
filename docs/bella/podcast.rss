@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771565215" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771651243" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771565215</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771651243</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Fri, 20 Feb 2026 05:34:02 +0000</lastBuildDate>
-    <pubDate>Fri, 20 Feb 2026 05:34:02 +0000</pubDate>
+    <lastBuildDate>Sat, 21 Feb 2026 05:27:14 +0000</lastBuildDate>
+    <pubDate>Sat, 21 Feb 2026 05:27:14 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 21, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-21</link>
+      <description>February 21, 2026 news: Recent judicial pushback against executive tariff authority creates fascinating game theory scenarios for global trade strategy , Understanding constitutional constraints on policy tools becomes critical when modeling market volatility and cross-border investment flows ; Meanwhile , corporate...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_21.mp3</guid>
+      <pubDate>Sat, 21 Feb 2026 05:24:31 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_21.mp3" type="audio/mpeg" length="3238125" />
+      <itunes:title>BellaNews - February 21, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 21, 2026 news: Recent judicial pushback against executive tariff authority creates fascinating game theory scenarios for global trade strategy , Understanding constitutional constraints on policy tools becomes critical when modeling market volatility and cross-border investment flows ; Meanwhile , corporate...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>35</itunes:episode>
+      <itunes:subtitle>February 21, 2026 news: Recent judicial pushback against executive tariff authority creates fascinat...</itunes:subtitle>
+      <itunes:duration>02:41</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 20, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-20</link>
