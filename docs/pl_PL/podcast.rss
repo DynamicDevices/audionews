@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771651243" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771737976" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771651243</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771737976</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Sat, 21 Feb 2026 05:26:54 +0000</lastBuildDate>
-    <pubDate>Sat, 21 Feb 2026 05:26:54 +0000</pubDate>
+    <lastBuildDate>Sun, 22 Feb 2026 05:32:31 +0000</lastBuildDate>
+    <pubDate>Sun, 22 Feb 2026 05:32:31 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 22, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-22</link>
+      <description>February 22, 2026 news: Oto Twój przegląd wiadomości polskie na 22 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj analizy wskazują na potencjalne konsekwencje niedawnego orzeczenia Sądu Najwyższego Stanów Zjednoczonych dla administracji Donalda Trumpa;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_22.mp3</guid>
+      <pubDate>Sun, 22 Feb 2026 05:28:51 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_22.mp3" type="audio/mpeg" length="4621965" />
+      <itunes:title>AudioNews Polska - February 22, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>February 22, 2026 news: Oto Twój przegląd wiadomości polskie na 22 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj analizy wskazują na potencjalne konsekwencje niedawnego orzeczenia Sądu Najwyższego Stanów Zjednoczonych dla administracji Donalda Trumpa;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>40</itunes:episode>
+      <itunes:subtitle>February 22, 2026 news: Oto Twój przegląd wiadomości polskie na 22 lutego 2026, przygotowany przez D...</itunes:subtitle>
+      <itunes:duration>03:51</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 21, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-21</link>
