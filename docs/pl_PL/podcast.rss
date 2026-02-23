@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771737976" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771824798" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771737976</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771824798</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Sun, 22 Feb 2026 05:32:31 +0000</lastBuildDate>
-    <pubDate>Sun, 22 Feb 2026 05:32:31 +0000</pubDate>
+    <lastBuildDate>Mon, 23 Feb 2026 05:39:35 +0000</lastBuildDate>
+    <pubDate>Mon, 23 Feb 2026 05:39:35 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 23, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-23</link>
+      <description>February 23, 2026 news: Oto Twój przegląd wiadomości polskie na 23 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj trwają gorące debaty wokół planowanej reformy inspekcji pracy, którą przedsiębiorcy ostro krytykują nazywając ją zgniłym kompromisem;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_23.mp3</guid>
+      <pubDate>Mon, 23 Feb 2026 05:36:08 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_23.mp3" type="audio/mpeg" length="2398605" />
+      <itunes:title>AudioNews Polska - February 23, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>February 23, 2026 news: Oto Twój przegląd wiadomości polskie na 23 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj trwają gorące debaty wokół planowanej reformy inspekcji pracy, którą przedsiębiorcy ostro krytykują nazywając ją zgniłym kompromisem;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>41</itunes:episode>
+      <itunes:subtitle>February 23, 2026 news: Oto Twój przegląd wiadomości polskie na 23 lutego 2026, przygotowany przez D...</itunes:subtitle>
+      <itunes:duration>01:59</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 22, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-22</link>

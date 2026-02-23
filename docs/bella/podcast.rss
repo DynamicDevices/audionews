@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771737976" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771824798" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771737976</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771824798</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Sun, 22 Feb 2026 05:32:52 +0000</lastBuildDate>
-    <pubDate>Sun, 22 Feb 2026 05:32:52 +0000</pubDate>
+    <lastBuildDate>Mon, 23 Feb 2026 05:39:57 +0000</lastBuildDate>
+    <pubDate>Mon, 23 Feb 2026 05:39:57 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 23, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-23</link>
+      <description>February 23, 2026 news: Political pressure on corporate boards reveals how regulatory risk now shapes company valuations in unexpected ways, The administrations targeting of media companies demonstrates non-traditional market forces that quantitative models often miss entirely .</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_23.mp3</guid>
+      <pubDate>Mon, 23 Feb 2026 05:36:56 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_23.mp3" type="audio/mpeg" length="4367085" />
+      <itunes:title>BellaNews - February 23, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 23, 2026 news: Political pressure on corporate boards reveals how regulatory risk now shapes company valuations in unexpected ways, The administrations targeting of media companies demonstrates non-traditional market forces that quantitative models often miss entirely .</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>37</itunes:episode>
+      <itunes:subtitle>February 23, 2026 news: Political pressure on corporate boards reveals how regulatory risk now shape...</itunes:subtitle>
+      <itunes:duration>03:38</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 22, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-22</link>
