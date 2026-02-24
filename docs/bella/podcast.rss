@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771824798" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771911022" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771824798</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771911022</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Mon, 23 Feb 2026 05:39:57 +0000</lastBuildDate>
-    <pubDate>Mon, 23 Feb 2026 05:39:57 +0000</pubDate>
+    <lastBuildDate>Tue, 24 Feb 2026 05:37:58 +0000</lastBuildDate>
+    <pubDate>Tue, 24 Feb 2026 05:37:58 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 24, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-24</link>
+      <description>February 24, 2026 news: Global trade dynamics are shifting dramatically as tariff policies create uncertainty across major economies and established partnerships . Chinas rise as Germanys largest trading partner represents a fundamental realignment in European commercial relationships and supply chains;</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_24.mp3</guid>
+      <pubDate>Tue, 24 Feb 2026 05:34:37 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_24.mp3" type="audio/mpeg" length="5300685" />
+      <itunes:title>BellaNews - February 24, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 24, 2026 news: Global trade dynamics are shifting dramatically as tariff policies create uncertainty across major economies and established partnerships . Chinas rise as Germanys largest trading partner represents a fundamental realignment in European commercial relationships and supply chains;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>38</itunes:episode>
+      <itunes:subtitle>February 24, 2026 news: Global trade dynamics are shifting dramatically as tariff policies create un...</itunes:subtitle>
+      <itunes:duration>04:24</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 23, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-23</link>
