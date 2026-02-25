@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771911022" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771997489" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771911022</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771997489</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Tue, 24 Feb 2026 05:37:37 +0000</lastBuildDate>
-    <pubDate>Tue, 24 Feb 2026 05:37:37 +0000</pubDate>
+    <lastBuildDate>Wed, 25 Feb 2026 05:38:15 +0000</lastBuildDate>
+    <pubDate>Wed, 25 Feb 2026 05:38:15 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 25, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-25</link>
+      <description>February 25, 2026 news: Oto Twój przegląd wiadomości polskie na 25 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj trwa tysiąc czterysta sześćdziesiąty trzeci dzień rosyjskiej inwazji na Ukrainę;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_25.mp3</guid>
+      <pubDate>Wed, 25 Feb 2026 05:34:50 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_25.mp3" type="audio/mpeg" length="3633165" />
+      <itunes:title>AudioNews Polska - February 25, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>February 25, 2026 news: Oto Twój przegląd wiadomości polskie na 25 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj trwa tysiąc czterysta sześćdziesiąty trzeci dzień rosyjskiej inwazji na Ukrainę;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>43</itunes:episode>
+      <itunes:subtitle>February 25, 2026 news: Oto Twój przegląd wiadomości polskie na 25 lutego 2026, przygotowany przez D...</itunes:subtitle>
+      <itunes:duration>03:01</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 24, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-24</link>
