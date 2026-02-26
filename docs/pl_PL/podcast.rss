@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771997489" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772083762" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1771997489</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772083762</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Wed, 25 Feb 2026 05:38:15 +0000</lastBuildDate>
-    <pubDate>Wed, 25 Feb 2026 05:38:15 +0000</pubDate>
+    <lastBuildDate>Thu, 26 Feb 2026 05:36:14 +0000</lastBuildDate>
+    <pubDate>Thu, 26 Feb 2026 05:36:14 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 26, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-26</link>
+      <description>February 26, 2026 news: Oto Twój przegląd wiadomości polskie na 26 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj prezydent Karol Nawrocki planuje ułaskawić dwie osoby publiczne, co wywołuje dyskusje o zakresie prezydenckich prerogatyw;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_26.mp3</guid>
+      <pubDate>Thu, 26 Feb 2026 05:32:27 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_26.mp3" type="audio/mpeg" length="3983085" />
+      <itunes:title>AudioNews Polska - February 26, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>February 26, 2026 news: Oto Twój przegląd wiadomości polskie na 26 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj prezydent Karol Nawrocki planuje ułaskawić dwie osoby publiczne, co wywołuje dyskusje o zakresie prezydenckich prerogatyw;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>44</itunes:episode>
+      <itunes:subtitle>February 26, 2026 news: Oto Twój przegląd wiadomości polskie na 26 lutego 2026, przygotowany przez D...</itunes:subtitle>
+      <itunes:duration>03:19</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 25, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-25</link>

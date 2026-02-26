@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771997489" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772083762" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1771997489</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772083762</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Wed, 25 Feb 2026 05:38:34 +0000</lastBuildDate>
-    <pubDate>Wed, 25 Feb 2026 05:38:34 +0000</pubDate>
+    <lastBuildDate>Thu, 26 Feb 2026 05:36:38 +0000</lastBuildDate>
+    <pubDate>Thu, 26 Feb 2026 05:36:38 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 26, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-26</link>
+      <description>February 26, 2026 news: Aston Martins twenty percent workforce reduction amid widening losses demonstrates how luxury automakers face margin compression and operational inefficiency challenges , This restructuring scenario appears frequently in investment banking turnaround mandates , where analysts model cost...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_26.mp3</guid>
+      <pubDate>Thu, 26 Feb 2026 05:33:32 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_26.mp3" type="audio/mpeg" length="5023245" />
+      <itunes:title>BellaNews - February 26, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 26, 2026 news: Aston Martins twenty percent workforce reduction amid widening losses demonstrates how luxury automakers face margin compression and operational inefficiency challenges , This restructuring scenario appears frequently in investment banking turnaround mandates , where analysts model cost...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>40</itunes:episode>
+      <itunes:subtitle>February 26, 2026 news: Aston Martins twenty percent workforce reduction amid widening losses demons...</itunes:subtitle>
+      <itunes:duration>04:11</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 25, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-25</link>
