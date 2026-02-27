@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772083762" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772169950" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772083762</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772169950</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Thu, 26 Feb 2026 05:36:38 +0000</lastBuildDate>
-    <pubDate>Thu, 26 Feb 2026 05:36:38 +0000</pubDate>
+    <lastBuildDate>Fri, 27 Feb 2026 05:32:16 +0000</lastBuildDate>
+    <pubDate>Fri, 27 Feb 2026 05:32:16 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 27, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-02-27</link>
+      <description>February 27, 2026 news: Nvidias latest earnings reveal how datacenter infrastructure spending creates exponential revenue growth through network effects and compounding demand , This demonstrates how mathematical modeling of adoption curves directly translates into valuation multiples for investment banking pitches ;...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_27.mp3</guid>
+      <pubDate>Fri, 27 Feb 2026 05:29:17 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_27.mp3" type="audio/mpeg" length="3259245" />
+      <itunes:title>BellaNews - February 27, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>February 27, 2026 news: Nvidias latest earnings reveal how datacenter infrastructure spending creates exponential revenue growth through network effects and compounding demand , This demonstrates how mathematical modeling of adoption curves directly translates into valuation multiples for investment banking pitches ;...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>41</itunes:episode>
+      <itunes:subtitle>February 27, 2026 news: Nvidias latest earnings reveal how datacenter infrastructure spending create...</itunes:subtitle>
+      <itunes:duration>02:42</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 26, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-26</link>
