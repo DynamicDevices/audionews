@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772169950" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772255715" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772169950</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772255715</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Fri, 27 Feb 2026 05:32:16 +0000</lastBuildDate>
-    <pubDate>Fri, 27 Feb 2026 05:32:16 +0000</pubDate>
+    <lastBuildDate>Sat, 28 Feb 2026 05:23:09 +0000</lastBuildDate>
+    <pubDate>Sat, 28 Feb 2026 05:23:09 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - February 28, 2026: Good morning Bella ; Here's your Business and Finance new...</title>
+      <link>https://audionews.uk/bella?date=2026-02-28</link>
+      <description>February 28, 2026 news: Meanwhile , a major fintech platform announced workforce reductions affecting thousands of positions , citing automation capabilities that now handle previously manual operations , These simultaneous developments reveal how AI creates value asymmetrically across different business models and...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_02_28.mp3</guid>
+      <pubDate>Sat, 28 Feb 2026 05:19:16 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_02_28.mp3" type="audio/mpeg" length="7093485" />
+      <itunes:title>BellaNews - February 28, 2026: Good morning Bella ; Here's your Business and Finance new...</itunes:title>
+      <itunes:summary>February 28, 2026 news: Meanwhile , a major fintech platform announced workforce reductions affecting thousands of positions , citing automation capabilities that now handle previously manual operations , These simultaneous developments reveal how AI creates value asymmetrically across different business models and...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>42</itunes:episode>
+      <itunes:subtitle>February 28, 2026 news: Meanwhile , a major fintech platform announced workforce reductions affectin...</itunes:subtitle>
+      <itunes:duration>05:54</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 27, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-02-27</link>

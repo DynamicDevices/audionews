@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772169950" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772255715" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772169950</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772255715</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Fri, 27 Feb 2026 05:31:51 +0000</lastBuildDate>
-    <pubDate>Fri, 27 Feb 2026 05:31:51 +0000</pubDate>
+    <lastBuildDate>Sat, 28 Feb 2026 05:22:43 +0000</lastBuildDate>
+    <pubDate>Sat, 28 Feb 2026 05:22:43 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - February 28, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-02-28</link>
+      <description>February 28, 2026 news: Oto Twój przegląd wiadomości polskie na 28 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj najnowszy sondaż przynosi zaskakujące wyniki, gdzie Koalicja Obywatelska umacnia swoją pozycję lidera, podczas gdy poparcie dla Prawa i Sprawiedliwości spadło poniżej...</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_28.mp3</guid>
+      <pubDate>Sat, 28 Feb 2026 05:18:05 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_02_28.mp3" type="audio/mpeg" length="4020525" />
+      <itunes:title>AudioNews Polska - February 28, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>February 28, 2026 news: Oto Twój przegląd wiadomości polskie na 28 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj najnowszy sondaż przynosi zaskakujące wyniki, gdzie Koalicja Obywatelska umacnia swoją pozycję lidera, podczas gdy poparcie dla Prawa i Sprawiedliwości spadło poniżej...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>46</itunes:episode>
+      <itunes:subtitle>February 28, 2026 news: Oto Twój przegląd wiadomości polskie na 28 lutego 2026, przygotowany przez D...</itunes:subtitle>
+      <itunes:duration>03:20</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - February 27, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-02-27</link>
