@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772255715" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772342834" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772255715</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772342834</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Sat, 28 Feb 2026 05:23:09 +0000</lastBuildDate>
-    <pubDate>Sat, 28 Feb 2026 05:23:09 +0000</pubDate>
+    <lastBuildDate>Sun, 01 Mar 2026 05:34:44 +0000</lastBuildDate>
+    <pubDate>Sun, 01 Mar 2026 05:34:44 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - March 01, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-03-01</link>
+      <description>March 01, 2026 news: Nvidias datacenter revenue surge demonstrates robust enterprise demand for AI infrastructure and computational power; Meanwhile, Blocks workforce reduction of four thousand positions illustrates AIs deflationary impact on labor economics .</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_03_01.mp3</guid>
+      <pubDate>Sun, 01 Mar 2026 05:31:03 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_03_01.mp3" type="audio/mpeg" length="5309325" />
+      <itunes:title>BellaNews - March 01, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>March 01, 2026 news: Nvidias datacenter revenue surge demonstrates robust enterprise demand for AI infrastructure and computational power; Meanwhile, Blocks workforce reduction of four thousand positions illustrates AIs deflationary impact on labor economics .</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>43</itunes:episode>
+      <itunes:subtitle>March 01, 2026 news: Nvidias datacenter revenue surge demonstrates robust enterprise demand for AI i...</itunes:subtitle>
+      <itunes:duration>04:25</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - February 28, 2026: Good morning Bella ; Here's your Business and Finance new...</title>
       <link>https://audionews.uk/bella?date=2026-02-28</link>

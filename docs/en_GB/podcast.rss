@@ -37,15 +37,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, uk news, daily news, audio news, visually impaired, blind, partially sighted, blind and partially sighted, assistive technology, screen reader, accessible news</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1772255715" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1772342834" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1772255715</url>
+      <url>https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1772342834</url>
       <title>AudioNews Daily</title>
       <link>https://audionews.uk/en_GB</link>
     </image>
-    <lastBuildDate>Sat, 28 Feb 2026 05:22:11 +0000</lastBuildDate>
-    <pubDate>Sat, 28 Feb 2026 05:22:11 +0000</pubDate>
+    <lastBuildDate>Sun, 01 Mar 2026 05:33:45 +0000</lastBuildDate>
+    <pubDate>Sun, 01 Mar 2026 05:33:45 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews - March 01, 2026: Good morning</title>
+      <link>https://audionews.uk/en_GB?date=2026-03-01</link>
+      <description>March 01, 2026 news: in international news, tensions have escalated dramatically in the Middle East as Irans Supreme Leader Ayatollah Khamenei has reportedly been killed, prompting Iran to launch retaliatory strikes against multiple targets; the Trump administration has confirmed ordering the initial attack,...</description>
+      <guid isPermaLink="true">https://audionews.uk/en_GB/audio/news_digest_ai_2026_03_01.mp3</guid>
+      <pubDate>Sun, 01 Mar 2026 05:28:28 +0000</pubDate>
+      <enclosure url="https://audionews.uk/en_GB/audio/news_digest_ai_2026_03_01.mp3" type="audio/mpeg" length="3645645" />
+      <itunes:title>AudioNews - March 01, 2026: Good morning</itunes:title>
+      <itunes:summary>March 01, 2026 news: in international news, tensions have escalated dramatically in the Middle East as Irans Supreme Leader Ayatollah Khamenei has reportedly been killed, prompting Iran to launch retaliatory strikes against multiple targets; the Trump administration has confirmed ordering the initial attack,...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>50</itunes:episode>
+      <itunes:subtitle>March 01, 2026 news: in international news, tensions have escalated dramatically in the Middle East...</itunes:subtitle>
+      <itunes:duration>03:02</itunes:duration>
+    </item>
     <item>
       <title>AudioNews - February 28, 2026: Good morning</title>
       <link>https://audionews.uk/en_GB?date=2026-02-28</link>
@@ -57,7 +72,7 @@
       <itunes:summary>February 28, 2026 news: in politics news, Prime Minister Starmer faces mounting pressure from Labour M P s to shift direction following a significant by-election defeat, though his government plans to continue with immigration reforms regardless of the electoral setback; meanwhile in child welfare developments, a young...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>50</itunes:episode>
+      <itunes:episode>49</itunes:episode>
       <itunes:subtitle>February 28, 2026 news: in politics news, Prime Minister Starmer faces mounting pressure from Labour...</itunes:subtitle>
       <itunes:duration>02:58</itunes:duration>
     </item>
@@ -72,7 +87,7 @@
       <itunes:summary>February 27, 2026 news: in politics news, the Green Party has achieved a historic breakthrough by winning their first ever Westminster by-election, taking both Gorton and Denton seats from Labour in what marks a significant shift in British electoral politics; meanwhile tensions have emerged between the United States...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>49</itunes:episode>
+      <itunes:episode>48</itunes:episode>
       <itunes:subtitle>February 27, 2026 news: in politics news, the Green Party has achieved a historic breakthrough by wi...</itunes:subtitle>
       <itunes:duration>03:37</itunes:duration>
     </item>
@@ -87,7 +102,7 @@
       <itunes:summary>February 26, 2026 news: in politics news, the Metropolitan Police has issued an apology to the Speaker of the House of Commons after inappropriately sharing information about Peter Mandelson, while Conservative leader Kemi Badenoch faces criticism as a parliamentary debate on student loans descended into what observers...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>48</itunes:episode>
+      <itunes:episode>47</itunes:episode>
       <itunes:subtitle>February 26, 2026 news: in politics news, the Metropolitan Police has issued an apology to the Speak...</itunes:subtitle>
       <itunes:duration>04:02</itunes:duration>
     </item>
@@ -102,7 +117,7 @@
       <itunes:summary>February 25, 2026 news: in politics news, controversy continues around Peter Mandelsons appointment as trade envoy, with his legal team dismissing claims he was arrested over flight risk concerns as baseless; meanwhile, government officials have announced theyll release documents related to the appointment amid growing...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>47</itunes:episode>
+      <itunes:episode>46</itunes:episode>
       <itunes:subtitle>February 25, 2026 news: in politics news, controversy continues around Peter Mandelsons appointment...</itunes:subtitle>
       <itunes:duration>03:05</itunes:duration>
     </item>
@@ -117,7 +132,7 @@
       <itunes:summary>February 24, 2026 news: in politics news, Lord Mandelson has been released on bail following his arrest on suspicion of misconduct in public office, with investigations revealing that an email addressed to then-Prime Minister Gordon Brown appeared in Jeffrey Epsteins inbox just 38 minutes after being sent; meanwhile...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>46</itunes:episode>
+      <itunes:episode>45</itunes:episode>
       <itunes:subtitle>February 24, 2026 news: in politics news, Lord Mandelson has been released on bail following his arr...</itunes:subtitle>
       <itunes:duration>03:01</itunes:duration>
     </item>
@@ -132,7 +147,7 @@
       <itunes:summary>February 23, 2026 news: in politics news, former civil servants have alleged that Prince Andrew charged taxpayers for massage services during his time as a trade envoy, raising fresh questions about his expenses; Meanwhile Reform U K is set to announce plans for a new immigration enforcement agency modeled on Americas...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>45</itunes:episode>
+      <itunes:episode>44</itunes:episode>
       <itunes:subtitle>February 23, 2026 news: in politics news, former civil servants have alleged that Prince Andrew char...</itunes:subtitle>
       <itunes:duration>03:52</itunes:duration>
     </item>
@@ -147,7 +162,7 @@
       <itunes:summary>February 22, 2026 news: in politics news, former Prime Minister Boris Johnson is calling for Britain to deploy non-combat military personnel to Ukraine immediately to support the war effort; meanwhile Parliament is set to examine the trade envoy appointment process following Prince Andrews recent arrest, with lawmakers...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>44</itunes:episode>
+      <itunes:episode>43</itunes:episode>
       <itunes:subtitle>February 22, 2026 news: in politics news, former Prime Minister Boris Johnson is calling for Britain...</itunes:subtitle>
       <itunes:duration>03:10</itunes:duration>
     </item>
@@ -162,7 +177,7 @@
       <itunes:summary>February 21, 2026 news: in politics news, Prince Andrew faces mounting pressure as the British government weighs removing him from the royal line of succession amid renewed scrutiny of his connections to Jeffrey Epstein; police are now preparing to question his former protection officers about what they may have...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>43</itunes:episode>
+      <itunes:episode>42</itunes:episode>
       <itunes:subtitle>February 21, 2026 news: in politics news, Prince Andrew faces mounting pressure as the British gover...</itunes:subtitle>
       <itunes:duration>03:14</itunes:duration>
     </item>
@@ -177,7 +192,7 @@
       <itunes:summary>February 20, 2026 news: in politics news, British Prime Minister Keir Starmer has reportedly refused to allow U S President Trump to use Royal Air Force bases for potential military strikes against Iran, marking a significant diplomatic stance between the two allies; meanwhile in domestic matters, a public official...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>42</itunes:episode>
+      <itunes:episode>41</itunes:episode>
       <itunes:subtitle>February 20, 2026 news: in politics news, British Prime Minister Keir Starmer has reportedly refused...</itunes:subtitle>
       <itunes:duration>02:47</itunes:duration>
     </item>
@@ -192,7 +207,7 @@
       <itunes:summary>February 19, 2026 news: in politics news, the government faces potential political fallout over proposed changes to special education support that could affect thousands of families across the country, while separately, military veterans are preparing legal action against the Ministry of Defence regarding concerns over...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>41</itunes:episode>
+      <itunes:episode>40</itunes:episode>
       <itunes:subtitle>February 19, 2026 news: in politics news, the government faces potential political fallout over prop...</itunes:subtitle>
       <itunes:duration>04:09</itunes:duration>
     </item>
@@ -207,7 +222,7 @@
       <itunes:summary>February 18, 2026 news: in crime news, British authorities are reviewing private flights that used Stansted Airport due to connections with Jeffrey Epsteins criminal network; Meanwhile, police across the United Kingdom are making roughly one thousand arrests monthly in cases involving child exploitation, reflecting an...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>40</itunes:episode>
+      <itunes:episode>39</itunes:episode>
       <itunes:subtitle>February 18, 2026 news: in crime news, British authorities are reviewing private flights that used S...</itunes:subtitle>
       <itunes:duration>03:06</itunes:duration>
     </item>
@@ -222,7 +237,7 @@
       <itunes:summary>February 17, 2026 news: in politics news, British Prime Minister Keir Starmer has reversed his position on postponing local elections in England, which had been scheduled for May . The government had initially proposed delaying the votes to allow time for boundary changes, but faced significant backlash from opposition...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>39</itunes:episode>
+      <itunes:episode>38</itunes:episode>
       <itunes:subtitle>February 17, 2026 news: in politics news, British Prime Minister Keir Starmer has reversed his posit...</itunes:subtitle>
       <itunes:duration>02:43</itunes:duration>
     </item>
@@ -237,7 +252,7 @@
       <itunes:summary>February 16, 2026 news: in politics news, the U K government is weighing a substantial boost to military funding amid growing security concerns, while Prime Minister Starmer has announced plans to tackle what he calls addictive features built into social media platforms; Meanwhile, ministers are carefully approaching...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>38</itunes:episode>
+      <itunes:episode>37</itunes:episode>
       <itunes:subtitle>February 16, 2026 news: in politics news, the U K government is weighing a substantial boost to mili...</itunes:subtitle>
       <itunes:duration>03:22</itunes:duration>
     </item>
@@ -252,7 +267,7 @@
       <itunes:summary>February 15, 2026 news: in politics news, the British Prime Minister has urged European nations to prepare for potential military conflict while addressing security leaders in Munich, as top American Democratic officials attempt to calm European allies by emphasizing that President Trumps tenure will end within three...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>37</itunes:episode>
+      <itunes:episode>36</itunes:episode>
       <itunes:subtitle>February 15, 2026 news: in politics news, the British Prime Minister has urged European nations to p...</itunes:subtitle>
       <itunes:duration>02:50</itunes:duration>
     </item>
@@ -267,7 +282,7 @@
       <itunes:summary>February 14, 2026 news: in politics news, former President Trump is pushing for mandatory voter identification requirements in upcoming midterm elections, declaring hell move forward with or without congressional approval, which raises questions about executive authority and election procedures; meanwhile across the...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>36</itunes:episode>
+      <itunes:episode>35</itunes:episode>
       <itunes:subtitle>February 14, 2026 news: in politics news, former President Trump is pushing for mandatory voter iden...</itunes:subtitle>
       <itunes:duration>02:49</itunes:duration>
     </item>
@@ -282,7 +297,7 @@
       <itunes:summary>February 13, 2026 news: in politics news, Prime Minister Keir Starmer faces mounting pressure as Sir Chris Wormald has been removed from his position as head of the Civil Service amid growing turbulence within the government; critics have increasingly questioned Starmers leadership style with some describing him as...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>35</itunes:episode>
+      <itunes:episode>34</itunes:episode>
       <itunes:subtitle>February 13, 2026 news: in politics news, Prime Minister Keir Starmer faces mounting pressure as Sir...</itunes:subtitle>
       <itunes:duration>03:58</itunes:duration>
     </item>
@@ -297,7 +312,7 @@
       <itunes:summary>February 12, 2026 news: in politics news, Prime Minister Keir Starmer is facing mounting pressure over his judgement after calling on businessman Sir Jim Ratcliffe to apologize for controversial comments about Britain being colonized . The situation has intensified as Starmer acknowledged that an aide linked to a sex...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>34</itunes:episode>
+      <itunes:episode>33</itunes:episode>
       <itunes:subtitle>February 12, 2026 news: in politics news, Prime Minister Keir Starmer is facing mounting pressure ov...</itunes:subtitle>
       <itunes:duration>03:11</itunes:duration>
     </item>
@@ -312,7 +327,7 @@
       <itunes:summary>February 11, 2026 news: in international news, a tragic shooting at a Canadian school and nearby home has left nine people dead and 25 injured; meanwhile Britain is doubling its military presence in Norway as concerns grow over Russian activity in the Arctic region, and authorities worldwide are grappling with a rising...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>33</itunes:episode>
+      <itunes:episode>32</itunes:episode>
       <itunes:subtitle>February 11, 2026 news: in international news, a tragic shooting at a Canadian school and nearby hom...</itunes:subtitle>
       <itunes:duration>02:46</itunes:duration>
     </item>
@@ -327,7 +342,7 @@
       <itunes:summary>February 10, 2026 news: in politics news, the Prime Minister faces mounting pressure as cabinet ministers publicly defend his leadership amid calls for resignation from opposition figures, while leaked private messages from Health Secretary Wes Streeting have surfaced showing concerns about election prospects and...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>32</itunes:episode>
+      <itunes:episode>31</itunes:episode>
       <itunes:subtitle>February 10, 2026 news: in politics news, the Prime Minister faces mounting pressure as cabinet mini...</itunes:subtitle>
       <itunes:duration>03:04</itunes:duration>
     </item>
@@ -342,7 +357,7 @@
       <itunes:summary>February 09, 2026 news: in politics news, the Prime Ministers chief aide McSweeney has resigned following a dispute over Peter Mandelsons appointment as ambassador to Washington, marking a significant shake-up in Downing Street; meanwhile attention has turned to a key advisor driving President Trumps most divisive...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>31</itunes:episode>
+      <itunes:episode>30</itunes:episode>
       <itunes:subtitle>February 09, 2026 news: in politics news, the Prime Ministers chief aide McSweeney has resigned foll...</itunes:subtitle>
       <itunes:duration>03:01</itunes:duration>
     </item>
@@ -357,7 +372,7 @@
       <itunes:summary>February 08, 2026 news: in politics news, controversy has erupted over Peter Mandelsons appointment as Britains ambassador to the United States, with lawmakers expressing outrage directed primarily at Prime Minister Starmer rather than Mandelson himself . The Foreign Office has announced it will review the financial...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>30</itunes:episode>
+      <itunes:episode>29</itunes:episode>
       <itunes:subtitle>February 08, 2026 news: in politics news, controversy has erupted over Peter Mandelsons appointment...</itunes:subtitle>
       <itunes:duration>03:39</itunes:duration>
     </item>
@@ -372,7 +387,7 @@
       <itunes:summary>February 07, 2026 news: in politics news, authorities have searched properties connected to Peter Mandelson as part of an ongoing investigation into Jeffrey Epsteins associates, while separately a government minister faces scrutiny for allegedly hiring a public relations company to track down journalists confidential...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>29</itunes:episode>
+      <itunes:episode>28</itunes:episode>
       <itunes:subtitle>February 07, 2026 news: in politics news, authorities have searched properties connected to Peter Ma...</itunes:subtitle>
       <itunes:duration>03:33</itunes:duration>
     </item>
@@ -387,7 +402,7 @@
       <itunes:summary>February 06, 2026 news: in politics news, senior government officials have been ordered to submit their private communications with Peter Mandelson as part of an ongoing inquiry, while Downing Street has confirmed that former President Trump supports the controversial agreement to hand over the Chagos Islands;...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>28</itunes:episode>
+      <itunes:episode>27</itunes:episode>
       <itunes:subtitle>February 06, 2026 news: in politics news, senior government officials have been ordered to submit th...</itunes:subtitle>
       <itunes:duration>03:45</itunes:duration>
     </item>
@@ -402,7 +417,7 @@
       <itunes:summary>February 05, 2026 news: in politics news, British lawmakers have approved the release of classified files related to Peter Mandelson, following pressure from Labour members who demanded transparency; the Prime Minister acknowledged he was aware when appointing Mandelson as U S ambassador that the peer had maintained...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>27</itunes:episode>
+      <itunes:episode>26</itunes:episode>
       <itunes:subtitle>February 05, 2026 news: in politics news, British lawmakers have approved the release of classified...</itunes:subtitle>
       <itunes:duration>03:19</itunes:duration>
     </item>
@@ -417,7 +432,7 @@
       <itunes:summary>February 04, 2026 news: in politics news, law enforcement has opened an investigation into Peter Mandelson following allegations he shared confidential information with Jeffrey Epstein during his time as a European trade commissioner; meanwhile Prince Andrew has vacated the Royal Lodge residence amid ongoing scrutiny...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>26</itunes:episode>
+      <itunes:episode>25</itunes:episode>
       <itunes:subtitle>February 04, 2026 news: in politics news, law enforcement has opened an investigation into Peter Man...</itunes:subtitle>
       <itunes:duration>02:49</itunes:duration>
     </item>
@@ -432,7 +447,7 @@
       <itunes:summary>February 03, 2026 news: in politics news, British authorities are examining allegations that Lord Mandelson shared government documents with Jeffrey Epstein based on newly surfaced files, while across the Atlantic the Clintons have agreed to provide testimony regarding their connections to Epstein as Congress considers...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>25</itunes:episode>
+      <itunes:episode>24</itunes:episode>
       <itunes:subtitle>February 03, 2026 news: in politics news, British authorities are examining allegations that Lord Ma...</itunes:subtitle>
       <itunes:duration>02:49</itunes:duration>
     </item>
@@ -447,7 +462,7 @@
       <itunes:summary>February 02, 2026 news: in politics news, a prominent British political figure has stepped down from the Labour Party following revelations about past connections to Jeffrey Epstein, while Prime Minister Starmer continues criticizing the previous governments handling of Brexit as economically damaging; meanwhile in the...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>24</itunes:episode>
+      <itunes:episode>23</itunes:episode>
       <itunes:subtitle>February 02, 2026 news: in politics news, a prominent British political figure has stepped down from...</itunes:subtitle>
       <itunes:duration>02:45</itunes:duration>
     </item>
@@ -462,7 +477,7 @@
       <itunes:summary>February 01, 2026 news: in politics news, British Prime Minister Keir Starmer has suggested that Prince Andrew should testify before the U S Congress following the emergence of new photographs, adding pressure on the royal amid ongoing scrutiny; Meanwhile Starmer faces his own diplomatic challenge as he works to defend...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>23</itunes:episode>
+      <itunes:episode>22</itunes:episode>
       <itunes:subtitle>February 01, 2026 news: in politics news, British Prime Minister Keir Starmer has suggested that Pri...</itunes:subtitle>
       <itunes:duration>02:18</itunes:duration>
     </item>
@@ -477,7 +492,7 @@
       <itunes:summary>January 31, 2026 news: in politics news, President Trumps nomination to lead the Federal Reserve is raising questions about whether the pick will deliver the economic policy changes the president is seeking, while lawmakers are demanding answers about why former intelligence official Tulsi Gabbard was present during...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>22</itunes:episode>
+      <itunes:episode>21</itunes:episode>
       <itunes:subtitle>January 31, 2026 news: in politics news, President Trumps nomination to lead the Federal Reserve is...</itunes:subtitle>
       <itunes:duration>03:30</itunes:duration>
     </item>
@@ -492,7 +507,7 @@
       <itunes:summary>January 30, 2026 news: in politics news, the government has announced that millions of households will continue receiving a hundred and fifty pound discount on their energy bills for another five years as part of ongoing cost of living support measures; meanwhile Prime Minister Keir Starmer has signaled openness to...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>21</itunes:episode>
+      <itunes:episode>20</itunes:episode>
       <itunes:subtitle>January 30, 2026 news: in politics news, the government has announced that millions of households wi...</itunes:subtitle>
       <itunes:duration>03:23</itunes:duration>
     </item>
@@ -507,7 +522,7 @@
       <itunes:summary>January 29, 2026 news: in politics news, a senior peer has warned that proposed assisted dying legislation faces significant obstacles in the House of Lords unless parliamentary procedures are adjusted; meanwhile the government is pushing schools to keep suspended pupils on premises rather than sending them home,...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>20</itunes:episode>
+      <itunes:episode>19</itunes:episode>
       <itunes:subtitle>January 29, 2026 news: in politics news, a senior peer has warned that proposed assisted dying legis...</itunes:subtitle>
       <itunes:duration>03:22</itunes:duration>
     </item>
@@ -522,7 +537,7 @@
       <itunes:summary>January 28, 2026 news: in politics news, Prime Minister Keir Starmer is traveling to Beijing with business leaders, emphasizing that China remains important for Britains interests despite ongoing diplomatic tensions; Meanwhile, Starmer faces criticism over allegations he led investigations targeting Iraq war veterans...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>19</itunes:episode>
+      <itunes:episode>18</itunes:episode>
       <itunes:subtitle>January 28, 2026 news: in politics news, Prime Minister Keir Starmer is traveling to Beijing with bu...</itunes:subtitle>
       <itunes:duration>04:03</itunes:duration>
     </item>
@@ -537,7 +552,7 @@
       <itunes:summary>January 27, 2026 news: in politics news, Prime Minister Starmer is facing internal party tensions as fifty Labour M P s have signed a letter challenging a recent decision regarding Andy Burnham, while Starmer himself has stated he refuses to pick sides between the United States and China in international relations;...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>18</itunes:episode>
+      <itunes:episode>17</itunes:episode>
       <itunes:subtitle>January 27, 2026 news: in politics news, Prime Minister Starmer is facing internal party tensions as...</itunes:subtitle>
       <itunes:duration>04:04</itunes:duration>
     </item>
@@ -552,7 +567,7 @@
       <itunes:summary>January 26, 2026 news: in politics news, Greater Manchester Mayor Andy Burnham has expressed disappointment after Labours ruling body prevented him from standing as a parliamentary candidate in the upcoming general election . The decision blocks Burnhams attempt to return to Westminster, where he previously served as...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>17</itunes:episode>
+      <itunes:episode>16</itunes:episode>
       <itunes:subtitle>January 26, 2026 news: in politics news, Greater Manchester Mayor Andy Burnham has expressed disappo...</itunes:subtitle>
       <itunes:duration>04:19</itunes:duration>
     </item>
@@ -567,7 +582,7 @@
       <itunes:summary>January 25, 2026 news: in crime news, federal agents fatally shot Alex Pretti in Minneapolis during an operation, with authorities still releasing details about the circumstances surrounding the incident; meanwhile, a rape case has drawn attention after the accused made controversial claims about the alleged victims...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>16</itunes:episode>
+      <itunes:episode>15</itunes:episode>
       <itunes:subtitle>January 25, 2026 news: in crime news, federal agents fatally shot Alex Pretti in Minneapolis during...</itunes:subtitle>
       <itunes:duration>02:18</itunes:duration>
     </item>
@@ -582,7 +597,7 @@
       <itunes:summary>January 24, 2026 news: in politics news, Prime Minister Keir Starmer has withdrawn legislation concerning the Chagos Islands following criticism from former President Trump, marking a significant policy reversal for the government; Meanwhile, Deputy Prime Minister Angela Rayner is expected to support allowing Andy...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>15</itunes:episode>
+      <itunes:episode>14</itunes:episode>
       <itunes:subtitle>January 24, 2026 news: in politics news, Prime Minister Keir Starmer has withdrawn legislation conce...</itunes:subtitle>
       <itunes:duration>02:53</itunes:duration>
     </item>
@@ -597,7 +612,7 @@
       <itunes:summary>January 23, 2026 news: in politics news, Andy Burnham is positioning himself as a potential candidate for Labour leadership, though he faces significant challenges in his bid to lead the party; Meanwhile, the BBC has issued an apology to a presenter who was dismissed after experiencing homophobic abuse, acknowledging...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>14</itunes:episode>
+      <itunes:episode>13</itunes:episode>
       <itunes:subtitle>January 23, 2026 news: in politics news, Andy Burnham is positioning himself as a potential candidat...</itunes:subtitle>
       <itunes:duration>03:45</itunes:duration>
     </item>
@@ -612,7 +627,7 @@
       <itunes:summary>January 22, 2026 news: in politics news, Prime Minister Keir Starmer has strengthened his stance against Donald Trump while condemning international pressure regarding Greenland; meanwhile the House of Lords has approved legislation that would prohibit social media access for children under sixteen years old, and...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>13</itunes:episode>
+      <itunes:episode>12</itunes:episode>
       <itunes:subtitle>January 22, 2026 news: in politics news, Prime Minister Keir Starmer has strengthened his stance aga...</itunes:subtitle>
       <itunes:duration>03:21</itunes:duration>
     </item>
@@ -627,7 +642,7 @@
       <itunes:summary>January 21, 2026 news: in international news, the American president is pursuing diplomatic efforts to acquire Greenland while ruling out military action, seeking what he calls immediate negotiations with Danish authorities; meanwhile leaked photographs reveal the faces of hundreds of people killed during Irans...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>12</itunes:episode>
+      <itunes:episode>11</itunes:episode>
       <itunes:subtitle>January 21, 2026 news: in international news, the American president is pursuing diplomatic efforts...</itunes:subtitle>
       <itunes:duration>03:20</itunes:duration>
     </item>
@@ -642,7 +657,7 @@
       <itunes:summary>January 20, 2026 news: in politics news, the UK government is exploring whether to ban social media access for children under sixteen years old with consultations expected to begin soon, while separately a Green Party politician has called for the removal of American military forces from British bases; meanwhile...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>11</itunes:episode>
+      <itunes:episode>10</itunes:episode>
       <itunes:subtitle>January 20, 2026 news: in politics news, the UK government is exploring whether to ban social media...</itunes:subtitle>
       <itunes:duration>03:14</itunes:duration>
     </item>
@@ -657,7 +672,7 @@
       <itunes:summary>January 19, 2026 news: Prince Harry's legal case against a major British tabloid publisher continues, with his legal team alleging widespread illegal information gathering practices. The court heard claims of systematic unlawful activity by the media organization.</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>10</itunes:episode>
+      <itunes:episode>9</itunes:episode>
       <itunes:subtitle>January 19, 2026 news: Prince Harry's legal case against a major British tabloid publisher continues...</itunes:subtitle>
       <itunes:duration>04:12</itunes:duration>
     </item>
@@ -672,7 +687,7 @@
       <itunes:summary>January 18, 2026 news: British Prime Minister Keir Starmer has joined European leaders in condemning recent American threats to impose tariffs linked to Greenland. The controversy has sparked significant backlash in Greenland itself, where thousands took to the streets in protest against potential U.S.</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>9</itunes:episode>
+      <itunes:episode>8</itunes:episode>
       <itunes:subtitle>January 18, 2026 news: British Prime Minister Keir Starmer has joined European leaders in condemning...</itunes:subtitle>
       <itunes:duration>04:39</itunes:duration>
     </item>
@@ -687,7 +702,7 @@
       <itunes:summary>January 17, 2026 news: Former Prime Minister Tony Blair has been named to a Trump administration advisory group focused on Middle East peace efforts in Gaza. Meanwhile, Conservative leadership tensions continue as Robert Jenrick criticized party leader Kemi Badenoch, accusing those responsible for previous electoral...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>8</itunes:episode>
+      <itunes:episode>7</itunes:episode>
       <itunes:subtitle>January 17, 2026 news: Former Prime Minister Tony Blair has been named to a Trump administration adv...</itunes:subtitle>
       <itunes:duration>03:30</itunes:duration>
     </item>
@@ -702,7 +717,7 @@
       <itunes:summary>January 16, 2026 news: Former Conservative politician Robert Jenrick has made a dramatic switch to the Reform party, claiming his previous party left the nation in financial ruin. Meanwhile, the government has announced a new initiative to provide direct cash payments to individuals facing severe financial hardship.</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>7</itunes:episode>
+      <itunes:episode>6</itunes:episode>
       <itunes:subtitle>January 16, 2026 news: Former Conservative politician Robert Jenrick has made a dramatic switch to t...</itunes:subtitle>
       <itunes:duration>03:51</itunes:duration>
     </item>
@@ -717,7 +732,7 @@
       <itunes:summary>January 15, 2026 news: Over twenty local councils in England are requesting postponements for upcoming elections, citing financial and logistical challenges. Meanwhile, renowned British artist David Hockney has criticized proposals to temporarily relocate the historic Bayeux Tapestry from France to the UK, calling the...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>6</itunes:episode>
+      <itunes:episode>5</itunes:episode>
       <itunes:subtitle>January 15, 2026 news: Over twenty local councils in England are requesting postponements for upcomi...</itunes:subtitle>
       <itunes:duration>04:32</itunes:duration>
     </item>
@@ -732,7 +747,7 @@
       <itunes:summary>January 14, 2026 news: The government has reversed course on requiring workers to use digital identification, marking another policy U-turn for Prime Minister Starmer's administration.</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>5</itunes:episode>
+      <itunes:episode>4</itunes:episode>
       <itunes:subtitle>January 14, 2026 news: The government has reversed course on requiring workers to use digital identi...</itunes:subtitle>
       <itunes:duration>03:59</itunes:duration>
     </item>
@@ -747,7 +762,7 @@
       <itunes:summary>January 13, 2026 news: Prime Minister Starmer has warned that social media platform X may face stricter government oversight if it fails to adequately moderate content. Meanwhile, Conservative officials claim former party chair Nadhim Zahawi was denied a peerage before his recent switch to Reform UK.</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>4</itunes:episode>
+      <itunes:episode>3</itunes:episode>
       <itunes:subtitle>January 13, 2026 news: Prime Minister Starmer has warned that social media platform X may face stric...</itunes:subtitle>
       <itunes:duration>03:56</itunes:duration>
     </item>
@@ -762,7 +777,7 @@
       <itunes:summary>January 12, 2026 news: Justice Department has launched a criminal investigation into Federal Reserve Chair Jerome Powell. Meanwhile in Britain, Prime Minister Keir Starmer faces pressure to officially designate Iran's Revolutionary Guard Corps as a terrorist organization.</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>3</itunes:episode>
+      <itunes:episode>2</itunes:episode>
       <itunes:subtitle>January 12, 2026 news: Justice Department has launched a criminal investigation into Federal Reserve...</itunes:subtitle>
       <itunes:duration>03:55</itunes:duration>
     </item>
@@ -777,24 +792,9 @@
       <itunes:summary>January 11, 2026 news: Iranian medical workers report hospitals are struggling to handle casualties from ongoing anti-government demonstrations, with injuries arriving faster than emergency staff can respond. Meanwhile, the United States is advising its citizens to leave Venezuela immediately as reports emerge of...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>2</itunes:episode>
+      <itunes:episode>1</itunes:episode>
       <itunes:subtitle>January 11, 2026 news: Iranian medical workers report hospitals are struggling to handle casualties...</itunes:subtitle>
       <itunes:duration>03:18</itunes:duration>
-    </item>
-    <item>
-      <title>AudioNews - January 10, 2026: Britain's military faces a significant funding challenge,...</title>
-      <link>https://audionews.uk/en_GB?date=2026-01-10</link>
-      <description>January 10, 2026 news: Britain's military faces a significant funding challenge, with claims emerging of a twenty-eight billion pound shortfall in defence spending.</description>
-      <guid isPermaLink="true">https://audionews.uk/en_GB/audio/news_digest_ai_2026_01_10.mp3</guid>
-      <pubDate>Sat, 10 Jan 2026 05:07:45 +0000</pubDate>
-      <enclosure url="https://audionews.uk/en_GB/audio/news_digest_ai_2026_01_10.mp3" type="audio/mpeg" length="1485504" />
-      <itunes:title>AudioNews - January 10, 2026: Britain's military faces a significant funding challenge,...</itunes:title>
-      <itunes:summary>January 10, 2026 news: Britain's military faces a significant funding challenge, with claims emerging of a twenty-eight billion pound shortfall in defence spending.</itunes:summary>
-      <itunes:explicit>no</itunes:explicit>
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>1</itunes:episode>
-      <itunes:subtitle>January 10, 2026 news: Britain's military faces a significant funding challenge, with claims emergin...</itunes:subtitle>
-      <itunes:duration>04:07</itunes:duration>
     </item>
   </channel>
 </rss>
