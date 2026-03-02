@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772342834" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772429170" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772342834</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772429170</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Sun, 01 Mar 2026 05:34:17 +0000</lastBuildDate>
-    <pubDate>Sun, 01 Mar 2026 05:34:17 +0000</pubDate>
+    <lastBuildDate>Mon, 02 Mar 2026 05:33:33 +0000</lastBuildDate>
+    <pubDate>Mon, 02 Mar 2026 05:33:33 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - March 02, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-03-02</link>
+      <description>March 02, 2026 news: Oto Twój przegląd wiadomości polskie na 2 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt w Ukrainie trwa już ponad cztery lata, a walki wciąż się nasilają;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_03_02.mp3</guid>
+      <pubDate>Mon, 02 Mar 2026 05:29:05 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_03_02.mp3" type="audio/mpeg" length="3682125" />
+      <itunes:title>AudioNews Polska - March 02, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>March 02, 2026 news: Oto Twój przegląd wiadomości polskie na 2 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt w Ukrainie trwa już ponad cztery lata, a walki wciąż się nasilają;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>48</itunes:episode>
+      <itunes:subtitle>March 02, 2026 news: Oto Twój przegląd wiadomości polskie na 2 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
+      <itunes:duration>03:04</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - March 01, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-03-01</link>

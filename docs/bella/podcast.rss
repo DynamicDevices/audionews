@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772342834" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772429170" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772342834</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772429170</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Sun, 01 Mar 2026 05:34:44 +0000</lastBuildDate>
-    <pubDate>Sun, 01 Mar 2026 05:34:44 +0000</pubDate>
+    <lastBuildDate>Mon, 02 Mar 2026 05:34:02 +0000</lastBuildDate>
+    <pubDate>Mon, 02 Mar 2026 05:34:02 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - March 02, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-03-02</link>
+      <description>March 02, 2026 news: Nvidias latest quarterly results demonstrate how infrastructure spending creates exponential revenue growth during platform shifts , The datacenter buildout requires massive capital deployment , which investment bankers structure and venture capitalists must anticipate when timing investments ;...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_03_02.mp3</guid>
+      <pubDate>Mon, 02 Mar 2026 05:30:21 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_03_02.mp3" type="audio/mpeg" length="6238605" />
+      <itunes:title>BellaNews - March 02, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>March 02, 2026 news: Nvidias latest quarterly results demonstrate how infrastructure spending creates exponential revenue growth during platform shifts , The datacenter buildout requires massive capital deployment , which investment bankers structure and venture capitalists must anticipate when timing investments ;...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>44</itunes:episode>
+      <itunes:subtitle>March 02, 2026 news: Nvidias latest quarterly results demonstrate how infrastructure spending create...</itunes:subtitle>
+      <itunes:duration>05:11</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - March 01, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-03-01</link>
