@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772429170" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772515522" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772429170</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772515522</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Mon, 02 Mar 2026 05:34:02 +0000</lastBuildDate>
-    <pubDate>Mon, 02 Mar 2026 05:34:02 +0000</pubDate>
+    <lastBuildDate>Tue, 03 Mar 2026 05:32:20 +0000</lastBuildDate>
+    <pubDate>Tue, 03 Mar 2026 05:32:20 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - March 03, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-03-03</link>
+      <description>March 03, 2026 news: Middle East tensions are creating cascading effects across global supply chains and energy markets worth analyzing closely . Geopolitical risk modeling becomes crucial when infrastructure attacks disrupt operations for companies like Amazon in the Gulf region .</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_03_03.mp3</guid>
+      <pubDate>Tue, 03 Mar 2026 05:28:41 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_03_03.mp3" type="audio/mpeg" length="6051885" />
+      <itunes:title>BellaNews - March 03, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>March 03, 2026 news: Middle East tensions are creating cascading effects across global supply chains and energy markets worth analyzing closely . Geopolitical risk modeling becomes crucial when infrastructure attacks disrupt operations for companies like Amazon in the Gulf region .</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>45</itunes:episode>
+      <itunes:subtitle>March 03, 2026 news: Middle East tensions are creating cascading effects across global supply chains...</itunes:subtitle>
+      <itunes:duration>05:02</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - March 02, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-03-02</link>

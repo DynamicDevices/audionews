@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772429170" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772515522" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772429170</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772515522</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Mon, 02 Mar 2026 05:33:33 +0000</lastBuildDate>
-    <pubDate>Mon, 02 Mar 2026 05:33:33 +0000</pubDate>
+    <lastBuildDate>Tue, 03 Mar 2026 05:31:51 +0000</lastBuildDate>
+    <pubDate>Tue, 03 Mar 2026 05:31:51 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - March 03, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-03-03</link>
+      <description>March 03, 2026 news: Oto Twój przegląd wiadomości polskie na 3 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysta sześćdziesiąty dziewiąty dzień walk;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_03_03.mp3</guid>
+      <pubDate>Tue, 03 Mar 2026 05:27:43 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_03_03.mp3" type="audio/mpeg" length="2777325" />
+      <itunes:title>AudioNews Polska - March 03, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>March 03, 2026 news: Oto Twój przegląd wiadomości polskie na 3 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysta sześćdziesiąty dziewiąty dzień walk;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>49</itunes:episode>
+      <itunes:subtitle>March 03, 2026 news: Oto Twój przegląd wiadomości polskie na 3 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
+      <itunes:duration>02:18</itunes:duration>
+    </item>
     <item>
       <title>AudioNews Polska - March 02, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-03-02</link>
