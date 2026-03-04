@@ -125,6 +125,13 @@ jobs:
         SUCCESS_COUNT=0
         CORE_SUCCESS_COUNT=0
         
+        # When force_ai_regeneration is set, pass --force-regenerate so the script actually regenerates (it would otherwise skip when today's files exist)
+        FORCE_ARG=""
+        if [ "${{ inputs.force_ai_regeneration }}" = "true" ]; then
+          FORCE_ARG="--force-regenerate"
+          echo "🔄 Force regeneration: passing --force-regenerate to script"
+        fi
+        
         # Process core languages (en_GB, pl_PL, and bella - cost optimized)
         echo "🎯 PHASE 1: Generating CORE languages (en_GB, pl_PL, and bella)"
         for LANG in "${CORE_LANGUAGES[@]}"; do
@@ -140,8 +147,8 @@ jobs:
           
           # Run with timeout and capture exit code
           set +e  # Don't exit on error
-          echo "▶ Running: python scripts/github_ai_news_digest.py --language ${LANG} ${TTS_ARG}"
-          timeout 300 python scripts/github_ai_news_digest.py --language ${LANG} $TTS_ARG
+          echo "▶ Running: python scripts/github_ai_news_digest.py --language ${LANG} ${TTS_ARG} ${FORCE_ARG}"
+          timeout 300 python scripts/github_ai_news_digest.py --language ${LANG} $TTS_ARG $FORCE_ARG
           EXIT_CODE=$?
           set -e  # Re-enable exit on error
           
@@ -185,7 +192,7 @@ jobs:
             
             # Run with timeout and capture exit code
             set +e  # Don't exit on error
-            timeout 300 python scripts/github_ai_news_digest.py --language ${LANG}
+            timeout 300 python scripts/github_ai_news_digest.py --language ${LANG} $FORCE_ARG
             EXIT_CODE=$?
             set -e  # Re-enable exit on error
             

@@ -284,11 +284,12 @@ class GitHubAINewsDigest:
     Provides intelligent analysis while maintaining copyright compliance
     """
     
-    def __init__(self, language='en_GB', tts_provider_override: Optional[str] = None, use_existing_transcript: bool = False):
+    def __init__(self, language='en_GB', tts_provider_override: Optional[str] = None, use_existing_transcript: bool = False, force_regenerate: bool = False):
         self.language = language
         self.config = LANGUAGE_CONFIGS.get(language, LANGUAGE_CONFIGS['en_GB'])
         self.sources = self.config['sources']
         self.use_existing_transcript = use_existing_transcript
+        self.force_regenerate = force_regenerate
         
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -1471,32 +1472,33 @@ class GitHubAINewsDigest:
                 'regenerated': True
             }
         
-        # Check if today's files already exist (skip when use_existing_transcript)
-        audio_size = os.path.getsize(audio_filename) if os.path.exists(audio_filename) else 0
-        if os.path.exists(text_filename) and os.path.exists(audio_filename) and audio_size > 50000:
-            print(f"\n💰 COST OPTIMIZATION: Today's content already exists")
-            print(f"   ✅ Text: {text_filename}")
-            print(f"   ✅ Audio: {audio_filename} ({audio_size:,} bytes)")
-            print(f"   🚀 Skipping regeneration for efficiency")
-            
-            # Get existing file stats for summary
-            audio_size_kb = os.path.getsize(audio_filename) / 1024
-            
-            print(f"\n🤖 EXISTING DIGEST SUMMARY")
-            print("=" * 35)
-            print(f"📅 Date: {date.today().strftime('%B %d, %Y')}")
-            print(f"🎧 Audio: {audio_filename}")
-            print(f"📄 Text: {text_filename}")
-            print(f"💾 Size: {audio_size_kb:.1f} KB")
-            print(f"🚀 Status: Using existing files (no regeneration needed)")
-            
-            return {
-                'audio_file': audio_filename,
-                'text_file': text_filename,
-                'ai_enabled': self.ai_enabled,
-                'regenerated': False,
-                'size_kb': audio_size_kb
-            }
+        # Check if today's files already exist (skip when use_existing_transcript or force_regenerate)
+        if not self.force_regenerate:
+            audio_size = os.path.getsize(audio_filename) if os.path.exists(audio_filename) else 0
+            if os.path.exists(text_filename) and os.path.exists(audio_filename) and audio_size > 50000:
+                print(f"\n💰 COST OPTIMIZATION: Today's content already exists")
+                print(f"   ✅ Text: {text_filename}")
+                print(f"   ✅ Audio: {audio_filename} ({audio_size:,} bytes)")
+                print(f"   🚀 Skipping regeneration for efficiency")
+                
+                # Get existing file stats for summary
+                audio_size_kb = os.path.getsize(audio_filename) / 1024
+                
+                print(f"\n🤖 EXISTING DIGEST SUMMARY")
+                print("=" * 35)
+                print(f"📅 Date: {date.today().strftime('%B %d, %Y')}")
+                print(f"🎧 Audio: {audio_filename}")
+                print(f"📄 Text: {text_filename}")
+                print(f"💾 Size: {audio_size_kb:.1f} KB")
+                print(f"🚀 Status: Using existing files (no regeneration needed)")
+                
+                return {
+                    'audio_file': audio_filename,
+                    'text_file': text_filename,
+                    'ai_enabled': self.ai_enabled,
+                    'regenerated': False,
+                    'size_kb': audio_size_kb
+                }
         
         # Aggregate all stories
         all_stories = []
@@ -1570,6 +1572,9 @@ async def main():
     parser.add_argument('--use-existing-transcript',
                        action='store_true',
                        help='Use today\'s existing transcript file only; skip fetch and Anthropic API (for local TTS testing)')
+    parser.add_argument('--force-regenerate',
+                       action='store_true',
+                       help='Regenerate even if today\'s content already exists (used by CI when force_ai_regeneration is set)')
     
     args = parser.parse_args()
     
@@ -1584,9 +1589,12 @@ async def main():
         digest_generator = GitHubAINewsDigest(
             language=args.language,
             tts_provider_override=args.tts_provider,
-            use_existing_transcript=args.use_existing_transcript
+            use_existing_transcript=args.use_existing_transcript,
+            force_regenerate=args.force_regenerate
         )
         print(f"🔊 TTS provider: {digest_generator.tts_provider}")
+        if digest_generator.force_regenerate:
+            print(f"🔄 Force regenerate: ON (will regenerate even if today's content exists)")
         print(f"✅ Digest generator initialized successfully")
         
         print(f"🚀 Starting digest generation...")
