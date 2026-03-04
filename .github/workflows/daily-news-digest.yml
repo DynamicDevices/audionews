@@ -523,6 +523,23 @@ jobs:
         git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
         git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
         
+        # CRITICAL: Backup newly generated audio/text BEFORE pull - pull overwrites working tree with
+        # origin/main and would replace our new ElevenLabs (or regenerated) audio with old content.
+        GENERATED_BACKUP="${RUNNER_TEMP:-/tmp}/generated_backup_$$"
+        mkdir -p "$GENERATED_BACKUP"
+        for LANG in en_GB pl_PL bella; do
+          if [ -f "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ]; then
+            mkdir -p "$GENERATED_BACKUP/${LANG}/audio"
+            cp -a "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" "$GENERATED_BACKUP/${LANG}/audio/"
+            echo "💾 Backed up ${LANG} audio"
+          fi
+          if [ -f "docs/${LANG}/news_digest_ai_${TODAY}.txt" ]; then
+            mkdir -p "$GENERATED_BACKUP/${LANG}"
+            cp -a "docs/${LANG}/news_digest_ai_${TODAY}.txt" "$GENERATED_BACKUP/${LANG}/"
+            echo "💾 Backed up ${LANG} text"
+          fi
+        done
+        
         # Pull latest changes FIRST before staging to avoid conflicts
         echo "🔄 Pulling latest changes to handle concurrent runs..."
         git pull --rebase origin main || {
@@ -530,6 +547,23 @@ jobs:
           git reset --hard origin/main || true
           git pull origin main || echo "⚠️ Pull failed, continuing anyway"
         }
+        
+        # Restore generated audio/text so we don't lose newly created content (e.g. ElevenLabs regeneration)
+        if [ -d "$GENERATED_BACKUP" ]; then
+          echo "🔄 Restoring generated audio and text after pull..."
+          for LANG in en_GB pl_PL bella; do
+            if [ -f "$GENERATED_BACKUP/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ]; then
+              mkdir -p "docs/${LANG}/audio"
+              cp -a "$GENERATED_BACKUP/${LANG}/audio/news_digest_ai_${TODAY}.mp3" "docs/${LANG}/audio/"
+              echo "✅ Restored ${LANG} audio"
+            fi
+            if [ -f "$GENERATED_BACKUP/${LANG}/news_digest_ai_${TODAY}.txt" ]; then
+              cp -a "$GENERATED_BACKUP/${LANG}/news_digest_ai_${TODAY}.txt" "docs/${LANG}/"
+              echo "✅ Restored ${LANG} text"
+            fi
+          done
+          rm -rf "$GENERATED_BACKUP"
+        fi
         
         # CRITICAL: After pull, we need to re-apply HTML and RSS updates because:
         # 1. HTML update step ran earlier and updated files locally
