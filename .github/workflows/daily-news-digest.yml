@@ -865,11 +865,14 @@ jobs:
     - name: 📤 Upload artifacts for download
       uses: actions/upload-artifact@v4
       with:
-        name: ai-news-digest-${{ github.run_number }}
+        name: ai-news-digest-${{ steps.check_content.outputs.today_date }}-${{ github.run_number }}
         path: |
-          news_digest_ai_*.mp3
-          news_digest_ai_*.txt
-          docs/
+          docs/en_GB/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
+          docs/en_GB/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
+          docs/pl_PL/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
+          docs/pl_PL/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
+          docs/bella/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
+          docs/bella/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
         retention-days: 90
     
     - name: 🏷️ Create release for audio file
