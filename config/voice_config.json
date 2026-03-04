@@ -5,70 +5,86 @@
       "display_name": "Irish Emily Neural",
       "language": "English (Ireland)",
       "gender": "Female",
-      "provider": "Edge TTS"
+      "provider": "Edge TTS",
+      "tts_provider": "elevenlabs",
+      "pocket_voice": "alba",
+      "elevenlabs_voice_id": "EXAVITQu4vr4xnSDxMaL"
     },
     "en_GB_LON": {
       "name": "en-GB-SoniaNeural",
       "display_name": "Sonia Neural",
       "language": "English (London)",
       "gender": "Female",
-      "provider": "Edge TTS"
+      "provider": "Edge TTS",
+      "tts_provider": "edge_tts",
+      "pocket_voice": "alba"
     },
     "en_GB_LIV": {
       "name": "en-GB-RyanNeural",
       "display_name": "Ryan Neural",
       "language": "English (Liverpool)",
       "gender": "Male",
-      "provider": "Edge TTS"
+      "provider": "Edge TTS",
+      "tts_provider": "edge_tts",
+      "pocket_voice": "alba"
     },
     "fr_FR": {
       "name": "fr-FR-DeniseNeural",
       "display_name": "Denise Neural",
       "language": "French (France)",
       "gender": "Female",
-      "provider": "Edge TTS"
+      "provider": "Edge TTS",
+      "tts_provider": "edge_tts"
     },
     "de_DE": {
       "name": "de-DE-KatjaNeural",
       "display_name": "Katja Neural",
       "language": "German (Germany)",
       "gender": "Female",
-      "provider": "Edge TTS"
+      "provider": "Edge TTS",
+      "tts_provider": "edge_tts"
     },
     "es_ES": {
       "name": "es-ES-ElviraNeural",
       "display_name": "Elvira Neural",
       "language": "Spanish (Spain)",
       "gender": "Female",
-      "provider": "Edge TTS"
+      "provider": "Edge TTS",
+      "tts_provider": "edge_tts"
     },
     "it_IT": {
       "name": "it-IT-ElsaNeural",
       "display_name": "Elsa Neural",
       "language": "Italian (Italy)",
       "gender": "Female",
-      "provider": "Edge TTS"
+      "provider": "Edge TTS",
+      "tts_provider": "edge_tts"
     },
     "nl_NL": {
       "name": "nl-NL-ColetteNeural",
       "display_name": "Colette Neural",
       "language": "Dutch (Netherlands)",
       "gender": "Female",
-      "provider": "Edge TTS"
+      "provider": "Edge TTS",
+      "tts_provider": "edge_tts"
     },
     "pl_PL": {
       "name": "pl-PL-ZofiaNeural",
       "display_name": "Zofia Neural",
       "language": "Polish (Poland)",
       "gender": "Female",
-      "provider": "Edge TTS"
+      "provider": "Edge TTS",
+      "tts_provider": "edge_tts"
     },
     "bella": {
       "name": "en-IE-EmilyNeural",
       "display_name": "Irish Emily Neural",
       "language": "English (Ireland) - Business/Finance",
       "gender": "Female",
-      "provider": "Edge TTS"
+      "provider": "Edge TTS",
+      "tts_provider": "edge_tts",
+      "pocket_voice": "alba",
+      "elevenlabs_voice_id": "EXAVITQu4vr4xnSDxMaL"
     }
   },
   "tts_settings": {
@@ -83,6 +99,19 @@
       "short_silence_min_ms": 400,
       "short_silence_max_ms": 1100,
       "target_silence_ms": 90
+    },
+    "pocket_tts": {
+      "voice": "alba",
+      "model_cache_dir": null,
+      "bitrate": "192k",
+      "crossfade_ms": 0,
+      "normalize": false
+    },
+    "elevenlabs": {
+      "voice_id": "EXAVITQu4vr4xnSDxMaL",
+      "model_id": "eleven_multilingual_v2",
+      "output_format": "mp3_44100_128",
+      "chunk_size": 4500
     },
     "fallback": {
       "enabled": false,
