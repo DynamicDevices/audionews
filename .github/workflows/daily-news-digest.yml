@@ -147,9 +147,16 @@ jobs:
           echo "🌍 Generating content for ${LANG}..."
           echo "⏰ Started at: $(date)"
           
+          # en_GB: force ElevenLabs in CI when generating (config may say edge_tts in some branches)
+          TTS_ARG=""
+          if [ "$LANG" = "en_GB" ]; then
+            TTS_ARG="--tts-provider elevenlabs"
+            echo "🔊 Using ElevenLabs for en_GB"
+          fi
+          
           # Run with timeout and capture exit code
           set +e  # Don't exit on error
-          timeout 300 python scripts/github_ai_news_digest.py --language ${LANG}
+          timeout 300 python scripts/github_ai_news_digest.py --language ${LANG} $TTS_ARG
           EXIT_CODE=$?
           set -e  # Re-enable exit on error
           
