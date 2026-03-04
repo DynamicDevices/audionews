@@ -1323,6 +1323,10 @@ class GitHubAINewsDigest:
         Shared post-step: optional silence compression (Edge TTS only).
         """
         print(f"\n🎤 Generating AI-enhanced audio: {output_filename} (provider: {self.tts_provider})")
+        if self.tts_provider == 'elevenlabs':
+            print(f"   🔊 Using ElevenLabs TTS (voice_id from config)")
+        elif self.tts_provider == 'edge_tts':
+            print(f"   🔊 Using Edge TTS")
         os.makedirs(os.path.dirname(output_filename), exist_ok=True)
         
         if self.tts_provider == 'pocket_tts':

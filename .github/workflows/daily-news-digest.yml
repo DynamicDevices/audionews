@@ -99,7 +99,7 @@ jobs:
     - name: 🤖 Generate AI-Enhanced News Digest
       # CRITICAL: Only run AI generation if content doesn't exist OR explicitly forced
       # This prevents unnecessary API costs on push events
-      if: steps.check_content.outputs.content_exists == 'false' || inputs.force_ai_regeneration == 'true'
+      if: steps.check_content.outputs.content_exists == 'false' || inputs.force_ai_regeneration == true || inputs.force_ai_regeneration == 'true'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -135,11 +135,12 @@ jobs:
           TTS_ARG=""
           if [ "$LANG" = "en_GB" ]; then
             TTS_ARG="--tts-provider elevenlabs"
-            echo "🔊 Using ElevenLabs for en_GB"
+            echo "🔊 en_GB: forcing ElevenLabs (--tts-provider elevenlabs)"
           fi
           
           # Run with timeout and capture exit code
           set +e  # Don't exit on error
+          echo "▶ Running: python scripts/github_ai_news_digest.py --language ${LANG} ${TTS_ARG}"
           timeout 300 python scripts/github_ai_news_digest.py --language ${LANG} $TTS_ARG
           EXIT_CODE=$?
           set -e  # Re-enable exit on error
@@ -245,7 +246,7 @@ jobs:
         echo "✅ Digest generation completed"
     
     - name: ⚡ Skip AI Generation (Cost Optimization)
-      if: steps.check_content.outputs.content_exists == 'true' && inputs.force_ai_regeneration != 'true'
+      if: steps.check_content.outputs.content_exists == 'true' && inputs.force_ai_regeneration != true && inputs.force_ai_regeneration != 'true'
       run: |
         echo "💰 COST OPTIMIZATION: Skipping AI generation"
         echo "✅ Today's content already exists: ${{ steps.check_content.outputs.today_date }}"
@@ -867,7 +868,7 @@ jobs:
         retention-days: 90
     
     - name: 🏷️ Create release for audio file
-      if: success() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.force_ai_regeneration == 'true'))
+      if: success() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && (inputs.force_ai_regeneration == true || inputs.force_ai_regeneration == 'true')))
       uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
