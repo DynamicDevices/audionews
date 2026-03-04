@@ -5,14 +5,6 @@ on:
     # Run daily at 5:00 AM UTC (6:00 AM BST / 5:00 AM GMT)
     # This ensures 6 AM UK time during British Summer Time
     - cron: '0 5 * * *'
-  push:
-    branches: [ main ]  # Trigger on main branch pushes for development
-    paths:
-      - 'docs/**'
-      - 'scripts/**'
-      - 'config/**'
-      - 'requirements.txt'
-      - '.github/workflows/**'
   workflow_dispatch: # Allow manual triggering
     inputs:
       debug_mode:
@@ -22,11 +14,6 @@ on:
         type: boolean
       force_ai_regeneration:
         description: 'Force regeneration (use current TTS config e.g. ElevenLabs); ignores existing today content'
-        required: false
-        default: false
-        type: boolean
-      deploy_only:
-        description: 'Skip AI generation, just redeploy existing content'
         required: false
         default: false
         type: boolean
@@ -119,10 +106,7 @@ jobs:
         ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         DEBUG_MODE: ${{ github.event.inputs.debug_mode }}
       run: |
-        if [ "${{ github.event_name }}" = "push" ]; then
-          echo "🚀 Push-triggered build: Deploying UX improvements..."
-          echo "💰 Cost optimization: Will only generate AI content if missing"
-        elif [ "${{ github.event_name }}" = "schedule" ]; then
+        if [ "${{ github.event_name }}" = "schedule" ]; then
           echo "⏰ Scheduled build: Daily news digest generation..."
           echo "💰 This step uses API credits - content_exists: ${{ steps.check_content.outputs.content_exists }}"
         else
@@ -267,9 +251,7 @@ jobs:
         echo "✅ Today's content already exists: ${{ steps.check_content.outputs.today_date }}"
         echo "📊 Estimated savings: \$0.50-\$2.00 per skip"
         echo "💡 Use 'force_ai_regeneration: true' to override if needed"
-        if [ "${{ github.event_name }}" = "push" ]; then
-          echo "🚀 Push event: Deploying code improvements without regenerating content"
-        elif [ "${{ github.event_name }}" = "schedule" ]; then
+        if [ "${{ github.event_name }}" = "schedule" ]; then
           echo "⏰ Scheduled event: Content exists, no regeneration needed"
           echo "📻 RSS feeds will still be regenerated to ensure they're up to date"
         else
@@ -996,13 +978,7 @@ jobs:
     steps:
     - name: 🎉 Success notification
       run: |
-        if [ "${{ github.event_name }}" = "push" ]; then
-          echo "🚀 Push-triggered deployment completed successfully!"
-          echo "📅 Date: $(date)"
-          echo "🌐 Website deployed with UX improvements"
-          echo "💰 Cost optimized: No unnecessary AI regeneration"
-          echo "♿ Accessibility service operational"
-        elif [ "${{ github.event_name }}" = "schedule" ]; then
+        if [ "${{ github.event_name }}" = "schedule" ]; then
           echo "⏰ Scheduled daily digest completed successfully!"
           echo "📅 Date: $(date)"
           echo "🎧 Audio ready for visually impaired users"
