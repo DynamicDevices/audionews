@@ -18,6 +18,10 @@ on:
         default: false
         type: boolean
 
+concurrency:
+  group: daily-digest-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' }}
+
 permissions:
   contents: write
   pages: write
@@ -55,7 +59,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install anthropic  # AI provider for news analysis
     
     - name: 🔍 Check if today's content exists
       id: check_content
@@ -138,11 +141,14 @@ jobs:
           echo "🌍 Generating content for ${LANG}..."
           echo "⏰ Started at: $(date)"
           
-          # en_GB: force ElevenLabs in CI when generating (config may say edge_tts in some branches)
+          # en_GB and bella: force ElevenLabs in CI when generating (config may differ by branch)
           TTS_ARG=""
           if [ "$LANG" = "en_GB" ]; then
             TTS_ARG="--tts-provider elevenlabs"
             echo "🔊 en_GB: forcing ElevenLabs (--tts-provider elevenlabs)"
+          elif [ "$LANG" = "bella" ]; then
+            TTS_ARG="--tts-provider elevenlabs"
+            echo "🔊 bella: forcing ElevenLabs (--tts-provider elevenlabs)"
           fi
           
           # Run with timeout and capture exit code
@@ -873,6 +879,7 @@ jobs:
           docs/pl_PL/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
           docs/bella/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
           docs/bella/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
+        if-no-files-found: warn
         retention-days: 90
     
     - name: 🏷️ Create release for audio file
@@ -890,22 +897,26 @@ jobs:
           ### 🎯 Features
           - ✅ Claude 4.5 Sonnet AI analysis
           - ✅ Multi-source UK news synthesis  
-          - ✅ Irish Emily Neural voice (premium quality)
+          - ✅ Premium TTS (ElevenLabs / Edge)
           - ✅ WhatsApp-ready MP3 format
           - ✅ Copyright-compliant synthesis
           - ✅ Accessible newspaper website
           
           ### 📥 Access Options
           - **🌐 Website**: [Daily News Digest](https://audionews.uk)
-          - **Audio**: `news_digest_ai_*.mp3` - Ready for WhatsApp sharing
-          - **Text**: `news_digest_ai_*.txt` - Full transcript with sources
+          - **Audio**: per-language MP3 in docs/ (en_GB, pl_PL, bella)
+          - **Text**: Full transcript with sources
           
           Perfect for visually impaired users! 🎧♿
         draft: false
         prerelease: false
         files: |
-          news_digest_ai_*.mp3
-          news_digest_ai_*.txt
+          docs/en_GB/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
+          docs/en_GB/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
+          docs/pl_PL/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
+          docs/pl_PL/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
+          docs/bella/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
+          docs/bella/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
     
     - name: ❌ Create issue on failure
       if: failure()
