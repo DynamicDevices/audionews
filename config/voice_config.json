@@ -74,17 +74,18 @@
       "language": "Polish (Poland)",
       "gender": "Female",
       "provider": "Edge TTS",
-      "tts_provider": "edge_tts"
+      "tts_provider": "edge_tts",
+      "elevenlabs_voice_id": "EXAVITQu4vr4xnSDxMaL"
     },
     "bella": {
-      "name": "en-IE-EmilyNeural",
-      "display_name": "Irish Emily Neural",
+      "name": "en-GB-SoniaNeural",
+      "display_name": "Sonia Neural",
       "language": "English (Ireland) - Business/Finance",
       "gender": "Female",
       "provider": "Edge TTS",
       "tts_provider": "edge_tts",
       "pocket_voice": "alba",
-      "elevenlabs_voice_id": "EXAVITQu4vr4xnSDxMaL"
+      "elevenlabs_voice_id": "EQu48Nbp4OqDxsnYh27f"
     }
   },
   "tts_settings": {

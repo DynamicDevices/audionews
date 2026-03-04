@@ -42,13 +42,13 @@ Controls all AI-related prompts and model settings.
 Controls voice settings and TTS configuration.
 
 **Structure:**
-- `voices`: Language-specific voice configurations
-  - `name`: Edge TTS voice identifier (e.g., "en-IE-EmilyNeural")
-  - `display_name`: Human-readable voice name
-  - `language`: Language description
-  - `gender`: Voice gender
-  - `provider`: TTS provider (currently "Edge TTS")
-- `tts_settings`: Edge TTS connection settings
+- `voices`: **One entry per language** – each digest (en_GB, pl_PL, bella) uses its own voice so the three audio outputs sound distinct.
+  - `name`: Edge TTS voice (e.g. "en-IE-EmilyNeural", "pl-PL-ZofiaNeural")
+  - `tts_provider`: `edge_tts` | `pocket_tts` | `elevenlabs`
+  - `pocket_voice`: Pocket TTS voice id (e.g. "alba") when using Pocket TTS
+  - `elevenlabs_voice_id`: ElevenLabs voice id when using ElevenLabs (e.g. "EXAVITQu4vr4xnSDxMaL" = Rachel, "pNInz6obpgDQGcFmaJgB" = Adam)
+  - `display_name`, `language`, `gender`, `provider`: metadata
+- `tts_settings`: Provider-specific options (Edge, Pocket, ElevenLabs)
   - `edge_tts`:
     - `max_retries`: Number of retry attempts (5)
     - `initial_retry_delay`: Initial delay in seconds (5)

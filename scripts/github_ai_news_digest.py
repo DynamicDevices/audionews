@@ -17,6 +17,8 @@ import time
 import argparse
 from dataclasses import dataclass
 from pathlib import Path
+import tempfile
+import threading
 
 # AI provider - Anthropic Claude
 try:
@@ -233,16 +235,60 @@ class NewsStory:
     theme: Optional[str] = None
     significance_score: Optional[float] = None
 
+
+def _parse_existing_transcript(path: str) -> str:
+    """
+    Read a saved digest transcript file and return only the digest body
+    (content after the header with Generated/AI Analysis/Type/separator).
+    """
+    with open(path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    sep = "========================================\n\n"
+    idx = content.find(sep)
+    if idx == -1:
+        return content.strip()
+    idx2 = content.find(sep, idx + len(sep))
+    if idx2 == -1:
+        return content[idx + len(sep):].strip()
+    return content[idx2 + len(sep):].strip()
+
+
+def _reverse_edge_tts_edits(text: str) -> str:
+    """
+    Undo Edge TTS–specific edits so Pocket TTS gets unedited content.
+    Saved transcripts are written with non-breaking spaces and spaced acronyms (U K, N H S, etc.).
+    """
+    # Replace non-breaking spaces with regular space
+    text = text.replace('\u00A0', ' ')
+    # Collapse spaced acronyms back to normal (reverse of Edge abbreviation list)
+    unabbrev = [
+        (r'N\s+A\s+T\s+O\b', 'NATO'),
+        (r'N\s+H\s+S\b', 'NHS'),
+        (r'B\s+B\s+C\b', 'BBC'),
+        (r'E\s+U\b', 'EU'),
+        (r'U\s+K\b', 'UK'),
+        (r'U\s+S\b', 'US'),
+        (r'M\s+P\s+s\b', 'MPs'),
+        (r'M\s+P\b', 'MP'),
+        (r'C\s+E\s+O\b', 'CEO'),
+        (r'G\s+D\s+P\b', 'GDP'),
+    ]
+    for pattern, replacement in unabbrev:
+        text = re.sub(pattern, replacement, text)
+    return text
+
+
 class GitHubAINewsDigest:
     """
     AI-Enhanced news synthesis using GitHub Copilot API
     Provides intelligent analysis while maintaining copyright compliance
     """
     
-    def __init__(self, language='en_GB'):
+    def __init__(self, language='en_GB', tts_provider_override: Optional[str] = None, use_existing_transcript: bool = False):
         self.language = language
         self.config = LANGUAGE_CONFIGS.get(language, LANGUAGE_CONFIGS['en_GB'])
         self.sources = self.config['sources']
+        self.use_existing_transcript = use_existing_transcript
         
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -250,8 +296,22 @@ class GitHubAINewsDigest:
         
         self.voice_name = self.config['voice']
         
-        # Initialize GitHub Copilot API
-        self.setup_github_ai()
+        # TTS provider: per-language from config, overridable by CLI (edge_tts | pocket_tts | elevenlabs)
+        voice_cfg = VOICE_CONFIG.get('voices', {}).get(language, {})
+        self.tts_provider = (tts_provider_override or voice_cfg.get('tts_provider') or 'edge_tts').lower()
+        if self.tts_provider not in ('edge_tts', 'pocket_tts', 'elevenlabs'):
+            self.tts_provider = 'edge_tts'
+        # Pocket TTS voice id (English-only); fallback to global default if language has none
+        self.pocket_voice = voice_cfg.get('pocket_voice') or (VOICE_CONFIG.get('tts_settings', {}).get('pocket_tts', {}).get('voice') or 'alba')
+        # ElevenLabs voice id; fallback to global default if language has none
+        self.elevenlabs_voice_id = (voice_cfg.get('elevenlabs_voice_id') or
+            VOICE_CONFIG.get('tts_settings', {}).get('elevenlabs', {}).get('voice_id') or 'EXAVITQu4vr4xnSDxMaL')
+        
+        if use_existing_transcript:
+            self.ai_enabled = False
+            self.anthropic_client = None
+        else:
+            self.setup_github_ai()
     
     def setup_github_ai(self):
         """
@@ -1081,105 +1141,261 @@ class GitHubAINewsDigest:
         out += audio[last_end:]
         out.export(mp3_path, format="mp3", bitrate="192k")
 
+    def _pocket_tts_chunk_text(self, text: str, max_chars: int = 120) -> List[str]:
+        """Split text into short chunks to stay under Pocket TTS internal streaming limit (~1000 steps)."""
+        text = text.strip()
+        if not text:
+            return []
+        if len(text) <= max_chars:
+            return [text]
+        chunks = []
+        while text:
+            if len(text) <= max_chars:
+                chunks.append(text.strip())
+                break
+            break_at = max_chars
+            for sep in ('. ', '; ', ', ', ' '):
+                idx = text.rfind(sep, 0, max_chars + 1)
+                if idx > 0:
+                    break_at = idx + len(sep)
+                    break
+            chunks.append(text[:break_at].strip())
+            text = text[break_at:].lstrip()
+        return [c for c in chunks if c]
+
+    def _pocket_tts_generate_sync(self, digest_text: str, output_filename: str, voice_id: str) -> None:
+        """
+        Synchronous Pocket TTS generation (run in thread). Loads model/voice once and caches.
+        Chunks long text to avoid internal tensor size limits; concatenates WAVs then converts to MP3.
+        """
+        try:
+            from pocket_tts import TTSModel
+            import scipy.io.wavfile
+            from pydub import AudioSegment
+        except ImportError as e:
+            raise ImportError(
+                "Pocket TTS dependencies not installed. Install with: "
+                "pip install -r requirements-tts-pocket.txt"
+            ) from e
+        lock = getattr(self.__class__, "_pocket_tts_lock", None)
+        if lock is None:
+            lock = threading.Lock()
+            self.__class__._pocket_tts_lock = lock
+        cache = getattr(self.__class__, "_pocket_tts_cache", None)
+        if cache is None:
+            cache = {"model": None, "voices": {}}
+            self.__class__._pocket_tts_cache = cache
+        with lock:
+            if cache["model"] is None:
+                cache["model"] = TTSModel.load_model()
+            model = cache["model"]
+            if voice_id not in cache["voices"]:
+                cache["voices"][voice_id] = model.get_state_for_audio_prompt(voice_id)
+            voice_state = cache["voices"][voice_id]
+        sample_rate = model.sample_rate
+        settings = VOICE_CONFIG.get("tts_settings", {}).get("pocket_tts", {})
+        bitrate = settings.get("bitrate", "256k")
+        crossfade_ms = settings.get("crossfade_ms", 50)
+        normalize = settings.get("normalize", True)
+        chunks = self._pocket_tts_chunk_text(digest_text)
+        if not chunks:
+            raise ValueError("Digest text is empty after chunking")
+        wav_paths = []
+        try:
+            for i, chunk in enumerate(chunks):
+                audio_tensor = model.generate_audio(voice_state, chunk)
+                fd, wav_path = tempfile.mkstemp(suffix=f"_pocket_{i}.wav")
+                os.close(fd)
+                scipy.io.wavfile.write(wav_path, sample_rate, audio_tensor.numpy())
+                wav_paths.append(wav_path)
+            combined = AudioSegment.empty()
+            for i, wav_path in enumerate(wav_paths):
+                seg = AudioSegment.from_wav(wav_path)
+                if i == 0:
+                    combined = seg
+                else:
+                    combined = combined.append(seg, crossfade=crossfade_ms)
+            if normalize:
+                combined = combined.normalize()
+            combined.export(output_filename, format="mp3", bitrate=bitrate)
+        finally:
+            for wav_path in wav_paths:
+                try:
+                    os.unlink(wav_path)
+                except OSError:
+                    pass
+
+    async def _generate_audio_pocket_tts(self, digest_text: str, output_filename: str) -> None:
+        """
+        Generate audio using Pocket TTS (Kyutai). English-only; uses pocket_voice from config.
+        Runs sync generation in a thread to avoid blocking the event loop.
+        """
+        voice_cfg = VOICE_CONFIG.get('voices', {}).get(self.language, {})
+        voice_id = voice_cfg.get('pocket_voice') or self.pocket_voice
+        if not voice_id:
+            raise NotImplementedError(
+                f"Pocket TTS is English-only; language '{self.language}' has no pocket_voice in config. "
+                "Use tts_provider=edge_tts for this language or set pocket_voice for en_GB/bella."
+            )
+        if hasattr(asyncio, "to_thread"):
+            await asyncio.to_thread(
+                self._pocket_tts_generate_sync, digest_text, output_filename, voice_id
+            )
+        else:
+            loop = asyncio.get_event_loop()
+            await loop.run_in_executor(
+                None,
+                lambda: self._pocket_tts_generate_sync(digest_text, output_filename, voice_id),
+            )
+
+    async def _generate_audio_elevenlabs(self, digest_text: str, output_filename: str) -> None:
+        """
+        Generate audio using ElevenLabs API. Requires ELEVENLABS_API_KEY environment variable.
+        Chunks long text to stay under API character limit; concatenates MP3s with pydub.
+        """
+        api_key = os.getenv("ELEVENLABS_API_KEY")
+        if not api_key or not api_key.strip():
+            raise ValueError(
+                "ELEVENLABS_API_KEY environment variable is not set. "
+                "Set it with: export ELEVENLABS_API_KEY=your_api_key"
+            )
+        settings = VOICE_CONFIG.get("tts_settings", {}).get("elevenlabs", {})
+        voice_id = self.elevenlabs_voice_id
+        model_id = settings.get("model_id", "eleven_multilingual_v2")
+        output_format = settings.get("output_format", "mp3_44100_128")
+        chunk_size = settings.get("chunk_size", 4500)
+        url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
+        headers = {
+            "xi-api-key": api_key,
+            "Content-Type": "application/json",
+            "Accept": "audio/mpeg",
+        }
+        # Split text into chunks (break at space to avoid mid-word split)
+        chunks = []
+        text = digest_text.strip()
+        while text:
+            if len(text) <= chunk_size:
+                chunks.append(text)
+                break
+            break_at = text.rfind(" ", 0, chunk_size + 1)
+            if break_at <= 0:
+                break_at = chunk_size
+            chunks.append(text[:break_at].strip())
+            text = text[break_at:].lstrip()
+        if not chunks:
+            raise ValueError("Digest text is empty")
+        import aiohttp
+        async with aiohttp.ClientSession() as session:
+            if len(chunks) == 1:
+                payload = {"text": chunks[0], "model_id": model_id, "output_format": output_format}
+                async with session.post(url, json=payload, headers=headers) as resp:
+                    resp.raise_for_status()
+                    with open(output_filename, "wb") as f:
+                        f.write(await resp.read())
+                return
+            mp3_paths = []
+            try:
+                for i, chunk in enumerate(chunks):
+                    payload = {"text": chunk, "model_id": model_id, "output_format": output_format}
+                    async with session.post(url, json=payload, headers=headers) as resp:
+                        resp.raise_for_status()
+                        fd, path = tempfile.mkstemp(suffix=f"_el_{i}.mp3")
+                        os.close(fd)
+                        with open(path, "wb") as f:
+                            f.write(await resp.read())
+                        mp3_paths.append(path)
+                from pydub import AudioSegment
+                combined = AudioSegment.empty()
+                for path in mp3_paths:
+                    combined += AudioSegment.from_mp3(path)
+                combined.export(output_filename, format="mp3", bitrate="128k")
+            finally:
+                for path in mp3_paths:
+                    try:
+                        os.unlink(path)
+                    except OSError:
+                        pass
+
     async def generate_audio_digest(self, digest_text: str, output_filename: str):
         """
-        Generate professional audio from AI-synthesized digest using Edge TTS with retry logic
+        Generate professional audio from AI-synthesized digest.
+        Uses Edge TTS, Pocket TTS, or ElevenLabs according to per-language config (or --tts-provider override).
+        Shared post-step: optional silence compression (Edge TTS only).
         """
-        print(f"\n🎤 Generating AI-enhanced audio: {output_filename}")
+        print(f"\n🎤 Generating AI-enhanced audio: {output_filename} (provider: {self.tts_provider})")
+        os.makedirs(os.path.dirname(output_filename), exist_ok=True)
         
-        # Get TTS settings from config
-        tts_settings = VOICE_CONFIG['tts_settings']['edge_tts']
-        max_retries = tts_settings['max_retries']
-        retry_delay = tts_settings['initial_retry_delay']
-        retry_backoff = tts_settings['retry_backoff_multiplier']
-        force_ipv4 = tts_settings['force_ipv4']
-        
-        # Force IPv4 by monkey-patching socket.getaddrinfo to filter out IPv6 addresses
-        # This is necessary because GitHub Actions runners have broken IPv6 connectivity
-        import socket
-        original_getaddrinfo = socket.getaddrinfo
-        
-        def getaddrinfo_ipv4_only(*args, **kwargs):
-            """Wrapper that filters out IPv6 addresses"""
-            results = original_getaddrinfo(*args, **kwargs)
-            # Filter to only IPv4 (AF_INET)
-            return [res for res in results if res[0] == socket.AF_INET]
-        
-        current_retry_delay = retry_delay
-        for attempt in range(max_retries):
-            try:
-                if attempt > 0:
-                    print(f"   🔄 Retry attempt {attempt + 1}/{max_retries}")
-                    
-                # Ensure the directory exists
-                os.makedirs(os.path.dirname(output_filename), exist_ok=True)
-                
-                # Apply IPv4-only patch if configured
-                if force_ipv4:
-                    socket.getaddrinfo = getaddrinfo_ipv4_only
-                
+        if self.tts_provider == 'pocket_tts':
+            await self._generate_audio_pocket_tts(digest_text, output_filename)
+            print(f"   ✅ Pocket TTS audio generated successfully")
+        elif self.tts_provider == 'elevenlabs':
+            await self._generate_audio_elevenlabs(digest_text, output_filename)
+            print(f"   ✅ ElevenLabs audio generated successfully")
+        else:
+            # Edge TTS with retry logic
+            tts_settings = VOICE_CONFIG['tts_settings']['edge_tts']
+            max_retries = tts_settings['max_retries']
+            retry_delay = tts_settings['initial_retry_delay']
+            retry_backoff = tts_settings['retry_backoff_multiplier']
+            force_ipv4 = tts_settings['force_ipv4']
+            
+            # Force IPv4 by monkey-patching socket.getaddrinfo to filter out IPv6 addresses
+            # This is necessary because GitHub Actions runners have broken IPv6 connectivity
+            import socket
+            original_getaddrinfo = socket.getaddrinfo
+            
+            def getaddrinfo_ipv4_only(*args, **kwargs):
+                """Wrapper that filters out IPv6 addresses"""
+                results = original_getaddrinfo(*args, **kwargs)
+                return [res for res in results if res[0] == socket.AF_INET]
+            
+            current_retry_delay = retry_delay
+            for attempt in range(max_retries):
                 try:
-                    # Get TTS rate/speed setting (default to +10% for faster speech)
-                    rate = tts_settings.get('rate', '+10%')
-                    
-                    # Edge TTS requires "+0%" not "0%" for no speed adjustment
-                    # Convert "0%" to "+0%" if needed
-                    if rate == "0%":
-                        rate = "+0%"
-                    
-                    # Edge TTS rate format: "+10%" (faster) or "-10%" (slower)
-                    # Valid range: -50% to +100%
-                    communicate = edge_tts.Communicate(digest_text, self.voice_name, rate=rate)
-                    with open(output_filename, "wb") as file:
-                        async for chunk in communicate.stream():
-                            if chunk["type"] == "audio":
-                                file.write(chunk["data"])
-                finally:
-                    # Restore original getaddrinfo
+                    if attempt > 0:
+                        print(f"   🔄 Retry attempt {attempt + 1}/{max_retries}")
                     if force_ipv4:
-                        socket.getaddrinfo = original_getaddrinfo
-                
-                print(f"   ✅ Edge TTS audio generated successfully")
-                if tts_settings.get('compress_silences', False):
-                    min_ms = tts_settings.get('short_silence_min_ms', 400)
-                    max_ms = tts_settings.get('short_silence_max_ms', 1100)
-                    target_ms = tts_settings.get('target_silence_ms', 90)
-                    self._compress_short_silences(output_filename, min_ms=min_ms, max_ms=max_ms, target_ms=target_ms)
-                    print(f"   ✅ Short silences compressed ({min_ms}-{max_ms}ms → {target_ms}ms)")
-                break  # Success, exit retry loop
-                
-            except Exception as e:
-                error_msg = str(e)
-                print(f"   ⚠️ Edge TTS attempt {attempt + 1} failed: {error_msg}")
-                
-                # Check error type for appropriate retry strategy
-                is_network_error = ("Network is unreachable" in error_msg or 
-                                  "Cannot connect" in error_msg or
-                                  "Connection refused" in error_msg or
-                                  "Temporary failure" in error_msg)
-                is_auth_error = ("401" in error_msg or 
-                               "authentication" in error_msg.lower() or 
-                               "handshake" in error_msg.lower())
-                
-                if (is_network_error or is_auth_error) and attempt < max_retries - 1:
-                    # Retryable error and not the last attempt
-                    print(f"   ⏳ {'Network' if is_network_error else 'Authentication'} issue detected, waiting {current_retry_delay} seconds before retry...")
-                    await asyncio.sleep(current_retry_delay)
-                    current_retry_delay = min(current_retry_delay * retry_backoff, 30)  # Exponential backoff, max 30s
-                    continue
-                elif attempt == max_retries - 1:
-                    # Last attempt failed - NEVER fall back to gTTS
-                    print(f"   ❌ All {max_retries} retry attempts exhausted")
-                    print(f"   🎤 CRITICAL: VOICE QUALITY PROTECTED - No fallback to robotic voice")
-                    print(f"   🚫 Refusing to generate content with inferior voice quality")
-                    print(f"   💡 This failure will trigger a re-run with proper Edge TTS")
-                    raise Exception(f"Edge TTS failed after {max_retries} attempts: {error_msg}")
-                else:
-                    # Non-retryable error, fail fast
-                    print(f"   ❌ Non-retryable Edge TTS error: {error_msg}")
-                    print(f"   🎤 VOICE CONSISTENCY: Failing rather than degrading to robotic voice")
-                    print(f"   📋 See GitHub Issue #17 for voice quality concerns")
-                    raise Exception(f"Edge TTS failed with non-retryable error: {error_msg}")
+                        socket.getaddrinfo = getaddrinfo_ipv4_only
+                    try:
+                        rate = tts_settings.get('rate', '+0%')
+                        if rate == "0%":
+                            rate = "+0%"
+                        communicate = edge_tts.Communicate(digest_text, self.voice_name, rate=rate)
+                        with open(output_filename, "wb") as file:
+                            async for chunk in communicate.stream():
+                                if chunk["type"] == "audio":
+                                    file.write(chunk["data"])
+                    finally:
+                        if force_ipv4:
+                            socket.getaddrinfo = original_getaddrinfo
+                    print(f"   ✅ Edge TTS audio generated successfully")
+                    break
+                except Exception as e:
+                    error_msg = str(e)
+                    print(f"   ⚠️ Edge TTS attempt {attempt + 1} failed: {error_msg}")
+                    is_network_error = ("Network is unreachable" in error_msg or "Cannot connect" in error_msg or
+                                        "Connection refused" in error_msg or "Temporary failure" in error_msg)
+                    is_auth_error = ("401" in error_msg or "authentication" in error_msg.lower() or "handshake" in error_msg.lower())
+                    if (is_network_error or is_auth_error) and attempt < max_retries - 1:
+                        print(f"   ⏳ {'Network' if is_network_error else 'Authentication'} issue detected, waiting {current_retry_delay}s...")
+                        await asyncio.sleep(current_retry_delay)
+                        current_retry_delay = min(current_retry_delay * retry_backoff, 30)
+                        continue
+                    elif attempt == max_retries - 1:
+                        print(f"   ❌ All {max_retries} retry attempts exhausted")
+                        raise Exception(f"Edge TTS failed after {max_retries} attempts: {error_msg}")
+                    else:
+                        raise Exception(f"Edge TTS failed with non-retryable error: {error_msg}")
+        
+        # Silence compression for Edge TTS only (disabled for Pocket TTS)
+        if self.tts_provider == 'edge_tts':
+            tts_settings = VOICE_CONFIG['tts_settings']['edge_tts']
+            if tts_settings.get('compress_silences', False):
+                min_ms = tts_settings.get('short_silence_min_ms', 400)
+                max_ms = tts_settings.get('short_silence_max_ms', 1100)
+                target_ms = tts_settings.get('target_silence_ms', 90)
+                self._compress_short_silences(output_filename, min_ms=min_ms, max_ms=max_ms, target_ms=target_ms)
+                print(f"   ✅ Short silences compressed ({min_ms}-{max_ms}ms → {target_ms}ms)")
         
         # Analyze the generated audio with error handling
         try:
@@ -1219,14 +1435,40 @@ class GitHubAINewsDigest:
         print("⚖️ Copyright-compliant AI synthesis")
         print("=" * 60)
         
-        # Check if today's files already exist
         today_str = date.today().strftime("%Y_%m_%d")
         text_filename = f"{self.config['output_dir']}/news_digest_ai_{today_str}.txt"
         audio_filename = f"{self.config['audio_dir']}/news_digest_ai_{today_str}.mp3"
         
-        # Check if files exist AND audio file has reasonable size (>50KB)
-        audio_size = os.path.getsize(audio_filename) if os.path.exists(audio_filename) else 0
+        # Local testing: use today's transcript only, skip fetch and Anthropic API
+        if self.use_existing_transcript:
+            if not os.path.exists(text_filename):
+                raise FileNotFoundError(
+                    f"Transcript not found: {text_filename}. "
+                    "Generate a full digest first (with ANTHROPIC_API_KEY) or use an existing transcript file."
+                )
+            print(f"\n📄 Using existing transcript (no API): {text_filename}")
+            digest_text = _parse_existing_transcript(text_filename)
+            if self.tts_provider in ('pocket_tts', 'elevenlabs'):
+                digest_text = _reverse_edge_tts_edits(digest_text)
+                print(f"   📝 Using unedited text for {self.tts_provider} (Edge TTS edits reversed)")
+            os.makedirs(os.path.dirname(audio_filename), exist_ok=True)
+            audio_stats = await self.generate_audio_digest(digest_text, audio_filename)
+            print(f"\n🤖 AUDIO FROM EXISTING TRANSCRIPT")
+            print("=" * 35)
+            print(f"📅 Date: {date.today().strftime('%B %d, %Y')}")
+            print(f"🎧 Audio: {audio_filename}")
+            print(f"📄 Text: {text_filename}")
+            print(f"⏱️ Duration: {audio_stats['duration']:.1f}s | 🎤 WPS: {audio_stats['wps']:.2f}")
+            return {
+                'audio_file': audio_filename,
+                'text_file': text_filename,
+                'stats': audio_stats,
+                'ai_enabled': False,
+                'regenerated': True
+            }
         
+        # Check if today's files already exist (skip when use_existing_transcript)
+        audio_size = os.path.getsize(audio_filename) if os.path.exists(audio_filename) else 0
         if os.path.exists(text_filename) and os.path.exists(audio_filename) and audio_size > 50000:
             print(f"\n💰 COST OPTIMIZATION: Today's content already exists")
             print(f"   ✅ Text: {text_filename}")
@@ -1317,16 +1559,30 @@ async def main():
                        choices=['en_GB', 'fr_FR', 'de_DE', 'es_ES', 'it_IT', 'nl_NL', 'pl_PL', 'bella', 'en_GB_LON', 'en_GB_LIV'], 
                        default='en_GB',
                        help='Language for news digest (default: en_GB)')
+    parser.add_argument('--tts-provider',
+                       choices=['edge_tts', 'pocket_tts', 'elevenlabs'],
+                       default=None,
+                       help='TTS provider override (default: use per-language config)')
+    parser.add_argument('--use-existing-transcript',
+                       action='store_true',
+                       help='Use today\'s existing transcript file only; skip fetch and Anthropic API (for local TTS testing)')
     
     args = parser.parse_args()
     
     print(f"🌍 Language: {LANGUAGE_CONFIGS[args.language]['native_name']}")
     print(f"🎤 Voice: {LANGUAGE_CONFIGS[args.language]['voice']}")
     print(f"📁 Output: {LANGUAGE_CONFIGS[args.language]['output_dir']}")
+    if args.use_existing_transcript:
+        print(f"📄 Mode: use existing transcript (no API)")
     
     try:
         print(f"🔧 Initializing digest generator...")
-        digest_generator = GitHubAINewsDigest(language=args.language)
+        digest_generator = GitHubAINewsDigest(
+            language=args.language,
+            tts_provider_override=args.tts_provider,
+            use_existing_transcript=args.use_existing_transcript
+        )
+        print(f"🔊 TTS provider: {digest_generator.tts_provider}")
         print(f"✅ Digest generator initialized successfully")
         
         print(f"🚀 Starting digest generation...")

@@ -159,6 +159,8 @@ Edit `config/voice_config.json` to:
 - Adjust retry logic
 - Configure TTS settings
 
+**TTS providers**: The digest supports `edge_tts` (default), `pocket_tts` (local, English), and `elevenlabs`. Use `--tts-provider elevenlabs` and set the `ELEVENLABS_API_KEY` environment variable (get keys at [ElevenLabs](https://elevenlabs.io/)). Voice IDs and options are in `config/voice_config.json` under `tts_settings.elevenlabs`.
+
 ### 5. Customize News Sources
 
 Edit `scripts/github_ai_news_digest.py`:

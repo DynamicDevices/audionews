@@ -21,7 +21,7 @@ on:
         default: false
         type: boolean
       force_ai_regeneration:
-        description: 'Force AI analysis even if today content exists (costs API credits)'
+        description: 'Force regeneration (use current TTS config e.g. ElevenLabs); ignores existing today content'
         required: false
         default: false
         type: boolean
@@ -116,6 +116,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         DEBUG_MODE: ${{ github.event.inputs.debug_mode }}
       run: |
         if [ "${{ github.event_name }}" = "push" ]; then
@@ -127,6 +128,9 @@ jobs:
         else
           echo "🔧 Manual workflow: Custom parameters applied"
           echo "💰 This step uses API credits - content_exists: ${{ steps.check_content.outputs.content_exists }}"
+          if [ "${{ inputs.force_ai_regeneration }}" = "true" ]; then
+            echo "🔄 Force regeneration ON: Will regenerate all languages with current config (en_GB=ElevenLabs if set)"
+          fi
         fi
         # Generate content for enabled languages only (cost optimization)
         # ACTIVE: en_GB (English), pl_PL (Polish), bella (BellaNews - personalized)
