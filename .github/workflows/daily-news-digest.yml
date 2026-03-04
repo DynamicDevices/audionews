@@ -523,13 +523,11 @@ jobs:
           fi
         done
         
-        # Pull latest changes FIRST before staging to avoid conflicts
-        echo "🔄 Pulling latest changes to handle concurrent runs..."
-        git pull --rebase origin main || {
-          echo "⚠️ Pull failed, resetting and trying again..."
-          git reset --hard origin/main || true
-          git pull origin main || echo "⚠️ Pull failed, continuing anyway"
-        }
+        # Sync with remote: fetch then reset to origin/main (we've backed up generated files, so this is safe).
+        # Using fetch+reset avoids "cannot pull with rebase: Your index contains uncommitted changes".
+        echo "🔄 Syncing with origin/main (fetch + reset, generated content already backed up)..."
+        git fetch origin main
+        git reset --hard origin/main
         
         # Restore generated audio/text so we don't lose newly created content (e.g. ElevenLabs regeneration)
         if [ -d "$GENERATED_BACKUP" ]; then
