@@ -83,7 +83,7 @@
       "language": "English (Ireland) - Business/Finance",
       "gender": "Female",
       "provider": "Edge TTS",
-      "tts_provider": "edge_tts",
+      "tts_provider": "elevenlabs",
       "pocket_voice": "alba",
       "elevenlabs_voice_id": "EQu48Nbp4OqDxsnYh27f"
     }
