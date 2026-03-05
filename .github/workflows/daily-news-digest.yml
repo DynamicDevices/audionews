@@ -882,8 +882,20 @@ jobs:
         if-no-files-found: warn
         retention-days: 90
     
+    - name: 📦 Prepare release assets (unique names to avoid duplicate asset names)
+      if: success() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && (inputs.force_ai_regeneration == true || inputs.force_ai_regeneration == 'true')))
+      run: |
+        TODAY="${{ steps.check_content.outputs.today_date }}"
+        mkdir -p release_assets
+        for LANG in en_GB pl_PL bella; do
+          [ -f "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ] && cp "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" "release_assets/${LANG}_news_digest_ai_${TODAY}.mp3"
+          [ -f "docs/${LANG}/news_digest_ai_${TODAY}.txt" ] && cp "docs/${LANG}/news_digest_ai_${TODAY}.txt" "release_assets/${LANG}_news_digest_ai_${TODAY}.txt"
+        done
+        ls -la release_assets/
+    
     - name: 🏷️ Create release for audio file
       if: success() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && (inputs.force_ai_regeneration == true || inputs.force_ai_regeneration == 'true')))
+      continue-on-error: true
       uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -904,19 +916,19 @@ jobs:
           
           ### 📥 Access Options
           - **🌐 Website**: [Daily News Digest](https://audionews.uk)
-          - **Audio**: per-language MP3 in docs/ (en_GB, pl_PL, bella)
+          - **Audio**: per-language MP3 (en_GB_, pl_PL_, bella_ prefixed)
           - **Text**: Full transcript with sources
           
           Perfect for visually impaired users! 🎧♿
         draft: false
         prerelease: false
         files: |
-          docs/en_GB/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
-          docs/en_GB/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
-          docs/pl_PL/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
-          docs/pl_PL/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
-          docs/bella/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
-          docs/bella/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
+          release_assets/en_GB_news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
+          release_assets/en_GB_news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
+          release_assets/pl_PL_news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
+          release_assets/pl_PL_news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
+          release_assets/bella_news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
+          release_assets/bella_news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
     
     - name: ❌ Create issue on failure
       if: failure()
