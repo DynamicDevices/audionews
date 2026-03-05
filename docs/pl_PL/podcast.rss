@@ -36,29 +36,29 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772702357" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772709086" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772702357</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1772709086</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Thu, 05 Mar 2026 09:22:07 +0000</lastBuildDate>
-    <pubDate>Thu, 05 Mar 2026 09:22:07 +0000</pubDate>
+    <lastBuildDate>Thu, 05 Mar 2026 11:17:50 +0000</lastBuildDate>
+    <pubDate>Thu, 05 Mar 2026 11:17:50 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
     <item>
       <title>AudioNews Polska - March 05, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-03-05</link>
-      <description>March 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad cztery lata, podczas gdy Rosja kontynuuje presję na Europę poprzez groźby dotyczące dostaw gazu;</description>
+      <description>March 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad cztery lata, a sytuacja na froncie pozostaje napięta;</description>
       <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_03_05.mp3</guid>
-      <pubDate>Thu, 05 Mar 2026 05:26:34 +0000</pubDate>
-      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_03_05.mp3" type="audio/mpeg" length="3863085" />
+      <pubDate>Thu, 05 Mar 2026 11:13:43 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_03_05.mp3" type="audio/mpeg" length="2780685" />
       <itunes:title>AudioNews Polska - March 05, 2026: Dzień dobry</itunes:title>
-      <itunes:summary>March 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad cztery lata, podczas gdy Rosja kontynuuje presję na Europę poprzez groźby dotyczące dostaw gazu;</itunes:summary>
+      <itunes:summary>March 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad cztery lata, a sytuacja na froncie pozostaje napięta;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>50</itunes:episode>
       <itunes:subtitle>March 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
-      <itunes:duration>03:13</itunes:duration>
+      <itunes:duration>02:18</itunes:duration>
     </item>
     <item>
       <title>AudioNews Polska - March 04, 2026: Dzień dobry</title>
