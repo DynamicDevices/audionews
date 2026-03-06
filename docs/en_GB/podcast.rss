@@ -37,29 +37,29 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, uk news, daily news, audio news, visually impaired, blind, partially sighted, blind and partially sighted, assistive technology, screen reader, accessible news</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1772774541" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1772790128" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1772774541</url>
+      <url>https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1772790128</url>
       <title>AudioNews Daily</title>
       <link>https://audionews.uk/en_GB</link>
     </image>
-    <lastBuildDate>Fri, 06 Mar 2026 05:28:19 +0000</lastBuildDate>
-    <pubDate>Fri, 06 Mar 2026 05:28:19 +0000</pubDate>
+    <lastBuildDate>Fri, 06 Mar 2026 09:48:13 +0000</lastBuildDate>
+    <pubDate>Fri, 06 Mar 2026 09:48:13 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
     <item>
       <title>AudioNews - March 06, 2026: Good morning</title>
       <link>https://audionews.uk/en_GB?date=2026-03-06</link>
-      <description>March 06, 2026 news: in international news, tensions escalate sharply in the Middle East as Israel launches strikes on Beirut and Tehran while the United States signals a dramatic increase in operations against Iran . Tehran appears to be pursuing a strategy focused on long-term endurance and deterrence amid the...</description>
+      <description>March 06, 2026 news: in international news, tensions are escalating sharply in the Middle East as Israeli military operations against Iran have intensified dramatically, with residents in Tehran reporting the most severe strikes theyve experienced yet . Satellite imagery confirms multiple hits on an educational...</description>
       <guid isPermaLink="true">https://audionews.uk/en_GB/audio/news_digest_ai_2026_03_06.mp3</guid>
-      <pubDate>Fri, 06 Mar 2026 05:23:36 +0000</pubDate>
-      <enclosure url="https://audionews.uk/en_GB/audio/news_digest_ai_2026_03_06.mp3" type="audio/mpeg" length="4479312" />
+      <pubDate>Fri, 06 Mar 2026 09:43:20 +0000</pubDate>
+      <enclosure url="https://audionews.uk/en_GB/audio/news_digest_ai_2026_03_06.mp3" type="audio/mpeg" length="3699818" />
       <itunes:title>AudioNews - March 06, 2026: Good morning</itunes:title>
-      <itunes:summary>March 06, 2026 news: in international news, tensions escalate sharply in the Middle East as Israel launches strikes on Beirut and Tehran while the United States signals a dramatic increase in operations against Iran . Tehran appears to be pursuing a strategy focused on long-term endurance and deterrence amid the...</itunes:summary>
+      <itunes:summary>March 06, 2026 news: in international news, tensions are escalating sharply in the Middle East as Israeli military operations against Iran have intensified dramatically, with residents in Tehran reporting the most severe strikes theyve experienced yet . Satellite imagery confirms multiple hits on an educational...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>50</itunes:episode>
-      <itunes:subtitle>March 06, 2026 news: in international news, tensions escalate sharply in the Middle East as Israel l...</itunes:subtitle>
-      <itunes:duration>04:39</itunes:duration>
+      <itunes:subtitle>March 06, 2026 news: in international news, tensions are escalating sharply in the Middle East as Is...</itunes:subtitle>
+      <itunes:duration>03:51</itunes:duration>
     </item>
     <item>
       <title>AudioNews - March 05, 2026: Good morning</title>
