@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772709086" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772774541" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772709086</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772774541</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Thu, 05 Mar 2026 11:18:17 +0000</lastBuildDate>
-    <pubDate>Thu, 05 Mar 2026 11:18:17 +0000</pubDate>
+    <lastBuildDate>Fri, 06 Mar 2026 05:29:14 +0000</lastBuildDate>
+    <pubDate>Fri, 06 Mar 2026 05:29:14 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - March 06, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-03-06</link>
+      <description>March 06, 2026 news: Political turbulence is reshaping market dynamics as multiple states challenge federal trade policy through coordinated legal action, This creates fascinating game theory scenarios where youd model probability trees of regulatory outcomes and their cascading effects . International tensions over...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_03_06.mp3</guid>
+      <pubDate>Fri, 06 Mar 2026 05:26:02 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_03_06.mp3" type="audio/mpeg" length="4121121" />
+      <itunes:title>BellaNews - March 06, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>March 06, 2026 news: Political turbulence is reshaping market dynamics as multiple states challenge federal trade policy through coordinated legal action, This creates fascinating game theory scenarios where youd model probability trees of regulatory outcomes and their cascading effects . International tensions over...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>48</itunes:episode>
+      <itunes:subtitle>March 06, 2026 news: Political turbulence is reshaping market dynamics as multiple states challenge...</itunes:subtitle>
+      <itunes:duration>04:17</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - March 05, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-03-05</link>
