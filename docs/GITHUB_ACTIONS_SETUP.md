@@ -65,8 +65,9 @@ You can also run the digest manually:
 If the workflow fails:
 - ✅ **Automatic issue created** with failure details
 - ✅ **Email notification** (if GitHub notifications enabled)
-- ✅ **Fallback to non-AI mode** if API fails
 - ✅ **Detailed logs** available in Actions tab
+
+The pipeline is AI-only; there is no fallback to non-AI mode. Fix the underlying issue (e.g. API key, rate limits, TTS provider) and re-run.
 
 ## 💰 **Cost Estimation**
 
@@ -96,19 +97,17 @@ If the workflow fails:
 ## 🔧 **Troubleshooting**
 
 ### **No AI Analysis:**
-- Check API key is correctly set in repository secrets
-- Verify key has sufficient credits/usage limits
-- System will fallback to keyword-based analysis
+- Check `ANTHROPIC_API_KEY` is correctly set in repository secrets
+- Verify the key has sufficient credits/usage limits
 
 ### **No Audio Generated:**
-- Check if `edge-tts` is working (should work on GitHub runners)
-- Verify text content was created successfully
-- Check workflow logs for specific error messages
+- **en_GB / pl_PL**: Pipeline uses Edge TTS on GitHub runners; check workflow logs for edge-tts errors
+- **bella**: Pipeline uses ElevenLabs; ensure `ELEVENLABS_API_KEY` is set in repository secrets and that the workflow has access to it
+- Verify transcript files were created successfully before TTS runs
 
 ### **Files Not Committed:**
 - Ensure `GITHUB_TOKEN` has write permissions (should be automatic)
-- Check if repository has branch protection rules
-- Verify workflow has `contents: write` permission
+- Check branch protection rules and that the workflow has `contents: write`
 
 ## ✅ **Testing Setup**
 

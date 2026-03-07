@@ -70,11 +70,13 @@ Controls voice settings and TTS configuration.
 
 ## Usage
 
-These configuration files are automatically loaded when `github_ai_news_digest.py` is imported:
+Configuration is loaded by the **digest** package when you run the main script:
 
-```python
-from github_ai_news_digest import AI_PROMPTS_CONFIG, VOICE_CONFIG
+```bash
+python scripts/github_ai_news_digest.py --language en_GB
 ```
+
+The digest package reads `config/ai_prompts.json` and `config/voice_config.json` and builds language configs (including sources and themes from `digest/config_loader.py`).
 
 ## Editing Guidelines
 
@@ -86,10 +88,10 @@ from github_ai_news_digest import AI_PROMPTS_CONFIG, VOICE_CONFIG
    - Add synthesis prompt template to `synthesis_prompts`
 
 2. **In `voice_config.json`:**
-   - Add voice configuration to `voices` object with appropriate Edge TTS voice
+   - Add voice configuration to `voices` object with appropriate Edge TTS (or other provider) voice
 
-3. **In `github_ai_news_digest.py`:**
-   - Add language configuration to `LANGUAGE_CONFIGS` dictionary
+3. **In `digest/config_loader.py`:**
+   - Add the language to the `templates` dictionary with `sources`, `themes`, `greeting`, `region_name`, `output_dir`, `audio_dir`, `service_name` (see existing entries such as `en_GB` or `pl_PL`)
 
 ### Changing AI Model
 
@@ -142,7 +144,7 @@ Update `tts_settings.edge_tts` in `voice_config.json`:
 After editing configuration files, test that they load correctly:
 
 ```bash
-python3 -c "from github_ai_news_digest import AI_PROMPTS_CONFIG, VOICE_CONFIG; print('✅ Config loaded')"
+python3 -c "from digest.config_loader import AI_PROMPTS_CONFIG, VOICE_CONFIG, LANGUAGE_CONFIGS; print('✅ Config loaded')"
 ```
 
 ## Version Control

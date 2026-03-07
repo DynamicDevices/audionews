@@ -59,6 +59,7 @@ env/
 # Generated pause analysis reports
 *.pause_report.txt
 *.pause_report.json
+PAUSE_ANALYSIS_*.md
 
 # Local TTS test output
 test_audio/

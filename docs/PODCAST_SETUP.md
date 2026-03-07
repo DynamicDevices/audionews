@@ -58,8 +58,9 @@ Ensure `info@audionews.uk` (or your preferred email) is:
 ### Step 4: Review and Submit
 
 1. Review the podcast information (title, description, artwork)
-2. Confirm the category and language settings
-3. Click **"Submit for review"**
+2. For ready-to-use show description copy (e.g. for the UK feed), see [Spotify description – UK](SPOTIFY_DESCRIPTION_UK.md).
+3. Confirm the category and language settings
+4. Click **"Submit for review"**
 
 ### Step 5: Approval
 

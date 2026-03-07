@@ -28,13 +28,13 @@ Create natural, human-quality AI-powered audio news digests specifically designe
 - **Prompts**: Configurable via `config/ai_prompts.json`
 
 #### Text-to-Speech
-- **Engine**: Microsoft Edge TTS (neural voices)
-- **Voices**: 
-  - English (UK): `en-IE-EmilyNeural` (Irish female)
-  - Polish: `pl-PL-ZofiaNeural` (Polish female)
-  - BellaNews: `en-GB-LibbyNeural` (UK female)
-- **Speed Adjustment**: +10% rate for optimal speech rate (~120 WPM)
-- **Quality**: Professional neural voices, not robotic TTS
+- **Engines**: Microsoft Edge TTS (default for en_GB, pl_PL), ElevenLabs (BellaNews in CI)
+- **Voices** (from `config/voice_config.json`):
+  - English (UK): `en-IE-EmilyNeural` (Edge)
+  - Polish: `pl-PL-ZofiaNeural` (Edge)
+  - BellaNews: ElevenLabs voice (see `elevenlabs_voice_id` in config)
+- **Speed Adjustment**: +10% rate for Edge TTS
+- **Quality**: Professional neural voices; digest pipeline in `digest/tts.py`
 
 #### Audio Quality Optimizations
 - ✅ **Quote removal**: Eliminates quote marks that cause TTS pauses
@@ -55,9 +55,16 @@ Create natural, human-quality AI-powered audio news digests specifically designe
 
 ```
 audio-transcription/
+├── digest/                       # Digest generation package
+│   ├── config_loader.py         # Loads config JSONs, builds LANGUAGE_CONFIGS
+│   ├── models.py                 # Data models (e.g. NewsStory)
+│   ├── fetch.py                  # Headline fetching from news sources
+│   ├── ai_analysis.py            # AI story analysis and synthesis
+│   ├── digest_synthesis.py       # Digest text assembly, TTS normalization
+│   └── tts.py                    # TTS (Edge / Pocket / ElevenLabs), audio output
 ├── scripts/                      # Core Python scripts
-│   ├── github_ai_news_digest.py  # Main AI digest generator
-│   ├── generate_podcast_rss.py    # Podcast RSS feed generator
+│   ├── github_ai_news_digest.py  # Main AI digest generator (orchestrator)
+│   ├── generate_podcast_rss.py   # Podcast RSS feed generator
 │   ├── update_language_website.py # Language page updater
 │   ├── update_website.py          # Website updater
 │   ├── create_all_language_pages.py # Page generator
@@ -111,11 +118,9 @@ audio-transcription/
 ### Automated Generation (GitHub Actions)
 1. **Trigger**: Daily at 5:00 UTC (6:00 AM UK time)
 2. **Process**:
-   - Fetch news headlines from configured sources
-   - AI analysis: Categorize stories by theme
-   - AI synthesis: Generate original summaries
-   - Text processing: Apply all audio quality fixes
-   - TTS generation: Convert to MP3 with Edge TTS (+10% rate)
+   - Fetch news headlines (digest.fetch, config from digest.config_loader)
+   - AI analysis and synthesis (digest.ai_analysis, digest.digest_synthesis)
+   - Text processing and TTS (digest.tts — Edge TTS for en_GB/pl_PL, ElevenLabs for bella in CI)
    - Website update: Update HTML pages with new content
    - RSS generation: Regenerate podcast feeds
    - Git commit: Commit and push to repository
@@ -170,7 +175,7 @@ python scripts/generate_podcast_rss.py
 ## 📊 Technical Stack
 
 - **AI**: Anthropic Claude 4.5 Sonnet
-- **TTS**: Microsoft Edge TTS (neural voices)
+- **TTS**: Microsoft Edge TTS (en_GB, pl_PL); ElevenLabs (bella in CI)
 - **CI/CD**: GitHub Actions
 - **Hosting**: GitHub Pages
 - **Storage**: Git LFS for audio files
