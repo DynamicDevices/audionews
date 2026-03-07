@@ -729,144 +729,83 @@ jobs:
           echo "💰 COST OPTIMIZATION: No new files to commit - content already exists"
           echo "📊 Estimated API cost savings: \$0.50-\$2.00"
           exit 0
-        elif [ "$RSS_UPDATED" = "true" ] || [ "$HTML_UPDATED" = "true" ]; then
-          # Commit RSS/HTML updates even if audio files already exist
-          COMMIT_MSG="🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
+        fi
+        
+        # Build COMMIT_MSG (one block for both RSS/HTML-only and new-audio cases)
+        COMMIT_MSG="🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
 
           📊 Generated: $(date '+%Y-%m-%d %H:%M UTC')"
-          if [ "$RSS_UPDATED" = "true" ]; then
-            COMMIT_MSG="${COMMIT_MSG}
-          📻 Podcast: RSS feeds updated"
-          fi
-          if [ "$HTML_UPDATED" = "true" ]; then
-            COMMIT_MSG="${COMMIT_MSG}
-          🌐 Website: HTML pages updated"
-          fi
-          if [ "$ALL_LANGUAGES_EXIST" = "false" ]; then
-            # Calculate audio stats if we have new audio files
-            TOTAL_SIZE=0
-            LANG_STATS=""
-            for LANG in en_GB pl_PL bella; do
-              if ls docs/${LANG}/audio/news_digest_ai_*.mp3 1> /dev/null 2>&1; then
-                audio_file=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 | head -1)
-                size_bytes=$(stat -c%s "$audio_file")
-                size_human=$(numfmt --to=iec $size_bytes)
-                TOTAL_SIZE=$((TOTAL_SIZE + size_bytes))
-                LANG_STATS="${LANG_STATS}${LANG}: ${size_human} "
-              fi
-            done
-            total_size_human=$(numfmt --to=iec $TOTAL_SIZE)
-            COMMIT_MSG="${COMMIT_MSG}
-          🎧 Audio: ${total_size_human} total (${LANG_STATS})"
-          fi
+        if [ "$RSS_UPDATED" = "true" ]; then
           COMMIT_MSG="${COMMIT_MSG}
-          🤖 AI: Enhanced analysis
-          ♿ Accessibility: Optimized for visually impaired users"
-          
-          git commit -m "$COMMIT_MSG"
-          
-          # Push with retry logic
-          MAX_PUSH_RETRIES=3
-          PUSH_RETRY=0
-          while [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; do
-            if git push; then
-              echo "✅ Files committed and pushed successfully"
-              break
-            else
-              PUSH_RETRY=$((PUSH_RETRY + 1))
-              if [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; then
-                echo "⚠️ Push attempt $PUSH_RETRY failed, pulling latest and retrying..."
-                git fetch origin main
-                git reset --hard HEAD~1
-                git pull --rebase origin main || git reset --hard origin/main
-                git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
-                git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
-                git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
-                git commit -m "$COMMIT_MSG" || echo "⚠️ No changes to commit after rebase"
-              else
-                echo "⚠️ Push failed after $MAX_PUSH_RETRIES attempts"
-              fi
-            fi
-          done
-        else
-          # New audio files exist (and possibly RSS/HTML updates too)
-          # Build commit message
-          COMMIT_MSG="🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
-
-          📊 Generated: $(date '+%Y-%m-%d %H:%M UTC')"
-          
-          # Add RSS/HTML update info if they were updated
-          if [ "$RSS_UPDATED" = "true" ]; then
-            COMMIT_MSG="${COMMIT_MSG}
           📻 Podcast: RSS feeds updated"
-          fi
-          if [ "$HTML_UPDATED" = "true" ]; then
-            COMMIT_MSG="${COMMIT_MSG}
+        fi
+        if [ "$HTML_UPDATED" = "true" ]; then
+          COMMIT_MSG="${COMMIT_MSG}
           🌐 Website: HTML pages updated"
+        fi
+        # Add audio stats when we have new audio or when remote was missing some
+        TOTAL_SIZE=0
+        LANG_STATS=""
+        for LANG in en_GB pl_PL bella; do
+          if ls docs/${LANG}/audio/news_digest_ai_*.mp3 1> /dev/null 2>&1; then
+            audio_file=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 | head -1)
+            size_bytes=$(stat -c%s "$audio_file")
+            size_human=$(numfmt --to=iec $size_bytes)
+            TOTAL_SIZE=$((TOTAL_SIZE + size_bytes))
+            LANG_STATS="${LANG_STATS}${LANG}: ${size_human} "
           fi
-          
-          # Calculate audio stats for new audio files
-          TOTAL_SIZE=0
-          LANG_STATS=""
-          for LANG in en_GB pl_PL bella; do
-            if ls docs/${LANG}/audio/news_digest_ai_*.mp3 1> /dev/null 2>&1; then
-              audio_file=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 | head -1)
-              size_bytes=$(stat -c%s "$audio_file")
-              size_human=$(numfmt --to=iec $size_bytes)
-              TOTAL_SIZE=$((TOTAL_SIZE + size_bytes))
-              LANG_STATS="${LANG_STATS}${LANG}: ${size_human} "
-            fi
-          done
+        done
+        if [ $TOTAL_SIZE -gt 0 ]; then
           total_size_human=$(numfmt --to=iec $TOTAL_SIZE)
           COMMIT_MSG="${COMMIT_MSG}
-          🎧 Audio: ${total_size_human} total (${LANG_STATS})
-          🤖 AI: Enhanced analysis
-          🌐 Website: Updated with accessible newspaper layout
-          ♿ Accessibility: Optimized for visually impaired users"
-          
-          git commit -m "$COMMIT_MSG"
-          
-          # Push with retry logic for concurrent runs
-          MAX_PUSH_RETRIES=3
-          PUSH_RETRY=0
-          while [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; do
-            if git push; then
-              echo "✅ Files committed and pushed successfully"
-              break
-            else
-              PUSH_RETRY=$((PUSH_RETRY + 1))
-              if [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; then
-                echo "⚠️ Push attempt $PUSH_RETRY failed, pulling latest and retrying..."
-                # Reset to avoid merge conflicts with binary files
-                git fetch origin main
-                # Check if remote has the same files we're trying to push
-                REMOTE_HAS_SAME=false
-                for LANG in en_GB pl_PL bella; do
-                  if git ls-tree -r origin/main --name-only | grep -q "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"; then
-                    REMOTE_HAS_SAME=true
-                  fi
-                done
-                if [ "$REMOTE_HAS_SAME" = "true" ]; then
-                  echo "✅ Remote already has today's content - another workflow succeeded"
-                  echo "💰 Skipping push to avoid duplicate commits"
-                  exit 0
-                fi
-                # Reset and rebase
-                git reset --hard HEAD~1
-                git pull --rebase origin main || git reset --hard origin/main
-                # Re-add and recommit
-                git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
-                git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
-                git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
-                git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
-                git commit -m "$COMMIT_MSG" || echo "⚠️ No changes to commit after rebase"
-              else
-                echo "⚠️ Push failed after $MAX_PUSH_RETRIES attempts - another workflow may have already pushed"
-                echo "✅ This is acceptable for concurrent runs"
-              fi
-            fi
-          done
+          🎧 Audio: ${total_size_human} total (${LANG_STATS})"
         fi
+        COMMIT_MSG="${COMMIT_MSG}
+          🤖 AI: Enhanced analysis"
+        if [ $TOTAL_SIZE -gt 0 ]; then
+          COMMIT_MSG="${COMMIT_MSG}
+          🌐 Website: Updated with accessible newspaper layout"
+        fi
+        COMMIT_MSG="${COMMIT_MSG}
+          ♿ Accessibility: Optimized for visually impaired users"
+        
+        git commit -m "$COMMIT_MSG"
+        
+        # Single push-with-retry block (avoids duplicate commits when another run already pushed)
+        MAX_PUSH_RETRIES=3
+        PUSH_RETRY=0
+        while [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; do
+          if git push; then
+            echo "✅ Files committed and pushed successfully"
+            break
+          fi
+          PUSH_RETRY=$((PUSH_RETRY + 1))
+          if [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; then
+            echo "⚠️ Push attempt $PUSH_RETRY failed, pulling latest and retrying..."
+            git fetch origin main
+            REMOTE_HAS_SAME=false
+            for LANG in en_GB pl_PL bella; do
+              if git ls-tree -r origin/main --name-only | grep -q "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"; then
+                REMOTE_HAS_SAME=true
+              fi
+            done
+            if [ "$REMOTE_HAS_SAME" = "true" ]; then
+              echo "✅ Remote already has today's content - another workflow succeeded"
+              echo "💰 Skipping push to avoid duplicate commits"
+              exit 0
+            fi
+            git reset --hard HEAD~1
+            git pull --rebase origin main || git reset --hard origin/main
+            git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
+            git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
+            git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
+            git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
+            git commit -m "$COMMIT_MSG" || echo "⚠️ No changes to commit after rebase"
+          else
+            echo "⚠️ Push failed after $MAX_PUSH_RETRIES attempts - another workflow may have already pushed"
+            echo "✅ This is acceptable for concurrent runs"
+          fi
+        done
     
     - name: 📤 Upload artifacts for download
       uses: actions/upload-artifact@v4
