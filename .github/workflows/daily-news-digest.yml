@@ -140,11 +140,6 @@ jobs:
   # --- Merge artifacts, update HTML/RSS, commit and push ---
   merge:
     runs-on: ubuntu-latest
-    container: dynamicdevices/audionews-digest:latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: ${{ github.workspace }}
     needs: [check-content, skip-generation, generate-one-language]
     if: always() && (needs.skip-generation.result == 'success' || needs.generate-one-language.result == 'success')
     permissions:
@@ -157,6 +152,13 @@ jobs:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
           lfs: true
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: 📦 Install dependencies
+        run: pip install -r requirements.txt
       - name: 📥 Download generated artifacts (when generation ran)
         if: needs.generate-one-language.result == 'success'
         uses: actions/download-artifact@v4
@@ -167,7 +169,6 @@ jobs:
       - name: 📂 Merge artifacts into docs/
         if: needs.generate-one-language.result == 'success'
         run: |
-          cd "$GITHUB_WORKSPACE" || exit 1
           for dir in artifacts/digest-*; do
             [ -d "$dir" ] || continue
             LANG=$(basename "$dir" | sed 's/^digest-//')
@@ -177,12 +178,9 @@ jobs:
             echo "✅ Merged $LANG"
           done
       - name: 🔄 Ensure Git LFS files
-        run: |
-          cd "$GITHUB_WORKSPACE" || exit 1
-          git lfs pull || echo "⚠️ Git LFS pull failed (may continue)"
+        run: git lfs pull || echo "⚠️ Git LFS pull failed (may continue)"
       - name: 📊 Verify content
         run: |
-          cd "$GITHUB_WORKSPACE" || exit 1
           TODAY=$(date +%Y_%m_%d)
           for LANG in en_GB pl_PL bella; do
             AUDIO="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
@@ -195,7 +193,6 @@ jobs:
           done
       - name: 🌐 Update language HTML pages
         run: |
-          cd "$GITHUB_WORKSPACE" || exit 1
           TODAY=$(date +%Y_%m_%d)
           for LANG in en_GB pl_PL bella; do
             AUDIO="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
@@ -205,18 +202,15 @@ jobs:
           done
       - name: 📱 Verify file locations
         run: |
-          cd "$GITHUB_WORKSPACE" || exit 1
           for LANG in en_GB pl_PL bella; do
             ls docs/${LANG}/audio/news_digest_ai_*.mp3 docs/${LANG}/news_digest_ai_*.txt 2>/dev/null || true
           done
       - name: 🎙️ Generate Podcast RSS
         run: |
-          cd "$GITHUB_WORKSPACE" || exit 1
           git lfs pull || true
           python scripts/generate_podcast_rss.py || exit 0
       - name: 🔍 Quality check
         run: |
-          cd "$GITHUB_WORKSPACE" || exit 1
           TOTAL=0
           for LANG in en_GB pl_PL bella; do
             f=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 2>/dev/null | head -1)
@@ -226,7 +220,6 @@ jobs:
           echo "✅ Total audio: $(numfmt --to=iec $TOTAL)"
       - name: 📝 Commit generated files
         run: |
-          cd "$GITHUB_WORKSPACE" || exit 1
           git config --local user.email "ai-digest@github.com"
           git config --local user.name "AI News Digest Bot"
           
