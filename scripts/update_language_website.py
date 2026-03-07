@@ -206,11 +206,19 @@ def update_language_page(language='en_GB'):
         audio_filename = f"audio/news_digest_ai_{today_str}.mp3"
         html = re.sub(r'<source src="audio/[^"]*"', f'<source src="{audio_filename}"', html)
         
-        # Update download link
-        html = re.sub(r'<a[^>]*download[^>]*href="audio/[^"]*"', f'<a download="{audio_filename}" href="{audio_filename}"', html)
+        # Update every download/fallback link to today's audio (any attribute order)
+        html = re.sub(r'href="audio/news_digest_ai_\d{4}_\d{2}_\d{2}\.mp3"', f'href="{audio_filename}"', html)
         
         # Update preload link in head
         html = re.sub(r'<link rel="preload" href="audio/[^"]*" as="audio"', f'<link rel="preload" href="{audio_filename}" as="audio"', html)
+        
+        # JSON-LD AudioObject: contentUrl (correct language path), datePublished, duration
+        base_url = "https://audionews.uk"
+        content_url = f"{base_url}/{language}/audio/news_digest_ai_{today_str}.mp3"
+        html = re.sub(r'"contentUrl":\s*"https://audionews\.uk/[^"]*"', f'"contentUrl": "{content_url}"', html)
+        html = re.sub(r'"datePublished":\s*"[^"]*"', f'"datePublished": "{today_iso}T06:00:00Z"', html)
+        duration_iso = f"PT{duration_minutes}M{duration_seconds}S"
+        html = re.sub(r'"duration":\s*"PT[^"]*"', f'"duration": "{duration_iso}"', html)
         
         # Update digest content in the page
         digest_pattern = r'(<div class="digest-content"[^>]*>)(.*?)(</div>)'

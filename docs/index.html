@@ -335,32 +335,11 @@
             </h1>
             <p class="site-tagline" id="site-tagline">Brought to you by Dynamic Devices</p>
             
-                    <!-- Language Selector -->
+                    <!-- Language Selector - only link to services we create daily -->
                     <div class="language-selector" role="navigation" aria-label="Language selection">
-                        <button class="lang-btn active" data-lang="en_GB" aria-label="English (UK)">
-                            🇬🇧 English
-                        </button>
-                        <button class="lang-btn disabled" data-lang="fr_FR" aria-label="Français (France) - Coming Soon">
-                            🇫🇷 Français <small>(Coming Soon)</small>
-                        </button>
-                        <button class="lang-btn disabled" data-lang="de_DE" aria-label="Deutsch (Deutschland) - Coming Soon">
-                            🇩🇪 Deutsch <small>(Coming Soon)</small>
-                        </button>
-                        <button class="lang-btn disabled" data-lang="es_ES" aria-label="Español (España) - Coming Soon">
-                            🇪🇸 Español <small>(Coming Soon)</small>
-                        </button>
-                        <button class="lang-btn disabled" data-lang="it_IT" aria-label="Italiano (Italia) - Coming Soon">
-                            🇮🇹 Italiano <small>(Coming Soon)</small>
-                        </button>
-                        <button class="lang-btn disabled" data-lang="nl_NL" aria-label="Nederlands (Nederland) - Coming Soon">
-                            🇳🇱 Nederlands <small>(Coming Soon)</small>
-                        </button>
-                        <button class="lang-btn disabled" data-lang="pl_PL" aria-label="Polski (Polska) - Coming Soon">
-                            🇵🇱 Polski <small>(Coming Soon)</small>
-                        </button>
-                        <button class="lang-btn" data-lang="bella" aria-label="BellaNews - Business & Finance">
-                            📊 BellaNews
-                        </button>
+                        <a href="/en_GB/" class="lang-btn active" aria-label="English (UK)">🇬🇧 English</a>
+                        <a href="/pl_PL/" class="lang-btn" aria-label="Polski">🇵🇱 Polski</a>
+                        <a href="/bella/" class="lang-btn" aria-label="BellaNews - Business & Finance">📊 BellaNews</a>
                     </div>
         </div>
     </header>
@@ -381,8 +360,8 @@
     <footer class="site-footer" role="contentinfo">
         <div class="footer-container" style="text-align: center;">
             <p class="copyright" id="footer-text">
-                © 2025 Dynamic Devices • 
-                <a href="https://github.com/DynamicDevices/daily-voice-news" class="footer-link">Open Source on GitHub</a> • 
+                © 2025-2026 Dynamic Devices • 
+                <a href="https://github.com/DynamicDevices/audionews" class="footer-link" rel="noopener noreferrer" target="_blank">Open Source on GitHub</a> • 
                 Made with ♿ accessibility in mind
             </p>
         </div>
@@ -398,7 +377,7 @@
                 this.currentLanguage = 'en_GB';
                 this.languages = {};
                 this.contentCache = {};
-                this.supportedLanguages = ['en_GB', 'fr_FR', 'de_DE', 'es_ES', 'it_IT', 'nl_NL', 'en_GB_LON', 'en_GB_LIV'];
+                this.supportedLanguages = ['en_GB', 'pl_PL', 'bella'];
                 this.init();
             }
             
@@ -417,14 +396,8 @@
             }
             
             async detectLanguage() {
-                try {
-                    // TEMPORARY: Force all users to en_GB (other languages disabled)
-                    console.log('Redirecting to en_GB - other languages temporarily disabled');
-                    window.location.href = '/en_GB/';
-                        return;
-                } catch (e) {
-                    console.log('Language detection failed, using default');
-                }
+                // No redirect: show main page with three service links (en_GB, pl_PL, bella)
+                this.currentLanguage = 'en_GB';
             }
             
             async loadLanguageConfigs() {
@@ -456,16 +429,10 @@
             
             async switchLanguage(language) {
                 if (language === this.currentLanguage) return;
-                
-                // TEMPORARY: Only allow switching to en_GB
-                if (language !== 'en_GB') {
-                    console.log(`Language ${language} is temporarily disabled`);
-                    return;
+                // Navigate to the selected service (en_GB, pl_PL, bella only)
+                if (['en_GB', 'pl_PL', 'bella'].includes(language)) {
+                    window.location.href = '/' + language + '/';
                 }
-                
-                // Redirect to en_GB page
-                window.location.href = '/en_GB/';
-                return;
             }
             
             updateLanguageSelector() {
@@ -648,6 +615,14 @@
                             </div>
                             
                             <div class="instruction-group">
+                                <h3 class="instruction-title">🎙️ Listen on Spotify &amp; Podcasts</h3>
+                                <ul class="instruction-list">
+                                    <li><strong>Spotify:</strong> <a href="${language === 'pl_PL' ? 'https://open.spotify.com/show/7HqgWy3TvPMTmDgJIfUmam' : language === 'bella' ? 'https://open.spotify.com/show/1a2x6QpSokI5mPjdzPVKJ0' : 'https://open.spotify.com/show/0c3Nt6DDtLwpIYwt7dFqgQ'}" rel="noopener noreferrer" target="_blank">${language === 'pl_PL' ? 'AudioNews Polska Daily on Spotify' : language === 'bella' ? 'BellaNews Daily on Spotify' : 'AudioNews Daily on Spotify'}</a> — subscribe for daily episodes in your app.</li>
+                                    <li><strong>RSS feed:</strong> <a href="${language}/podcast.rss" type="application/rss+xml">podcast.rss</a> — use this feed in Apple Podcasts, Google Podcasts, or any podcast app.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="instruction-group">
                                 <h3 class="instruction-title">${config.about_content.accessibility.title}</h3>
                                 <ul class="instruction-list">
                                     ${config.about_content.accessibility.items.map(item => `<li>${item}</li>`).join('')}
@@ -818,6 +793,14 @@
                                 <h3 class="instruction-title">${config.about_content.what_you_get.title}</h3>
                                 <ul class="instruction-list">
                                     ${config.about_content.what_you_get.items.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                            
+                            <div class="instruction-group">
+                                <h3 class="instruction-title">🎙️ Listen on Spotify &amp; Podcasts</h3>
+                                <ul class="instruction-list">
+                                    <li><strong>Spotify:</strong> <a href="${language === 'pl_PL' ? 'https://open.spotify.com/show/7HqgWy3TvPMTmDgJIfUmam' : language === 'bella' ? 'https://open.spotify.com/show/1a2x6QpSokI5mPjdzPVKJ0' : 'https://open.spotify.com/show/0c3Nt6DDtLwpIYwt7dFqgQ'}" rel="noopener noreferrer" target="_blank">${language === 'pl_PL' ? 'AudioNews Polska Daily on Spotify' : language === 'bella' ? 'BellaNews Daily on Spotify' : 'AudioNews Daily on Spotify'}</a> — subscribe for daily episodes in your app.</li>
+                                    <li><strong>RSS feed:</strong> <a href="${language}/podcast.rss" type="application/rss+xml">podcast.rss</a> — use this feed in Apple Podcasts, Google Podcasts, or any podcast app.</li>
                                 </ul>
                             </div>
                             

@@ -74,8 +74,9 @@
       "language": "Polish (Poland)",
       "gender": "Female",
       "provider": "Edge TTS",
-      "tts_provider": "edge_tts",
-      "elevenlabs_voice_id": "EXAVITQu4vr4xnSDxMaL"
+      "tts_provider": "elevenlabs",
+      "pocket_voice": "alba",
+      "elevenlabs_voice_id": "DTZOFDiEo6RpVklQfFpj"
     },
     "bella": {
       "name": "en-GB-SoniaNeural",
