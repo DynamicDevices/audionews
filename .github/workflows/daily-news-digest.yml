@@ -35,7 +35,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ${{ env.GITHUB_WORKSPACE }}
+        working-directory: ${{ github.workspace }}
     outputs:
       content_exists: ${{ steps.check_content.outputs.content_exists }}
       today_date: ${{ steps.check_content.outputs.today_date }}
@@ -49,6 +49,7 @@ jobs:
       - name: 🔍 Check if today's content exists
         id: check_content
         run: |
+          cd "$GITHUB_WORKSPACE" || exit 1
           TODAY=$(date +%Y_%m_%d)
           LANGUAGES=("en_GB" "pl_PL" "bella")
           ALL_EXIST=true
@@ -90,7 +91,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ${{ env.GITHUB_WORKSPACE }}
+        working-directory: ${{ github.workspace }}
     needs: check-content
     if: needs.check-content.outputs.content_exists != 'true'
     strategy:
@@ -113,6 +114,7 @@ jobs:
           lfs: true
       - name: 🤖 Generate digest for ${{ matrix.language }}
         run: |
+          cd "$GITHUB_WORKSPACE" || exit 1
           LANG="${{ matrix.language }}"
           FORCE_ARG=""
           [[ "${{ inputs.force_ai_regeneration }}" == "true" ]] && FORCE_ARG="--force-regenerate"
@@ -142,7 +144,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ${{ env.GITHUB_WORKSPACE }}
+        working-directory: ${{ github.workspace }}
     needs: [check-content, skip-generation, generate-one-language]
     if: always() && (needs.skip-generation.result == 'success' || needs.generate-one-language.result == 'success')
     permissions:
@@ -165,6 +167,7 @@ jobs:
       - name: 📂 Merge artifacts into docs/
         if: needs.generate-one-language.result == 'success'
         run: |
+          cd "$GITHUB_WORKSPACE" || exit 1
           for dir in artifacts/digest-*; do
             [ -d "$dir" ] || continue
             LANG=$(basename "$dir" | sed 's/^digest-//')
@@ -174,9 +177,12 @@ jobs:
             echo "✅ Merged $LANG"
           done
       - name: 🔄 Ensure Git LFS files
-        run: git lfs pull || echo "⚠️ Git LFS pull failed (may continue)"
+        run: |
+          cd "$GITHUB_WORKSPACE" || exit 1
+          git lfs pull || echo "⚠️ Git LFS pull failed (may continue)"
       - name: 📊 Verify content
         run: |
+          cd "$GITHUB_WORKSPACE" || exit 1
           TODAY=$(date +%Y_%m_%d)
           for LANG in en_GB pl_PL bella; do
             AUDIO="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
@@ -189,6 +195,7 @@ jobs:
           done
       - name: 🌐 Update language HTML pages
         run: |
+          cd "$GITHUB_WORKSPACE" || exit 1
           TODAY=$(date +%Y_%m_%d)
           for LANG in en_GB pl_PL bella; do
             AUDIO="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
@@ -198,15 +205,18 @@ jobs:
           done
       - name: 📱 Verify file locations
         run: |
+          cd "$GITHUB_WORKSPACE" || exit 1
           for LANG in en_GB pl_PL bella; do
             ls docs/${LANG}/audio/news_digest_ai_*.mp3 docs/${LANG}/news_digest_ai_*.txt 2>/dev/null || true
           done
       - name: 🎙️ Generate Podcast RSS
         run: |
+          cd "$GITHUB_WORKSPACE" || exit 1
           git lfs pull || true
           python scripts/generate_podcast_rss.py || exit 0
       - name: 🔍 Quality check
         run: |
+          cd "$GITHUB_WORKSPACE" || exit 1
           TOTAL=0
           for LANG in en_GB pl_PL bella; do
             f=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 2>/dev/null | head -1)
