@@ -35,7 +35,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ${{ github.workspace }}
+        working-directory: ${{ env.GITHUB_WORKSPACE }}
     outputs:
       content_exists: ${{ steps.check_content.outputs.content_exists }}
       today_date: ${{ steps.check_content.outputs.today_date }}
@@ -90,7 +90,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ${{ github.workspace }}
+        working-directory: ${{ env.GITHUB_WORKSPACE }}
     needs: check-content
     if: needs.check-content.outputs.content_exists != 'true'
     strategy:
@@ -142,7 +142,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ${{ github.workspace }}
+        working-directory: ${{ env.GITHUB_WORKSPACE }}
     needs: [check-content, skip-generation, generate-one-language]
     if: always() && (needs.skip-generation.result == 'success' || needs.generate-one-language.result == 'success')
     permissions:
@@ -216,6 +216,7 @@ jobs:
           echo "✅ Total audio: $(numfmt --to=iec $TOTAL)"
       - name: 📝 Commit generated files
         run: |
+          cd "$GITHUB_WORKSPACE" || exit 1
           git config --local user.email "ai-digest@github.com"
           git config --local user.name "AI News Digest Bot"
           
