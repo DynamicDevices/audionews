@@ -28,829 +28,610 @@ permissions:
   id-token: write
 
 jobs:
-  generate-ai-digest:
+  # --- Check if today's content already exists (skip generation when possible) ---
+  check-content:
     runs-on: ubuntu-latest
-    
+    outputs:
+      content_exists: ${{ steps.check_content.outputs.content_exists }}
+      today_date: ${{ steps.check_content.outputs.today_date }}
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          lfs: true
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+      - name: 📦 Install system dependencies
+        run: |
+          command -v ffmpeg >/dev/null 2>&1 || { sudo apt-get update -qq && sudo apt-get install -y ffmpeg; }
+      - name: 📦 Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: 🔍 Check if today's content exists
+        id: check_content
+        run: |
+          TODAY=$(date +%Y_%m_%d)
+          LANGUAGES=("en_GB" "pl_PL" "bella")
+          ALL_EXIST=true
+          for LANG in "${LANGUAGES[@]}"; do
+            AUDIO_FILE="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
+            TEXT_FILE="docs/${LANG}/news_digest_ai_${TODAY}.txt"
+            if [[ -f "$AUDIO_FILE" && -f "$TEXT_FILE" ]]; then
+              AUDIO_SIZE=$(stat -c%s "$AUDIO_FILE" 2>/dev/null || echo "0")
+              [[ $AUDIO_SIZE -le 50000 ]] && ALL_EXIST=false
+            else
+              ALL_EXIST=false
+            fi
+          done
+          # When force_ai_regeneration is set, always run generation
+          if [[ "${{ inputs.force_ai_regeneration }}" == "true" ]]; then
+            echo "content_exists=false" >> $GITHUB_OUTPUT
+            echo "🔄 Force regeneration: will generate all languages"
+          elif [[ "$ALL_EXIST" == "true" ]]; then
+            echo "content_exists=true" >> $GITHUB_OUTPUT
+            echo "🌍 All language content exists for today"
+          else
+            echo "content_exists=false" >> $GITHUB_OUTPUT
+            echo "🌍 Some language content missing - will generate"
+          fi
+          echo "today_date=$TODAY" >> $GITHUB_OUTPUT
+
+  # --- No-op when content exists so merge can depend on skip OR generate ---
+  skip-generation:
+    runs-on: ubuntu-latest
+    needs: check-content
+    if: needs.check-content.outputs.content_exists == 'true'
+    steps:
+      - run: echo "💰 Skipping AI generation - today's content already exists"
+
+  # --- Generate one language per matrix cell (runs in parallel) ---
+  generate-one-language:
+    runs-on: ubuntu-latest
+    needs: check-content
+    if: needs.check-content.outputs.content_exists != 'true'
+    strategy:
+      fail-fast: false
+      matrix: { language: [en_GB, pl_PL, bella] }
+    permissions:
+      contents: read
+      actions: read
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      DEBUG_MODE: ${{ github.event.inputs.debug_mode }}
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          lfs: true
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+      - name: 📦 Install system dependencies
+        run: |
+          command -v ffmpeg >/dev/null 2>&1 || { sudo apt-get update -qq && sudo apt-get install -y ffmpeg; }
+      - name: 📦 Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: 🤖 Generate digest for ${{ matrix.language }}
+        run: |
+          LANG="${{ matrix.language }}"
+          FORCE_ARG=""
+          [[ "${{ inputs.force_ai_regeneration }}" == "true" ]] && FORCE_ARG="--force-regenerate"
+          TTS_ARG=""
+          [[ "$LANG" == "en_GB" ]] && TTS_ARG="--tts-provider elevenlabs"
+          [[ "$LANG" == "bella" ]] && TTS_ARG="--tts-provider elevenlabs"
+          echo "▶ Generating $LANG..."
+          timeout 300 python scripts/github_ai_news_digest.py --language "$LANG" $TTS_ARG $FORCE_ARG
+          TODAY=$(date +%Y_%m_%d)
+          AUDIO="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
+          TEXT="docs/${LANG}/news_digest_ai_${TODAY}.txt"
+          if [[ ! -f "$AUDIO" || ! -f "$TEXT" ]]; then
+            echo "❌ $LANG: expected files missing"
+            exit 1
+          fi
+          echo "✅ $LANG generated"
+      - name: 📤 Upload digest artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: digest-${{ matrix.language }}
+          path: docs/${{ matrix.language }}/
+
+  # --- Merge artifacts, update HTML/RSS, commit and push ---
+  merge:
+    runs-on: ubuntu-latest
+    needs: [check-content, skip-generation, generate-one-language]
+    if: always() && (needs.skip-generation.result == 'success' || needs.generate-one-language.result == 'success')
     permissions:
       contents: write
       actions: read
-      issues: write  # For creating issues on failures
-    
     steps:
-    - name: 📥 Checkout repository
-      uses: actions/checkout@v4
-      with:
-        ref: main  # Develop and deploy from main branch
-        token: ${{ secrets.GITHUB_TOKEN }}
-        lfs: true  # Enable Git LFS checkout
-    
-    - name: 🐍 Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
-        cache: 'pip'
-    
-    - name: 📦 Install system dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y ffmpeg
-    
-    - name: 📦 Install Python dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    
-    - name: 🔍 Check if today's content exists
-      id: check_content
-      run: |
-        TODAY=$(date +%Y_%m_%d)
-        # Check for enabled languages (en_GB, pl_PL, bella)
-        LANGUAGES=("en_GB" "pl_PL" "bella")
-        ALL_EXIST=true
-        
-        for LANG in "${LANGUAGES[@]}"; do
-          AUDIO_FILE="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
-          TEXT_FILE="docs/${LANG}/news_digest_ai_${TODAY}.txt"
-          
-          # Check if files exist AND audio file has reasonable size (>50KB)
-          if [[ -f "$AUDIO_FILE" && -f "$TEXT_FILE" ]]; then
-            AUDIO_SIZE=$(stat -c%s "$AUDIO_FILE" 2>/dev/null || echo "0")
-            if [[ $AUDIO_SIZE -gt 50000 ]]; then
-              echo "✅ ${LANG} content exists and valid: $AUDIO_FILE ($(numfmt --to=iec $AUDIO_SIZE)), $TEXT_FILE"
-            else
-              echo "⚠️ ${LANG} audio file too small (${AUDIO_SIZE} bytes) - needs regeneration"
-              ALL_EXIST=false
-            fi
-          else
-            echo "📝 ${LANG} content missing:"
-            [[ ! -f "$AUDIO_FILE" ]] && echo "   ❌ Missing: $AUDIO_FILE"
-            [[ ! -f "$TEXT_FILE" ]] && echo "   ❌ Missing: $TEXT_FILE"
-            ALL_EXIST=false
-          fi
-        done
-        
-        if [[ "$ALL_EXIST" == "true" ]]; then
-          echo "content_exists=true" >> $GITHUB_OUTPUT
-          echo "🌍 All language content exists for today"
-        else
-          echo "content_exists=false" >> $GITHUB_OUTPUT
-          echo "🌍 Some language content missing - will generate"
-        fi
-        
-        echo "today_date=$TODAY" >> $GITHUB_OUTPUT
-    
-    - name: 🤖 Generate AI-Enhanced News Digest
-      # CRITICAL: Only run AI generation if content doesn't exist OR explicitly forced
-      # This prevents unnecessary API costs on push events
-      if: steps.check_content.outputs.content_exists == 'false' || inputs.force_ai_regeneration == true || inputs.force_ai_regeneration == 'true'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-        DEBUG_MODE: ${{ github.event.inputs.debug_mode }}
-      run: |
-        if [ "${{ github.event_name }}" = "schedule" ]; then
-          echo "⏰ Scheduled build: Daily news digest generation..."
-          echo "💰 This step uses API credits - content_exists: ${{ steps.check_content.outputs.content_exists }}"
-        else
-          echo "🔧 Manual workflow: Custom parameters applied"
-          echo "💰 This step uses API credits - content_exists: ${{ steps.check_content.outputs.content_exists }}"
-          if [ "${{ inputs.force_ai_regeneration }}" = "true" ]; then
-            echo "🔄 Force regeneration ON: Will regenerate all languages with current config (en_GB=ElevenLabs if set)"
-          fi
-        fi
-        # Generate content for enabled languages only (cost optimization)
-        # ACTIVE: en_GB (English), pl_PL (Polish), bella (BellaNews - personalized)
-        # DISABLED: fr_FR, de_DE, es_ES, it_IT, nl_NL, en_GB_LON, en_GB_LIV (cost savings)
-        CORE_LANGUAGES=("en_GB" "pl_PL" "bella")  # English, Polish, and BellaNews
-        NEW_LANGUAGES=()  # No new languages being tested
-        FAILED_LANGUAGES=()
-        SUCCESS_COUNT=0
-        CORE_SUCCESS_COUNT=0
-        
-        # When force_ai_regeneration is set, pass --force-regenerate so the script actually regenerates (it would otherwise skip when today's files exist)
-        FORCE_ARG=""
-        if [ "${{ inputs.force_ai_regeneration }}" = "true" ]; then
-          FORCE_ARG="--force-regenerate"
-          echo "🔄 Force regeneration: passing --force-regenerate to script"
-        fi
-        
-        # Process core languages (en_GB, pl_PL, and bella - cost optimized)
-        echo "🎯 PHASE 1: Generating CORE languages (en_GB, pl_PL, and bella)"
-        for LANG in "${CORE_LANGUAGES[@]}"; do
-          echo "🌍 Generating content for ${LANG}..."
-          echo "⏰ Started at: $(date)"
-          
-          # en_GB and bella: force ElevenLabs in CI when generating (config may differ by branch)
-          TTS_ARG=""
-          if [ "$LANG" = "en_GB" ]; then
-            TTS_ARG="--tts-provider elevenlabs"
-            echo "🔊 en_GB: forcing ElevenLabs (--tts-provider elevenlabs)"
-          elif [ "$LANG" = "bella" ]; then
-            TTS_ARG="--tts-provider elevenlabs"
-            echo "🔊 bella: forcing ElevenLabs (--tts-provider elevenlabs)"
-          fi
-          
-          # Run with timeout and capture exit code
-          set +e  # Don't exit on error
-          echo "▶ Running: python scripts/github_ai_news_digest.py --language ${LANG} ${TTS_ARG} ${FORCE_ARG}"
-          timeout 300 python scripts/github_ai_news_digest.py --language ${LANG} $TTS_ARG $FORCE_ARG
-          EXIT_CODE=$?
-          set -e  # Re-enable exit on error
-          
-          echo "⏰ Completed at: $(date)"
-          echo "🔍 Exit code: ${EXIT_CODE}"
-          
-          # Check exit code
-          if [ $EXIT_CODE -eq 124 ]; then
-            echo "⏰ ${LANG} generation timed out after 5 minutes"
-            FAILED_LANGUAGES+=("${LANG} (timeout)")
-          elif [ $EXIT_CODE -ne 0 ]; then
-            echo "❌ ${LANG} generation failed with exit code ${EXIT_CODE}"
-            FAILED_LANGUAGES+=("${LANG} (exit ${EXIT_CODE})")
-          else
-            # Check if files were actually created
-            TODAY=$(date +%Y_%m_%d)
-            AUDIO_FILE="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
-            TEXT_FILE="docs/${LANG}/news_digest_ai_${TODAY}.txt"
-            
-            if [[ -f "$AUDIO_FILE" && -f "$TEXT_FILE" ]]; then
-              echo "✅ ${LANG} generation successful"
-              SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
-              CORE_SUCCESS_COUNT=$((CORE_SUCCESS_COUNT + 1))
-            else
-              echo "⚠️ ${LANG} generation completed but files missing"
-              FAILED_LANGUAGES+=("${LANG} (no files)")
-            fi
-          fi
-          
-          echo "---"
-        done
-        
-        # Check if core languages succeeded before proceeding
-        if [ $CORE_SUCCESS_COUNT -eq ${#CORE_LANGUAGES[@]} ]; then
-          echo "✅ All core languages successful - proceeding with new languages"
-          echo "🎯 PHASE 2: Generating NEW languages (optional)"
-          
-          for LANG in "${NEW_LANGUAGES[@]}"; do
-            echo "🌍 Generating content for ${LANG}..."
-            echo "⏰ Started at: $(date)"
-            
-            # Run with timeout and capture exit code
-            set +e  # Don't exit on error
-            timeout 300 python scripts/github_ai_news_digest.py --language ${LANG} $FORCE_ARG
-            EXIT_CODE=$?
-            set -e  # Re-enable exit on error
-            
-            echo "⏰ Completed at: $(date)"
-            echo "🔍 Exit code: ${EXIT_CODE}"
-            
-            # Check exit code
-            if [ $EXIT_CODE -eq 124 ]; then
-              echo "⏰ ${LANG} generation timed out after 5 minutes"
-              FAILED_LANGUAGES+=("${LANG} (timeout)")
-            elif [ $EXIT_CODE -ne 0 ]; then
-              echo "❌ ${LANG} generation failed with exit code ${EXIT_CODE}"
-              FAILED_LANGUAGES+=("${LANG} (exit ${EXIT_CODE})")
-            else
-              # Check if files were actually created
-              TODAY=$(date +%Y_%m_%d)
-              AUDIO_FILE="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
-              TEXT_FILE="docs/${LANG}/news_digest_ai_${TODAY}.txt"
-              
-              if [[ -f "$AUDIO_FILE" && -f "$TEXT_FILE" ]]; then
-                echo "✅ ${LANG} generation successful"
-                SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
-              else
-                echo "⚠️ ${LANG} generation completed but files missing"
-                FAILED_LANGUAGES+=("${LANG} (no files)")
-              fi
-            fi
-            
-            echo "---"
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          lfs: true
+      - name: 📥 Download generated artifacts (when generation ran)
+        if: needs.generate-one-language.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          pattern: digest-*
+          path: artifacts
+          merge-multiple: false
+      - name: 📂 Merge artifacts into docs/
+        if: needs.generate-one-language.result == 'success'
+        run: |
+          for dir in artifacts/digest-*; do
+            [ -d "$dir" ] || continue
+            LANG=$(basename "$dir" | sed 's/^digest-//')
+            mkdir -p "docs/${LANG}/audio"
+            cp -a "$dir"/* "docs/${LANG}/" 2>/dev/null || true
+            [ -d "$dir/audio" ] && cp -a "$dir/audio"/* "docs/${LANG}/audio/" 2>/dev/null || true
+            echo "✅ Merged $LANG"
           done
-        else
-          echo "❌ Core languages failed - skipping new languages to save time"
-          for LANG in "${NEW_LANGUAGES[@]}"; do
-            FAILED_LANGUAGES+=("${LANG} (skipped - core failed)")
-          done
-        fi
-        
-        # Report results
-        TOTAL_LANGUAGES=$((${#CORE_LANGUAGES[@]} + ${#NEW_LANGUAGES[@]}))
-        echo "📊 GENERATION SUMMARY:"
-        echo "✅ Successful: ${SUCCESS_COUNT}/${TOTAL_LANGUAGES} languages"
-        echo "✅ Core languages: ${CORE_SUCCESS_COUNT}/${#CORE_LANGUAGES[@]} (en_GB, pl_PL, bella)"
-        if [ ${#FAILED_LANGUAGES[@]} -gt 0 ]; then
-          echo "❌ Failed languages:"
-          for failed in "${FAILED_LANGUAGES[@]}"; do
-            echo "   - ${failed}"
-          done
-        fi
-        
-        # Require all core languages to succeed (en_GB, fr_FR, de_DE)
-        if [ $CORE_SUCCESS_COUNT -eq ${#CORE_LANGUAGES[@]} ]; then
-          echo "✅ All core languages generated successfully - continuing"
-        else
-          echo "❌ Core language generation failed (${CORE_SUCCESS_COUNT}/${#CORE_LANGUAGES[@]}) - failing CI"
-          echo "💡 New languages (es_ES, it_IT, nl_NL, en_GB_LON, en_GB_LIV) are optional and won't fail CI"
-          exit 1
-        fi
-        echo "✅ Digest generation completed"
-    
-    - name: ⚡ Skip AI Generation (Cost Optimization)
-      if: steps.check_content.outputs.content_exists == 'true' && inputs.force_ai_regeneration != true && inputs.force_ai_regeneration != 'true'
-      run: |
-        echo "💰 COST OPTIMIZATION: Skipping AI generation"
-        echo "✅ Today's content already exists: ${{ steps.check_content.outputs.today_date }}"
-        echo "📊 Estimated savings: \$0.50-\$2.00 per skip"
-        echo "💡 Use 'force_ai_regeneration: true' to override if needed"
-        if [ "${{ github.event_name }}" = "schedule" ]; then
-          echo "⏰ Scheduled event: Content exists, no regeneration needed"
-          echo "📻 RSS feeds will still be regenerated to ensure they're up to date"
-        else
-          echo "🔄 Will redeploy existing content with any improvements"
-        fi
-    
-    - name: 📊 Analyze generated content
-      run: |
-        TODAY=$(date +%Y_%m_%d)
-        echo "🔍 Verifying generated content for ${TODAY}..."
-        
-        # Check all enabled languages
-        for LANG in en_GB pl_PL bella; do
-          AUDIO_FILE="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
-          TEXT_FILE="docs/${LANG}/news_digest_ai_${TODAY}.txt"
-          
-          if [ -f "$AUDIO_FILE" ] && [ -f "$TEXT_FILE" ]; then
-            AUDIO_SIZE=$(stat -c%s "$AUDIO_FILE" 2>/dev/null || echo "0")
-            TEXT_SIZE=$(stat -c%s "$TEXT_FILE" 2>/dev/null || echo "0")
-            echo "✅ ${LANG}: audio=${AUDIO_SIZE} bytes, text=${TEXT_SIZE} bytes"
-          else
-            echo "❌ ${LANG}: Missing files!"
-            [ ! -f "$AUDIO_FILE" ] && echo "   Missing: $AUDIO_FILE"
-            [ ! -f "$TEXT_FILE" ] && echo "   Missing: $TEXT_FILE"
-          fi
-        done
-        
-        # Legacy check for root directory (shouldn't exist but check anyway)
-        if [ -f news_digest_ai_*.mp3 ]; then
-          echo "⚠️ Audio files found in root directory (should be in language dirs)"
-          ls -lh news_digest_ai_*.mp3
-        fi
-        if [ -f news_digest_ai_*.txt ]; then
-          echo "⚠️ Text files found in root directory (should be in language dirs)"
-          wc -w news_digest_ai_*.txt
-        fi
-    
-    - name: 🌐 Update language-specific HTML pages
-      # Always run this step, even if content already exists, to ensure HTML is up to date
-      run: |
-        echo "🌐 Updating language-specific HTML pages with today's content"
-        
-        # Ensure Git LFS files are available (critical for newly generated files)
-        echo "🔄 Ensuring Git LFS files are available..."
-        git lfs pull || echo "⚠️ Git LFS pull failed (may continue if files already available)"
-        
-        # Update enabled languages (en_GB, pl_PL, bella)
-        ALL_LANGUAGES=("en_GB" "pl_PL" "bella")
-        
-        for LANG in "${ALL_LANGUAGES[@]}"; do
-          echo "📝 Updating ${LANG} page..."
-          # Check if today's content exists before updating
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+      - name: 📦 Install system dependencies
+        run: |
+          command -v ffmpeg >/dev/null 2>&1 || { sudo apt-get update -qq && sudo apt-get install -y ffmpeg; }
+      - name: 📦 Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: 🔄 Ensure Git LFS files
+        run: git lfs pull || echo "⚠️ Git LFS pull failed (may continue)"
+      - name: 📊 Verify content
+        run: |
           TODAY=$(date +%Y_%m_%d)
-          AUDIO_FILE="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
-          TEXT_FILE="docs/${LANG}/news_digest_ai_${TODAY}.txt"
+          for LANG in en_GB pl_PL bella; do
+            AUDIO="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
+            TEXT="docs/${LANG}/news_digest_ai_${TODAY}.txt"
+            if [ -f "$AUDIO" ] && [ -f "$TEXT" ]; then
+              echo "✅ ${LANG}: $(stat -c%s "$AUDIO") bytes audio"
+            else
+              echo "❌ ${LANG}: missing files"; exit 1
+            fi
+          done
+      - name: 🌐 Update language HTML pages
+        run: |
+          TODAY=$(date +%Y_%m_%d)
+          for LANG in en_GB pl_PL bella; do
+            AUDIO="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
+            TEXT="docs/${LANG}/news_digest_ai_${TODAY}.txt"
+            [ "$(stat -c%s "$AUDIO" 2>/dev/null || echo 0)" -gt 1000 ] || { git lfs pull --include="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" || true; }
+            python3 scripts/update_language_website.py --language "$LANG" || exit 1
+          done
+      - name: 📱 Verify file locations
+        run: |
+          for LANG in en_GB pl_PL bella; do
+            ls docs/${LANG}/audio/news_digest_ai_*.mp3 docs/${LANG}/news_digest_ai_*.txt 2>/dev/null || true
+          done
+      - name: 🎙️ Generate Podcast RSS
+        run: |
+          git lfs pull || true
+          python scripts/generate_podcast_rss.py || exit 0
+      - name: 🔍 Quality check
+        run: |
+          TOTAL=0
+          for LANG in en_GB pl_PL bella; do
+            f=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 2>/dev/null | head -1)
+            [ -n "$f" ] && TOTAL=$((TOTAL + $(stat -c%s "$f")))
+          done
+          [ $TOTAL -gt 0 ] || { echo "❌ No audio"; exit 1; }
+          echo "✅ Total audio: $(numfmt --to=iec $TOTAL)"
+      - name: 📝 Commit generated files
+        run: |
+          git config --local user.email "ai-digest@github.com"
+          git config --local user.name "AI News Digest Bot"
           
-          # Verify files exist and are actual files (not LFS pointers)
-          if [ -f "$AUDIO_FILE" ] && [ -f "$TEXT_FILE" ]; then
-            # Check if audio file is a real file (not LFS pointer - should be >1KB for real MP3)
-            AUDIO_SIZE=$(stat -c%s "$AUDIO_FILE" 2>/dev/null || echo "0")
-            if [ "$AUDIO_SIZE" -gt 1000 ]; then
-              echo "✅ Found ${LANG} content: audio=${AUDIO_SIZE} bytes"
-              if python3 scripts/update_language_website.py --language ${LANG}; then
-                echo "✅ ${LANG} page updated successfully"
+          # CRITICAL: Check if HTML/RSS need updating BEFORE pulling (to avoid overwriting local updates)
+          # This check must happen on the locally updated files, not after pulling remote
+          TODAY=$(date +%Y_%m_%d)
+          TODAY_FORMATTED=$(date +%Y-%m-%d)
+          TODAY_ALT_FORMAT=$(date +"%B %d, %Y")
+          
+          HTML_NEEDS_UPDATE=false
+          for LANG in en_GB pl_PL bella; do
+            if [ -f "docs/${LANG}/index.html" ]; then
+              # Check if HTML contains today's date in various formats
+              if grep -q "$TODAY_FORMATTED\|$TODAY_ALT_FORMAT" "docs/${LANG}/index.html" 2>/dev/null; then
+                echo "✅ ${LANG} HTML page already contains today's date (local check)"
               else
-                echo "❌ ${LANG} page update failed - this will cause website to show old content"
-                exit 1
+                HTML_NEEDS_UPDATE=true
+                echo "📝 ${LANG} HTML page needs updating for today ($TODAY_FORMATTED) - was updated locally"
               fi
             else
-              echo "⚠️ ${LANG} audio file too small (${AUDIO_SIZE} bytes) - may be LFS pointer, pulling LFS..."
-              git lfs pull --include="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" || true
-              # Retry after LFS pull
-              if [ -f "$AUDIO_FILE" ] && [ "$(stat -c%s "$AUDIO_FILE" 2>/dev/null || echo "0")" -gt 1000 ]; then
+              HTML_NEEDS_UPDATE=true
+              echo "📝 ${LANG} HTML page missing - needs creation"
+            fi
+          done
+          
+          # RSS feeds are ALWAYS regenerated in the previous step, so they may have changed
+          # even if they already contain today's date (new episode added, content updated, etc.)
+          # We need to check if the RSS file content actually changed, not just the date
+          RSS_NEEDS_UPDATE=false
+          for LANG in en_GB pl_PL bella; do
+            if [ -f "docs/${LANG}/podcast.rss" ]; then
+              # Check if RSS feed contains today's date - if not, definitely needs update
+              if ! grep -q "<lastBuildDate>.*$(date +%d.*%b.*%Y)" "docs/${LANG}/podcast.rss" 2>/dev/null && \
+                 ! grep -q "<pubDate>.*$(date +%d.*%b.*%Y)" "docs/${LANG}/podcast.rss" 2>/dev/null; then
+                RSS_NEEDS_UPDATE=true
+                echo "📻 ${LANG} RSS feed missing today's date - needs update"
+              else
+                # RSS contains today's date, but it was just regenerated so it might have changed
+                # We'll check if it actually changed after staging (using git diff --staged)
+                echo "✅ ${LANG} RSS feed contains today's date (was regenerated, will check for changes)"
+              fi
+            else
+              RSS_NEEDS_UPDATE=true
+              echo "📻 ${LANG} RSS feed missing - needs creation"
+            fi
+          done
+          
+          # CRITICAL: Always stage RSS feeds because they're always regenerated and may have changed
+          # (new episode added, content updated, etc.) even if date is already today
+          # Stage HTML and RSS files BEFORE pulling to preserve updates
+          echo "📝 Staging HTML and RSS files before pull (RSS always regenerated, HTML may be updated)..."
+          git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
+          git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
+          
+          # CRITICAL: Backup newly generated audio/text BEFORE pull - pull overwrites working tree with
+          # origin/main and would replace our new ElevenLabs (or regenerated) audio with old content.
+          GENERATED_BACKUP="${RUNNER_TEMP:-/tmp}/generated_backup_$$"
+          mkdir -p "$GENERATED_BACKUP"
+          for LANG in en_GB pl_PL bella; do
+            if [ -f "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ]; then
+              mkdir -p "$GENERATED_BACKUP/${LANG}/audio"
+              cp -a "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" "$GENERATED_BACKUP/${LANG}/audio/"
+              echo "💾 Backed up ${LANG} audio"
+            fi
+            if [ -f "docs/${LANG}/news_digest_ai_${TODAY}.txt" ]; then
+              mkdir -p "$GENERATED_BACKUP/${LANG}"
+              cp -a "docs/${LANG}/news_digest_ai_${TODAY}.txt" "$GENERATED_BACKUP/${LANG}/"
+              echo "💾 Backed up ${LANG} text"
+            fi
+          done
+          
+          # Sync with remote: fetch then reset to origin/main (we've backed up generated files, so this is safe).
+          # Using fetch+reset avoids "cannot pull with rebase: Your index contains uncommitted changes".
+          echo "🔄 Syncing with origin/main (fetch + reset, generated content already backed up)..."
+          git fetch origin main
+          git reset --hard origin/main
+          
+          # Restore generated audio/text so we don't lose newly created content (e.g. ElevenLabs regeneration)
+          if [ -d "$GENERATED_BACKUP" ]; then
+            echo "🔄 Restoring generated audio and text after pull..."
+            for LANG in en_GB pl_PL bella; do
+              if [ -f "$GENERATED_BACKUP/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ]; then
+                mkdir -p "docs/${LANG}/audio"
+                cp -a "$GENERATED_BACKUP/${LANG}/audio/news_digest_ai_${TODAY}.mp3" "docs/${LANG}/audio/"
+                echo "✅ Restored ${LANG} audio"
+              fi
+              if [ -f "$GENERATED_BACKUP/${LANG}/news_digest_ai_${TODAY}.txt" ]; then
+                cp -a "$GENERATED_BACKUP/${LANG}/news_digest_ai_${TODAY}.txt" "docs/${LANG}/"
+                echo "✅ Restored ${LANG} text"
+              fi
+            done
+            rm -rf "$GENERATED_BACKUP"
+          fi
+          
+          # CRITICAL: After pull, we need to re-apply HTML and RSS updates because:
+          # 1. HTML update step ran earlier and updated files locally
+          # 2. RSS generation step ran earlier and regenerated feeds
+          # 3. git pull --rebase may have overwritten those updates with remote versions
+          # 4. We need to re-apply the updates to ensure we commit the latest versions
+          
+          # CRITICAL: Always re-apply HTML updates after pull (not just if HTML_NEEDS_UPDATE was true)
+          # Reason: The HTML update step ran earlier and updated files, but git pull --rebase may have
+          # overwritten them. We need to ensure HTML is always up-to-date with today's content.
+          # Re-check if HTML needs updating AFTER pull (pull may have overwritten our updates)
+          echo "🔄 Re-checking and re-applying HTML updates after pull..."
+          TODAY=$(date +%Y_%m_%d)
+          TODAY_FORMATTED=$(date +%Y-%m-%d)
+          TODAY_ALT_FORMAT=$(date +"%B %d, %Y")
+          HTML_NEEDS_UPDATE_AFTER_PULL=false
+          for LANG in en_GB pl_PL bella; do
+            if [ -f "docs/${LANG}/index.html" ]; then
+              # Check if HTML contains today's date AFTER pull
+              if ! grep -q "$TODAY_FORMATTED\|$TODAY_ALT_FORMAT" "docs/${LANG}/index.html" 2>/dev/null; then
+                HTML_NEEDS_UPDATE_AFTER_PULL=true
+                echo "📝 ${LANG} HTML page missing today's date after pull - will update"
+              fi
+            else
+              HTML_NEEDS_UPDATE_AFTER_PULL=true
+              echo "📝 ${LANG} HTML page missing after pull - will create"
+            fi
+          done
+          
+          # Re-apply HTML updates if needed (after pull check)
+          if [ "$HTML_NEEDS_UPDATE_AFTER_PULL" = "true" ]; then
+            echo "🔄 Re-applying HTML updates after pull..."
+            git lfs pull || echo "⚠️ Git LFS pull failed (may continue if files already available)"
+            for LANG in en_GB pl_PL bella; do
+              if [ -f "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ] && [ -f "docs/${LANG}/news_digest_ai_${TODAY}.txt" ]; then
                 if python3 scripts/update_language_website.py --language ${LANG}; then
-                  echo "✅ ${LANG} page updated successfully after LFS pull"
+                  echo "✅ ${LANG} HTML page updated successfully after pull"
                 else
-                  echo "❌ ${LANG} page update failed after LFS pull"
+                  echo "❌ ${LANG} HTML update failed after pull"
                   exit 1
                 fi
               else
-                echo "❌ ${LANG} content not available even after LFS pull"
-                exit 1
-              fi
-            fi
-          else
-            echo "❌ ${LANG} content for today not found:"
-            [ ! -f "$AUDIO_FILE" ] && echo "   Missing: $AUDIO_FILE"
-            [ ! -f "$TEXT_FILE" ] && echo "   Missing: $TEXT_FILE"
-            echo "❌ HTML update cannot proceed without content - failing workflow"
-            exit 1
-          fi
-        done
-        
-        echo "✅ Language pages update completed"
-    
-    - name: 📱 Verify files in correct locations
-      run: |
-        # Check if files are in the correct language-specific directories
-        # Only checking ENABLED languages (en_GB, pl_PL) to reduce log noise
-        LANGUAGES=("en_GB" "pl_PL")
-        
-        for LANG in "${LANGUAGES[@]}"; do
-          echo "🔍 Checking ${LANG} files..."
-          
-          # Check audio files
-          if ls docs/${LANG}/audio/news_digest_ai_*.mp3 1> /dev/null 2>&1; then
-            echo "🎧 ${LANG} audio files found in correct location:"
-            ls -la docs/${LANG}/audio/news_digest_ai_*.mp3
-          else
-            echo "⚠️ No ${LANG} audio files found in docs/${LANG}/audio/"
-          fi
-          
-          # Check text files
-          if ls docs/${LANG}/news_digest_ai_*.txt 1> /dev/null 2>&1; then
-            echo "📄 ${LANG} text files found in correct location:"
-            ls -la docs/${LANG}/news_digest_ai_*.txt
-          else
-            echo "⚠️ No ${LANG} text files found in docs/${LANG}/"
-          fi
-        done
-        
-        # Check for any files in wrong location and move them
-        if ls news_digest_ai_*.mp3 1> /dev/null 2>&1; then
-          echo "📁 Moving audio files from root to en_GB..."
-          mkdir -p docs/en_GB/audio
-          mv news_digest_ai_*.mp3 docs/en_GB/audio/
-        fi
-        
-        if ls news_digest_ai_*.txt 1> /dev/null 2>&1; then
-          echo "📁 Moving text files from root to en_GB..."
-          mv news_digest_ai_*.txt docs/en_GB/
-        fi
-    
-    - name: 🎙️ Generate Podcast RSS Feeds
-      # Always run this step to ensure RSS feeds are always up to date with latest episodes
-      run: |
-        echo "🎙️ Generating RSS feeds for podcast distribution"
-        echo "📻 This step always runs to ensure RSS feeds are current, even if content already exists"
-        # Ensure Git LFS files are pulled for transcript access
-        git lfs pull || echo "⚠️ Git LFS pull failed (may continue if files already available)"
-        python scripts/generate_podcast_rss.py || {
-          echo "❌ RSS generation failed - this is critical for podcast updates"
-          echo "⚠️ Attempting to continue, but RSS feeds may not be updated"
-          exit 0
-        }
-        echo "✅ RSS feeds generated successfully"
-    
-    - name: 🔍 Quality check
-      run: |
-        # Check if files were generated in language-specific directories
-        # Only checking ENABLED languages (en_GB, pl_PL, bella)
-        LANGUAGES=("en_GB" "pl_PL" "bella")
-        TOTAL_FILES=0
-        TOTAL_SIZE=0
-        
-        for LANG in "${LANGUAGES[@]}"; do
-          AUDIO_FILE="docs/${LANG}/audio/news_digest_ai_*.mp3"
-          TEXT_FILE="docs/${LANG}/news_digest_ai_*.txt"
-          
-          if ls $AUDIO_FILE 1> /dev/null 2>&1; then
-            # Get the first matching file (there should only be one per language per day)
-            audio_file=$(ls $AUDIO_FILE | head -1)
-            audio_size=$(stat -c%s "$audio_file")
-            TOTAL_SIZE=$((TOTAL_SIZE + audio_size))
-            TOTAL_FILES=$((TOTAL_FILES + 1))
-            
-            if [ $audio_size -lt 100000 ]; then
-              echo "⚠️ ${LANG} audio file seems small: ${audio_size} bytes"
-            else
-              echo "✅ ${LANG} audio file OK: ${audio_size} bytes"
-            fi
-          else
-            echo "⚠️ ${LANG} audio file not found"
-          fi
-          
-          if ls $TEXT_FILE 1> /dev/null 2>&1; then
-            echo "✅ ${LANG} text file exists"
-          else
-            echo "⚠️ ${LANG} text file not found"
-          fi
-        done
-        
-        if [ $TOTAL_FILES -eq 0 ]; then
-          echo "❌ No audio files generated in any language"
-          exit 1
-        fi
-        
-        echo "✅ Generated $TOTAL_FILES audio files, total size: $(numfmt --to=iec $TOTAL_SIZE)"
-        
-        # Check if website was updated
-        if [ ! -f docs/index.html ]; then
-          echo "❌ Website index.html missing"
-          exit 1
-        fi
-        
-        echo "✅ Quality checks passed"
-    
-    - name: 📝 Commit generated files
-      run: |
-        git config --local user.email "ai-digest@github.com"
-        git config --local user.name "AI News Digest Bot"
-        
-        # CRITICAL: Check if HTML/RSS need updating BEFORE pulling (to avoid overwriting local updates)
-        # This check must happen on the locally updated files, not after pulling remote
-        TODAY=$(date +%Y_%m_%d)
-        TODAY_FORMATTED=$(date +%Y-%m-%d)
-        TODAY_ALT_FORMAT=$(date +"%B %d, %Y")
-        
-        HTML_NEEDS_UPDATE=false
-        for LANG in en_GB pl_PL bella; do
-          if [ -f "docs/${LANG}/index.html" ]; then
-            # Check if HTML contains today's date in various formats
-            if grep -q "$TODAY_FORMATTED\|$TODAY_ALT_FORMAT" "docs/${LANG}/index.html" 2>/dev/null; then
-              echo "✅ ${LANG} HTML page already contains today's date (local check)"
-            else
-              HTML_NEEDS_UPDATE=true
-              echo "📝 ${LANG} HTML page needs updating for today ($TODAY_FORMATTED) - was updated locally"
-            fi
-          else
-            HTML_NEEDS_UPDATE=true
-            echo "📝 ${LANG} HTML page missing - needs creation"
-          fi
-        done
-        
-        # RSS feeds are ALWAYS regenerated in the previous step, so they may have changed
-        # even if they already contain today's date (new episode added, content updated, etc.)
-        # We need to check if the RSS file content actually changed, not just the date
-        RSS_NEEDS_UPDATE=false
-        for LANG in en_GB pl_PL bella; do
-          if [ -f "docs/${LANG}/podcast.rss" ]; then
-            # Check if RSS feed contains today's date - if not, definitely needs update
-            if ! grep -q "<lastBuildDate>.*$(date +%d.*%b.*%Y)" "docs/${LANG}/podcast.rss" 2>/dev/null && \
-               ! grep -q "<pubDate>.*$(date +%d.*%b.*%Y)" "docs/${LANG}/podcast.rss" 2>/dev/null; then
-              RSS_NEEDS_UPDATE=true
-              echo "📻 ${LANG} RSS feed missing today's date - needs update"
-            else
-              # RSS contains today's date, but it was just regenerated so it might have changed
-              # We'll check if it actually changed after staging (using git diff --staged)
-              echo "✅ ${LANG} RSS feed contains today's date (was regenerated, will check for changes)"
-            fi
-          else
-            RSS_NEEDS_UPDATE=true
-            echo "📻 ${LANG} RSS feed missing - needs creation"
-          fi
-        done
-        
-        # CRITICAL: Always stage RSS feeds because they're always regenerated and may have changed
-        # (new episode added, content updated, etc.) even if date is already today
-        # Stage HTML and RSS files BEFORE pulling to preserve updates
-        echo "📝 Staging HTML and RSS files before pull (RSS always regenerated, HTML may be updated)..."
-        git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
-        git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
-        
-        # CRITICAL: Backup newly generated audio/text BEFORE pull - pull overwrites working tree with
-        # origin/main and would replace our new ElevenLabs (or regenerated) audio with old content.
-        GENERATED_BACKUP="${RUNNER_TEMP:-/tmp}/generated_backup_$$"
-        mkdir -p "$GENERATED_BACKUP"
-        for LANG in en_GB pl_PL bella; do
-          if [ -f "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ]; then
-            mkdir -p "$GENERATED_BACKUP/${LANG}/audio"
-            cp -a "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" "$GENERATED_BACKUP/${LANG}/audio/"
-            echo "💾 Backed up ${LANG} audio"
-          fi
-          if [ -f "docs/${LANG}/news_digest_ai_${TODAY}.txt" ]; then
-            mkdir -p "$GENERATED_BACKUP/${LANG}"
-            cp -a "docs/${LANG}/news_digest_ai_${TODAY}.txt" "$GENERATED_BACKUP/${LANG}/"
-            echo "💾 Backed up ${LANG} text"
-          fi
-        done
-        
-        # Sync with remote: fetch then reset to origin/main (we've backed up generated files, so this is safe).
-        # Using fetch+reset avoids "cannot pull with rebase: Your index contains uncommitted changes".
-        echo "🔄 Syncing with origin/main (fetch + reset, generated content already backed up)..."
-        git fetch origin main
-        git reset --hard origin/main
-        
-        # Restore generated audio/text so we don't lose newly created content (e.g. ElevenLabs regeneration)
-        if [ -d "$GENERATED_BACKUP" ]; then
-          echo "🔄 Restoring generated audio and text after pull..."
-          for LANG in en_GB pl_PL bella; do
-            if [ -f "$GENERATED_BACKUP/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ]; then
-              mkdir -p "docs/${LANG}/audio"
-              cp -a "$GENERATED_BACKUP/${LANG}/audio/news_digest_ai_${TODAY}.mp3" "docs/${LANG}/audio/"
-              echo "✅ Restored ${LANG} audio"
-            fi
-            if [ -f "$GENERATED_BACKUP/${LANG}/news_digest_ai_${TODAY}.txt" ]; then
-              cp -a "$GENERATED_BACKUP/${LANG}/news_digest_ai_${TODAY}.txt" "docs/${LANG}/"
-              echo "✅ Restored ${LANG} text"
-            fi
-          done
-          rm -rf "$GENERATED_BACKUP"
-        fi
-        
-        # CRITICAL: After pull, we need to re-apply HTML and RSS updates because:
-        # 1. HTML update step ran earlier and updated files locally
-        # 2. RSS generation step ran earlier and regenerated feeds
-        # 3. git pull --rebase may have overwritten those updates with remote versions
-        # 4. We need to re-apply the updates to ensure we commit the latest versions
-        
-        # CRITICAL: Always re-apply HTML updates after pull (not just if HTML_NEEDS_UPDATE was true)
-        # Reason: The HTML update step ran earlier and updated files, but git pull --rebase may have
-        # overwritten them. We need to ensure HTML is always up-to-date with today's content.
-        # Re-check if HTML needs updating AFTER pull (pull may have overwritten our updates)
-        echo "🔄 Re-checking and re-applying HTML updates after pull..."
-        TODAY=$(date +%Y_%m_%d)
-        TODAY_FORMATTED=$(date +%Y-%m-%d)
-        TODAY_ALT_FORMAT=$(date +"%B %d, %Y")
-        HTML_NEEDS_UPDATE_AFTER_PULL=false
-        for LANG in en_GB pl_PL bella; do
-          if [ -f "docs/${LANG}/index.html" ]; then
-            # Check if HTML contains today's date AFTER pull
-            if ! grep -q "$TODAY_FORMATTED\|$TODAY_ALT_FORMAT" "docs/${LANG}/index.html" 2>/dev/null; then
-              HTML_NEEDS_UPDATE_AFTER_PULL=true
-              echo "📝 ${LANG} HTML page missing today's date after pull - will update"
-            fi
-          else
-            HTML_NEEDS_UPDATE_AFTER_PULL=true
-            echo "📝 ${LANG} HTML page missing after pull - will create"
-          fi
-        done
-        
-        # Re-apply HTML updates if needed (after pull check)
-        if [ "$HTML_NEEDS_UPDATE_AFTER_PULL" = "true" ]; then
-          echo "🔄 Re-applying HTML updates after pull..."
-          git lfs pull || echo "⚠️ Git LFS pull failed (may continue if files already available)"
-          for LANG in en_GB pl_PL bella; do
-            if [ -f "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3" ] && [ -f "docs/${LANG}/news_digest_ai_${TODAY}.txt" ]; then
-              if python3 scripts/update_language_website.py --language ${LANG}; then
-                echo "✅ ${LANG} HTML page updated successfully after pull"
-              else
-                echo "❌ ${LANG} HTML update failed after pull"
-                exit 1
-              fi
-            else
-              echo "⚠️ ${LANG} content files not found - cannot update HTML"
-            fi
-          done
-        else
-          echo "✅ All HTML pages already contain today's date after pull"
-        fi
-        
-        # Always re-generate RSS feeds after pull (they're always regenerated anyway)
-        # This ensures we have the latest RSS with today's episode, even if pull overwrote them
-        echo "🔄 Re-generating RSS feeds after pull to ensure latest episodes..."
-        git lfs pull || echo "⚠️ Git LFS pull failed (may continue if files already available)"
-        python scripts/generate_podcast_rss.py || echo "⚠️ RSS regeneration failed after pull"
-        
-        # CRITICAL: git pull --rebase can UNSTAGE files, so we MUST re-stage everything after pull
-        # Even if we staged before pull and re-applied after pull, the rebase operation can reset staging
-        # We ALWAYS stage HTML and RSS files after pull to ensure they're committed
-        echo "📝 Re-staging HTML and RSS files after pull (rebase may have unstaged them)..."
-        git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
-        git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
-        
-        # Verify files are actually staged (debug output)
-        echo "🔍 Verifying staged files..."
-        for LANG in en_GB pl_PL bella; do
-          if git diff --staged --name-only | grep -q "docs/${LANG}/index.html"; then
-            echo "✅ ${LANG}/index.html is staged"
-          else
-            echo "⚠️ ${LANG}/index.html is NOT staged - attempting to stage again..."
-            git add "docs/${LANG}/index.html" 2>/dev/null || echo "❌ Failed to stage ${LANG}/index.html"
-          fi
-          if git diff --staged --name-only | grep -q "docs/${LANG}/podcast.rss"; then
-            echo "✅ ${LANG}/podcast.rss is staged"
-          else
-            echo "⚠️ ${LANG}/podcast.rss is NOT staged - attempting to stage again..."
-            git add "docs/${LANG}/podcast.rss" 2>/dev/null || echo "❌ Failed to stage ${LANG}/podcast.rss"
-          fi
-        done
-        
-        # Check if today's content already exists in remote (another workflow may have already committed)
-        # Only skip if ALL languages already exist (not just some)
-        ALL_LANGUAGES_EXIST=true
-        for LANG in en_GB pl_PL bella; do
-          if git ls-tree -r origin/main --name-only | grep -q "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"; then
-            echo "✅ Remote already has ${LANG} content for ${TODAY}"
-          else
-            ALL_LANGUAGES_EXIST=false
-            echo "📝 Remote missing ${LANG} content for ${TODAY} - will commit"
-          fi
-        done
-        
-        # NOTE: HTML_NEEDS_UPDATE was set BEFORE the pull, but we've now re-applied HTML updates.
-        # RSS feeds have been re-generated after pull, so we need to check if they actually changed.
-        
-        # Check if RSS feeds actually changed (they're always regenerated, but might be identical)
-        RSS_ACTUALLY_CHANGED=false
-        for LANG in en_GB pl_PL bella; do
-          if git diff --staged docs/${LANG}/podcast.rss 2>/dev/null | grep -q .; then
-            RSS_ACTUALLY_CHANGED=true
-            echo "📻 ${LANG} RSS feed has changes to commit"
-          fi
-        done
-        
-        # CRITICAL: Always check if HTML actually changed after re-application
-        # We must check regardless of the pre-pull HTML_NEEDS_UPDATE value because:
-        # 1. HTML update step ran earlier and updated files
-        # 2. git pull --rebase may have overwritten them
-        # 3. We re-applied updates based on HTML_NEEDS_UPDATE_AFTER_PULL
-        # 4. We need to check if the re-applied files actually changed
-        HTML_ACTUALLY_CHANGED=false
-        for LANG in en_GB pl_PL bella; do
-          if git diff --staged docs/${LANG}/index.html 2>/dev/null | grep -q .; then
-            HTML_ACTUALLY_CHANGED=true
-            echo "🌐 ${LANG} HTML page has changes to commit"
-          else
-            # Check if HTML was re-applied but shows no diff (might mean it's identical to remote)
-            if [ "$HTML_NEEDS_UPDATE_AFTER_PULL" = "true" ]; then
-              echo "⚠️ ${LANG} HTML was re-applied but shows no staged changes - may be identical to remote"
-            fi
-          fi
-        done
-        
-        # Only skip commit if ALL of the following are true:
-        # 1. All audio files exist
-        # 2. HTML pages didn't actually change (even if they were updated)
-        # 3. RSS feeds didn't actually change (even though they were regenerated)
-        if [ "$ALL_LANGUAGES_EXIST" = "true" ] && [ "$HTML_ACTUALLY_CHANGED" = "false" ] && [ "$RSS_ACTUALLY_CHANGED" = "false" ]; then
-          echo "💰 COST OPTIMIZATION: All content already exists and is up to date"
-          echo "📊 Another workflow may have already committed - skipping commit"
-          echo "✅ This is expected behavior for concurrent runs"
-          exit 0
-        fi
-        
-        if [ "$ALL_LANGUAGES_EXIST" = "true" ]; then
-          if [ "$HTML_ACTUALLY_CHANGED" = "true" ] || [ "$RSS_ACTUALLY_CHANGED" = "true" ]; then
-            echo "📝 Audio files exist but HTML/RSS have changes - will commit updates"
-          fi
-        fi
-        
-        # Add ONLY language-specific files to avoid conflicts
-        # This prevents touching the root index.html and other development files
-        git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
-        
-        # Explicitly add RSS feeds to ensure they're always committed when updated
-        git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
-        
-        # Explicitly add HTML pages to ensure they're always committed when updated
-        git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
-        
-        # Also add any files that might be in wrong location (for backward compatibility)
-        git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
-        
-        # Always check if RSS feeds or HTML pages were staged for commit
-        RSS_UPDATED=false
-        HTML_UPDATED=false
-        for LANG in en_GB pl_PL bella; do
-          if git diff --staged docs/${LANG}/podcast.rss 2>/dev/null | grep -q .; then
-            RSS_UPDATED=true
-            echo "📻 ${LANG} RSS feed has been updated and staged"
-          fi
-          if git diff --staged docs/${LANG}/index.html 2>/dev/null | grep -q .; then
-            HTML_UPDATED=true
-            echo "🌐 ${LANG} HTML page has been updated and staged"
-          fi
-        done
-        
-        # Create commit with date and stats
-        if git diff --staged --quiet; then
-          echo "💰 COST OPTIMIZATION: No new files to commit - content already exists"
-          echo "📊 Estimated API cost savings: \$0.50-\$2.00"
-          exit 0
-        fi
-        
-        # Build COMMIT_MSG (one block for both RSS/HTML-only and new-audio cases)
-        COMMIT_MSG="🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
-
-          📊 Generated: $(date '+%Y-%m-%d %H:%M UTC')"
-        if [ "$RSS_UPDATED" = "true" ]; then
-          COMMIT_MSG="${COMMIT_MSG}
-          📻 Podcast: RSS feeds updated"
-        fi
-        if [ "$HTML_UPDATED" = "true" ]; then
-          COMMIT_MSG="${COMMIT_MSG}
-          🌐 Website: HTML pages updated"
-        fi
-        # Add audio stats when we have new audio or when remote was missing some
-        TOTAL_SIZE=0
-        LANG_STATS=""
-        for LANG in en_GB pl_PL bella; do
-          if ls docs/${LANG}/audio/news_digest_ai_*.mp3 1> /dev/null 2>&1; then
-            audio_file=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 | head -1)
-            size_bytes=$(stat -c%s "$audio_file")
-            size_human=$(numfmt --to=iec $size_bytes)
-            TOTAL_SIZE=$((TOTAL_SIZE + size_bytes))
-            LANG_STATS="${LANG_STATS}${LANG}: ${size_human} "
-          fi
-        done
-        if [ $TOTAL_SIZE -gt 0 ]; then
-          total_size_human=$(numfmt --to=iec $TOTAL_SIZE)
-          COMMIT_MSG="${COMMIT_MSG}
-          🎧 Audio: ${total_size_human} total (${LANG_STATS})"
-        fi
-        COMMIT_MSG="${COMMIT_MSG}
-          🤖 AI: Enhanced analysis"
-        if [ $TOTAL_SIZE -gt 0 ]; then
-          COMMIT_MSG="${COMMIT_MSG}
-          🌐 Website: Updated with accessible newspaper layout"
-        fi
-        COMMIT_MSG="${COMMIT_MSG}
-          ♿ Accessibility: Optimized for visually impaired users"
-        
-        git commit -m "$COMMIT_MSG"
-        
-        # Single push-with-retry block (avoids duplicate commits when another run already pushed)
-        MAX_PUSH_RETRIES=3
-        PUSH_RETRY=0
-        while [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; do
-          if git push; then
-            echo "✅ Files committed and pushed successfully"
-            break
-          fi
-          PUSH_RETRY=$((PUSH_RETRY + 1))
-          if [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; then
-            echo "⚠️ Push attempt $PUSH_RETRY failed, pulling latest and retrying..."
-            git fetch origin main
-            REMOTE_HAS_SAME=false
-            for LANG in en_GB pl_PL bella; do
-              if git ls-tree -r origin/main --name-only | grep -q "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"; then
-                REMOTE_HAS_SAME=true
+                echo "⚠️ ${LANG} content files not found - cannot update HTML"
               fi
             done
-            if [ "$REMOTE_HAS_SAME" = "true" ]; then
-              echo "✅ Remote already has today's content - another workflow succeeded"
-              echo "💰 Skipping push to avoid duplicate commits"
-              exit 0
-            fi
-            git reset --hard HEAD~1
-            git pull --rebase origin main || git reset --hard origin/main
-            git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
-            git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
-            git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
-            git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
-            git commit -m "$COMMIT_MSG" || echo "⚠️ No changes to commit after rebase"
           else
-            echo "⚠️ Push failed after $MAX_PUSH_RETRIES attempts - another workflow may have already pushed"
-            echo "✅ This is acceptable for concurrent runs"
+            echo "✅ All HTML pages already contain today's date after pull"
           fi
-        done
-    
-    - name: 📤 Upload artifacts for download
-      uses: actions/upload-artifact@v4
-      with:
-        name: ai-news-digest-${{ steps.check_content.outputs.today_date }}-${{ github.run_number }}
-        path: |
-          docs/en_GB/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
-          docs/en_GB/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
-          docs/pl_PL/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
-          docs/pl_PL/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
-          docs/bella/audio/news_digest_ai_${{ steps.check_content.outputs.today_date }}.mp3
-          docs/bella/news_digest_ai_${{ steps.check_content.outputs.today_date }}.txt
-        if-no-files-found: warn
-        retention-days: 90
-    
-    - name: ❌ Create issue on failure
-      if: failure()
-      uses: actions/github-script@v7
-      with:
-        script: |
-          github.rest.issues.create({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            title: `🚨 Daily AI Digest Failed - ${new Date().toISOString().split('T')[0]}`,
-            body: `### ❌ AI News Digest Generation Failed
-            
-            **Run**: ${context.runId}
-            **Date**: ${new Date().toISOString()}
-            **Workflow**: ${context.workflow}
-            
-            Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.
-            
-            ### Possible Issues:
-            - API key expired or missing
-            - Network connectivity issues
-            - News source changes
-            - Audio generation failure
-            - Website update failure
-            
-            This needs immediate attention for accessibility service continuity.`,
-            labels: ['bug', 'ai-digest', 'urgent']
-          })
+          
+          # Always re-generate RSS feeds after pull (they're always regenerated anyway)
+          # This ensures we have the latest RSS with today's episode, even if pull overwrote them
+          echo "🔄 Re-generating RSS feeds after pull to ensure latest episodes..."
+          git lfs pull || echo "⚠️ Git LFS pull failed (may continue if files already available)"
+          python scripts/generate_podcast_rss.py || echo "⚠️ RSS regeneration failed after pull"
+          
+          # CRITICAL: git pull --rebase can UNSTAGE files, so we MUST re-stage everything after pull
+          # Even if we staged before pull and re-applied after pull, the rebase operation can reset staging
+          # We ALWAYS stage HTML and RSS files after pull to ensure they're committed
+          echo "📝 Re-staging HTML and RSS files after pull (rebase may have unstaged them)..."
+          git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
+          git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
+          
+          # Verify files are actually staged (debug output)
+          echo "🔍 Verifying staged files..."
+          for LANG in en_GB pl_PL bella; do
+            if git diff --staged --name-only | grep -q "docs/${LANG}/index.html"; then
+              echo "✅ ${LANG}/index.html is staged"
+            else
+              echo "⚠️ ${LANG}/index.html is NOT staged - attempting to stage again..."
+              git add "docs/${LANG}/index.html" 2>/dev/null || echo "❌ Failed to stage ${LANG}/index.html"
+            fi
+            if git diff --staged --name-only | grep -q "docs/${LANG}/podcast.rss"; then
+              echo "✅ ${LANG}/podcast.rss is staged"
+            else
+              echo "⚠️ ${LANG}/podcast.rss is NOT staged - attempting to stage again..."
+              git add "docs/${LANG}/podcast.rss" 2>/dev/null || echo "❌ Failed to stage ${LANG}/podcast.rss"
+            fi
+          done
+          
+          # Check if today's content already exists in remote (another workflow may have already committed)
+          # Only skip if ALL languages already exist (not just some)
+          ALL_LANGUAGES_EXIST=true
+          for LANG in en_GB pl_PL bella; do
+            if git ls-tree -r origin/main --name-only | grep -q "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"; then
+              echo "✅ Remote already has ${LANG} content for ${TODAY}"
+            else
+              ALL_LANGUAGES_EXIST=false
+              echo "📝 Remote missing ${LANG} content for ${TODAY} - will commit"
+            fi
+          done
+          
+          # NOTE: HTML_NEEDS_UPDATE was set BEFORE the pull, but we've now re-applied HTML updates.
+          # RSS feeds have been re-generated after pull, so we need to check if they actually changed.
+          
+          # Check if RSS feeds actually changed (they're always regenerated, but might be identical)
+          RSS_ACTUALLY_CHANGED=false
+          for LANG in en_GB pl_PL bella; do
+            if git diff --staged docs/${LANG}/podcast.rss 2>/dev/null | grep -q .; then
+              RSS_ACTUALLY_CHANGED=true
+              echo "📻 ${LANG} RSS feed has changes to commit"
+            fi
+          done
+          
+          # CRITICAL: Always check if HTML actually changed after re-application
+          # We must check regardless of the pre-pull HTML_NEEDS_UPDATE value because:
+          # 1. HTML update step ran earlier and updated files
+          # 2. git pull --rebase may have overwritten them
+          # 3. We re-applied updates based on HTML_NEEDS_UPDATE_AFTER_PULL
+          # 4. We need to check if the re-applied files actually changed
+          HTML_ACTUALLY_CHANGED=false
+          for LANG in en_GB pl_PL bella; do
+            if git diff --staged docs/${LANG}/index.html 2>/dev/null | grep -q .; then
+              HTML_ACTUALLY_CHANGED=true
+              echo "🌐 ${LANG} HTML page has changes to commit"
+            else
+              # Check if HTML was re-applied but shows no diff (might mean it's identical to remote)
+              if [ "$HTML_NEEDS_UPDATE_AFTER_PULL" = "true" ]; then
+                echo "⚠️ ${LANG} HTML was re-applied but shows no staged changes - may be identical to remote"
+              fi
+            fi
+          done
+          
+          # Only skip commit if ALL of the following are true:
+          # 1. All audio files exist
+          # 2. HTML pages didn't actually change (even if they were updated)
+          # 3. RSS feeds didn't actually change (even though they were regenerated)
+          if [ "$ALL_LANGUAGES_EXIST" = "true" ] && [ "$HTML_ACTUALLY_CHANGED" = "false" ] && [ "$RSS_ACTUALLY_CHANGED" = "false" ]; then
+            echo "💰 COST OPTIMIZATION: All content already exists and is up to date"
+            echo "📊 Another workflow may have already committed - skipping commit"
+            echo "✅ This is expected behavior for concurrent runs"
+            exit 0
+          fi
+          
+          if [ "$ALL_LANGUAGES_EXIST" = "true" ]; then
+            if [ "$HTML_ACTUALLY_CHANGED" = "true" ] || [ "$RSS_ACTUALLY_CHANGED" = "true" ]; then
+              echo "📝 Audio files exist but HTML/RSS have changes - will commit updates"
+            fi
+          fi
+          
+          # Add ONLY language-specific files to avoid conflicts
+          # This prevents touching the root index.html and other development files
+          git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
+          
+          # Explicitly add RSS feeds to ensure they're always committed when updated
+          git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
+          
+          # Explicitly add HTML pages to ensure they're always committed when updated
+          git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
+          
+          # Also add any files that might be in wrong location (for backward compatibility)
+          git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
+          
+          # Always check if RSS feeds or HTML pages were staged for commit
+          RSS_UPDATED=false
+          HTML_UPDATED=false
+          for LANG in en_GB pl_PL bella; do
+            if git diff --staged docs/${LANG}/podcast.rss 2>/dev/null | grep -q .; then
+              RSS_UPDATED=true
+              echo "📻 ${LANG} RSS feed has been updated and staged"
+            fi
+            if git diff --staged docs/${LANG}/index.html 2>/dev/null | grep -q .; then
+              HTML_UPDATED=true
+              echo "🌐 ${LANG} HTML page has been updated and staged"
+            fi
+          done
+          
+          # Create commit with date and stats
+          if git diff --staged --quiet; then
+            echo "💰 COST OPTIMIZATION: No new files to commit - content already exists"
+            echo "📊 Estimated API cost savings: \$0.50-\$2.00"
+            exit 0
+          fi
+          
+          # Build COMMIT_MSG (one block for both RSS/HTML-only and new-audio cases)
+          COMMIT_MSG="🤖 Daily AI news digest & website update $(date +%Y-%m-%d)
+
+            📊 Generated: $(date '+%Y-%m-%d %H:%M UTC')"
+          if [ "$RSS_UPDATED" = "true" ]; then
+            COMMIT_MSG="${COMMIT_MSG}
+            📻 Podcast: RSS feeds updated"
+          fi
+          if [ "$HTML_UPDATED" = "true" ]; then
+            COMMIT_MSG="${COMMIT_MSG}
+            🌐 Website: HTML pages updated"
+          fi
+          # Add audio stats when we have new audio or when remote was missing some
+          TOTAL_SIZE=0
+          LANG_STATS=""
+          for LANG in en_GB pl_PL bella; do
+            if ls docs/${LANG}/audio/news_digest_ai_*.mp3 1> /dev/null 2>&1; then
+              audio_file=$(ls docs/${LANG}/audio/news_digest_ai_*.mp3 | head -1)
+              size_bytes=$(stat -c%s "$audio_file")
+              size_human=$(numfmt --to=iec $size_bytes)
+              TOTAL_SIZE=$((TOTAL_SIZE + size_bytes))
+              LANG_STATS="${LANG_STATS}${LANG}: ${size_human} "
+            fi
+          done
+          if [ $TOTAL_SIZE -gt 0 ]; then
+            total_size_human=$(numfmt --to=iec $TOTAL_SIZE)
+            COMMIT_MSG="${COMMIT_MSG}
+            🎧 Audio: ${total_size_human} total (${LANG_STATS})"
+          fi
+          COMMIT_MSG="${COMMIT_MSG}
+            🤖 AI: Enhanced analysis"
+          if [ $TOTAL_SIZE -gt 0 ]; then
+            COMMIT_MSG="${COMMIT_MSG}
+            🌐 Website: Updated with accessible newspaper layout"
+          fi
+          COMMIT_MSG="${COMMIT_MSG}
+            ♿ Accessibility: Optimized for visually impaired users"
+          
+          git commit -m "$COMMIT_MSG"
+          
+          # Single push-with-retry block (avoids duplicate commits when another run already pushed)
+          MAX_PUSH_RETRIES=3
+          PUSH_RETRY=0
+          while [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; do
+            if git push; then
+              echo "✅ Files committed and pushed successfully"
+              break
+            fi
+            PUSH_RETRY=$((PUSH_RETRY + 1))
+            if [ $PUSH_RETRY -lt $MAX_PUSH_RETRIES ]; then
+              echo "⚠️ Push attempt $PUSH_RETRY failed, pulling latest and retrying..."
+              git fetch origin main
+              REMOTE_HAS_SAME=false
+              for LANG in en_GB pl_PL bella; do
+                if git ls-tree -r origin/main --name-only | grep -q "docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"; then
+                  REMOTE_HAS_SAME=true
+                fi
+              done
+              if [ "$REMOTE_HAS_SAME" = "true" ]; then
+                echo "✅ Remote already has today's content - another workflow succeeded"
+                echo "💰 Skipping push to avoid duplicate commits"
+                exit 0
+              fi
+              git reset --hard HEAD~1
+              git pull --rebase origin main || git reset --hard origin/main
+              git add docs/en_GB/ docs/fr_FR/ docs/de_DE/ docs/es_ES/ docs/it_IT/ docs/nl_NL/ docs/pl_PL/ docs/bella/ docs/en_GB_LON/ docs/en_GB_LIV/ || true
+              git add docs/en_GB/podcast.rss docs/pl_PL/podcast.rss docs/bella/podcast.rss 2>/dev/null || true
+              git add docs/en_GB/index.html docs/pl_PL/index.html docs/bella/index.html 2>/dev/null || true
+              git add news_digest_ai_*.mp3 news_digest_ai_*.txt 2>/dev/null || true
+              git commit -m "$COMMIT_MSG" || echo "⚠️ No changes to commit after rebase"
+            else
+              echo "⚠️ Push failed after $MAX_PUSH_RETRIES attempts - another workflow may have already pushed"
+              echo "✅ This is acceptable for concurrent runs"
+            fi
+          done
+
+      - name: 📤 Upload artifacts for download
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-news-digest-${{ needs.check-content.outputs.today_date }}-${{ github.run_number }}
+          path: |
+            docs/en_GB/audio/news_digest_ai_${{ needs.check-content.outputs.today_date }}.mp3
+            docs/en_GB/news_digest_ai_${{ needs.check-content.outputs.today_date }}.txt
+            docs/pl_PL/audio/news_digest_ai_${{ needs.check-content.outputs.today_date }}.mp3
+            docs/pl_PL/news_digest_ai_${{ needs.check-content.outputs.today_date }}.txt
+            docs/bella/audio/news_digest_ai_${{ needs.check-content.outputs.today_date }}.mp3
+            docs/bella/news_digest_ai_${{ needs.check-content.outputs.today_date }}.txt
+          if-no-files-found: warn
+          retention-days: 90
+
+  create-issue-on-failure:
+    runs-on: ubuntu-latest
+    needs: [check-content, skip-generation, generate-one-language, merge]
+    if: always() && (needs.merge.result == 'failure' || needs.generate-one-language.result == 'failure')
+    permissions:
+      issues: write
+    steps:
+      - name: ❌ Create issue on failure
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Daily AI Digest Failed - ${new Date().toISOString().split('T')[0]}`,
+              body: `### ❌ AI News Digest Generation Failed
+
+              **Run**: ${context.runId}
+              **Date**: ${new Date().toISOString()}
+              **Workflow**: ${context.workflow}
+
+              Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.
+
+              ### Possible Issues:
+              - API key expired or missing
+              - Network connectivity issues
+              - News source changes
+              - Audio generation failure
+              - Website update failure
+
+              This needs immediate attention for accessibility service continuity.`,
+              labels: ['bug', 'ai-digest', 'urgent']
+            })
 
   deploy-website:
-    needs: generate-ai-digest
+    needs: merge
     runs-on: ubuntu-latest
     if: success()
     
@@ -894,7 +675,7 @@ jobs:
       uses: actions/deploy-pages@v4
 
   notify-completion:
-    needs: [generate-ai-digest, deploy-website]
+    needs: [merge, deploy-website]
     runs-on: ubuntu-latest
     if: success()
     

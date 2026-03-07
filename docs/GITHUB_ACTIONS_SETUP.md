@@ -109,6 +109,18 @@ The pipeline is AI-only; there is no fallback to non-AI mode. Fix the underlying
 - Ensure `GITHUB_TOKEN` has write permissions (should be automatic)
 - Check branch protection rules and that the workflow has `contents: write`
 
+## ⚡ **Speeding up CI**
+
+The workflow **runs en_GB, pl_PL, and bella in parallel** (one job per language). Wall time is roughly the **max of the three** runs instead of the sum, so generation is much faster when content is missing.
+
+Other optimizations:
+- **Pip cache**: `setup-python` caches pip dependencies (keyed by `requirements.txt`); repeat runs are faster after the first.
+- **ffmpeg**: Installed only if missing (ubuntu-latest often has it), avoiding a full `apt-get update` when possible.
+
+Further options if you need even shorter run times:
+- **Docker image**: Use a custom image with Python 3.11, ffmpeg, and pip dependencies preinstalled to cut setup to a few seconds.
+- **Simplify commit step**: The “backup → fetch → reset → restore → re-apply HTML/RSS” sequence could be shortened if some steps are only needed in edge cases.
+
 ## ✅ **Testing Setup**
 
 After adding secrets, test the setup:
