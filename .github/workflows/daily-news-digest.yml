@@ -31,6 +31,7 @@ jobs:
   # --- Check if today's content already exists (skip generation when possible) ---
   check-content:
     runs-on: ubuntu-latest
+    container: dynamicdevices/audionews-digest:latest
     outputs:
       content_exists: ${{ steps.check_content.outputs.content_exists }}
       today_date: ${{ steps.check_content.outputs.today_date }}
@@ -41,19 +42,6 @@ jobs:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
           lfs: true
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-          cache-dependency-path: 'requirements.txt'
-      - name: 📦 Install system dependencies
-        run: |
-          command -v ffmpeg >/dev/null 2>&1 || { sudo apt-get update -qq && sudo apt-get install -y ffmpeg; }
-      - name: 📦 Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
       - name: 🔍 Check if today's content exists
         id: check_content
         run: |
@@ -94,6 +82,7 @@ jobs:
   # --- Generate one language per matrix cell (runs in parallel) ---
   generate-one-language:
     runs-on: ubuntu-latest
+    container: dynamicdevices/audionews-digest:latest
     needs: check-content
     if: needs.check-content.outputs.content_exists != 'true'
     strategy:
@@ -114,19 +103,6 @@ jobs:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
           lfs: true
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-          cache-dependency-path: 'requirements.txt'
-      - name: 📦 Install system dependencies
-        run: |
-          command -v ffmpeg >/dev/null 2>&1 || { sudo apt-get update -qq && sudo apt-get install -y ffmpeg; }
-      - name: 📦 Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
       - name: 🤖 Generate digest for ${{ matrix.language }}
         run: |
           LANG="${{ matrix.language }}"
@@ -154,6 +130,7 @@ jobs:
   # --- Merge artifacts, update HTML/RSS, commit and push ---
   merge:
     runs-on: ubuntu-latest
+    container: dynamicdevices/audionews-digest:latest
     needs: [check-content, skip-generation, generate-one-language]
     if: always() && (needs.skip-generation.result == 'success' || needs.generate-one-language.result == 'success')
     permissions:
@@ -184,19 +161,6 @@ jobs:
             [ -d "$dir/audio" ] && cp -a "$dir/audio"/* "docs/${LANG}/audio/" 2>/dev/null || true
             echo "✅ Merged $LANG"
           done
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-          cache-dependency-path: 'requirements.txt'
-      - name: 📦 Install system dependencies
-        run: |
-          command -v ffmpeg >/dev/null 2>&1 || { sudo apt-get update -qq && sudo apt-get install -y ffmpeg; }
-      - name: 📦 Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
       - name: 🔄 Ensure Git LFS files
         run: git lfs pull || echo "⚠️ Git LFS pull failed (may continue)"
       - name: 📊 Verify content

@@ -118,7 +118,7 @@ Other optimizations:
 - **ffmpeg**: Installed only if missing (ubuntu-latest often has it), avoiding a full `apt-get update` when possible.
 
 Further options if you need even shorter run times:
-- **Docker image**: Use a custom image with Python 3.11, ffmpeg, and pip dependencies preinstalled to cut setup to a few seconds.
+- **Docker image**: Use a custom image with Python 3.11, ffmpeg, and pip dependencies preinstalled to cut setup to a few seconds. This repo provides **`dynamicdevices/audionews-digest`** (see `docker/README.md` and `./scripts/docker-build-push.sh`); the workflow uses it for check-content, generate-one-language, and merge jobs. Push the image once to Docker Hub before CI runs.
 - **Simplify commit step**: The “backup → fetch → reset → restore → re-apply HTML/RSS” sequence could be shortened if some steps are only needed in edge cases.
 
 ## ✅ **Testing Setup**
