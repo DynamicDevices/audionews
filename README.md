@@ -133,6 +133,27 @@ The hook runs automatically on every commit. If errors are found, the commit is 
 git commit --no-verify  # Skip pre-commit checks
 ```
 
+### Running tests
+
+The `tests/` directory contains unit and smoke tests:
+
+- **Config tests** (no network): `tests/test_config.py` — checks that `config/` JSON and digest config loader produce the expected structure.
+- **Pipeline smoke test** (uses Edge TTS, needs network): `tests/test_pipeline_smoke.py` — runs the digest with a fixture transcript and verifies an MP3 is produced.
+
+Run all tests from the project root:
+
+```bash
+python -m unittest discover -s tests -p "test_*.py" -v
+```
+
+Run only config tests (fast, no network):
+
+```bash
+python -m unittest tests.test_config -v
+```
+
+The smoke test uses `AUDIONEWS_OUTPUT_BASE` to write output to a temp dir so it does not modify `docs/`.
+
 ## 🍴 Forking & Customization
 
 Want to create your own customized news service? Here's how:

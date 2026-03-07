@@ -93,8 +93,15 @@ class GitHubAINewsDigest:
         print("🎯 Intelligent analysis for visually impaired users")
         print("=" * 60)
         today_str = date.today().strftime("%Y_%m_%d")
-        text_filename = f"{self.config['output_dir']}/news_digest_ai_{today_str}.txt"
-        audio_filename = f"{self.config['audio_dir']}/news_digest_ai_{today_str}.mp3"
+        base = os.environ.get("AUDIONEWS_OUTPUT_BASE", "").strip()
+        if base:
+            output_dir = os.path.join(base, self.config["output_dir"])
+            audio_dir = os.path.join(base, self.config["audio_dir"])
+        else:
+            output_dir = self.config["output_dir"]
+            audio_dir = self.config["audio_dir"]
+        text_filename = os.path.join(output_dir, f"news_digest_ai_{today_str}.txt")
+        audio_filename = os.path.join(audio_dir, f"news_digest_ai_{today_str}.mp3")
 
         if self.use_existing_transcript:
             if not os.path.exists(text_filename):
