@@ -44,6 +44,7 @@ coverage.xml
 cover/
 .venv/
 venv/
+.venv-pocket/
 ENV/
 env/
 .env
@@ -94,6 +95,7 @@ logs/
 tmp/
 temp/
 .tmp/
+vendor/
 
 # OS generated files
 .DS_Store?
