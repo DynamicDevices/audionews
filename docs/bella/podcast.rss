@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772790128" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772860673" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772790128</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772860673</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Fri, 06 Mar 2026 09:49:14 +0000</lastBuildDate>
-    <pubDate>Fri, 06 Mar 2026 09:49:14 +0000</pubDate>
+    <lastBuildDate>Sat, 07 Mar 2026 05:23:57 +0000</lastBuildDate>
+    <pubDate>Sat, 07 Mar 2026 05:23:57 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - March 07, 2026: Good morning Bella ; Here's your Business and Finance new...</title>
+      <link>https://audionews.uk/bella?date=2026-03-07</link>
+      <description>March 07, 2026 news: Meanwhile , multiple states are challenging federal tariff policies through litigation , arguing these trade barriers impose unconstitutional costs on regional economies .</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_03_07.mp3</guid>
+      <pubDate>Sat, 07 Mar 2026 05:21:02 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_03_07.mp3" type="audio/mpeg" length="4186741" />
+      <itunes:title>BellaNews - March 07, 2026: Good morning Bella ; Here's your Business and Finance new...</itunes:title>
+      <itunes:summary>March 07, 2026 news: Meanwhile , multiple states are challenging federal tariff policies through litigation , arguing these trade barriers impose unconstitutional costs on regional economies .</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>49</itunes:episode>
+      <itunes:subtitle>March 07, 2026 news: Meanwhile , multiple states are challenging federal tariff policies through lit...</itunes:subtitle>
+      <itunes:duration>04:21</itunes:duration>
+    </item>
     <item>
       <title>BellaNews - March 06, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-03-06</link>
