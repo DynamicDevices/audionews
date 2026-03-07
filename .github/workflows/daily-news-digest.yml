@@ -35,6 +35,7 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: ${{ github.workspace }}
     outputs:
       content_exists: ${{ steps.check_content.outputs.content_exists }}
       today_date: ${{ steps.check_content.outputs.today_date }}
@@ -89,6 +90,7 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: ${{ github.workspace }}
     needs: check-content
     if: needs.check-content.outputs.content_exists != 'true'
     strategy:
@@ -140,6 +142,7 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: ${{ github.workspace }}
     needs: [check-content, skip-generation, generate-one-language]
     if: always() && (needs.skip-generation.result == 'success' || needs.generate-one-language.result == 'success')
     permissions:
