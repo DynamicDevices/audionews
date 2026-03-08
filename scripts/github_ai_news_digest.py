@@ -173,7 +173,7 @@ class GitHubAINewsDigest:
             return None
         print(f"\n📊 Total stories collected: {len(all_stories)}")
 
-        themes = await ai_analysis.ai_analyze_stories(
+        themes = ai_analysis.ai_analyze_stories(
             self.anthropic_client,
             self.language,
             all_stories,
