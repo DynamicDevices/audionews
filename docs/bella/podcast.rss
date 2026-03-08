@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772893822" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772972746" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772893822</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1772972746</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Sat, 07 Mar 2026 14:33:38 +0000</lastBuildDate>
-    <pubDate>Sat, 07 Mar 2026 14:33:38 +0000</pubDate>
+    <lastBuildDate>Sun, 08 Mar 2026 12:26:10 +0000</lastBuildDate>
+    <pubDate>Sun, 08 Mar 2026 12:26:10 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - March 08, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-03-08</link>
+      <description>March 08, 2026 news: Geopolitical tensions around Iran are creating cascading effects across global markets and infrastructure networks worth analyzing strategically . Airspace closures force airlines to recalculate optimal routing algorithms, increasing fuel costs and demonstrating how constraint optimization...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_03_08.mp3</guid>
+      <pubDate>Sun, 08 Mar 2026 12:24:28 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_03_08.mp3" type="audio/mpeg" length="4390287" />
+      <itunes:title>BellaNews - March 08, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>March 08, 2026 news: Geopolitical tensions around Iran are creating cascading effects across global markets and infrastructure networks worth analyzing strategically . Airspace closures force airlines to recalculate optimal routing algorithms, increasing fuel costs and demonstrating how constraint optimization...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>50</itunes:episode>
+      <itunes:subtitle>March 08, 2026 news: Geopolitical tensions around Iran are creating cascading effects across global...</itunes:subtitle>
+      <itunes:duration />
+    </item>
     <item>
       <title>BellaNews - March 07, 2026: Good morning Bella ; Here's your Business and Finance new...</title>
       <link>https://audionews.uk/bella?date=2026-03-07</link>
@@ -54,7 +69,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>49</itunes:episode>
       <itunes:subtitle>March 07, 2026 news: Meanwhile , multiple states are challenging federal tariff policies through lit...</itunes:subtitle>
-      <itunes:duration>04:21</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - March 06, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -69,7 +84,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>48</itunes:episode>
       <itunes:subtitle>March 06, 2026 news: Global markets are delivering a masterclass in interconnected risk modeling thi...</itunes:subtitle>
-      <itunes:duration>04:16</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - March 05, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -84,7 +99,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>47</itunes:episode>
       <itunes:subtitle>March 05, 2026 news: Political risk modeling becomes critical when trade tensions escalate between m...</itunes:subtitle>
-      <itunes:duration>05:02</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - March 04, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -99,7 +114,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>46</itunes:episode>
       <itunes:subtitle>March 04, 2026 news: Three major developments reveal how policy uncertainty creates market volatilit...</itunes:subtitle>
-      <itunes:duration>03:49</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - March 03, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -114,7 +129,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>45</itunes:episode>
       <itunes:subtitle>March 03, 2026 news: Middle East tensions are creating cascading effects across global supply chains...</itunes:subtitle>
-      <itunes:duration>05:02</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - March 02, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -129,7 +144,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>44</itunes:episode>
       <itunes:subtitle>March 02, 2026 news: Nvidias latest quarterly results demonstrate how infrastructure spending create...</itunes:subtitle>
-      <itunes:duration>05:11</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - March 01, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -144,7 +159,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>43</itunes:episode>
       <itunes:subtitle>March 01, 2026 news: Nvidias datacenter revenue surge demonstrates robust enterprise demand for AI i...</itunes:subtitle>
-      <itunes:duration>04:25</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 28, 2026: Good morning Bella ; Here's your Business and Finance new...</title>
@@ -159,7 +174,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>42</itunes:episode>
       <itunes:subtitle>February 28, 2026 news: Meanwhile , a major fintech platform announced workforce reductions affectin...</itunes:subtitle>
-      <itunes:duration>05:54</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 27, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -174,7 +189,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>41</itunes:episode>
       <itunes:subtitle>February 27, 2026 news: Nvidias latest earnings reveal how datacenter infrastructure spending create...</itunes:subtitle>
-      <itunes:duration>02:42</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 26, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -189,7 +204,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>40</itunes:episode>
       <itunes:subtitle>February 26, 2026 news: Aston Martins twenty percent workforce reduction amid widening losses demons...</itunes:subtitle>
-      <itunes:duration>04:11</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 25, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -204,7 +219,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>39</itunes:episode>
       <itunes:subtitle>February 25, 2026 news: Recent market volatility stemming from artificial intelligence concerns reve...</itunes:subtitle>
-      <itunes:duration>04:41</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 24, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -219,7 +234,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>38</itunes:episode>
       <itunes:subtitle>February 24, 2026 news: Global trade dynamics are shifting dramatically as tariff policies create un...</itunes:subtitle>
-      <itunes:duration>04:24</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 23, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -234,7 +249,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>37</itunes:episode>
       <itunes:subtitle>February 23, 2026 news: Political pressure on corporate boards reveals how regulatory risk now shape...</itunes:subtitle>
-      <itunes:duration>03:38</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 22, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -249,7 +264,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>36</itunes:episode>
       <itunes:subtitle>February 22, 2026 news: Congressional testimony from prominent business figures demonstrates how per...</itunes:subtitle>
-      <itunes:duration>03:28</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 21, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -264,7 +279,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>35</itunes:episode>
       <itunes:subtitle>February 21, 2026 news: Recent judicial pushback against executive tariff authority creates fascinat...</itunes:subtitle>
-      <itunes:duration>02:41</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 20, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -279,7 +294,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>34</itunes:episode>
       <itunes:subtitle>February 20, 2026 news: Corporate diversity programs face strategic restructuring as political press...</itunes:subtitle>
-      <itunes:duration>05:16</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 19, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -294,7 +309,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>33</itunes:episode>
       <itunes:subtitle>February 19, 2026 news: Political pressure on the Federal Reserves independence creates fascinating...</itunes:subtitle>
-      <itunes:duration>06:08</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 18, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -309,7 +324,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>32</itunes:episode>
       <itunes:subtitle>February 18, 2026 news: Corporate governance frameworks are shifting as major financial institutions...</itunes:subtitle>
-      <itunes:duration>04:51</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 17, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -324,7 +339,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>31</itunes:episode>
       <itunes:subtitle>February 17, 2026 news: Coal industry endorsements signal domestic political calculus, while potenti...</itunes:subtitle>
-      <itunes:duration>04:48</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 16, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -339,7 +354,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>30</itunes:episode>
       <itunes:subtitle>February 16, 2026 news: 4 percent reveals how tariff timing creates measurement challenges for econo...</itunes:subtitle>
-      <itunes:duration>04:19</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 15, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -354,7 +369,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>29</itunes:episode>
       <itunes:subtitle>February 15, 2026 news: Congressional pushback against executive tariff authority reveals critical g...</itunes:subtitle>
-      <itunes:duration>04:18</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 14, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -369,7 +384,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>28</itunes:episode>
       <itunes:subtitle>February 14, 2026 news: Inflation declined to two point four percent despite tariff-induced volatili...</itunes:subtitle>
-      <itunes:duration>05:02</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 13, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -384,7 +399,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>27</itunes:episode>
       <itunes:subtitle>February 13, 2026 news: Political developments are reshaping regulatory landscapes in ways that dire...</itunes:subtitle>
-      <itunes:duration>04:59</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 12, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -399,7 +414,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>26</itunes:episode>
       <itunes:subtitle>February 12, 2026 news: Januarys labor market data reveals fascinating divergence worth analyzing th...</itunes:subtitle>
-      <itunes:duration>05:24</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 11, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -414,7 +429,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>25</itunes:episode>
       <itunes:subtitle>February 11, 2026 news: Immigration enforcement escalation creates labor market volatility, particul...</itunes:subtitle>
-      <itunes:duration>06:29</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 10, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -429,7 +444,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>24</itunes:episode>
       <itunes:subtitle>February 10, 2026 news: Markets are painting a complex picture as equities surge while digital asset...</itunes:subtitle>
-      <itunes:duration>04:30</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 09, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -444,7 +459,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>23</itunes:episode>
       <itunes:subtitle>February 09, 2026 news: Market dynamics reveal fascinating mathematical patterns as equity indices s...</itunes:subtitle>
-      <itunes:duration>04:20</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 08, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -459,7 +474,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>22</itunes:episode>
       <itunes:subtitle>February 08, 2026 news: Corporate restructuring reveals fascinating strategic math as Musk consolida...</itunes:subtitle>
-      <itunes:duration>04:02</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 07, 2026: Good morning Bella; Here's your Business and Finance news...</title>
@@ -474,7 +489,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>21</itunes:episode>
       <itunes:subtitle>February 07, 2026 news: Market dynamics reveal fascinating mathematical patterns as major indices re...</itunes:subtitle>
-      <itunes:duration>04:41</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 06, 2026: Britains central bank maintained rates at three point sev...</title>
@@ -489,7 +504,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>20</itunes:episode>
       <itunes:subtitle>February 06, 2026 news: Britains central bank maintained rates at three point seven five percent whi...</itunes:subtitle>
-      <itunes:duration>03:26</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 05, 2026: Recent allegations about foreign investment in political ...</title>
@@ -504,7 +519,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>19</itunes:episode>
       <itunes:subtitle>February 05, 2026 news: Recent allegations about foreign investment in political figures business ve...</itunes:subtitle>
-      <itunes:duration>04:57</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 04, 2026: Recent geopolitical developments reveal how sovereign rel...</title>
@@ -519,7 +534,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>18</itunes:episode>
       <itunes:subtitle>February 04, 2026 news: Recent geopolitical developments reveal how sovereign relationships directly...</itunes:subtitle>
-      <itunes:duration>04:50</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 03, 2026: Two major political shifts are reshaping global finance t...</title>
@@ -534,7 +549,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>17</itunes:episode>
       <itunes:subtitle>February 03, 2026 news: Two major political shifts are reshaping global finance through central bank...</itunes:subtitle>
-      <itunes:duration>03:56</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 02, 2026: Corporate leaders now face a game theory problem: defend ...</title>
@@ -549,7 +564,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>16</itunes:episode>
       <itunes:subtitle>February 02, 2026 news: Corporate leaders now face a game theory problem: defend stricter standards...</itunes:subtitle>
-      <itunes:duration>04:02</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - February 01, 2026: Regulatory shifts under new EPA leadership reveal how pol...</title>
@@ -564,7 +579,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>15</itunes:episode>
       <itunes:subtitle>February 01, 2026 news: Regulatory shifts under new EPA leadership reveal how political appointments...</itunes:subtitle>
-      <itunes:duration>04:22</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 31, 2026: For aspiring bankers, tracking these regulatory dynamics ...</title>
@@ -579,7 +594,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>14</itunes:episode>
       <itunes:subtitle>January 31, 2026 news: For aspiring bankers, tracking these regulatory dynamics sharpens your abilit...</itunes:subtitle>
-      <itunes:duration>04:07</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 30, 2026: Amazons workforce reduction of sixteen thousand positions...</title>
@@ -594,7 +609,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>13</itunes:episode>
       <itunes:subtitle>January 30, 2026 news: Amazons workforce reduction of sixteen thousand positions signals tech sector...</itunes:subtitle>
-      <itunes:duration>05:44</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 29, 2026: Currency volatility directly impacts how youll price inte...</title>
@@ -609,7 +624,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>12</itunes:episode>
       <itunes:subtitle>January 29, 2026 news: Currency volatility directly impacts how youll price international transactio...</itunes:subtitle>
-      <itunes:duration>06:01</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 28, 2026: Recent tensions between executive authority and central bank</title>
@@ -624,7 +639,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>11</itunes:episode>
       <itunes:subtitle>January 28, 2026 news: Recent tensions between executive authority and central bank independence cre...</itunes:subtitle>
-      <itunes:duration>04:40</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 27, 2026: Recent tensions between executive power and central bank ...</title>
@@ -639,7 +654,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>10</itunes:episode>
       <itunes:subtitle>January 27, 2026 news: Recent tensions between executive power and central bank independence create...</itunes:subtitle>
-      <itunes:duration>03:30</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 26, 2026: Recent tensions between executive power and central bank ...</title>
@@ -654,7 +669,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>9</itunes:episode>
       <itunes:subtitle>January 26, 2026 news: Recent tensions between executive power and central bank independence create...</itunes:subtitle>
-      <itunes:duration>05:19</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 25, 2026: Political uncertainty around central bank independence cr...</title>
@@ -669,7 +684,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>8</itunes:episode>
       <itunes:subtitle>January 25, 2026 news: Political uncertainty around central bank independence creates measurable mar...</itunes:subtitle>
-      <itunes:duration>05:45</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 24, 2026: Political Dynamics and Market Strategy** Federal Reserve ...</title>
@@ -684,7 +699,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>7</itunes:episode>
       <itunes:subtitle>January 24, 2026 news: **Political Dynamics and Market Strategy** Federal Reserve governance faces j...</itunes:subtitle>
-      <itunes:duration>05:04</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 23, 2026: Federal Reserve governance is facing judicial scrutiny, h...</title>
@@ -699,7 +714,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>6</itunes:episode>
       <itunes:subtitle>January 23, 2026 news: Federal Reserve governance is facing judicial scrutiny, highlighting how poli...</itunes:subtitle>
-      <itunes:duration>03:50</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 22, 2026: Federal Reserve governance faces judicial scrutiny as the...</title>
@@ -714,7 +729,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>5</itunes:episode>
       <itunes:subtitle>January 22, 2026 news: Federal Reserve governance faces judicial scrutiny as the Supreme Court weigh...</itunes:subtitle>
-      <itunes:duration>04:36</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 21, 2026: Geopolitical tensions over territorial interests reveal h...</title>
@@ -729,7 +744,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>4</itunes:episode>
       <itunes:subtitle>January 21, 2026 news: Geopolitical tensions over territorial interests reveal how sovereign risk mo...</itunes:subtitle>
-      <itunes:duration>03:41</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 20, 2026: Arctic geopolitics reveals fascinating strategic dynamics as</title>
@@ -744,7 +759,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>3</itunes:episode>
       <itunes:subtitle>January 20, 2026 news: Arctic geopolitics reveals fascinating strategic dynamics as nations compete...</itunes:subtitle>
-      <itunes:duration>04:21</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 19, 2026: Heres the UK political development and what it means for ...</title>
@@ -759,7 +774,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>2</itunes:episode>
       <itunes:subtitle>January 19, 2026 news: Britains measured response to potential US trade tensions demonstrates classi...</itunes:subtitle>
-      <itunes:duration>04:31</itunes:duration>
+      <itunes:duration />
     </item>
     <item>
       <title>BellaNews - January 18, 2026: Looking at international developments today, the proposed...</title>
@@ -774,7 +789,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>1</itunes:episode>
       <itunes:subtitle>January 18, 2026 news: Looking at international developments today, the proposed tariff threat over...</itunes:subtitle>
-      <itunes:duration>05:49</itunes:duration>
+      <itunes:duration />
     </item>
   </channel>
 </rss>
