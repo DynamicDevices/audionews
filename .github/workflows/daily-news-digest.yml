@@ -613,7 +613,7 @@ jobs:
   deploy-website:
     needs: merge
     runs-on: ubuntu-latest
-    if: success()
+    if: always() && needs.merge.result == 'success'
     
     permissions:
       contents: read
@@ -657,7 +657,7 @@ jobs:
   notify-completion:
     needs: [merge, deploy-website]
     runs-on: ubuntu-latest
-    if: success()
+    if: always() && needs.merge.result == 'success' && needs.deploy-website.result == 'success'
     
     steps:
     - name: 🎉 Success notification
