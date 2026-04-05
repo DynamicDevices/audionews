@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1773034305" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1775367531" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1773034305</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1775367531</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Mon, 09 Mar 2026 05:32:04 +0000</lastBuildDate>
-    <pubDate>Mon, 09 Mar 2026 05:32:04 +0000</pubDate>
+    <lastBuildDate>Sun, 05 Apr 2026 05:39:16 +0000</lastBuildDate>
+    <pubDate>Sun, 05 Apr 2026 05:39:16 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - April 05, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-04-05</link>
+      <description>April 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 kwietnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj na prawicy dochodzi do istotnych zmian, gdyż partie Janusza Korwin-Mikkego i Sławomira Mentzena mają zostać rozwiązane;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_04_05.mp3</guid>
+      <pubDate>Sun, 05 Apr 2026 05:37:38 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_04_05.mp3" type="audio/mpeg" length="3070372" />
+      <itunes:title>AudioNews Polska - April 05, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>April 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 kwietnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj na prawicy dochodzi do istotnych zmian, gdyż partie Janusza Korwin-Mikkego i Sławomira Mentzena mają zostać rozwiązane;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>50</itunes:episode>
+      <itunes:subtitle>April 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 kwietnia 2026, przygotowany przez Dyn...</itunes:subtitle>
+      <itunes:duration />
+    </item>
     <item>
       <title>AudioNews Polska - March 09, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-03-09</link>
@@ -56,7 +71,7 @@
       <itunes:summary>March 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wchodzi w tysiąc czterysta siedemdziesiąty piąty dzień trwania;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>50</itunes:episode>
+      <itunes:episode>49</itunes:episode>
       <itunes:subtitle>March 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -71,7 +86,7 @@
       <itunes:summary>March 08, 2026 news: Oto Twój przegląd wiadomości polskie na 8 marca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj trwa debata o stanie polskiej edukacji po ministrze Czarnku, którego nauczyciele krytykują za trzy główne problemy: chaos programowy, ideologizację nauczania oraz...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>49</itunes:episode>
+      <itunes:episode>48</itunes:episode>
       <itunes:subtitle>March 08, 2026 news: Oto Twój przegląd wiadomości polskie na 8 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -86,7 +101,7 @@
       <itunes:summary>March 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 marca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj kandydat na prezydenta Karol Nawrocki zyskuje na znaczeniu w kampanii wyborczej, a jego obecność wpływa na strategię Prawa i Sprawiedliwości;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>48</itunes:episode>
+      <itunes:episode>47</itunes:episode>
       <itunes:subtitle>March 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -101,7 +116,7 @@
       <itunes:summary>March 06, 2026 news: Oto Twój przegląd wiadomości polskie na 6 marca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj prezydent Andrzej Duda zaskoczył nagłą zmianą stanowiska wobec ustawy medialnej, co wywołało spekulacje o kulisach tej decyzji;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>47</itunes:episode>
+      <itunes:episode>46</itunes:episode>
       <itunes:subtitle>March 06, 2026 news: Oto Twój przegląd wiadomości polskie na 6 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -116,7 +131,7 @@
       <itunes:summary>March 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad cztery lata, a sytuacja na froncie pozostaje napięta;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>46</itunes:episode>
+      <itunes:episode>45</itunes:episode>
       <itunes:subtitle>March 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -131,7 +146,7 @@
       <itunes:summary>March 04, 2026 news: Oto Twój przegląd wiadomości polskie na 4 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysetny siedemdziesiąty dzień trwania;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>45</itunes:episode>
+      <itunes:episode>44</itunes:episode>
       <itunes:subtitle>March 04, 2026 news: Oto Twój przegląd wiadomości polskie na 4 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -146,7 +161,7 @@
       <itunes:summary>March 03, 2026 news: Oto Twój przegląd wiadomości polskie na 3 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysta sześćdziesiąty dziewiąty dzień walk;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>44</itunes:episode>
+      <itunes:episode>43</itunes:episode>
       <itunes:subtitle>March 03, 2026 news: Oto Twój przegląd wiadomości polskie na 3 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -161,7 +176,7 @@
       <itunes:summary>March 02, 2026 news: Oto Twój przegląd wiadomości polskie na 2 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt w Ukrainie trwa już ponad cztery lata, a walki wciąż się nasilają;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>43</itunes:episode>
+      <itunes:episode>42</itunes:episode>
       <itunes:subtitle>March 02, 2026 news: Oto Twój przegląd wiadomości polskie na 2 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -176,7 +191,7 @@
       <itunes:summary>March 01, 2026 news: Oto Twój przegląd wiadomości polskie na 1 marca 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj trwa tysiąc czterysta sześćdziesiąty szósty dzień rosyjskiej inwazji na Ukrainę;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>42</itunes:episode>
+      <itunes:episode>41</itunes:episode>
       <itunes:subtitle>March 01, 2026 news: Oto Twój przegląd wiadomości polskie na 1 marca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -191,7 +206,7 @@
       <itunes:summary>February 28, 2026 news: Oto Twój przegląd wiadomości polskie na 28 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj najnowszy sondaż przynosi zaskakujące wyniki, gdzie Koalicja Obywatelska umacnia swoją pozycję lidera, podczas gdy poparcie dla Prawa i Sprawiedliwości spadło poniżej...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>41</itunes:episode>
+      <itunes:episode>40</itunes:episode>
       <itunes:subtitle>February 28, 2026 news: Oto Twój przegląd wiadomości polskie na 28 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -206,7 +221,7 @@
       <itunes:summary>February 27, 2026 news: Oto Twój przegląd wiadomości polskie na 27 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt rosyjsko-ukraiński wkracza w tysiąc czterysta sześćdziesiąty piąty dzień trwania, podczas gdy na subkontynencie azjatyckim eskaluje napięcie militarne...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>40</itunes:episode>
+      <itunes:episode>39</itunes:episode>
       <itunes:subtitle>February 27, 2026 news: Oto Twój przegląd wiadomości polskie na 27 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -221,7 +236,7 @@
       <itunes:summary>February 26, 2026 news: Oto Twój przegląd wiadomości polskie na 26 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj prezydent Karol Nawrocki planuje ułaskawić dwie osoby publiczne, co wywołuje dyskusje o zakresie prezydenckich prerogatyw;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>39</itunes:episode>
+      <itunes:episode>38</itunes:episode>
       <itunes:subtitle>February 26, 2026 news: Oto Twój przegląd wiadomości polskie na 26 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -236,7 +251,7 @@
       <itunes:summary>February 25, 2026 news: Oto Twój przegląd wiadomości polskie na 25 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj trwa tysiąc czterysta sześćdziesiąty trzeci dzień rosyjskiej inwazji na Ukrainę;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>38</itunes:episode>
+      <itunes:episode>37</itunes:episode>
       <itunes:subtitle>February 25, 2026 news: Oto Twój przegląd wiadomości polskie na 25 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -251,7 +266,7 @@
       <itunes:summary>February 24, 2026 news: Oto Twój przegląd wiadomości polskie na 24 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wchodzi w tysiąc czterysta sześćdziesiąty drugi dzień;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>37</itunes:episode>
+      <itunes:episode>36</itunes:episode>
       <itunes:subtitle>February 24, 2026 news: Oto Twój przegląd wiadomości polskie na 24 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -266,7 +281,7 @@
       <itunes:summary>February 23, 2026 news: Oto Twój przegląd wiadomości polskie na 23 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj trwają gorące debaty wokół planowanej reformy inspekcji pracy, którą przedsiębiorcy ostro krytykują nazywając ją zgniłym kompromisem;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>36</itunes:episode>
+      <itunes:episode>35</itunes:episode>
       <itunes:subtitle>February 23, 2026 news: Oto Twój przegląd wiadomości polskie na 23 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -281,7 +296,7 @@
       <itunes:summary>February 22, 2026 news: Oto Twój przegląd wiadomości polskie na 22 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj analizy wskazują na potencjalne konsekwencje niedawnego orzeczenia Sądu Najwyższego Stanów Zjednoczonych dla administracji Donalda Trumpa;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>35</itunes:episode>
+      <itunes:episode>34</itunes:episode>
       <itunes:subtitle>February 22, 2026 news: Oto Twój przegląd wiadomości polskie na 22 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -296,7 +311,7 @@
       <itunes:summary>February 21, 2026 news: Oto Twój przegląd wiadomości polskie na 21 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Prawo i Sprawiedliwość zmaga się z pogłębiającym się kryzysem, a wybór nowego kandydata na premiera przez Jarosława Kaczyńskiego nie przynosi oczekiwanej poprawy sytuacji;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>34</itunes:episode>
+      <itunes:episode>33</itunes:episode>
       <itunes:subtitle>February 21, 2026 news: Oto Twój przegląd wiadomości polskie na 21 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -311,7 +326,7 @@
       <itunes:summary>February 20, 2026 news: Oto Twój przegląd wiadomości polskie na 20 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysta pięćdziesiąty ósmy dzień walk;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>33</itunes:episode>
+      <itunes:episode>32</itunes:episode>
       <itunes:subtitle>February 20, 2026 news: Oto Twój przegląd wiadomości polskie na 20 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -326,7 +341,7 @@
       <itunes:summary>February 19, 2026 news: Oto Twój przegląd wiadomości polskie na 19 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad cztery lata, a sytuacja pozostaje napięta;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>32</itunes:episode>
+      <itunes:episode>31</itunes:episode>
       <itunes:subtitle>February 19, 2026 news: Oto Twój przegląd wiadomości polskie na 19 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -341,7 +356,7 @@
       <itunes:summary>February 18, 2026 news: Oto Twój przegląd wiadomości polskie na 18 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj trwa spór wokół prezydenckiego weta, które minister edukacji Barbara Nowacka określiła jako decyzję polityczną;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>31</itunes:episode>
+      <itunes:episode>30</itunes:episode>
       <itunes:subtitle>February 18, 2026 news: Oto Twój przegląd wiadomości polskie na 18 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -356,7 +371,7 @@
       <itunes:summary>February 17, 2026 news: Oto Twój przegląd wiadomości polskie na 17 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Sejm przyjął ustawę o funduszu SAFE przeznaczonym na obronność; teraz kluczowa decyzja należy do prezydenta Andrzeja Dudy, który może podpisać lub zawetować projekt .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>30</itunes:episode>
+      <itunes:episode>29</itunes:episode>
       <itunes:subtitle>February 17, 2026 news: Oto Twój przegląd wiadomości polskie na 17 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -371,7 +386,7 @@
       <itunes:summary>February 16, 2026 news: Oto Twój przegląd wiadomości polskie na 16 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj pierwsza prezes Sądu Najwyższego wyraziła rozczarowanie działaniami polityków, którzy jej zdaniem zaszkodzili krajowi;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>29</itunes:episode>
+      <itunes:episode>28</itunes:episode>
       <itunes:subtitle>February 16, 2026 news: Oto Twój przegląd wiadomości polskie na 16 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -386,7 +401,7 @@
       <itunes:summary>February 15, 2026 news: Oto Twój przegląd wiadomości polskie na 15 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wchodzi w tysiąc czterysta pięćdziesiąty drugi dzień trwania;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>28</itunes:episode>
+      <itunes:episode>27</itunes:episode>
       <itunes:subtitle>February 15, 2026 news: Oto Twój przegląd wiadomości polskie na 15 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -401,7 +416,7 @@
       <itunes:summary>February 14, 2026 news: Oto Twój przegląd wiadomości polskie na 14 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Prawo i Sprawiedliwość sygnalizuje możliwość współpracy z partią Grzegorza Brauna, co potwierdził Przemysław Czarnek w rozmowie prasowej;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>27</itunes:episode>
+      <itunes:episode>26</itunes:episode>
       <itunes:subtitle>February 14, 2026 news: Oto Twój przegląd wiadomości polskie na 14 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -416,7 +431,7 @@
       <itunes:summary>February 13, 2026 news: Oto Twój przegląd wiadomości polskie na 13 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysta pięćdziesiąty pierwszy dzień trwania;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>26</itunes:episode>
+      <itunes:episode>25</itunes:episode>
       <itunes:subtitle>February 13, 2026 news: Oto Twój przegląd wiadomości polskie na 13 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -431,7 +446,7 @@
       <itunes:summary>February 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dziś konflikt na Ukrainie wchodzi w tysiąc czterysta pięćdziesiąty dzień trwania;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>25</itunes:episode>
+      <itunes:episode>24</itunes:episode>
       <itunes:subtitle>February 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -446,7 +461,7 @@
       <itunes:summary>February 11, 2026 news: Oto Twój przegląd wiadomości polskie na 11 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już tysiąc czterysta czterdzieści dziewiąty dzień, a sytuacja na froncie pozostaje napięta z ciągłymi działaniami wojennymi po obu stronach;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>24</itunes:episode>
+      <itunes:episode>23</itunes:episode>
       <itunes:subtitle>February 11, 2026 news: Oto Twój przegląd wiadomości polskie na 11 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -461,7 +476,7 @@
       <itunes:summary>February 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysta czterdziesiąty ósmy dzień;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>23</itunes:episode>
+      <itunes:episode>22</itunes:episode>
       <itunes:subtitle>February 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 lutego 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -476,7 +491,7 @@
       <itunes:summary>February 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj premier Donald Tusk podpisze kodeks mający odpolitycznić spółki Skarbu Państwa, co ma ograniczyć wpływ partii na zarządzanie państwowymi firmami;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>22</itunes:episode>
+      <itunes:episode>21</itunes:episode>
       <itunes:subtitle>February 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 lutego 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -491,7 +506,7 @@
       <itunes:summary>February 08, 2026 news: Oto Twój przegląd wiadomości polskie na 8 lutego 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj konflikt rosyjsko-ukraiński wkracza w tysiąc czterysta czterdziesty piąty dzień trwania;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>21</itunes:episode>
+      <itunes:episode>20</itunes:episode>
       <itunes:subtitle>February 08, 2026 news: Oto Twój przegląd wiadomości polskie na 8 lutego 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -506,7 +521,7 @@
       <itunes:summary>February 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 lutego 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj kandydat na prezydenta Karol Nawrocki znalazł się pod ostrzałem krytyki za jednoznaczne opowiedzenie się po stronie Donalda Trumpa, co może osłabiać jego pozycję w kampanii;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>20</itunes:episode>
+      <itunes:episode>19</itunes:episode>
       <itunes:subtitle>February 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 lutego 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -521,7 +536,7 @@
       <itunes:summary>February 06, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już tysiąc czterysta czterdzieści cztery dni; w odpowiedzi na kryzys energetyczny na Kubie Meksyk poszukuje sposobów na dostarczenie ropy naftowej na wyspę, podczas gdy Stany Zjednoczone zapowiedziały wysłanie pomocy humanitarnej...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>19</itunes:episode>
+      <itunes:episode>18</itunes:episode>
       <itunes:subtitle>February 06, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już tysią...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -536,7 +551,7 @@
       <itunes:summary>February 05, 2026 news: w wiadomościach polityka dzisiaj napięcia w koalicji rządowej narastają wokół ministra obrony Władysława Kosiniaka-Kamysza, który po raz trzeci staje przed dylematem dotyczącym kierunku polityki obronnej Polski w kontekście zmieniających się relacji z Waszyngtonem; równocześnie w Prawie i...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>18</itunes:episode>
+      <itunes:episode>17</itunes:episode>
       <itunes:subtitle>February 05, 2026 news: w wiadomościach polityka dzisiaj napięcia w koalicji rządowej narastają wokó...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -551,7 +566,7 @@
       <itunes:summary>February 04, 2026 news: w wiadomościach polityka dzisiaj najnowsze badania pokazują że aż sześć ugrupowań mogłoby wejść do parlamentu, co jest sporym zaskoczeniem na polskiej scenie politycznej; jednocześnie świeże dane dotyczące zaufania społecznego ujawniają jak obywatele oceniają kandydata na prezydenta Karola...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>17</itunes:episode>
+      <itunes:episode>16</itunes:episode>
       <itunes:subtitle>February 04, 2026 news: w wiadomościach polityka dzisiaj najnowsze badania pokazują że aż sześć ugru...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -566,7 +581,7 @@
       <itunes:summary>February 03, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już tysiąc czterysta czterdzieści jeden dni; prezydent Trump oświadczył że rozmowy z Ukrainą i Rosją przebiegają pomyślnie jednak krótko po jego wypowiedzi Rosja przeprowadziła kolejny atak na Kijów, co budzi wątpliwości co do...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>16</itunes:episode>
+      <itunes:episode>15</itunes:episode>
       <itunes:subtitle>February 03, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już tysią...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -581,7 +596,7 @@
       <itunes:summary>February 02, 2026 news: w wiadomościach polityka dzisiaj trwa debata o ewentualnym wysłaniu polskich wojsk na Ukrainę, co budzi kontrowersje i różne opinie w środowisku politycznym; równocześnie chaos prawny dotyka osoby rozwiedzione, które w związku z zawiłościami systemu sądowego nie mają pewności co do statusu...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>15</itunes:episode>
+      <itunes:episode>14</itunes:episode>
       <itunes:subtitle>February 02, 2026 news: w wiadomościach polityka dzisiaj trwa debata o ewentualnym wysłaniu polskich...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -596,7 +611,7 @@
       <itunes:summary>February 01, 2026 news: w wiadomościach polityka dzisiaj Polska 2050 ma nowe kierownictwo po odejściu Szymona Hołowni na stanowisko marszałka Sejmu; partię poprowadzi Paulina Pełczyńska-Nałęcz, która wcześniej pełniła funkcję minister funduszy i polityki regionalnej .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>14</itunes:episode>
+      <itunes:episode>13</itunes:episode>
       <itunes:subtitle>February 01, 2026 news: w wiadomościach polityka dzisiaj Polska 2050 ma nowe kierownictwo po odejści...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -611,7 +626,7 @@
       <itunes:summary>January 31, 2026 news: W wiadomościach międzynarodowych dzisiaj trwa tysiąc czterysta trzydziesty siódmy dzień rosyjskiej inwazji na Ukrainę, podczas gdy w samej Rosji ekstremalne mrozy sięgające minus czterdziestu pięciu stopni Celsjusza powodują poważne problemy infrastrukturalne; mieszkańcy wielu regionów pozostają...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>13</itunes:episode>
+      <itunes:episode>12</itunes:episode>
       <itunes:subtitle>January 31, 2026 news: W wiadomościach międzynarodowych dzisiaj trwa tysiąc czterysta trzydziesty si...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -626,7 +641,7 @@
       <itunes:summary>January 30, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad tysiąc czterysta dni; prezydent Trump wprowadził stan nadzwyczajny wobec Kuby uzasadniając to rosnącymi wpływami Rosji i Chin w regionie, co stanowi według amerykańskiej administracji zagrożenie dla bezpieczeństwa...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>12</itunes:episode>
+      <itunes:episode>11</itunes:episode>
       <itunes:subtitle>January 30, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie trwa już ponad...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -641,7 +656,7 @@
       <itunes:summary>January 29, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysta trzydziesty szósty dzień walk; w Waszyngtonie doszło do historycznego spotkania gdy po raz pierwszy prezydent Syrii odwiedził Biały Dom, co budzi pytania o cele obu przywódców w kontekście przyszłości regionu;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>11</itunes:episode>
+      <itunes:episode>10</itunes:episode>
       <itunes:subtitle>January 29, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysią...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -656,7 +671,7 @@
       <itunes:summary>January 28, 2026 news: W wiadomościach międzynarodowych dzisiaj: konflikt na Ukrainie wchodzi w tysiąc czterysta trzydziesty piąty dzień walk; w Stanach Zjednoczonych doszło do ataku na kongresmenką Ilhan Omar w Minneapolis, a prezydent Trump zmienił swoje stanowisko w sprawie śmierci dwojga Amerykanów, Alexa...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>10</itunes:episode>
+      <itunes:episode>9</itunes:episode>
       <itunes:subtitle>January 28, 2026 news: W wiadomościach międzynarodowych dzisiaj: konflikt na Ukrainie wchodzi w tysi...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -671,7 +686,7 @@
       <itunes:summary>January 27, 2026 news: W wiadomościach międzynarodowych dzisiaj: konflikt na Ukrainie wchodzi w tysiąc czterysta trzydziesty czwarty dzień trwania; administracja amerykańska nałożyła nowe cła na Koreę Południową w ramach kolejnej rundy protekcjonistycznych działań gospodarczych, podczas gdy na Węgrzech nasila się...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>9</itunes:episode>
+      <itunes:episode>8</itunes:episode>
       <itunes:subtitle>January 27, 2026 news: W wiadomościach międzynarodowych dzisiaj: konflikt na Ukrainie wchodzi w tysi...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -686,7 +701,7 @@
       <itunes:summary>January 26, 2026 news: w wiadomościach polityka dzisiaj Marek Balicki analizuje ostrożność obecnego rządu w przeprowadzaniu reform, wskazując że doświadczenia pokolenia Tuska z czasów AWS, gdy reformy przyczyniły się do upadku tamtej koalicji, skłaniają do bardziej wyważonego działania; w kontekście międzynarodowym...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>8</itunes:episode>
+      <itunes:episode>7</itunes:episode>
       <itunes:subtitle>January 26, 2026 news: w wiadomościach polityka dzisiaj Marek Balicki analizuje ostrożność obecnego...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -701,7 +716,7 @@
       <itunes:summary>January 25, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysta trzydziesty pierwszy dzień walk; w odpowiedzi na rosnące zagrożenie N A T O wzmacnia swoją wschodnią flankę poprzez budowę zautomatyzowanych systemów obronnych mających na celu powstrzymanie potencjalnej...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>7</itunes:episode>
+      <itunes:episode>6</itunes:episode>
       <itunes:subtitle>January 25, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysią...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -716,7 +731,7 @@
       <itunes:summary>January 24, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysetny trzydziesty dzień; w Davos prezydent Zełenski popełnił poważny błąd dyplomatyczny podczas spotkania z nowym amerykańskim prezydentem Trumpem, co może wpłynąć na przyszłe wsparcie Stanów Zjednoczonych dla...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>6</itunes:episode>
+      <itunes:episode>5</itunes:episode>
       <itunes:subtitle>January 24, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysią...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -731,7 +746,7 @@
       <itunes:summary>January 23, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysiąc czterysetny trzydziesty dzień; po niedawnych rozmowach dyplomatycznych ogłoszono miliardowy fundusz dla inicjatyw pokojowych, choć warunki zakończenia walk pozostają przedmiotem sporów.</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>5</itunes:episode>
+      <itunes:episode>4</itunes:episode>
       <itunes:subtitle>January 23, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wkracza w tysią...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -746,7 +761,7 @@
       <itunes:summary>January 22, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wchodzi w tysiąc czterysta dwudziesty dziewiąty dzień; napięcia dyplomatyczne narastają wokół Grenlandii gdzie pojawiły się doniesienia o rzekomych ustaleniach między prezydentem Trumpem a sekretarzem generalnym NATO choć strona...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>4</itunes:episode>
+      <itunes:episode>3</itunes:episode>
       <itunes:subtitle>January 22, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt na Ukrainie wchodzi w tysią...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -761,7 +776,7 @@
       <itunes:summary>January 21, 2026 news: W wiadomościach międzynarodowych dzisiaj: konflikt rosyjsko-ukraiński trwa już tysiąc czterysta dwadzieścia osiem dni, podczas gdy prezydent Trump wywołał kontrowersje na forum w Davos twierdząc że tylko Stany Zjednoczone mogą odpowiednio zabezpieczyć Grenlandię; były prezydent Kwaśniewski...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>3</itunes:episode>
+      <itunes:episode>2</itunes:episode>
       <itunes:subtitle>January 21, 2026 news: W wiadomościach międzynarodowych dzisiaj: konflikt rosyjsko-ukraiński trwa ju...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -776,23 +791,8 @@
       <itunes:summary>January 20, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt między Rosją a Ukrainą wkracza w tysiąc czterysta dwudziesty siódmy dzień walk; tymczasem prezydent Trump wywołał kontrowersje kwestionując duńską suwerenność nad Grenlandią i pytając dlaczego Dania w ogóle posiada tę arktyczną wyspę, co wywołało...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>2</itunes:episode>
-      <itunes:subtitle>January 20, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt między Rosją a Ukrainą wkra...</itunes:subtitle>
-      <itunes:duration />
-    </item>
-    <item>
-      <title>AudioNews Polska - January 19, 2026: W wiadomościach polityka dzisiaj</title>
-      <link>https://audionews.uk/pl_PL?date=2026-01-19</link>
-      <description>January 19, 2026 news: Polska 2050 przeżywa wewnętrzne napięcia związane z wyborami nowego lidera. Kandydatki przedstawiają swoje wizje rozwoju partii, a spekulacje dotyczą możliwego powstania nowej formacji politycznej - Czwartej Drogi.</description>
-      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_01_19.mp3</guid>
-      <pubDate>Mon, 19 Jan 2026 12:40:29 +0000</pubDate>
-      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_01_19.mp3" type="audio/mpeg" length="1242000" />
-      <itunes:title>AudioNews Polska - January 19, 2026: W wiadomościach polityka dzisiaj</itunes:title>
-      <itunes:summary>January 19, 2026 news: Polska 2050 przeżywa wewnętrzne napięcia związane z wyborami nowego lidera. Kandydatki przedstawiają swoje wizje rozwoju partii, a spekulacje dotyczą możliwego powstania nowej formacji politycznej - Czwartej Drogi.</itunes:summary>
-      <itunes:explicit>no</itunes:explicit>
-      <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>1</itunes:episode>
-      <itunes:subtitle>January 19, 2026 news: Polska 2050 przeżywa wewnętrzne napięcia związane z wyborami nowego lidera. K...</itunes:subtitle>
+      <itunes:subtitle>January 20, 2026 news: W wiadomościach międzynarodowych dzisiaj konflikt między Rosją a Ukrainą wkra...</itunes:subtitle>
       <itunes:duration />
     </item>
   </channel>
