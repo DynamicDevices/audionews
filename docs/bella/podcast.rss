@@ -32,15 +32,30 @@
       <itunes:category text="Finance" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, business, finance, investment banking, vc, career, business strategy</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1775454463" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-bella-v2.png?v=1775540430" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1775454463</url>
+      <url>https://audionews.uk/images/podcast-cover-bella-v2.png?v=1775540430</url>
       <title>BellaNews Daily</title>
       <link>https://audionews.uk/bella</link>
     </image>
-    <lastBuildDate>Mon, 06 Apr 2026 05:48:03 +0000</lastBuildDate>
-    <pubDate>Mon, 06 Apr 2026 05:48:03 +0000</pubDate>
+    <lastBuildDate>Tue, 07 Apr 2026 05:40:57 +0000</lastBuildDate>
+    <pubDate>Tue, 07 Apr 2026 05:40:57 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>BellaNews - April 07, 2026: Good morning Bella; Here's your Business and Finance news...</title>
+      <link>https://audionews.uk/bella?date=2026-04-07</link>
+      <description>April 07, 2026 news: Geopolitical shocks create asymmetric market impacts worth modeling for your banking career . Oil supply disruptions are simultaneously boosting energy sector valuations while constraining growth in import-dependent economies like India, This demonstrates how commodity exposure creates portfolio...</description>
+      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_04_07.mp3</guid>
+      <pubDate>Tue, 07 Apr 2026 05:38:50 +0000</pubDate>
+      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_04_07.mp3" type="audio/mpeg" length="6056272" />
+      <itunes:title>BellaNews - April 07, 2026: Good morning Bella; Here's your Business and Finance news...</itunes:title>
+      <itunes:summary>April 07, 2026 news: Geopolitical shocks create asymmetric market impacts worth modeling for your banking career . Oil supply disruptions are simultaneously boosting energy sector valuations while constraining growth in import-dependent economies like India, This demonstrates how commodity exposure creates portfolio...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>50</itunes:episode>
+      <itunes:subtitle>April 07, 2026 news: Geopolitical shocks create asymmetric market impacts worth modeling for your ba...</itunes:subtitle>
+      <itunes:duration />
+    </item>
     <item>
       <title>BellaNews - April 06, 2026: Good morning Bella; Here's your Business and Finance news...</title>
       <link>https://audionews.uk/bella?date=2026-04-06</link>
@@ -52,7 +67,7 @@
       <itunes:summary>April 06, 2026 news: Market volatility is creating fascinating mathematical challenges across multiple sectors this week . Oil traders are navigating extreme price swings driven by sentiment rather than fundamentals , requiring sophisticated stochastic modeling ;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>50</itunes:episode>
+      <itunes:episode>49</itunes:episode>
       <itunes:subtitle>April 06, 2026 news: Market volatility is creating fascinating mathematical challenges across multip...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -67,7 +82,7 @@
       <itunes:summary>April 05, 2026 news: Geopolitical risk modeling becomes critical when oil supply routes face disruption, as recent tensions demonstrate through the Strait of Hormuz situation . Energy markets moved sharply on these developments, showing how twenty percent of global oil flows through this narrow chokepoint daily .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>49</itunes:episode>
+      <itunes:episode>48</itunes:episode>
       <itunes:subtitle>April 05, 2026 news: Geopolitical risk modeling becomes critical when oil supply routes face disrupt...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -82,7 +97,7 @@
       <itunes:summary>March 09, 2026 news: Geopolitical shocks create fascinating case studies in volatility modeling and risk pricing for aspiring finance professionals . Oil surging past one hundred ten dollars demonstrates how supply chain mathematics instantly reprices global equity portfolios .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>48</itunes:episode>
+      <itunes:episode>47</itunes:episode>
       <itunes:subtitle>March 09, 2026 news: Geopolitical shocks create fascinating case studies in volatility modeling and...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -97,7 +112,7 @@
       <itunes:summary>March 08, 2026 news: Geopolitical tensions around Iran are creating cascading effects across global markets and infrastructure networks worth analyzing strategically . Airspace closures force airlines to recalculate optimal routing algorithms, increasing fuel costs and demonstrating how constraint optimization...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>47</itunes:episode>
+      <itunes:episode>46</itunes:episode>
       <itunes:subtitle>March 08, 2026 news: Geopolitical tensions around Iran are creating cascading effects across global...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -112,7 +127,7 @@
       <itunes:summary>March 07, 2026 news: Meanwhile , multiple states are challenging federal tariff policies through litigation , arguing these trade barriers impose unconstitutional costs on regional economies .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>46</itunes:episode>
+      <itunes:episode>45</itunes:episode>
       <itunes:subtitle>March 07, 2026 news: Meanwhile , multiple states are challenging federal tariff policies through lit...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -127,7 +142,7 @@
       <itunes:summary>March 06, 2026 news: Global markets are delivering a masterclass in interconnected risk modeling this week, particularly relevant for quantitative finance careers . Trade policy reversals worth over one hundred thirty billion dollars demonstrate how regulatory frameworks create massive valuation swings;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>45</itunes:episode>
+      <itunes:episode>44</itunes:episode>
       <itunes:subtitle>March 06, 2026 news: Global markets are delivering a masterclass in interconnected risk modeling thi...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -142,7 +157,7 @@
       <itunes:summary>March 05, 2026 news: Political risk modeling becomes critical when trade tensions escalate between major economies and their partners, The disconnect between official economic narratives and actual consumer data creates fascinating analytical challenges for financial professionals . Investment bankers must quantify...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>44</itunes:episode>
+      <itunes:episode>43</itunes:episode>
       <itunes:subtitle>March 05, 2026 news: Political risk modeling becomes critical when trade tensions escalate between m...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -157,7 +172,7 @@
       <itunes:summary>March 04, 2026 news: Three major developments reveal how policy uncertainty creates market volatility for financial professionals to navigate carefully, The Justice Departments antitrust case against live entertainment monopolies demonstrates how market concentration reduces consumer surplus and pricing efficiency .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>43</itunes:episode>
+      <itunes:episode>42</itunes:episode>
       <itunes:subtitle>March 04, 2026 news: Three major developments reveal how policy uncertainty creates market volatilit...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -172,7 +187,7 @@
       <itunes:summary>March 03, 2026 news: Middle East tensions are creating cascading effects across global supply chains and energy markets worth analyzing closely . Geopolitical risk modeling becomes crucial when infrastructure attacks disrupt operations for companies like Amazon in the Gulf region .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>42</itunes:episode>
+      <itunes:episode>41</itunes:episode>
       <itunes:subtitle>March 03, 2026 news: Middle East tensions are creating cascading effects across global supply chains...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -187,7 +202,7 @@
       <itunes:summary>March 02, 2026 news: Nvidias latest quarterly results demonstrate how infrastructure spending creates exponential revenue growth during platform shifts , The datacenter buildout requires massive capital deployment , which investment bankers structure and venture capitalists must anticipate when timing investments ;...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>41</itunes:episode>
+      <itunes:episode>40</itunes:episode>
       <itunes:subtitle>March 02, 2026 news: Nvidias latest quarterly results demonstrate how infrastructure spending create...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -202,7 +217,7 @@
       <itunes:summary>March 01, 2026 news: Nvidias datacenter revenue surge demonstrates robust enterprise demand for AI infrastructure and computational power; Meanwhile, Blocks workforce reduction of four thousand positions illustrates AIs deflationary impact on labor economics .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>40</itunes:episode>
+      <itunes:episode>39</itunes:episode>
       <itunes:subtitle>March 01, 2026 news: Nvidias datacenter revenue surge demonstrates robust enterprise demand for AI i...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -217,7 +232,7 @@
       <itunes:summary>February 28, 2026 news: Meanwhile , a major fintech platform announced workforce reductions affecting thousands of positions , citing automation capabilities that now handle previously manual operations , These simultaneous developments reveal how AI creates value asymmetrically across different business models and...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>39</itunes:episode>
+      <itunes:episode>38</itunes:episode>
       <itunes:subtitle>February 28, 2026 news: Meanwhile , a major fintech platform announced workforce reductions affectin...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -232,7 +247,7 @@
       <itunes:summary>February 27, 2026 news: Nvidias latest earnings reveal how datacenter infrastructure spending creates exponential revenue growth through network effects and compounding demand , This demonstrates how mathematical modeling of adoption curves directly translates into valuation multiples for investment banking pitches ;...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>38</itunes:episode>
+      <itunes:episode>37</itunes:episode>
       <itunes:subtitle>February 27, 2026 news: Nvidias latest earnings reveal how datacenter infrastructure spending create...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -247,7 +262,7 @@
       <itunes:summary>February 26, 2026 news: Aston Martins twenty percent workforce reduction amid widening losses demonstrates how luxury automakers face margin compression and operational inefficiency challenges , This restructuring scenario appears frequently in investment banking turnaround mandates , where analysts model cost...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>37</itunes:episode>
+      <itunes:episode>36</itunes:episode>
       <itunes:subtitle>February 26, 2026 news: Aston Martins twenty percent workforce reduction amid widening losses demons...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -262,7 +277,7 @@
       <itunes:summary>February 25, 2026 news: Recent market volatility stemming from artificial intelligence concerns reveals critical lessons about systemic risk modeling and investor psychology, When algorithmic predictions suggest economic disruption, markets can amplify those fears through reflexive selling patterns, creating...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>36</itunes:episode>
+      <itunes:episode>35</itunes:episode>
       <itunes:subtitle>February 25, 2026 news: Recent market volatility stemming from artificial intelligence concerns reve...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -277,7 +292,7 @@
       <itunes:summary>February 24, 2026 news: Global trade dynamics are shifting dramatically as tariff policies create uncertainty across major economies and established partnerships . Chinas rise as Germanys largest trading partner represents a fundamental realignment in European commercial relationships and supply chains;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>35</itunes:episode>
+      <itunes:episode>34</itunes:episode>
       <itunes:subtitle>February 24, 2026 news: Global trade dynamics are shifting dramatically as tariff policies create un...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -292,7 +307,7 @@
       <itunes:summary>February 23, 2026 news: Political pressure on corporate boards reveals how regulatory risk now shapes company valuations in unexpected ways, The administrations targeting of media companies demonstrates non-traditional market forces that quantitative models often miss entirely .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>34</itunes:episode>
+      <itunes:episode>33</itunes:episode>
       <itunes:subtitle>February 23, 2026 news: Political pressure on corporate boards reveals how regulatory risk now shape...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -307,7 +322,7 @@
       <itunes:summary>February 22, 2026 news: Congressional testimony from prominent business figures demonstrates how personal associations can create systemic brand damage, affecting enterprise valuations; Meanwhile, shifting regulatory frameworks around corporate diversity programs require sophisticated scenario modeling and compliance...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>33</itunes:episode>
+      <itunes:episode>32</itunes:episode>
       <itunes:subtitle>February 22, 2026 news: Congressional testimony from prominent business figures demonstrates how per...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -322,7 +337,7 @@
       <itunes:summary>February 21, 2026 news: Recent judicial pushback against executive tariff authority creates fascinating game theory scenarios for global trade strategy , Understanding constitutional constraints on policy tools becomes critical when modeling market volatility and cross-border investment flows ; Meanwhile , corporate...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>32</itunes:episode>
+      <itunes:episode>31</itunes:episode>
       <itunes:subtitle>February 21, 2026 news: Recent judicial pushback against executive tariff authority creates fascinat...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -337,7 +352,7 @@
       <itunes:summary>February 20, 2026 news: Corporate diversity programs face strategic restructuring as political pressures mount , creating measurable impacts on talent pipelines and organizational structures , This shift matters for banking careers because workforce composition directly affects deal sourcing networks and client...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>31</itunes:episode>
+      <itunes:episode>30</itunes:episode>
       <itunes:subtitle>February 20, 2026 news: Corporate diversity programs face strategic restructuring as political press...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -352,7 +367,7 @@
       <itunes:summary>February 19, 2026 news: Political pressure on the Federal Reserves independence creates fascinating game theory for markets and your future banking career , When advisers target Fed economists , it signals potential shifts in monetary policy frameworks that directly impact valuation models , Understanding central bank...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>30</itunes:episode>
+      <itunes:episode>29</itunes:episode>
       <itunes:subtitle>February 19, 2026 news: Political pressure on the Federal Reserves independence creates fascinating...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -367,7 +382,7 @@
       <itunes:summary>February 18, 2026 news: Corporate governance frameworks are shifting as major financial institutions recalibrate their diversity evaluation metrics amid changing political pressures . Goldman Sachs recently modified its board assessment criteria, removing demographic-specific benchmarks that previously influenced IPO...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>29</itunes:episode>
+      <itunes:episode>28</itunes:episode>
       <itunes:subtitle>February 18, 2026 news: Corporate governance frameworks are shifting as major financial institutions...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -382,7 +397,7 @@
       <itunes:summary>February 17, 2026 news: Coal industry endorsements signal domestic political calculus, while potential Venezuela engagement demonstrates complex risk-reward optimization in commodity markets .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>28</itunes:episode>
+      <itunes:episode>27</itunes:episode>
       <itunes:subtitle>February 17, 2026 news: Coal industry endorsements signal domestic political calculus, while potenti...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -397,7 +412,7 @@
       <itunes:summary>February 16, 2026 news: 4 percent reveals how tariff timing creates measurement challenges for economic modeling . Congressional pushback on Canadian tariffs demonstrates the political risk premium investors must price into cross-border deals and supply chain valuations , The manufacturing reshoring debate highlights a...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>27</itunes:episode>
+      <itunes:episode>26</itunes:episode>
       <itunes:subtitle>February 16, 2026 news: 4 percent reveals how tariff timing creates measurement challenges for econo...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -412,7 +427,7 @@
       <itunes:summary>February 15, 2026 news: Congressional pushback against executive tariff authority reveals critical game theory at play in trade policy , This political chess match demonstrates how institutional checks create market uncertainty that investment bankers must model into deal valuations , When legislative and executive...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>26</itunes:episode>
+      <itunes:episode>25</itunes:episode>
       <itunes:subtitle>February 15, 2026 news: Congressional pushback against executive tariff authority reveals critical g...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -427,7 +442,7 @@
       <itunes:summary>February 14, 2026 news: Inflation declined to two point four percent despite tariff-induced volatility , showcasing how policy shocks create pricing inefficiencies ; Meanwhile , labor markets added one hundred thirty thousand jobs , exceeding forecasts even as growth projections weakened significantly , This divergence...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>25</itunes:episode>
+      <itunes:episode>24</itunes:episode>
       <itunes:subtitle>February 14, 2026 news: Inflation declined to two point four percent despite tariff-induced volatili...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -442,7 +457,7 @@
       <itunes:summary>February 13, 2026 news: Political developments are reshaping regulatory landscapes in ways that directly impact deal structures and market valuations . Congressional pushback on tariff policies creates pricing volatility that investment bankers must model when structuring cross-border transactions;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>24</itunes:episode>
+      <itunes:episode>23</itunes:episode>
       <itunes:subtitle>February 13, 2026 news: Political developments are reshaping regulatory landscapes in ways that dire...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -457,7 +472,7 @@
       <itunes:summary>February 12, 2026 news: Januarys labor market data reveals fascinating divergence worth analyzing through a quantitative lens , The economy added one hundred thirty thousand jobs , beating forecasts despite growth projections being revised sharply downward for twenty twenty-five , This disconnect between employment...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>23</itunes:episode>
+      <itunes:episode>22</itunes:episode>
       <itunes:subtitle>February 12, 2026 news: Januarys labor market data reveals fascinating divergence worth analyzing th...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -472,7 +487,7 @@
       <itunes:summary>February 11, 2026 news: Immigration enforcement escalation creates labor market volatility, particularly affecting agriculture and construction sectors with quantifiable G D P impacts . Housing policy proposals lack coherent frameworks, revealing how political dysfunction translates directly into persistent market...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>22</itunes:episode>
+      <itunes:episode>21</itunes:episode>
       <itunes:subtitle>February 11, 2026 news: Immigration enforcement escalation creates labor market volatility, particul...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -487,7 +502,7 @@
       <itunes:summary>February 10, 2026 news: Markets are painting a complex picture as equities surge while digital assets crater and employment data weakens significantly , The equity rally to new highs reflects investor optimism about monetary policy easing , creating valuation questions for analysts ; Meanwhile , cryptos fifty percent...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>21</itunes:episode>
+      <itunes:episode>20</itunes:episode>
       <itunes:subtitle>February 10, 2026 news: Markets are painting a complex picture as equities surge while digital asset...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -502,7 +517,7 @@
       <itunes:summary>February 09, 2026 news: Market dynamics reveal fascinating mathematical patterns as equity indices surge while digital assets crater simultaneously , The stock market rally reflects discounted cash flow models responding to anticipated rate cuts , which increase present values of future earnings ; Meanwhile ,...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>20</itunes:episode>
+      <itunes:episode>19</itunes:episode>
       <itunes:subtitle>February 09, 2026 news: Market dynamics reveal fascinating mathematical patterns as equity indices s...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -517,7 +532,7 @@
       <itunes:summary>February 08, 2026 news: Corporate restructuring reveals fascinating strategic math as Musk consolidates his rocket and AI ventures into one entity , This merger creates valuation synergies that investment bankers model using discounted cash flow analysis and comparable company metrics ; Meanwhile , automation economics...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>19</itunes:episode>
+      <itunes:episode>18</itunes:episode>
       <itunes:subtitle>February 08, 2026 news: Corporate restructuring reveals fascinating strategic math as Musk consolida...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -532,7 +547,7 @@
       <itunes:summary>February 07, 2026 news: Market dynamics reveal fascinating mathematical patterns as major indices reach psychological milestones amid shifting monetary policy expectations , The Dow crossing fifty thousand demonstrates momentum trading psychology , where round numbers often trigger algorithmic responses and...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>18</itunes:episode>
+      <itunes:episode>17</itunes:episode>
       <itunes:subtitle>February 07, 2026 news: Market dynamics reveal fascinating mathematical patterns as major indices re...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -547,7 +562,7 @@
       <itunes:summary>February 06, 2026 news: Britains central bank maintained rates at three point seven five percent while signaling probable cuts ahead, This monetary policy calculus involves sophisticated time series forecasting and inflation modeling that investment bankers use daily ; Meanwhile, major media layoffs and surging Chinese...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>17</itunes:episode>
+      <itunes:episode>16</itunes:episode>
       <itunes:subtitle>February 06, 2026 news: Britains central bank maintained rates at three point seven five percent whi...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -562,7 +577,7 @@
       <itunes:summary>February 05, 2026 news: Recent allegations about foreign investment in political figures business ventures reveal critical governance risks that investment professionals must evaluate, When sovereign wealth funds make strategic investments, bankers analyze whether deals reflect genuine commercial value or potential...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>16</itunes:episode>
+      <itunes:episode>15</itunes:episode>
       <itunes:subtitle>February 05, 2026 news: Recent allegations about foreign investment in political figures business ve...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -577,7 +592,7 @@
       <itunes:summary>February 04, 2026 news: Recent geopolitical developments reveal how sovereign relationships directly impact capital flows and deal structures, The administrations trade policy adjustments demonstrate classic game theory in action, where bilateral negotiations create measurable economic outcomes .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>15</itunes:episode>
+      <itunes:episode>14</itunes:episode>
       <itunes:subtitle>February 04, 2026 news: Recent geopolitical developments reveal how sovereign relationships directly...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -592,7 +607,7 @@
       <itunes:summary>February 03, 2026 news: Two major political shifts are reshaping global finance through central bank independence and trade architecture . Leadership changes at monetary institutions create policy uncertainty that directly impacts yield curve modeling and rate derivatives;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>14</itunes:episode>
+      <itunes:episode>13</itunes:episode>
       <itunes:subtitle>February 03, 2026 news: Two major political shifts are reshaping global finance through central bank...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -607,7 +622,7 @@
       <itunes:summary>February 02, 2026 news: Corporate leaders now face a game theory problem: defend stricter standards and risk political backlash, or stay silent and face consumer pressure, This tension directly impacts valuation models in investment banking, where ESG metrics increasingly influence deal pricing and risk assessment...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>13</itunes:episode>
+      <itunes:episode>12</itunes:episode>
       <itunes:subtitle>February 02, 2026 news: Corporate leaders now face a game theory problem: defend stricter standards...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -622,7 +637,7 @@
       <itunes:summary>February 01, 2026 news: Regulatory shifts under new EPA leadership reveal how political appointments directly reshape business operating costs and competitive landscapes . Environmental compliance represents quantifiable risk in deal models;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>12</itunes:episode>
+      <itunes:episode>11</itunes:episode>
       <itunes:subtitle>February 01, 2026 news: Regulatory shifts under new EPA leadership reveal how political appointments...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -637,7 +652,7 @@
       <itunes:summary>January 31, 2026 news: For aspiring bankers, tracking these regulatory dynamics sharpens your ability to advise clients on timing capital raises or M&amp;A transactions strategically, The Federal Reserves decision to maintain rates amid political pressure creates fascinating game theory dynamics for your future banking...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>11</itunes:episode>
+      <itunes:episode>10</itunes:episode>
       <itunes:subtitle>January 31, 2026 news: For aspiring bankers, tracking these regulatory dynamics sharpens your abilit...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -652,7 +667,7 @@
       <itunes:summary>January 30, 2026 news: Amazons workforce reduction of sixteen thousand positions signals tech sector recalibration after pandemic-era expansion .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>10</itunes:episode>
+      <itunes:episode>9</itunes:episode>
       <itunes:subtitle>January 30, 2026 news: Amazons workforce reduction of sixteen thousand positions signals tech sector...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -667,7 +682,7 @@
       <itunes:summary>January 29, 2026 news: Currency volatility directly impacts how youll price international transactions and hedge foreign exchange risk in your future deals . Additionally, major tech layoffs reveal how companies optimize their cost structures when capital becomes expensive and growth expectations reset .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>9</itunes:episode>
+      <itunes:episode>8</itunes:episode>
       <itunes:subtitle>January 29, 2026 news: Currency volatility directly impacts how youll price international transactio...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -682,7 +697,7 @@
       <itunes:summary>January 28, 2026 news: Recent tensions between executive authority and central bank independence create fascinating game theory scenarios for market participants, When political pressure threatens Federal Reserve autonomy, investors must model multiple equilibrium outcomes using probabilistic frameworks, This...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>8</itunes:episode>
+      <itunes:episode>7</itunes:episode>
       <itunes:subtitle>January 28, 2026 news: Recent tensions between executive authority and central bank independence cre...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -697,7 +712,7 @@
       <itunes:summary>January 27, 2026 news: Recent tensions between executive power and central bank independence create fascinating game theory scenarios, When political pressure meets monetary policy, markets must price in institutional risk alongside traditional economic indicators .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>7</itunes:episode>
+      <itunes:episode>6</itunes:episode>
       <itunes:subtitle>January 27, 2026 news: Recent tensions between executive power and central bank independence create...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -712,7 +727,7 @@
       <itunes:summary>January 26, 2026 news: Recent tensions between executive power and central bank independence create fascinating game theory scenarios for markets, When political leaders challenge Federal Reserve autonomy, youre essentially watching a high-stakes coordination problem unfold in real time, The mathematical framework...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>6</itunes:episode>
+      <itunes:episode>5</itunes:episode>
       <itunes:subtitle>January 26, 2026 news: Recent tensions between executive power and central bank independence create...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -727,7 +742,7 @@
       <itunes:summary>January 25, 2026 news: Political uncertainty around central bank independence creates measurable market volatility that investment bankers must quantify in risk models . Tensions between executive power and Federal Reserve autonomy directly impact interest rate forecasting, which drives valuation multiples across...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>5</itunes:episode>
+      <itunes:episode>4</itunes:episode>
       <itunes:subtitle>January 25, 2026 news: Political uncertainty around central bank independence creates measurable mar...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -742,7 +757,7 @@
       <itunes:summary>January 24, 2026 news: **Political Dynamics and Market Strategy** Federal Reserve governance faces judicial scrutiny as the Supreme Court weighs presidential authority over central bank board composition, This institutional tension directly impacts monetary policy predictability, which drives your valuation models and...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>4</itunes:episode>
+      <itunes:episode>3</itunes:episode>
       <itunes:subtitle>January 24, 2026 news: **Political Dynamics and Market Strategy** Federal Reserve governance faces j...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -757,7 +772,7 @@
       <itunes:summary>January 23, 2026 news: Federal Reserve governance is facing judicial scrutiny, highlighting how political pressure intersects with monetary policy independence, This matters because central bank autonomy directly impacts interest rate modeling and macroeconomic forecasting youll use in banking ; Meanwhile,...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>3</itunes:episode>
+      <itunes:episode>2</itunes:episode>
       <itunes:subtitle>January 23, 2026 news: Federal Reserve governance is facing judicial scrutiny, highlighting how poli...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -772,23 +787,8 @@
       <itunes:summary>January 22, 2026 news: Federal Reserve governance faces judicial scrutiny as the Supreme Court weighs presidential authority over central bank board appointments, This matters because Fed independence directly impacts monetary policy predictability, which drives your DCF models and valuation frameworks in banking ;...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>2</itunes:episode>
-      <itunes:subtitle>January 22, 2026 news: Federal Reserve governance faces judicial scrutiny as the Supreme Court weigh...</itunes:subtitle>
-      <itunes:duration />
-    </item>
-    <item>
-      <title>BellaNews - January 21, 2026: Geopolitical tensions over territorial interests reveal h...</title>
-      <link>https://audionews.uk/bella?date=2026-01-21</link>
-      <description>January 21, 2026 news: Geopolitical tensions over territorial interests reveal how sovereign risk modeling shapes cross-border deal valuations in investment banking, When major powers clash over strategic assets, analysts must quantify political instability using game theory frameworks and probabilistic scenarios,...</description>
-      <guid isPermaLink="true">https://audionews.uk/bella/audio/news_digest_ai_2026_01_21.mp3</guid>
-      <pubDate>Wed, 21 Jan 2026 14:28:54 +0000</pubDate>
-      <enclosure url="https://audionews.uk/bella/audio/news_digest_ai_2026_01_21.mp3" type="audio/mpeg" length="1329264" />
-      <itunes:title>BellaNews - January 21, 2026: Geopolitical tensions over territorial interests reveal h...</itunes:title>
-      <itunes:summary>January 21, 2026 news: Geopolitical tensions over territorial interests reveal how sovereign risk modeling shapes cross-border deal valuations in investment banking, When major powers clash over strategic assets, analysts must quantify political instability using game theory frameworks and probabilistic scenarios,...</itunes:summary>
-      <itunes:explicit>no</itunes:explicit>
-      <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>1</itunes:episode>
-      <itunes:subtitle>January 21, 2026 news: Geopolitical tensions over territorial interests reveal how sovereign risk mo...</itunes:subtitle>
+      <itunes:subtitle>January 22, 2026 news: Federal Reserve governance faces judicial scrutiny as the Supreme Court weigh...</itunes:subtitle>
       <itunes:duration />
     </item>
   </channel>
