@@ -86,8 +86,15 @@ jobs:
 
   # --- Generate one language per matrix cell (runs in parallel) ---
   generate-one-language:
-    runs-on: ubuntu-latest
-    container: dynamicdevices/audionews-digest:latest
+    # Self-hosted runner on the ai-tools LAN box: reaches the local Qwen3-TTS
+    # directly (no Cloudflare bot-block) and uses a residential IP so edge_tts
+    # (pl_PL) and news fetches aren't blocked like GitHub-hosted datacenter IPs.
+    runs-on: [self-hosted, audionews-tts]
+    container:
+      image: dynamicdevices/audionews-digest:latest
+      # host.docker.internal -> host gateway so the container can reach the
+      # TTS service bound on 0.0.0.0:8200 on the runner host.
+      options: --add-host=host.docker.internal:host-gateway
     defaults:
       run:
         shell: bash
@@ -103,8 +110,10 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      # Self-hosted DynamicDevices Qwen3-TTS (replaces ElevenLabs for en_GB + bella)
-      DD_TTS_URL: ${{ secrets.DD_TTS_URL }}
+      # Self-hosted DynamicDevices Qwen3-TTS (replaces ElevenLabs for en_GB + bella).
+      # On the self-hosted runner the service is local; reach it via the host gateway
+      # rather than the public Cloudflare hostname (which blocks datacenter IPs).
+      DD_TTS_URL: http://host.docker.internal:8200
       DD_TTS_TOKEN: ${{ secrets.DD_TTS_TOKEN }}
       DEBUG_MODE: ${{ github.event.inputs.debug_mode }}
     steps:
