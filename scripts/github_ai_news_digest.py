@@ -58,7 +58,7 @@ class GitHubAINewsDigest:
         self.voice_name = self.config["voice"]
         voice_cfg = VOICE_CONFIG.get("voices", {}).get(language, {})
         self.tts_provider = (tts_provider_override or voice_cfg.get("tts_provider") or "edge_tts").lower()
-        if self.tts_provider not in ("edge_tts", "pocket_tts", "elevenlabs"):
+        if self.tts_provider not in ("edge_tts", "pocket_tts", "elevenlabs", "dd_tts"):
             self.tts_provider = "edge_tts"
         self.pocket_voice = voice_cfg.get("pocket_voice") or VOICE_CONFIG.get("tts_settings", {}).get("pocket_tts", {}).get("voice") or "alba"
         self.elevenlabs_voice_id = (
@@ -111,7 +111,7 @@ class GitHubAINewsDigest:
                 )
             print(f"\n📄 Using existing transcript (no API): {text_filename}")
             digest_text = tts_module.parse_existing_transcript(text_filename)
-            if self.tts_provider in ("pocket_tts", "elevenlabs"):
+            if self.tts_provider in ("pocket_tts", "elevenlabs", "dd_tts"):
                 digest_text = tts_module.reverse_edge_tts_edits(digest_text)
                 print(f"   📝 Using unedited text for {self.tts_provider} (Edge TTS edits reversed)")
             os.makedirs(os.path.dirname(audio_filename), exist_ok=True)
@@ -239,7 +239,7 @@ async def main() -> None:
     )
     parser.add_argument(
         "--tts-provider",
-        choices=["edge_tts", "pocket_tts", "elevenlabs"],
+        choices=["edge_tts", "pocket_tts", "elevenlabs", "dd_tts"],
         default=None,
         help="TTS provider override (default: use per-language config)",
     )

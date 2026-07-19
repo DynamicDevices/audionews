@@ -6,7 +6,8 @@
       "language": "English (Ireland)",
       "gender": "Female",
       "provider": "Edge TTS",
-      "tts_provider": "elevenlabs",
+      "tts_provider": "dd_tts",
+      "dd_style": "neutral",
       "pocket_voice": "alba",
       "elevenlabs_voice_id": "8UiZmugqRl2JWvkN3NrW"
     },
@@ -74,7 +75,7 @@
       "language": "Polish (Poland)",
       "gender": "Female",
       "provider": "Edge TTS",
-      "tts_provider": "elevenlabs",
+      "tts_provider": "edge_tts",
       "pocket_voice": "alba",
       "elevenlabs_voice_id": "DTZOFDiEo6RpVklQfFpj"
     },
@@ -84,7 +85,8 @@
       "language": "English (Ireland) - Business/Finance",
       "gender": "Female",
       "provider": "Edge TTS",
-      "tts_provider": "elevenlabs",
+      "tts_provider": "dd_tts",
+      "dd_style": "neutral",
       "pocket_voice": "alba",
       "elevenlabs_voice_id": "EQu48Nbp4OqDxsnYh27f"
     }
@@ -115,10 +117,18 @@
       "output_format": "mp3_44100_128",
       "chunk_size": 4500
     },
+    "dd_tts": {
+      "style": "neutral",
+      "seed": 2,
+      "speed": null,
+      "paragraph_pause": null,
+      "request_timeout_s": 600,
+      "note": "Self-hosted DynamicDevices Qwen3-TTS. Endpoint DD_TTS_URL + bearer DD_TTS_TOKEN from env. Returns WAV -> transcoded to MP3. Per-voice 'dd_style' overrides this default style."
+    },
     "fallback": {
-      "enabled": false,
-      "provider": "NONE - Voice quality is critical. Fail rather than degrade.",
-      "note": "We NEVER fall back to inferior voices. Edge TTS quality is non-negotiable."
+      "enabled": true,
+      "provider": "edge_tts",
+      "note": "CI only: if the self-hosted dd_tts endpoint fails its health preflight, the daily workflow falls back to edge_tts so the accessibility service still ships. ElevenLabs retired 2026-07."
     }
   },
   "audio_settings": {
