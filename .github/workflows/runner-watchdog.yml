@@ -1,87 +1,87 @@
-name: 🐕 Self-hosted runner watchdog
+name: 🐕 TTS box watchdog
 
-# Proactively checks, shortly before the daily digest runs, that the
-# self-hosted runner (label: audionews-tts) on the ai-tools LAN box is online.
-# The digest's generate jobs REQUIRE that runner (local Qwen3-TTS access); if
-# the box is off/asleep at 05:00 UTC the jobs would queue with no runner and
-# eventually fail. This runs on a GitHub-hosted runner so it still fires even
-# when the box is down.
+# Proactively checks, shortly before the daily digest runs, that the ai-tools
+# LAN box is reachable. The digest's generate-one-language jobs run on a
+# self-hosted runner on that box and talk to the local Qwen3-TTS; if the box is
+# off/asleep at 05:00 UTC the run queues with no runner and fails.
+#
+# This runs on a GitHub-hosted runner so it still fires when the box is down.
+# It probes the public TTS /health over the Cloudflare tunnel as a proxy for
+# "box is up". NOTE: this is a proxy for box availability, not a direct check of
+# the runner service (which has systemd Restart=always). A direct runner check
+# would need a PAT with Administration:read; see repo notes.
 on:
   schedule:
     - cron: '40 4 * * *'   # 20 min before the 05:00 UTC daily digest
   workflow_dispatch:
 
 permissions:
-  administration: read   # list self-hosted runners
-  issues: write          # open/close the alert issue
+  issues: write
   contents: read
 
 concurrency:
-  group: runner-watchdog
+  group: tts-box-watchdog
   cancel-in-progress: false
 
 jobs:
-  check-runner:
+  check-box:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       REPO: ${{ github.repository }}
-      LABEL: audionews-tts
-      TITLE: "🔴 audionews self-hosted runner offline"
+      HEALTH_URL: ${{ secrets.DD_TTS_URL }}
+      TITLE: "🔴 audionews TTS box unreachable (pre-digest watchdog)"
     steps:
-      - name: Check runner status and alert
+      - name: Probe TTS box health and alert
         run: |
-          set -euo pipefail
+          set -uo pipefail
 
-          # Query self-hosted runners; fail loudly if we cannot (still worth knowing).
-          if ! RUNNERS_JSON=$(gh api "repos/$REPO/actions/runners?per_page=100" 2>/tmp/err); then
-            echo "::error title=watchdog::Could not query runners API"; cat /tmp/err || true
-            exit 1
+          if [ -z "${HEALTH_URL:-}" ]; then
+            echo "::error title=watchdog::DD_TTS_URL secret is empty"; exit 1
           fi
+          URL="${HEALTH_URL%/}/health"
+          echo "Probing $URL (up to 5 attempts)..."
 
-          ONLINE=$(echo "$RUNNERS_JSON" | jq "[.runners[] | select(.status==\"online\") | select([.labels[].name] | index(\"$LABEL\"))] | length")
-          TOTAL=$(echo "$RUNNERS_JSON" | jq "[.runners[] | select([.labels[].name] | index(\"$LABEL\"))] | length")
-          echo "Runners with label '$LABEL': total=$TOTAL online=$ONLINE"
+          HEALTHY=0
+          for i in 1 2 3 4 5; do
+            CODE=$(curl -s -m 15 -o /tmp/health.out -w '%{http_code}' "$URL" || echo 000)
+            echo "  attempt $i -> HTTP $CODE"
+            if [ "$CODE" = "200" ] && grep -q '"status"' /tmp/health.out 2>/dev/null; then
+              HEALTHY=1; break
+            fi
+            [ "$i" -lt 5 ] && sleep 15
+          done
 
-          # Any currently-open watchdog issue?
           EXISTING=$(gh issue list --repo "$REPO" --state open --search "in:title \"$TITLE\"" --json number --jq '.[0].number // ""')
 
-          if [ "${ONLINE:-0}" -ge 1 ]; then
-            echo "✅ At least one '$LABEL' runner is online."
+          if [ "$HEALTHY" = "1" ]; then
+            echo "✅ TTS box healthy: $(cat /tmp/health.out | head -c 160)"
             if [ -n "$EXISTING" ]; then
               gh issue comment "$EXISTING" --repo "$REPO" \
-                --body "✅ Runner is back online ($(date -u '+%Y-%m-%d %H:%M UTC')). Auto-closing."
+                --body "✅ TTS box reachable again ($(date -u '+%Y-%m-%d %H:%M UTC')). Auto-closing."
               gh issue close "$EXISTING" --repo "$REPO"
             fi
             exit 0
           fi
 
-          echo "::warning title=watchdog::No online '$LABEL' runner ($TOTAL registered). Daily digest at 05:00 UTC will fail."
-          BODY=$(cat <<EOF
-          The self-hosted runner labelled \`$LABEL\` (ai-tools LAN box) is **offline**
-          as of $(date -u '+%Y-%m-%d %H:%M UTC').
+          echo "::warning title=watchdog::TTS box did not respond healthy; 05:00 UTC digest is at risk."
+          BODY=$(printf '%s\n' \
+            "The ai-tools LAN box appears **unreachable** via the TTS tunnel as of $(date -u '+%Y-%m-%d %H:%M UTC') (5 attempts, last probe of \`$URL\` failed)." \
+            "" \
+            "The daily digest's \`generate-one-language\` jobs run on the self-hosted runner on that box and use the local Qwen3-TTS. If the box is down, the **05:00 UTC** run will queue with no runner and fail." \
+            "" \
+            "**To fix:** power on the ai-tools box and confirm services:" \
+            '```' \
+            "ssh root@192.168.68.55 'systemctl status actions-runner-audionews.service cloudflared qwen-tts'" \
+            "ssh root@192.168.68.55 'systemctl restart actions-runner-audionews.service'" \
+            '```' \
+            "" \
+            "_Opened automatically by the TTS box watchdog; auto-closes when the box is reachable again. This probes the tunnel as a proxy for box availability, not the runner service directly._")
 
-          The daily digest's \`generate-one-language\` jobs run on this runner to reach
-          the local Qwen3-TTS. With it offline, the **05:00 UTC** run will queue with no
-          runner and fail.
-
-          - Registered runners with this label: $TOTAL
-          - Online: $ONLINE
-
-          **To fix:** ensure the ai-tools box is powered on and the runner service is up:
-          \`\`\`
-          ssh root@192.168.68.55 'systemctl status actions-runner-audionews.service'
-          ssh root@192.168.68.55 'systemctl restart actions-runner-audionews.service'
-          \`\`\`
-
-          _This issue was opened automatically by the runner watchdog and will auto-close when the runner is back online._
-          EOF
-          )
           if [ -n "$EXISTING" ]; then
             echo "Watchdog issue #$EXISTING already open; adding a note."
-            gh issue comment "$EXISTING" --repo "$REPO" --body "Still offline at $(date -u '+%Y-%m-%d %H:%M UTC')."
+            gh issue comment "$EXISTING" --repo "$REPO" --body "Still unreachable at $(date -u '+%Y-%m-%d %H:%M UTC')."
           else
             gh issue create --repo "$REPO" --title "$TITLE" --body "$BODY"
           fi
-          # Fail the run so repo watchers get GitHub's failure notification email.
           exit 1
