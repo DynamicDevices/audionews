@@ -36,24 +36,24 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1784465827" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1784468076" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1784465827</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1784468076</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Sun, 19 Jul 2026 12:57:34 +0000</lastBuildDate>
-    <pubDate>Sun, 19 Jul 2026 12:57:34 +0000</pubDate>
+    <lastBuildDate>Sun, 19 Jul 2026 13:35:05 +0000</lastBuildDate>
+    <pubDate>Sun, 19 Jul 2026 13:35:05 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
     <item>
       <title>AudioNews Polska - July 19, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-07-19</link>
-      <description>July 19, 2026 news: Oto Twój przegląd wiadomości polskie na 19 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj węgierski Fidesz przeżywa poważny kryzys; partia Viktora Orbána traci poparcie w sondażach, a politycy opuszczają jej szeregi, co wskazuje na rosnące problemy ugrupowania...</description>
+      <description>July 19, 2026 news: Oto Twój przegląd wiadomości polskie na 19 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj węgierski Fidesz przeżywa poważny kryzys; partia Viktora Orbána traci poparcie w sondażach, a politycy opuszczają jej szeregi, co wskazuje na rosnące problemy rządzącego...</description>
       <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_07_19.mp3</guid>
-      <pubDate>Sun, 19 Jul 2026 12:55:33 +0000</pubDate>
-      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_07_19.mp3" type="audio/mpeg" length="3491085" />
+      <pubDate>Sun, 19 Jul 2026 13:33:21 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_07_19.mp3" type="audio/mpeg" length="2865165" />
       <itunes:title>AudioNews Polska - July 19, 2026: Dzień dobry</itunes:title>
-      <itunes:summary>July 19, 2026 news: Oto Twój przegląd wiadomości polskie na 19 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj węgierski Fidesz przeżywa poważny kryzys; partia Viktora Orbána traci poparcie w sondażach, a politycy opuszczają jej szeregi, co wskazuje na rosnące problemy ugrupowania...</itunes:summary>
+      <itunes:summary>July 19, 2026 news: Oto Twój przegląd wiadomości polskie na 19 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj węgierski Fidesz przeżywa poważny kryzys; partia Viktora Orbána traci poparcie w sondażach, a politycy opuszczają jej szeregi, co wskazuje na rosnące problemy rządzącego...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>50</itunes:episode>
