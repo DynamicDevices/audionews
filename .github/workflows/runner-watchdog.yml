@@ -1,0 +1,87 @@
+name: 🐕 Self-hosted runner watchdog
+
+# Proactively checks, shortly before the daily digest runs, that the
+# self-hosted runner (label: audionews-tts) on the ai-tools LAN box is online.
+# The digest's generate jobs REQUIRE that runner (local Qwen3-TTS access); if
+# the box is off/asleep at 05:00 UTC the jobs would queue with no runner and
+# eventually fail. This runs on a GitHub-hosted runner so it still fires even
+# when the box is down.
+on:
+  schedule:
+    - cron: '40 4 * * *'   # 20 min before the 05:00 UTC daily digest
+  workflow_dispatch:
+
+permissions:
+  administration: read   # list self-hosted runners
+  issues: write          # open/close the alert issue
+  contents: read
+
+concurrency:
+  group: runner-watchdog
+  cancel-in-progress: false
+
+jobs:
+  check-runner:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      LABEL: audionews-tts
+      TITLE: "🔴 audionews self-hosted runner offline"
+    steps:
+      - name: Check runner status and alert
+        run: |
+          set -euo pipefail
+
+          # Query self-hosted runners; fail loudly if we cannot (still worth knowing).
+          if ! RUNNERS_JSON=$(gh api "repos/$REPO/actions/runners?per_page=100" 2>/tmp/err); then
+            echo "::error title=watchdog::Could not query runners API"; cat /tmp/err || true
+            exit 1
+          fi
+
+          ONLINE=$(echo "$RUNNERS_JSON" | jq "[.runners[] | select(.status==\"online\") | select([.labels[].name] | index(\"$LABEL\"))] | length")
+          TOTAL=$(echo "$RUNNERS_JSON" | jq "[.runners[] | select([.labels[].name] | index(\"$LABEL\"))] | length")
+          echo "Runners with label '$LABEL': total=$TOTAL online=$ONLINE"
+
+          # Any currently-open watchdog issue?
+          EXISTING=$(gh issue list --repo "$REPO" --state open --search "in:title \"$TITLE\"" --json number --jq '.[0].number // ""')
+
+          if [ "${ONLINE:-0}" -ge 1 ]; then
+            echo "✅ At least one '$LABEL' runner is online."
+            if [ -n "$EXISTING" ]; then
+              gh issue comment "$EXISTING" --repo "$REPO" \
+                --body "✅ Runner is back online ($(date -u '+%Y-%m-%d %H:%M UTC')). Auto-closing."
+              gh issue close "$EXISTING" --repo "$REPO"
+            fi
+            exit 0
+          fi
+
+          echo "::warning title=watchdog::No online '$LABEL' runner ($TOTAL registered). Daily digest at 05:00 UTC will fail."
+          BODY=$(cat <<EOF
+          The self-hosted runner labelled \`$LABEL\` (ai-tools LAN box) is **offline**
+          as of $(date -u '+%Y-%m-%d %H:%M UTC').
+
+          The daily digest's \`generate-one-language\` jobs run on this runner to reach
+          the local Qwen3-TTS. With it offline, the **05:00 UTC** run will queue with no
+          runner and fail.
+
+          - Registered runners with this label: $TOTAL
+          - Online: $ONLINE
+
+          **To fix:** ensure the ai-tools box is powered on and the runner service is up:
+          \`\`\`
+          ssh root@192.168.68.55 'systemctl status actions-runner-audionews.service'
+          ssh root@192.168.68.55 'systemctl restart actions-runner-audionews.service'
+          \`\`\`
+
+          _This issue was opened automatically by the runner watchdog and will auto-close when the runner is back online._
+          EOF
+          )
+          if [ -n "$EXISTING" ]; then
+            echo "Watchdog issue #$EXISTING already open; adding a note."
+            gh issue comment "$EXISTING" --repo "$REPO" --body "Still offline at $(date -u '+%Y-%m-%d %H:%M UTC')."
+          else
+            gh issue create --repo "$REPO" --title "$TITLE" --body "$BODY"
+          fi
+          # Fail the run so repo watchers get GitHub's failure notification email.
+          exit 1
