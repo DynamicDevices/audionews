@@ -6,6 +6,7 @@ FROM python:3.11-slim-bookworm
 
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     ffmpeg \
+    curl \
     git \
     git-lfs \
     && rm -rf /var/lib/apt/lists/* \
