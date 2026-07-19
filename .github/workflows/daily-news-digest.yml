@@ -13,7 +13,7 @@ on:
         default: false
         type: boolean
       force_ai_regeneration:
-        description: 'Force regeneration (use current TTS config e.g. ElevenLabs); ignores existing today content'
+        description: 'Force regeneration (use current TTS config e.g. dd_tts / edge_tts); ignores existing today content'
         required: false
         default: false
         type: boolean
@@ -103,7 +103,9 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      # Self-hosted DynamicDevices Qwen3-TTS (replaces ElevenLabs for en_GB + bella)
+      DD_TTS_URL: ${{ secrets.DD_TTS_URL }}
+      DD_TTS_TOKEN: ${{ secrets.DD_TTS_TOKEN }}
       DEBUG_MODE: ${{ github.event.inputs.debug_mode }}
     steps:
       - name: 📥 Checkout repository
@@ -118,11 +120,22 @@ jobs:
           LANG="${{ matrix.language }}"
           FORCE_ARG=""
           [[ "${{ inputs.force_ai_regeneration }}" == "true" ]] && FORCE_ARG="--force-regenerate"
+          # en_GB + bella use the self-hosted Qwen3-TTS (dd_tts) per voice_config.json.
+          # Health preflight: if the box is unreachable, fall back to edge_tts so the
+          # daily accessibility digest still ships rather than failing the build.
           TTS_ARG=""
-          [[ "$LANG" == "en_GB" ]] && TTS_ARG="--tts-provider elevenlabs"
-          [[ "$LANG" == "bella" ]] && TTS_ARG="--tts-provider elevenlabs"
+          case "$LANG" in
+            en_GB|bella)
+              if [[ -n "$DD_TTS_URL" ]] && curl -sf -m 10 "${DD_TTS_URL%/}/health" >/dev/null 2>&1; then
+                echo "✅ dd_tts endpoint healthy for $LANG (config selects dd_tts)"
+              else
+                echo "::warning title=dd_tts unavailable::TTS endpoint failed health preflight; falling back to edge_tts for $LANG"
+                TTS_ARG="--tts-provider edge_tts"
+              fi
+              ;;
+          esac
           echo "▶ Generating $LANG..."
-          timeout 300 python scripts/github_ai_news_digest.py --language "$LANG" $TTS_ARG $FORCE_ARG
+          timeout 600 python scripts/github_ai_news_digest.py --language "$LANG" $TTS_ARG $FORCE_ARG
           TODAY=$(date +%Y_%m_%d)
           AUDIO="docs/${LANG}/audio/news_digest_ai_${TODAY}.mp3"
           TEXT="docs/${LANG}/news_digest_ai_${TODAY}.txt"

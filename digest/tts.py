@@ -242,6 +242,84 @@ async def _generate_audio_elevenlabs(
                     pass
 
 
+async def _generate_audio_dd(
+    digest_text: str,
+    output_filename: str,
+    voice_config: dict,
+    language: Optional[str] = None,
+) -> None:
+    """Generate audio via the self-hosted DynamicDevices Qwen3-TTS service.
+
+    Endpoint + bearer token come from env (DD_TTS_URL, DD_TTS_TOKEN). The service
+    synthesises the whole digest (paragraph-splitting internally) and returns WAV,
+    which we transcode to MP3 with pydub.
+    """
+    base_url = (os.getenv("DD_TTS_URL") or "").strip().rstrip("/")
+    if not base_url:
+        raise ValueError(
+            "DD_TTS_URL environment variable is not set. "
+            "Set it to the TTS endpoint, e.g. https://tts.dynamicdevices.co.uk"
+        )
+    if not aiohttp:
+        raise ImportError("aiohttp is required for DynamicDevices TTS")
+    token = (os.getenv("DD_TTS_TOKEN") or "").strip()
+    settings = voice_config.get("tts_settings", {}).get("dd_tts", {})
+    voice_cfg = voice_config.get("voices", {}).get(language or "", {})
+    style = voice_cfg.get("dd_style") or settings.get("style", "neutral")
+    seed = settings.get("seed", 2)
+    speed = settings.get("speed")  # None -> service uses per-style default
+    paragraph_pause = settings.get("paragraph_pause")  # None -> service default
+    timeout_s = settings.get("request_timeout_s", 600)
+
+    headers = {"Content-Type": "application/json"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+
+    text = digest_text.strip()
+    if not text:
+        raise ValueError("Digest text is empty")
+    payload = {"text": text, "style": style, "seed": seed}
+    if speed is not None:
+        payload["speed"] = speed
+    if paragraph_pause is not None:
+        payload["paragraph_pause"] = paragraph_pause
+
+    timeout = aiohttp.ClientTimeout(total=timeout_s)
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        async with session.post(f"{base_url}/tts", json=payload, headers=headers) as resp:
+            if resp.status == 401:
+                raise RuntimeError("DD TTS auth failed (401) - check DD_TTS_TOKEN")
+            resp.raise_for_status()
+            meta = await resp.json()
+        got_style = meta.get("style")
+        if got_style and got_style != style:
+            # Boundary guard: the service silently falls back to 'neutral' when a
+            # requested reference is missing. Surface a mismatch loudly rather than
+            # shipping the wrong voice unnoticed.
+            print(f"   ⚠️ DD TTS returned style '{got_style}' (requested '{style}')")
+        name = meta.get("name")
+        audio_url = meta.get("url") or (f"/audio/{name}" if name else None)
+        if not audio_url:
+            raise RuntimeError(f"DD TTS response missing audio reference: {meta}")
+        async with session.get(f"{base_url}{audio_url}", headers=headers) as aresp:
+            aresp.raise_for_status()
+            wav_bytes = await aresp.read()
+
+    fd, wav_path = tempfile.mkstemp(suffix="_dd.wav")
+    os.close(fd)
+    try:
+        with open(wav_path, "wb") as f:
+            f.write(wav_bytes)
+        from pydub import AudioSegment
+        audio = AudioSegment.from_wav(wav_path)
+        audio.export(output_filename, format="mp3", bitrate="192k")
+    finally:
+        try:
+            os.unlink(wav_path)
+        except OSError:
+            pass
+
+
 async def generate_audio_digest(
     digest_text: str,
     output_filename: str,
@@ -260,6 +338,8 @@ async def generate_audio_digest(
     print(f"\n🎤 Generating AI-enhanced audio: {output_filename} (provider: {tts_provider})")
     if tts_provider == "elevenlabs":
         print("   🔊 Using ElevenLabs TTS (voice_id from config)")
+    elif tts_provider == "dd_tts":
+        print("   🔊 Using DynamicDevices Qwen3-TTS (self-hosted)")
     elif tts_provider == "edge_tts":
         print("   🔊 Using Edge TTS")
     os.makedirs(os.path.dirname(output_filename), exist_ok=True)
@@ -281,6 +361,9 @@ async def generate_audio_digest(
         vid = elevenlabs_voice_id or voice_config.get("tts_settings", {}).get("elevenlabs", {}).get("voice_id") or "EXAVITQu4vr4xnSDxMaL"
         await _generate_audio_elevenlabs(digest_text, output_filename, vid, voice_config)
         print("   ✅ ElevenLabs audio generated successfully")
+    elif tts_provider == "dd_tts":
+        await _generate_audio_dd(digest_text, output_filename, voice_config, language)
+        print("   ✅ DynamicDevices Qwen3-TTS audio generated successfully")
     else:
         # Edge TTS
         tts_settings = voice_config["tts_settings"]["edge_tts"]
