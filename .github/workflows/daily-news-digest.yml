@@ -129,13 +129,18 @@ jobs:
           LANG="${{ matrix.language }}"
           FORCE_ARG=""
           [[ "${{ inputs.force_ai_regeneration }}" == "true" ]] && FORCE_ARG="--force-regenerate"
+          # The digest container ships edge-tts 6.1.19, which now hits a Microsoft
+          # 403 (stale Sec-MS-GEC token). Upgrade at runtime so the edge_tts path
+          # (pl_PL, and the en_GB/bella dd_tts fallback) works. TODO: bake into image.
+          pip install -q -U edge-tts >/dev/null 2>&1 && echo "✅ edge-tts upgraded" \
+            || echo "::warning title=edge-tts::runtime upgrade failed; using bundled version"
           # en_GB + bella use the self-hosted Qwen3-TTS (dd_tts) per voice_config.json.
-          # Health preflight: if the box is unreachable, fall back to edge_tts so the
-          # daily accessibility digest still ships rather than failing the build.
+          # Health preflight (python, since curl is not in the container): if the TTS
+          # is unreachable, fall back to edge_tts so the digest still ships.
           TTS_ARG=""
           case "$LANG" in
             en_GB|bella)
-              if [[ -n "$DD_TTS_URL" ]] && curl -sf -m 10 "${DD_TTS_URL%/}/health" >/dev/null 2>&1; then
+              if [[ -n "$DD_TTS_URL" ]] && python -c "import urllib.request; urllib.request.urlopen('${DD_TTS_URL%/}/health', timeout=10)" >/dev/null 2>&1; then
                 echo "✅ dd_tts endpoint healthy for $LANG (config selects dd_tts)"
               else
                 echo "::warning title=dd_tts unavailable::TTS endpoint failed health preflight; falling back to edge_tts for $LANG"
