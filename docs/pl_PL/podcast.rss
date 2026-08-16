@@ -36,15 +36,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, polish news, wiadomości, dostępność, niewidomi, słabowidzący, niewidomi i słabowidzący, technologia wspomagająca, screen reader, dostępne wiadomości</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1786771602" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1786858387" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1786771602</url>
+      <url>https://audionews.uk/images/podcast-cover-pl-pl-v2.png?v=1786858387</url>
       <title>AudioNews Polska Daily</title>
       <link>https://audionews.uk/pl_PL</link>
     </image>
-    <lastBuildDate>Sat, 15 Aug 2026 05:27:12 +0000</lastBuildDate>
-    <pubDate>Sat, 15 Aug 2026 05:27:12 +0000</pubDate>
+    <lastBuildDate>Sun, 16 Aug 2026 05:33:39 +0000</lastBuildDate>
+    <pubDate>Sun, 16 Aug 2026 05:33:39 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews Polska - August 16, 2026: Dzień dobry</title>
+      <link>https://audionews.uk/pl_PL?date=2026-08-16</link>
+      <description>August 16, 2026 news: Oto Twój przegląd wiadomości polskie na 16 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj świeże badania opinii publicznej pokazują że Polacy wyżej oceniają wysiłki poprzedniego rządu w zakresie wzmocnienia sił zbrojnych;</description>
+      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_08_16.mp3</guid>
+      <pubDate>Sun, 16 Aug 2026 05:10:16 +0000</pubDate>
+      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_08_16.mp3" type="audio/mpeg" length="3493965" />
+      <itunes:title>AudioNews Polska - August 16, 2026: Dzień dobry</itunes:title>
+      <itunes:summary>August 16, 2026 news: Oto Twój przegląd wiadomości polskie na 16 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj świeże badania opinii publicznej pokazują że Polacy wyżej oceniają wysiłki poprzedniego rządu w zakresie wzmocnienia sił zbrojnych;</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>50</itunes:episode>
+      <itunes:subtitle>August 16, 2026 news: Oto Twój przegląd wiadomości polskie na 16 sierpnia 2026, przygotowany przez D...</itunes:subtitle>
+      <itunes:duration />
+    </item>
     <item>
       <title>AudioNews Polska - August 15, 2026: Dzień dobry</title>
       <link>https://audionews.uk/pl_PL?date=2026-08-15</link>
@@ -56,7 +71,7 @@
       <itunes:summary>August 15, 2026 news: Oto Twój przegląd wiadomości polskie na 15 sierpnia 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj Japonia rozważa pozyskanie broni jądrowej w obliczu największego zagrożenia bezpieczeństwa od ośmiu dekad;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>50</itunes:episode>
+      <itunes:episode>49</itunes:episode>
       <itunes:subtitle>August 15, 2026 news: Oto Twój przegląd wiadomości polskie na 15 sierpnia 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -71,7 +86,7 @@
       <itunes:summary>August 14, 2026 news: Oto Twój przegląd wiadomości polskie na 14 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj trwają poszukiwania posła Marcina Romanowskiego, który ukrywa się prawdopodobnie w Naddniestrzu;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>49</itunes:episode>
+      <itunes:episode>48</itunes:episode>
       <itunes:subtitle>August 14, 2026 news: Oto Twój przegląd wiadomości polskie na 14 sierpnia 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -86,7 +101,7 @@
       <itunes:summary>August 13, 2026 news: Oto Twój przegląd wiadomości polskie na 13 sierpnia 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj Japonia rozważa poważne zmiany w swojej polityce obronnej i po raz pierwszy od dekad pojawia się tam debata o ewentualnym dostępie do broni jądrowej;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>48</itunes:episode>
+      <itunes:episode>47</itunes:episode>
       <itunes:subtitle>August 13, 2026 news: Oto Twój przegląd wiadomości polskie na 13 sierpnia 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -101,7 +116,7 @@
       <itunes:summary>August 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Najwyższa Izba Kontroli ujawniła nieprawidłowości w Instytucie Pamięci Narodowej, gdzie kandydat na prezydenta Karol Nawrocki korzystał bezpłatnie z pokoju gościnnego...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>47</itunes:episode>
+      <itunes:episode>46</itunes:episode>
       <itunes:subtitle>August 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 sierpnia 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -116,7 +131,7 @@
       <itunes:summary>August 11, 2026 news: Oto Twój przegląd wiadomości polskie na 11 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Prawo i Sprawiedliwość podjęło decyzję o zmianie swojej strategii i wymianie Przemysława Czarnka na stanowisku wiceprezesa partii;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>46</itunes:episode>
+      <itunes:episode>45</itunes:episode>
       <itunes:subtitle>August 11, 2026 news: Oto Twój przegląd wiadomości polskie na 11 sierpnia 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -131,7 +146,7 @@
       <itunes:summary>August 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Prawo i Sprawiedliwość planuje istotne zmiany w swoich szeregach, gdzie rozważana jest wymiana Przemysława Czarnka oraz modyfikacja dotychczasowej strategii działania...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>45</itunes:episode>
+      <itunes:episode>44</itunes:episode>
       <itunes:subtitle>August 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 sierpnia 2026, przygotowany przez D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -146,7 +161,7 @@
       <itunes:summary>August 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Ukraina wyraziła zgodę na ekshumacje polskich ofiar w Hucie Pieniackiej i Ugłach, co stanowi przełom w sprawie rzezi wołyńskiej;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>44</itunes:episode>
+      <itunes:episode>43</itunes:episode>
       <itunes:subtitle>August 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 sierpnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -161,7 +176,7 @@
       <itunes:summary>August 08, 2026 news: Oto Twój przegląd wiadomości polskie na 8 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj najnowsze badania pokazują że ponad połowa Polaków pozytywnie ocenia kandydata na prezydenta Karola Nawrockiego wystawiając mu co najmniej ocenę czwórkę;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>43</itunes:episode>
+      <itunes:episode>42</itunes:episode>
       <itunes:subtitle>August 08, 2026 news: Oto Twój przegląd wiadomości polskie na 8 sierpnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -176,7 +191,7 @@
       <itunes:summary>August 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj najnowsze badania pokazują wyraźne zmiany na scenie politycznej; Prawo i Sprawiedliwość traci poparcie, podczas gdy Konfederacja i Rozwój Plus notują wzrosty .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>42</itunes:episode>
+      <itunes:episode>41</itunes:episode>
       <itunes:subtitle>August 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 sierpnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -191,7 +206,7 @@
       <itunes:summary>August 06, 2026 news: Oto Twój przegląd wiadomości polskie na 6 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj węgierski polityk opozycji Péter Magyar zyskuje uznanie za dynamiczne działania przeciwko rządowi Orbána, co budzi porównania z tempem reform w Polsce;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>41</itunes:episode>
+      <itunes:episode>40</itunes:episode>
       <itunes:subtitle>August 06, 2026 news: Oto Twój przegląd wiadomości polskie na 6 sierpnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -206,7 +221,7 @@
       <itunes:summary>August 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj uwaga skupia się na działaniach węgierskiego polityka Petera Magyara, którego aktywność opozycyjna w ciągu czterech miesięcy zyskała szeroki rozglas i porównywana jest do...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>40</itunes:episode>
+      <itunes:episode>39</itunes:episode>
       <itunes:subtitle>August 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 sierpnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -221,7 +236,7 @@
       <itunes:summary>August 04, 2026 news: Oto Twój przegląd wiadomości polskie na 4 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj uwaga skupia się na działaniach Krzysztofa Magyara, który według komentatorów osiągnął więcej w krótkim czasie niż premier Donald Tusk przez trzy lata;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>39</itunes:episode>
+      <itunes:episode>38</itunes:episode>
       <itunes:subtitle>August 04, 2026 news: Oto Twój przegląd wiadomości polskie na 4 sierpnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -236,7 +251,7 @@
       <itunes:summary>August 03, 2026 news: Oto Twój przegląd wiadomości polskie na 3 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Roman Giertych spotkał się z prezesem Zondacrypto w sprawie odzyskania środków dla klientów giełdy kryptowalut, jednak prokuratura nie została o tym poinformowana mimo że...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>38</itunes:episode>
+      <itunes:episode>37</itunes:episode>
       <itunes:subtitle>August 03, 2026 news: Oto Twój przegląd wiadomości polskie na 3 sierpnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -251,7 +266,7 @@
       <itunes:summary>August 02, 2026 news: Oto Twój przegląd wiadomości polskie na 2 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj pojawiają się kontrowersje wokół mecenasa Giertycha, który spotkał się z szefem giełdy kryptowalut w czasie gdy prowadził śledztwo dotyczące tej firmy;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>37</itunes:episode>
+      <itunes:episode>36</itunes:episode>
       <itunes:subtitle>August 02, 2026 news: Oto Twój przegląd wiadomości polskie na 2 sierpnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -266,7 +281,7 @@
       <itunes:summary>August 01, 2026 news: Oto Twój przegląd wiadomości polskie na 1 sierpnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Mateusz Morawiecki budzi zainteresowanie jako potencjalne zagrożenie dla obecnej koalicji rządowej i Konfederacji;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>36</itunes:episode>
+      <itunes:episode>35</itunes:episode>
       <itunes:subtitle>August 01, 2026 news: Oto Twój przegląd wiadomości polskie na 1 sierpnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -281,7 +296,7 @@
       <itunes:summary>July 31, 2026 news: Oto Twój przegląd wiadomości polskie na 31 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj narastają napięcia w Prawie i Sprawiedliwości, gdzie prezes Jarosław Kaczyński wybrał bardziej radykalną linię partii zamiast umiarkowanego podejścia Mateusza Morawieckiego;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>35</itunes:episode>
+      <itunes:episode>34</itunes:episode>
       <itunes:subtitle>July 31, 2026 news: Oto Twój przegląd wiadomości polskie na 31 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -296,7 +311,7 @@
       <itunes:summary>July 30, 2026 news: Oto Twój przegląd wiadomości polskie na 30 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj pojawiają się informacje o poważnych problemach finansowych Prawa i Sprawiedliwości związanych z wewnętrznym rozłamem;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>34</itunes:episode>
+      <itunes:episode>33</itunes:episode>
       <itunes:subtitle>July 30, 2026 news: Oto Twój przegląd wiadomości polskie na 30 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -311,7 +326,7 @@
       <itunes:summary>July 29, 2026 news: Oto Twój przegląd wiadomości polskie na 29 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Mateusz Morawiecki ogłosił utworzenie własnego klubu parlamentarnego, co wywołało poważne konsekwencje dla Prawa i Sprawiedliwości;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>33</itunes:episode>
+      <itunes:episode>32</itunes:episode>
       <itunes:subtitle>July 29, 2026 news: Oto Twój przegląd wiadomości polskie na 29 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -326,7 +341,7 @@
       <itunes:summary>July 28, 2026 news: Oto Twój przegląd wiadomości polskie na 28 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj najnowsze badania opinii publicznej wskazują że były premier Mateusz Morawiecki zyskuje pozycję politycznego łącznika mogącego współpracować zarówno z obozem Donalda Tuska...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>32</itunes:episode>
+      <itunes:episode>31</itunes:episode>
       <itunes:subtitle>July 28, 2026 news: Oto Twój przegląd wiadomości polskie na 28 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -341,7 +356,7 @@
       <itunes:summary>July 27, 2026 news: Oto Twój przegląd wiadomości polskie na 27 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj najnowszy sondaż pokazuje że Radosław Sikorski zyskuje przewagę nad Donaldem Tuskiem jako potencjalny kandydat na premiera, co może sygnalizować zmiany w preferencjach...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>31</itunes:episode>
+      <itunes:episode>30</itunes:episode>
       <itunes:subtitle>July 27, 2026 news: Oto Twój przegląd wiadomości polskie na 27 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -356,7 +371,7 @@
       <itunes:summary>July 26, 2026 news: Oto Twój przegląd wiadomości polskie na 26 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj polskie służby napotykają poważne problemy w ściganiu przestępców z Ukrainy, a prezydent zwleka z ratyfikacją umowy która mogłaby tę sytuację poprawić;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>30</itunes:episode>
+      <itunes:episode>29</itunes:episode>
       <itunes:subtitle>July 26, 2026 news: Oto Twój przegląd wiadomości polskie na 26 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -371,7 +386,7 @@
       <itunes:summary>July 25, 2026 news: Oto Twój przegląd wiadomości polskie na 25 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj napięcia w Prawie i Sprawiedliwości osiągają punkt krytyczny po odejściu Mateusza Morawieckiego z partii;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>29</itunes:episode>
+      <itunes:episode>28</itunes:episode>
       <itunes:subtitle>July 25, 2026 news: Oto Twój przegląd wiadomości polskie na 25 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -386,7 +401,7 @@
       <itunes:summary>July 24, 2026 news: Oto Twój przegląd wiadomości polskie na 24 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj koalicja rządząca szuka sposobu na obejście prezydenckiego weta poprzez podzielenie kontrowersyjnej ustawy na dwie części;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>28</itunes:episode>
+      <itunes:episode>27</itunes:episode>
       <itunes:subtitle>July 24, 2026 news: Oto Twój przegląd wiadomości polskie na 24 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -401,7 +416,7 @@
       <itunes:summary>July 23, 2026 news: Oto Twój przegląd wiadomości polskie na 23 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj koalicja rządząca szuka sposobu na obejście prezydenckiego weta poprzez podzielenie kontrowersyjnych ustaw na mniejsze części;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>27</itunes:episode>
+      <itunes:episode>26</itunes:episode>
       <itunes:subtitle>July 23, 2026 news: Oto Twój przegląd wiadomości polskie na 23 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -416,7 +431,7 @@
       <itunes:summary>July 22, 2026 news: Oto Twój przegląd wiadomości polskie na 22 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj tygodnik Sieci zablokował publikację komentarza Jana Rokity krytycznego wobec ministra edukacji Przemysława Czarnka;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>26</itunes:episode>
+      <itunes:episode>25</itunes:episode>
       <itunes:subtitle>July 22, 2026 news: Oto Twój przegląd wiadomości polskie na 22 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -431,7 +446,7 @@
       <itunes:summary>July 21, 2026 news: Oto Twój przegląd wiadomości polskie na 21 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj badania opinii publicznej pokazują że większość Polaków sprzeciwia się powrotowi obowiązkowego poboru do wojska, choć jednocześnie popierają ideę dobrowolnych szkoleń...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>25</itunes:episode>
+      <itunes:episode>24</itunes:episode>
       <itunes:subtitle>July 21, 2026 news: Oto Twój przegląd wiadomości polskie na 21 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -446,7 +461,7 @@
       <itunes:summary>July 20, 2026 news: Oto Twój przegląd wiadomości polskie na 20 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj badania opinii publicznej pokazują że Polacy wyżej oceniają obecnego premiera niż jego poprzednika, choć wśród młodszych wyborców te oceny są bardziej wyrównane;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>24</itunes:episode>
+      <itunes:episode>23</itunes:episode>
       <itunes:subtitle>July 20, 2026 news: Oto Twój przegląd wiadomości polskie na 20 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -461,7 +476,7 @@
       <itunes:summary>July 19, 2026 news: Oto Twój przegląd wiadomości polskie na 19 lipca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj węgierski Fidesz przeżywa poważny kryzys; partia Viktora Orbána traci poparcie w sondażach, a politycy opuszczają jej szeregi, co wskazuje na rosnące problemy rządzącego...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>23</itunes:episode>
+      <itunes:episode>22</itunes:episode>
       <itunes:subtitle>July 19, 2026 news: Oto Twój przegląd wiadomości polskie na 19 lipca 2026, przygotowany przez Dynami...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -476,7 +491,7 @@
       <itunes:summary>June 13, 2026 news: Oto Twój przegląd wiadomości polskie na 13 czerwca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj relacje polsko-ukraińskie pozostają napięte po trudnych rozmowach wicepremiera dotyczących spornych kwestii historycznych;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>22</itunes:episode>
+      <itunes:episode>21</itunes:episode>
       <itunes:subtitle>June 13, 2026 news: Oto Twój przegląd wiadomości polskie na 13 czerwca 2026, przygotowany przez Dyna...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -491,7 +506,7 @@
       <itunes:summary>June 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 czerwca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj wicepremier ujawnia szczegóły trudnych negocjacji z Ukrainą, które pokazują narastające napięcia między sąsiadami;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>21</itunes:episode>
+      <itunes:episode>20</itunes:episode>
       <itunes:subtitle>June 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 czerwca 2026, przygotowany przez Dyna...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -506,7 +521,7 @@
       <itunes:summary>June 11, 2026 news: Oto Twój przegląd wiadomości polskie na 11 czerwca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj relacje polsko-ukraińskie pozostają napięte po trudnych rozmowach na najwyższym szczeblu;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>20</itunes:episode>
+      <itunes:episode>19</itunes:episode>
       <itunes:subtitle>June 11, 2026 news: Oto Twój przegląd wiadomości polskie na 11 czerwca 2026, przygotowany przez Dyna...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -521,7 +536,7 @@
       <itunes:summary>June 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 czerwca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj większość Polaków opowiada się za tym by prezydent zatwierdził przepisy dotyczące statusu osoby najbliższej;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>19</itunes:episode>
+      <itunes:episode>18</itunes:episode>
       <itunes:subtitle>June 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 czerwca 2026, przygotowany przez Dyna...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -536,7 +551,7 @@
       <itunes:summary>June 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 czerwca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj Koalicja Obywatelska szykuje się do wyborów samorządowych w Krakowie, gdzie lider partii obawia się przegranej i stawia na wspólnego kandydata z innymi ugrupowaniami;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>18</itunes:episode>
+      <itunes:episode>17</itunes:episode>
       <itunes:subtitle>June 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 czerwca 2026, przygotowany przez Dynam...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -551,7 +566,7 @@
       <itunes:summary>June 08, 2026 news: Oto Twój przegląd wiadomości polskie na 8 czerwca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj premier Donald Tusk znalazł się w centrum kontrowersji dotyczącej orderu, przy czym w jego własnej partii pojawiają się rozbieżne stanowiska w tej sprawie;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>17</itunes:episode>
+      <itunes:episode>16</itunes:episode>
       <itunes:subtitle>June 08, 2026 news: Oto Twój przegląd wiadomości polskie na 8 czerwca 2026, przygotowany przez Dynam...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -566,7 +581,7 @@
       <itunes:summary>June 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 czerwca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj trwa debata wokół ewentualnego rozmieszczenia amerykańskiej broni jądrowej na terytorium Polski;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>16</itunes:episode>
+      <itunes:episode>15</itunes:episode>
       <itunes:subtitle>June 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 czerwca 2026, przygotowany przez Dynam...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -581,7 +596,7 @@
       <itunes:summary>June 06, 2026 news: Oto Twój przegląd wiadomości polskie na 6 czerwca 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj rząd wprowadza nowe przepisy dotyczące jawności wynagrodzeń w służbie zdrowia;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>15</itunes:episode>
+      <itunes:episode>14</itunes:episode>
       <itunes:subtitle>June 06, 2026 news: Oto Twój przegląd wiadomości polskie na 6 czerwca 2026, przygotowany przez Dynam...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -596,7 +611,7 @@
       <itunes:summary>June 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 czerwca 2026, przygotowany przez Dynamic Devices; w wiadomościach ekonomia dzisiaj; polscy przedsiębiorcy alarmują, że ciągłe zmiany w przepisach podatkowych destabilizują ich działalność, a firmy potrzebują przede wszystkim stabilności i...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>14</itunes:episode>
+      <itunes:episode>13</itunes:episode>
       <itunes:subtitle>June 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 czerwca 2026, przygotowany przez Dynam...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -611,7 +626,7 @@
       <itunes:summary>May 13, 2026 news: Oto Twój przegląd wiadomości polskie na 13 maja 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj były minister sprawiedliwości Zbigniew Ziobro skutecznie unika stawiennictwa przed komisją śledczą, co odsłania problemy w działaniu prokuratury;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>13</itunes:episode>
+      <itunes:episode>12</itunes:episode>
       <itunes:subtitle>May 13, 2026 news: Oto Twój przegląd wiadomości polskie na 13 maja 2026, przygotowany przez Dynamic...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -626,7 +641,7 @@
       <itunes:summary>May 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 maja 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj kontrowersje budzi spot wyborczy wykorzystujący sztuczną inteligencję do odtworzenia wizerunku nieżyjącego polityka Andrzeja Leppera;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>12</itunes:episode>
+      <itunes:episode>11</itunes:episode>
       <itunes:subtitle>May 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 maja 2026, przygotowany przez Dynamic...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -641,7 +656,7 @@
       <itunes:summary>May 11, 2026 news: Oto Twój przegląd wiadomości polskie na 11 maja 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj organizacje społeczne ostrzegają przed zagrożeniami dla prywatności obywateli związanymi z użyciem oprogramowania szpiegującego Pegasus, które może inwigilować telefony bez...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>11</itunes:episode>
+      <itunes:episode>10</itunes:episode>
       <itunes:subtitle>May 11, 2026 news: Oto Twój przegląd wiadomości polskie na 11 maja 2026, przygotowany przez Dynamic...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -656,7 +671,7 @@
       <itunes:summary>May 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 maja 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj badania pokazują że młode pokolenie Polaków opowiada się za zmianami w konstytucji;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>10</itunes:episode>
+      <itunes:episode>9</itunes:episode>
       <itunes:subtitle>May 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 maja 2026, przygotowany przez Dynamic...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -671,7 +686,7 @@
       <itunes:summary>May 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 maja 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj prezydent Wrocławia Jacek Sutryk stanowczo odrzuca możliwość rezygnacji pomimo trwającego śledztwa związanego z aferą Collegium Humanum;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>9</itunes:episode>
+      <itunes:episode>8</itunes:episode>
       <itunes:subtitle>May 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 maja 2026, przygotowany przez Dynamic D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -686,7 +701,7 @@
       <itunes:summary>May 08, 2026 news: Oto Twój przegląd wiadomości polskie na 8 maja 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj marszałkowie Sejmu i Senatu otrzymali kopie aneksu do raportu o Wojskowych Służbach Informacyjnych, co budzi pytania o możliwe konsekwencje dla osób w nim wymienionych;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>8</itunes:episode>
+      <itunes:episode>7</itunes:episode>
       <itunes:subtitle>May 08, 2026 news: Oto Twój przegląd wiadomości polskie na 8 maja 2026, przygotowany przez Dynamic D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -701,7 +716,7 @@
       <itunes:summary>May 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 maja 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj poważny problem w prokuraturze, gdzie okazało się że osoby związane z aferą Zondy prowadziły szkolenia dla śledczych;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>7</itunes:episode>
+      <itunes:episode>6</itunes:episode>
       <itunes:subtitle>May 07, 2026 news: Oto Twój przegląd wiadomości polskie na 7 maja 2026, przygotowany przez Dynamic D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -716,7 +731,7 @@
       <itunes:summary>May 06, 2026 news: Oto Twój przegląd wiadomości polskie na 6 maja 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj Unia Europejska uruchamia fundusze na produkcję uzbrojenia dla Ukrainy, jednak Polska może stracić szansę na lukratywne kontrakty zbrojeniowe z powodu opóźnień w...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>6</itunes:episode>
+      <itunes:episode>5</itunes:episode>
       <itunes:subtitle>May 06, 2026 news: Oto Twój przegląd wiadomości polskie na 6 maja 2026, przygotowany przez Dynamic D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -731,7 +746,7 @@
       <itunes:summary>May 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 maja 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj były wiceminister z Prawa i Sprawiedliwości stanął w obronie rosyjskiego ambasadora, wzywając do powstrzymania agresywnych zachowań wobec dyplomaty;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>5</itunes:episode>
+      <itunes:episode>4</itunes:episode>
       <itunes:subtitle>May 05, 2026 news: Oto Twój przegląd wiadomości polskie na 5 maja 2026, przygotowany przez Dynamic D...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -746,7 +761,7 @@
       <itunes:summary>April 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 kwietnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj posłowie zajmą się petycją dotyczącą regulacji egzorcyzmów, która trafiła do rozpatrzenia w parlamencie;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>4</itunes:episode>
+      <itunes:episode>3</itunes:episode>
       <itunes:subtitle>April 12, 2026 news: Oto Twój przegląd wiadomości polskie na 12 kwietnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -761,7 +776,7 @@
       <itunes:summary>April 11, 2026 news: Oto Twój przegląd wiadomości polskie na 11 kwietnia 2026, przygotowany przez Dynamic Devices; w wiadomościach polityka dzisiaj premier Donald Tusk wywołał kontrowersje swoim bezpośrednim stylem podczas konferencji dotyczącej afery kryptowalutowej, zadając dziennikarskie pytania i konfrontując...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>3</itunes:episode>
+      <itunes:episode>2</itunes:episode>
       <itunes:subtitle>April 11, 2026 news: Oto Twój przegląd wiadomości polskie na 11 kwietnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -776,23 +791,8 @@
       <itunes:summary>April 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 kwietnia 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj prezydent Zełenski potwierdził zawarcie rozejmu na Ukrainie; na Bliskim Wschodzie doszło do ataków na Kuwejt i Arabię Saudyjską, a Iran oskarża o nie Izrael lub...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>2</itunes:episode>
-      <itunes:subtitle>April 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 kwietnia 2026, przygotowany przez Dy...</itunes:subtitle>
-      <itunes:duration />
-    </item>
-    <item>
-      <title>AudioNews Polska - April 09, 2026: Dzień dobry</title>
-      <link>https://audionews.uk/pl_PL?date=2026-04-09</link>
-      <description>April 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 kwietnia 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj eskalacja napięć wokół Iranu po niedawnych atakach izraelskich; generał Jarosław Gromadziński ostrzega że Teheran może teraz budować narrację o własnej...</description>
-      <guid isPermaLink="true">https://audionews.uk/pl_PL/audio/news_digest_ai_2026_04_09.mp3</guid>
-      <pubDate>Thu, 09 Apr 2026 05:39:07 +0000</pubDate>
-      <enclosure url="https://audionews.uk/pl_PL/audio/news_digest_ai_2026_04_09.mp3" type="audio/mpeg" length="3447371" />
-      <itunes:title>AudioNews Polska - April 09, 2026: Dzień dobry</itunes:title>
-      <itunes:summary>April 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 kwietnia 2026, przygotowany przez Dynamic Devices . W wiadomościach międzynarodowych dzisiaj eskalacja napięć wokół Iranu po niedawnych atakach izraelskich; generał Jarosław Gromadziński ostrzega że Teheran może teraz budować narrację o własnej...</itunes:summary>
-      <itunes:explicit>no</itunes:explicit>
-      <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>1</itunes:episode>
-      <itunes:subtitle>April 09, 2026 news: Oto Twój przegląd wiadomości polskie na 9 kwietnia 2026, przygotowany przez Dyn...</itunes:subtitle>
+      <itunes:subtitle>April 10, 2026 news: Oto Twój przegląd wiadomości polskie na 10 kwietnia 2026, przygotowany przez Dy...</itunes:subtitle>
       <itunes:duration />
     </item>
   </channel>
