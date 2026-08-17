@@ -37,15 +37,30 @@
       <itunes:category text="Daily News" />
     </itunes:category>
     <itunes:keywords>news, ai, techforgood, accessibility, uk news, daily news, audio news, visually impaired, blind, partially sighted, blind and partially sighted, assistive technology, screen reader, accessible news</itunes:keywords>
-    <itunes:image href="https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1786858387" />
+    <itunes:image href="https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1786945206" />
     <image>
-      <url>https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1786858387</url>
+      <url>https://audionews.uk/images/podcast-cover-en-gb-v2.png?v=1786945206</url>
       <title>AudioNews Daily</title>
       <link>https://audionews.uk/en_GB</link>
     </image>
-    <lastBuildDate>Sun, 16 Aug 2026 05:33:39 +0000</lastBuildDate>
-    <pubDate>Sun, 16 Aug 2026 05:33:39 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Aug 2026 05:40:50 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Aug 2026 05:40:50 +0000</pubDate>
     <generator>AudioNews Podcast Generator</generator>
+    <item>
+      <title>AudioNews - August 17, 2026: Good morning</title>
+      <link>https://audionews.uk/en_GB?date=2026-08-17</link>
+      <description>August 17, 2026 news: in politics news, the governments Child Maintenance Service is facing criticism as parents report being pushed to breaking point by the systems handling of child support payments, while Reform U K has come under fire for proposing fifty billion pounds in benefit cuts that critics say would...</description>
+      <guid isPermaLink="true">https://audionews.uk/en_GB/audio/news_digest_ai_2026_08_17.mp3</guid>
+      <pubDate>Mon, 17 Aug 2026 05:32:03 +0000</pubDate>
+      <enclosure url="https://audionews.uk/en_GB/audio/news_digest_ai_2026_08_17.mp3" type="audio/mpeg" length="4253325" />
+      <itunes:title>AudioNews - August 17, 2026: Good morning</itunes:title>
+      <itunes:summary>August 17, 2026 news: in politics news, the governments Child Maintenance Service is facing criticism as parents report being pushed to breaking point by the systems handling of child support payments, while Reform U K has come under fire for proposing fifty billion pounds in benefit cuts that critics say would...</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:episode>50</itunes:episode>
+      <itunes:subtitle>August 17, 2026 news: in politics news, the governments Child Maintenance Service is facing criticis...</itunes:subtitle>
+      <itunes:duration />
+    </item>
     <item>
       <title>AudioNews - August 16, 2026: Good morning</title>
       <link>https://audionews.uk/en_GB?date=2026-08-16</link>
@@ -57,7 +72,7 @@
       <itunes:summary>August 16, 2026 news: in politics news, Nigel Farages Reform U K party is gaining momentum in the polls, with pollsters attributing their rise to third place largely to Farages influence and leadership . The party has unveiled an ambitious proposal to restructure Britains welfare system that they claim would generate...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>50</itunes:episode>
+      <itunes:episode>49</itunes:episode>
       <itunes:subtitle>August 16, 2026 news: in politics news, Nigel Farages Reform U K party is gaining momentum in the po...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -72,7 +87,7 @@
       <itunes:summary>August 15, 2026 news: in politics news, a British broadcaster is pursuing legal action that could compel members of the Trump family to testify in a defamation case; meanwhile Israeli Prime Minister Benjamin Netanyahu has sparked controversy by making inflammatory remarks about the United Kingdom, suggesting it could...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>49</itunes:episode>
+      <itunes:episode>48</itunes:episode>
       <itunes:subtitle>August 15, 2026 news: in politics news, a British broadcaster is pursuing legal action that could co...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -87,7 +102,7 @@
       <itunes:summary>August 14, 2026 news: in politics news, Nigel Farage has secured victory in a Clacton byelection that saw major parties choose not to field candidates in an unusual political development; meanwhile local government faces recruitment challenges as councillors report that current salary levels are failing to attract...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>48</itunes:episode>
+      <itunes:episode>47</itunes:episode>
       <itunes:subtitle>August 14, 2026 news: in politics news, Nigel Farage has secured victory in a Clacton byelection tha...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -102,7 +117,7 @@
       <itunes:summary>August 13, 2026 news: in politics news, a twenty-year-old Reform party council leader is defending their first year in office amid scrutiny of their young age and political experience . The leader has addressed criticism by highlighting achievements made during their tenure while acknowledging the challenges of...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>47</itunes:episode>
+      <itunes:episode>46</itunes:episode>
       <itunes:subtitle>August 13, 2026 news: in politics news, a twenty-year-old Reform party council leader is defending t...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -117,7 +132,7 @@
       <itunes:summary>August 12, 2026 news: in crime news, a survivor of a violent assault is speaking out after police failures allowed her attacker, a convicted double murderer, to strike again despite her warnings; meanwhile senior law enforcement officials are urging the Prime Minister to block the early release of three men convicted...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>46</itunes:episode>
+      <itunes:episode>45</itunes:episode>
       <itunes:subtitle>August 12, 2026 news: in crime news, a survivor of a violent assault is speaking out after police fa...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -132,7 +147,7 @@
       <itunes:summary>August 11, 2026 news: in politics news, the Prime Minister has directed the justice secretary to explore legal options for extending the prison sentences of those convicted in the PC Harper case, while also announcing new measures giving local councils greater authority to block the opening of vape and betting shops...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>45</itunes:episode>
+      <itunes:episode>44</itunes:episode>
       <itunes:subtitle>August 11, 2026 news: in politics news, the Prime Minister has directed the justice secretary to exp...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -147,7 +162,7 @@
       <itunes:summary>August 10, 2026 news: in crime news, alleged international crime boss Daniel Kinahan has made his first court appearance following extradition to face charges; meanwhile disturbing evidence has emerged suggesting South African special forces were involved in the murder of a prominent detective .</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>44</itunes:episode>
+      <itunes:episode>43</itunes:episode>
       <itunes:subtitle>August 10, 2026 news: in crime news, alleged international crime boss Daniel Kinahan has made his fi...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -162,7 +177,7 @@
       <itunes:summary>August 09, 2026 news: in politics news, Andy Burnham is launching a nationwide tour focused on cost of living concerns, while Michigans Democratic party faces pressure to shift leftward amid voter frustration; Meanwhile in Clacton, despite having thirty-four candidates on the ballot, local residents express feeling...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>43</itunes:episode>
+      <itunes:episode>42</itunes:episode>
       <itunes:subtitle>August 09, 2026 news: in politics news, Andy Burnham is launching a nationwide tour focused on cost...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -177,7 +192,7 @@
       <itunes:summary>August 08, 2026 news: in crime news, law enforcement officials are facing scrutiny over their handling of a convicted sex offender who went on to murder two women, with multiple officers now under investigation for their management of the case; Meanwhile, counter-terrorism detectives have reopened an investigation...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>42</itunes:episode>
+      <itunes:episode>41</itunes:episode>
       <itunes:subtitle>August 08, 2026 news: in crime news, law enforcement officials are facing scrutiny over their handli...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -192,7 +207,7 @@
       <itunes:summary>August 07, 2026 news: in politics news, the Conservative Party has proposed a controversial plan that would prioritize British citizens over foreign nationals when allocating social housing, potentially leading to evictions of non-U K residents currently in council properties; meanwhile in football governance, the...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>41</itunes:episode>
+      <itunes:episode>40</itunes:episode>
       <itunes:subtitle>August 07, 2026 news: in politics news, the Conservative Party has proposed a controversial plan tha...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -207,7 +222,7 @@
       <itunes:summary>August 06, 2026 news: in politics news, the Conservative Party faces controversy after a former candidate withdrew following revelations about past neo-Nazi activism, while Nigel Farages support appears to be declining with constituents in Clacton expressing growing disillusionment with his leadership and the...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>40</itunes:episode>
+      <itunes:episode>39</itunes:episode>
       <itunes:subtitle>August 06, 2026 news: in politics news, the Conservative Party faces controversy after a former cand...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -222,7 +237,7 @@
       <itunes:summary>August 05, 2026 news: in politics news, the governments victims minister says Andy Burnham is looking into whether to conduct an inquiry into Jeffrey Epsteins activities, while new rules for government contracts will now prioritize job creation over environmental targets; meanwhile the Conservative Party has offered...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>39</itunes:episode>
+      <itunes:episode>38</itunes:episode>
       <itunes:subtitle>August 05, 2026 news: in politics news, the governments victims minister says Andy Burnham is lookin...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -237,7 +252,7 @@
       <itunes:summary>August 04, 2026 news: in crime news, the Prime Minister has announced that serious sexual offenders including rapists and child abusers will be excluded from early release programs, though this has sparked controversy as the mother of murdered Police Constable Harper expressed devastation that her sons killers remain...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>38</itunes:episode>
+      <itunes:episode>37</itunes:episode>
       <itunes:subtitle>August 04, 2026 news: in crime news, the Prime Minister has announced that serious sexual offenders...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -252,7 +267,7 @@
       <itunes:summary>August 03, 2026 news: in politics news, Home Secretary Yvette Cooper has announced that Andy Burnham will take on a new role focused on tackling illegal Channel crossings, with the Greater Manchester mayor vowing to be relentless in his approach to stopping small boat arrivals and working closely with European...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>37</itunes:episode>
+      <itunes:episode>36</itunes:episode>
       <itunes:subtitle>August 03, 2026 news: in politics news, Home Secretary Yvette Cooper has announced that Andy Burnham...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -267,7 +282,7 @@
       <itunes:summary>August 02, 2026 news: in politics news, Andy Burnham has secured a decisive victory in the Greater Manchester mayoral byelection, strengthening his position as a key regional leader . Following his win, Burnham is arguing that expanding devolution across the U K makes a compelling case for establishing a written...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>36</itunes:episode>
+      <itunes:episode>35</itunes:episode>
       <itunes:subtitle>August 02, 2026 news: in politics news, Andy Burnham has secured a decisive victory in the Greater M...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -282,7 +297,7 @@
       <itunes:summary>August 01, 2026 news: in politics news, Labours Bev Craig has taken over as Greater Manchester mayor following Andy Burnhams departure, though Burnham himself is already facing potential trouble in his new role as Prime Minister after appearing to back expanded North Sea oil and gas drilling which has sparked concern...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>35</itunes:episode>
+      <itunes:episode>34</itunes:episode>
       <itunes:subtitle>August 01, 2026 news: in politics news, Labours Bev Craig has taken over as Greater Manchester mayor...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -297,7 +312,7 @@
       <itunes:summary>July 31, 2026 news: in politics news, Labour has accused the Reform party of being deeply involved in sleaze and is calling for a formal investigation into their donation practices, while separately, Andy Burnham is proposing to give regional mayors across England a share of income tax revenues, which would mark a...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>34</itunes:episode>
+      <itunes:episode>33</itunes:episode>
       <itunes:subtitle>July 31, 2026 news: in politics news, Labour has accused the Reform party of being deeply involved i...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -312,7 +327,7 @@
       <itunes:summary>July 30, 2026 news: in international news, the United States has conducted significant military strikes against Iran following an attempted attack on American forces, marking a sharp escalation in regional tensions; Meanwhile, Russian attacks on Ukraine have killed eight people including two children according to...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>33</itunes:episode>
+      <itunes:episode>32</itunes:episode>
       <itunes:subtitle>July 30, 2026 news: in international news, the United States has conducted significant military stri...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -327,7 +342,7 @@
       <itunes:summary>July 29, 2026 news: in politics news, Andy Burnham has warned that tough choices lie ahead regarding how to fund social care reform across England as the government grapples with budget constraints; Meanwhile in Clacton, Nigel Farage faces mounting pressure from constituents demanding he either be more transparent...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>32</itunes:episode>
+      <itunes:episode>31</itunes:episode>
       <itunes:subtitle>July 29, 2026 news: in politics news, Andy Burnham has warned that tough choices lie ahead regarding...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -342,7 +357,7 @@
       <itunes:summary>July 28, 2026 news: in politics news, Labour has regained its lead over Reform in recent voter polling, marking a significant shift in public opinion; meanwhile Education Secretary Burnham is announcing plans to introduce technical and vocational subjects for students starting at age fourteen, aiming to provide...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>31</itunes:episode>
+      <itunes:episode>30</itunes:episode>
       <itunes:subtitle>July 28, 2026 news: in politics news, Labour has regained its lead over Reform in recent voter polli...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -357,7 +372,7 @@
       <itunes:summary>July 27, 2026 news: in politics news, Andy Burnham has taken office as Prime Minister with exclusive access granted to cameras inside Number 10 during his first day, and his government is already signaling major policy shifts with plans to tighten benefit eligibility requirements while also reshaping Britains...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>30</itunes:episode>
+      <itunes:episode>29</itunes:episode>
       <itunes:subtitle>July 27, 2026 news: in politics news, Andy Burnham has taken office as Prime Minister with exclusive...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -372,7 +387,7 @@
       <itunes:summary>July 26, 2026 news: in politics news, Greater Manchester Mayor Andy Burnham says hes willing to publicly criticize Donald Trump when it serves British interests, signaling a pragmatic approach to dealing with the incoming American administration; Meanwhile, authorities are examining financial contributions made by...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>29</itunes:episode>
+      <itunes:episode>28</itunes:episode>
       <itunes:subtitle>July 26, 2026 news: in politics news, Greater Manchester Mayor Andy Burnham says hes willing to publ...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -387,7 +402,7 @@
       <itunes:summary>July 25, 2026 news: in climate news, wildfires are intensifying across multiple regions as extreme weather conditions persist; authorities have evacuated over two hundred twenty thousand people from affected areas in France and Spain where flames continue spreading, while western Canada faces a fresh wave of blazes...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>28</itunes:episode>
+      <itunes:episode>27</itunes:episode>
       <itunes:subtitle>July 25, 2026 news: in climate news, wildfires are intensifying across multiple regions as extreme w...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -402,7 +417,7 @@
       <itunes:summary>July 24, 2026 news: in politics news, the governments early prisoner release program has been temporarily suspended by Justice Secretary Andy Burnham amid concerns about its implementation, while the Prime Minister is marking a symbolic shift by working from the northern branch of Number Ten Downing Street for the...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>27</itunes:episode>
+      <itunes:episode>26</itunes:episode>
       <itunes:subtitle>July 24, 2026 news: in politics news, the governments early prisoner release program has been tempor...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -417,7 +432,7 @@
       <itunes:summary>July 23, 2026 news: in politics news, the Burnham government is making significant policy moves across several fronts as business rates for pubs, clubs and live music venues in England will be slashed by twenty percent in a boost for the hospitality sector, while the administration has sparked controversy by...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>26</itunes:episode>
+      <itunes:episode>25</itunes:episode>
       <itunes:subtitle>July 23, 2026 news: in politics news, the Burnham government is making significant policy moves acro...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -432,7 +447,7 @@
       <itunes:summary>July 22, 2026 news: in politics news, Greater Manchester Mayor Andy Burnham has announced that most bus fares across England will be capped at two pounds starting in January as part of efforts to address the cost of living crisis, with Burnham calling on the cabinet to explore all available measures to help...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>25</itunes:episode>
+      <itunes:episode>24</itunes:episode>
       <itunes:subtitle>July 22, 2026 news: in politics news, Greater Manchester Mayor Andy Burnham has announced that most...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -447,7 +462,7 @@
       <itunes:summary>July 21, 2026 news: in politics news, new Prime Minister Andy Burnham has announced his first major policy initiative, pledging to remove value-added tax from household electricity bills to ease the cost of living burden on families; Meanwhile, Burnham has reshuffled the cabinet with several of former Prime...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>24</itunes:episode>
+      <itunes:episode>23</itunes:episode>
       <itunes:subtitle>July 21, 2026 news: in politics news, new Prime Minister Andy Burnham has announced his first major...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -462,7 +477,7 @@
       <itunes:summary>July 20, 2026 news: in politics news, Andy Burnham is set to become Britains next prime minister and is expected to emphasize political stability in his first address from Downing Street . His potential leadership is already stirring controversy as Thames Waters creditors are reportedly preparing legal action...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>23</itunes:episode>
+      <itunes:episode>22</itunes:episode>
       <itunes:subtitle>July 20, 2026 news: in politics news, Andy Burnham is set to become Britains next prime minister and...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -477,7 +492,7 @@
       <itunes:summary>July 19, 2026 news: in politics news, the deputy leader says Andy Burnham plans to pursue bolder policies while remaining committed to Labours manifesto as he prepares for leadership; his first major pledge involves scrapping the digital ID scheme;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>22</itunes:episode>
+      <itunes:episode>21</itunes:episode>
       <itunes:subtitle>July 19, 2026 news: in politics news, the deputy leader says Andy Burnham plans to pursue bolder pol...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -492,7 +507,7 @@
       <itunes:summary>June 13, 2026 news: in politics news, Prime Minister Starmer has defended his decision to remain in office while addressing questions about defence spending priorities, stating he has a duty to continue leading the country; Meanwhile the government is moving forward with plans to ban children under sixteen from...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>21</itunes:episode>
+      <itunes:episode>20</itunes:episode>
       <itunes:subtitle>June 13, 2026 news: in politics news, Prime Minister Starmer has defended his decision to remain in...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -507,7 +522,7 @@
       <itunes:summary>June 12, 2026 news: in politics news, British Prime Minister Keir Starmer faces a major crisis after Defence Secretary John Healey unexpectedly resigned over disagreements about military spending plans, creating significant turmoil within the government and raising questions about Starmers leadership as the...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>20</itunes:episode>
+      <itunes:episode>19</itunes:episode>
       <itunes:subtitle>June 12, 2026 news: in politics news, British Prime Minister Keir Starmer faces a major crisis after...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -522,7 +537,7 @@
       <itunes:summary>June 11, 2026 news: in international news, tensions escalate in the Middle East as the United States and Iran conducted military strikes against each others positions for a second consecutive day, raising concerns about broader regional conflict; meanwhile in Mexico, President Claudia Sheinbaum faces mounting...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>19</itunes:episode>
+      <itunes:episode>18</itunes:episode>
       <itunes:subtitle>June 11, 2026 news: in international news, tensions escalate in the Middle East as the United States...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -537,7 +552,7 @@
       <itunes:summary>June 10, 2026 news: in crime news, violence erupted in Belfast overnight where arsonists torched homes, vehicles and a bus following a knife attack in the area; authorities in South Africa are investigating a mass shooting in Johannesburg that left twelve people dead;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>18</itunes:episode>
+      <itunes:episode>17</itunes:episode>
       <itunes:subtitle>June 10, 2026 news: in crime news, violence erupted in Belfast overnight where arsonists torched hom...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -552,7 +567,7 @@
       <itunes:summary>June 09, 2026 news: in politics news, Conservative leader Kemi Badenoch is calling for the elimination of legal equality requirements for public services, while Prime Minister Keir Starmer faces pressure from Mauritius to finalize the Chagos Islands handover amid concerns about potential Trump administration...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>17</itunes:episode>
+      <itunes:episode>16</itunes:episode>
       <itunes:subtitle>June 09, 2026 news: in politics news, Conservative leader Kemi Badenoch is calling for the eliminati...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -567,7 +582,7 @@
       <itunes:summary>June 08, 2026 news: in politics news, several of Ukraine's closest European partners have outlined five specific conditions they believe must be met before any peace negotiations can begin with Russia, signaling a coordinated diplomatic approach as the war continues; meanwhile President Trump is reportedly...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>16</itunes:episode>
+      <itunes:episode>15</itunes:episode>
       <itunes:subtitle>June 08, 2026 news: in politics news, several of Ukraine's closest European partners have outlined f...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -582,7 +597,7 @@
       <itunes:summary>June 07, 2026 news: in politics news, Prime Minister Starmer has vowed to contest any challenge to his leadership as he faces pressure from within his party; meanwhile parliamentary committees are warning that postponements to Britains defence strategy are damaging the countrys international standing and...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>15</itunes:episode>
+      <itunes:episode>14</itunes:episode>
       <itunes:subtitle>June 07, 2026 news: in politics news, Prime Minister Starmer has vowed to contest any challenge to h...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -597,7 +612,7 @@
       <itunes:summary>June 06, 2026 news: in politics news, tensions are rising as Prime Minister Starmer has accused the United States of attempting to interfere in British democracy following American claims about the Henry Nowak murder case; meanwhile Labours deputy leader has labeled Nigel Farage a threat to democracy and is pushing...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>14</itunes:episode>
+      <itunes:episode>13</itunes:episode>
       <itunes:subtitle>June 06, 2026 news: in politics news, tensions are rising as Prime Minister Starmer has accused the...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -612,7 +627,7 @@
       <itunes:summary>June 05, 2026 news: in politics news, Andy Burnham has announced he would run for Labour leader if a contest opens up, signaling potential party tensions despite Labours recent election victory; Meanwhile, diplomatic friction has emerged as the White House has criticized British policing practices, calling for an...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>13</itunes:episode>
+      <itunes:episode>12</itunes:episode>
       <itunes:subtitle>June 05, 2026 news: in politics news, Andy Burnham has announced he would run for Labour leader if a...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -627,7 +642,7 @@
       <itunes:summary>May 13, 2026 news: in politics news, Prime Minister Keir Starmer faces internal party tensions as he prepares to unveil dozens of new bills in the upcoming Kings Speech, hoping to regain political momentum . While over 100 Labour M P s have signed a statement backing his leadership against any potential challenge,...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>12</itunes:episode>
+      <itunes:episode>11</itunes:episode>
       <itunes:subtitle>May 13, 2026 news: in politics news, Prime Minister Keir Starmer faces internal party tensions as he...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -642,7 +657,7 @@
       <itunes:summary>May 12, 2026 news: in politics news, Prime Minister Starmer is facing mounting pressure from within his own cabinet as the Home Secretary has joined other ministers calling for him to set out a clear timeline for his departure; the internal tensions come as his government deals with multiple challenges;</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>11</itunes:episode>
+      <itunes:episode>10</itunes:episode>
       <itunes:subtitle>May 12, 2026 news: in politics news, Prime Minister Starmer is facing mounting pressure from within...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -657,7 +672,7 @@
       <itunes:summary>May 11, 2026 news: in politics news, Prime Minister Starmer is delivering a major address today as he works to shore up support among Labour M P s who have grown restive in recent months, while significant political upheaval is being reported in Wales thats reshaping the regional landscape; meanwhile the Kings...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>10</itunes:episode>
+      <itunes:episode>9</itunes:episode>
       <itunes:subtitle>May 11, 2026 news: in politics news, Prime Minister Starmer is delivering a major address today as h...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -672,7 +687,7 @@
       <itunes:summary>May 10, 2026 news: in politics news, Prime Minister Starmer faces mounting pressure within his own party as a Labour M P has issued an ultimatum demanding cabinet ministers launch a leadership challenge or shell do it herself, signaling growing internal discord; Meanwhile Labour suffered significant setbacks in...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>9</itunes:episode>
+      <itunes:episode>8</itunes:episode>
       <itunes:subtitle>May 10, 2026 news: in politics news, Prime Minister Starmer faces mounting pressure within his own p...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -687,7 +702,7 @@
       <itunes:summary>May 09, 2026 news: in politics news, Britains political landscape has shifted dramatically following recent elections, with Labour leader Keir Starmer facing mounting pressure after his party suffered significant losses at the polls; the Scottish National Party emerged victorious in Scotlands election while Labour...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>8</itunes:episode>
+      <itunes:episode>7</itunes:episode>
       <itunes:subtitle>May 09, 2026 news: in politics news, Britains political landscape has shifted dramatically following...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -702,7 +717,7 @@
       <itunes:summary>May 08, 2026 news: in politics news, Britains Labour Party is facing significant setbacks in local elections across England as the upstart Reform U K party gains ground and captures council seats . The losses extend to Wales where Labour is projected to lose control of the Senedd for the first time in a century,...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>7</itunes:episode>
+      <itunes:episode>6</itunes:episode>
       <itunes:subtitle>May 08, 2026 news: in politics news, Britains Labour Party is facing significant setbacks in local e...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -717,7 +732,7 @@
       <itunes:summary>May 07, 2026 news: in politics news, voters across England, Scotland and Wales are heading to polling stations today in the largest election day since last years general election, with local council seats and some regional positions up for grabs; Labour leader Keir Starmer has been making final appeals to...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>6</itunes:episode>
+      <itunes:episode>5</itunes:episode>
       <itunes:subtitle>May 07, 2026 news: in politics news, voters across England, Scotland and Wales are heading to pollin...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -732,7 +747,7 @@
       <itunes:summary>May 06, 2026 news: in politics news, Britain heads to the polls tomorrow as political parties make their final campaign pushes across the country; meanwhile the Green party is addressing a controversy after the British Red Cross confirmed that leader Zack Polanski falsely claimed to have been a spokesperson for...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>5</itunes:episode>
+      <itunes:episode>4</itunes:episode>
       <itunes:subtitle>May 06, 2026 news: in politics news, Britain heads to the polls tomorrow as political parties make t...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -747,7 +762,7 @@
       <itunes:summary>May 05, 2026 news: in politics news, tensions are rising within the Labour Party as senior cabinet members have issued warnings to backbench M P s considering any attempt to remove Keir Starmer from leadership; meanwhile the Prime Minister is preparing to host a summit at Downing Street where hell address what hes...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>4</itunes:episode>
+      <itunes:episode>3</itunes:episode>
       <itunes:subtitle>May 05, 2026 news: in politics news, tensions are rising within the Labour Party as senior cabinet m...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -762,7 +777,7 @@
       <itunes:summary>April 12, 2026 news: in international news, diplomatic efforts have faltered on multiple fronts as the U S and Iran failed to reach an agreement following historic peace talks held in Pakistan according to officials, while Ukraine's Easter truce has done little to improve conditions for civilians enduring ongoing...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>3</itunes:episode>
+      <itunes:episode>2</itunes:episode>
       <itunes:subtitle>April 12, 2026 news: in international news, diplomatic efforts have faltered on multiple fronts as t...</itunes:subtitle>
       <itunes:duration />
     </item>
@@ -777,23 +792,8 @@
       <itunes:summary>April 11, 2026 news: in international news, the United States and Iran are preparing for groundbreaking peace negotiations in Pakistan while concerns persist about the fragile ceasefire in Lebanon; meanwhile Britain has abandoned its agreement to transfer the Chagos Islands following objections from the Trump...</itunes:summary>
       <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:episode>2</itunes:episode>
-      <itunes:subtitle>April 11, 2026 news: in international news, the United States and Iran are preparing for groundbreak...</itunes:subtitle>
-      <itunes:duration />
-    </item>
-    <item>
-      <title>AudioNews - April 10, 2026: Good morning</title>
-      <link>https://audionews.uk/en_GB?date=2026-04-10</link>
-      <description>April 10, 2026 news: in international news, tensions are escalating in the Middle East as the United States raises concerns about Irans control over the Strait of Hormuz while global leaders work to stabilize oil supplies; meanwhile Israels prime minister has declared there will be no ceasefire in Lebanon as...</description>
-      <guid isPermaLink="true">https://audionews.uk/en_GB/audio/news_digest_ai_2026_04_10.mp3</guid>
-      <pubDate>Fri, 10 Apr 2026 05:45:47 +0000</pubDate>
-      <enclosure url="https://audionews.uk/en_GB/audio/news_digest_ai_2026_04_10.mp3" type="audio/mpeg" length="3588641" />
-      <itunes:title>AudioNews - April 10, 2026: Good morning</itunes:title>
-      <itunes:summary>April 10, 2026 news: in international news, tensions are escalating in the Middle East as the United States raises concerns about Irans control over the Strait of Hormuz while global leaders work to stabilize oil supplies; meanwhile Israels prime minister has declared there will be no ceasefire in Lebanon as...</itunes:summary>
-      <itunes:explicit>no</itunes:explicit>
-      <itunes:episodeType>full</itunes:episodeType>
       <itunes:episode>1</itunes:episode>
-      <itunes:subtitle>April 10, 2026 news: in international news, tensions are escalating in the Middle East as the United...</itunes:subtitle>
+      <itunes:subtitle>April 11, 2026 news: in international news, the United States and Iran are preparing for groundbreak...</itunes:subtitle>
       <itunes:duration />
     </item>
   </channel>
