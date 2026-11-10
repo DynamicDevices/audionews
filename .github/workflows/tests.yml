@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 🐍 Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
           cache: 'pip'
@@ -32,4 +32,4 @@ jobs:
       - name: 🧪 Run tests
         run: |
           # Config tests only (no network). Smoke test needs Edge TTS which often returns 403 from GitHub runners.
-          python -m unittest tests.test_config -v
+          python -m unittest tests.test_config tests.test_tts_dependencies -v

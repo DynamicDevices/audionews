@@ -28,18 +28,27 @@ class TestPipelineSmoke(unittest.TestCase):
     """Run digest with fixture transcript and Edge TTS."""
 
     def test_use_existing_transcript_produces_audio(self):
+        self._assert_transcript_produces_audio("en_GB", MINIMAL_BODY)
+
+    def test_polish_transcript_produces_audio(self):
+        self._assert_transcript_produces_audio("pl_PL", "Dzień dobry. To krótki test wiadomości.\n")
+
+    def test_bella_transcript_produces_audio(self):
+        self._assert_transcript_produces_audio("bella", MINIMAL_BODY)
+
+    def _assert_transcript_produces_audio(self, language, body):
         with tempfile.TemporaryDirectory(prefix="audionews_test_") as tmp:
             base = Path(tmp)
-            out_dir = base / "docs" / "en_GB"
-            audio_dir = base / "docs" / "en_GB" / "audio"
+            out_dir = base / "docs" / language
+            audio_dir = out_dir / "audio"
             out_dir.mkdir(parents=True)
             audio_dir.mkdir(parents=True)
             today = __import__("datetime").date.today().strftime("%Y_%m_%d")
             transcript_path = out_dir / f"news_digest_ai_{today}.txt"
-            transcript_path.write_text(TRANSCRIPT_HEADER + MINIMAL_BODY, encoding="utf-8")
+            transcript_path.write_text(TRANSCRIPT_HEADER + body, encoding="utf-8")
             env = {**os.environ, "AUDIONEWS_OUTPUT_BASE": str(base)}
             result = subprocess.run(
-                [sys.executable, str(SCRIPT), "--language", "en_GB", "--use-existing-transcript", "--tts-provider", "edge_tts"],
+                [sys.executable, str(SCRIPT), "--language", language, "--use-existing-transcript", "--tts-provider", "edge_tts"],
                 cwd=str(ROOT),
                 env=env,
                 capture_output=True,
