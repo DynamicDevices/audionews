@@ -362,7 +362,28 @@ async def generate_audio_digest(
         await _generate_audio_elevenlabs(digest_text, output_filename, vid, voice_config)
         print("   ✅ ElevenLabs audio generated successfully")
     elif tts_provider == "dd_tts":
-        await _generate_audio_dd(digest_text, output_filename, voice_config, language)
+        try:
+            await _generate_audio_dd(digest_text, output_filename, voice_config, language)
+        except Exception as error:
+            # /health can succeed while synthesis or audio download fails.
+            # Only fail over for service availability errors: keep authentication,
+            # configuration and malformed-response errors visible to the operator.
+            if isinstance(error, asyncio.TimeoutError):
+                reason = "request timeout"
+            elif aiohttp and isinstance(error, aiohttp.ClientConnectionError):
+                reason = "connection failure"
+            elif (aiohttp and isinstance(error, aiohttp.ClientResponseError)
+                  and 500 <= error.status < 600):
+                reason = f"HTTP {error.status}"
+            else:
+                raise
+            print(f"   ⚠️ DynamicDevices TTS failed ({reason}); falling back to Edge TTS ({voice_name})")
+            # Reuse the normal Edge path, including retries and audio statistics.
+            # Opening its output with 'wb' replaces any partial primary output.
+            return await generate_audio_digest(
+                digest_text, output_filename, tts_provider="edge_tts",
+                voice_name=voice_name, language=language, voice_config=voice_config,
+            )
         print("   ✅ DynamicDevices Qwen3-TTS audio generated successfully")
     else:
         # Edge TTS

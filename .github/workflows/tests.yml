@@ -31,5 +31,5 @@ jobs:
 
       - name: 🧪 Run tests
         run: |
-          # Config tests only (no network). Smoke test needs Edge TTS which often returns 403 from GitHub runners.
-          python -m unittest tests.test_config tests.test_tts_dependencies -v
+          # Offline tests only. Live speech smoke tests are run separately.
+          python -m unittest tests.test_config tests.test_tts_dependencies tests.test_tts_fallback -v
