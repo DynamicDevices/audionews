@@ -41,7 +41,7 @@ jobs:
       today_date: ${{ steps.check_content.outputs.today_date }}
     steps:
       - name: 📥 Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -118,11 +118,17 @@ jobs:
       DEBUG_MODE: ${{ github.event.inputs.debug_mode }}
     steps:
       - name: 📥 Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
           lfs: true
+      - name: 📦 Refresh digest dependencies
+        # The image can predate Microsoft's speech authentication changes.
+        # Install this checkout's requirements rather than trusting baked-in versions.
+        run: |
+          python -m pip install --no-cache-dir -r requirements.txt
+          python -c 'from importlib.metadata import version; print("edge-tts=" + version("edge-tts"))'
       - name: 🤖 Generate digest for ${{ matrix.language }}
         run: |
           cd "$GITHUB_WORKSPACE" || exit 1
@@ -131,7 +137,7 @@ jobs:
           [[ "${{ inputs.force_ai_regeneration }}" == "true" ]] && FORCE_ARG="--force-regenerate"
           # en_GB + bella use the self-hosted Qwen3-TTS (dd_tts) per voice_config.json.
           # Health preflight: if the TTS is unreachable, fall back to edge_tts so the
-          # digest still ships. (curl + edge-tts>=7.2 are baked into the CI image.)
+          # digest still ships. Edge TTS is refreshed from requirements.txt above.
           TTS_ARG=""
           case "$LANG" in
             en_GB|bella)
@@ -154,7 +160,7 @@ jobs:
           fi
           echo "✅ $LANG generated"
       - name: 📤 Upload digest artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: digest-${{ matrix.language }}
           path: docs/${{ matrix.language }}/
@@ -169,13 +175,13 @@ jobs:
       actions: read
     steps:
       - name: 📥 Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
           lfs: true
       - name: 🐍 Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
           cache: 'pip'
@@ -183,7 +189,7 @@ jobs:
         run: pip install -r requirements.txt
       - name: 📥 Download generated artifacts (when generation ran)
         if: needs.generate-one-language.result == 'success'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: digest-*
           path: artifacts
@@ -585,7 +591,7 @@ jobs:
           done
 
       - name: 📤 Upload artifacts for download
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ai-news-digest-${{ needs.check-content.outputs.today_date }}-${{ github.run_number }}
           path: |
@@ -606,7 +612,7 @@ jobs:
       issues: write
     steps:
       - name: ❌ Create issue on failure
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             github.rest.issues.create({
@@ -648,7 +654,7 @@ jobs:
     
     steps:
     - name: 📥 Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         ref: main  # Deploy from main branch
         lfs: true  # Enable Git LFS checkout
@@ -665,16 +671,16 @@ jobs:
         find docs -name "news_digest_ai_*.mp3" -type f -exec ls -lh {} \; | head -10
     
     - name: 🔧 Setup Pages
-      uses: actions/configure-pages@v5
+      uses: actions/configure-pages@v6
     
     - name: 📦 Upload Pages artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v5
       with:
         path: ./docs
     
     - name: 🚀 Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v4
+      uses: actions/deploy-pages@v5
 
   notify-completion:
     needs: [merge, deploy-website]
